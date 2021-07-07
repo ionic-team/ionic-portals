@@ -1,4 +1,4 @@
-package io.ionic.portals
+package io.ionic.portalslibrary
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

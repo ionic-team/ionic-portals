@@ -1,4 +1,4 @@
-package io.ionic.portals
+package io.ionic.portalslibrary
 
 import android.content.Context
 import android.widget.Toast

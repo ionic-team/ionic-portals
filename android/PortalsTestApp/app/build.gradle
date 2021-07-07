@@ -36,7 +36,6 @@ android {
 
 dependencies {
     // Ionic Portals Dependencies
-    implementation 'io.ionic:portals:3.0.1'
     implementation project(':IonicPortals')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

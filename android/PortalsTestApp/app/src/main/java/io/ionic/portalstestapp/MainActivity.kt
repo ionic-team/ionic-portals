@@ -2,7 +2,7 @@ package io.ionic.portalstestapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import io.ionic.portals.Test;
+import io.ionic.portalslibrary.Test
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
