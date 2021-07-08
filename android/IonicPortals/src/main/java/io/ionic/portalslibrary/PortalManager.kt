@@ -7,8 +7,8 @@ import com.getcapacitor.Plugin
  * A singleton object for managing portals
  */
 object PortalManager {
-    private val initialPlugins: ArrayList<Class<out Plugin?>> = ArrayList()
-    private val portals: HashMap<String, Pair<Portal, Context>> = hashMapOf()
+    private val initialPlugins: MutableList<Class<out Plugin?>> = ArrayList()
+    private val portals: MutableMap<String, Pair<Portal, Context>> = mutableMapOf()
 
     /**
      * Adds a Portal object given the name of the portal
