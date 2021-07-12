@@ -1,22 +1,20 @@
 package io.ionic.portalslibrary
 
-import android.content.Context
 import com.getcapacitor.Plugin
 
 /**
  * A singleton object for managing portals
  */
 object PortalManager {
-    private val initialPlugins: MutableList<Class<out Plugin?>> = ArrayList()
-    private val portals: MutableMap<String, Pair<Portal, Context>> = mutableMapOf()
+    private val portals: MutableMap<String, Portal> = mutableMapOf()
 
     /**
      * Adds a Portal object given the name of the portal
      * @param name The Portal name
      */
-    fun addPortal(name: String, context: Context): Unit {
+    fun addPortal(name: String): Unit {
         val portal = Portal()
-        portals[name] = Pair(portal, context)
+        portals[name] = portal
     }
 
     /**
@@ -25,16 +23,28 @@ object PortalManager {
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
     fun getPortal(name: String): Portal {
-        val (portal, context) = portals[name] ?: throw NoSuchElementException()
-        portal.setPlugins(initialPlugins)
-        return portal
+        return portals[name] ?: throw NoSuchElementException()
     }
 
     /**
-     * Adds a plugin to be added to all future created Portals
-     * @param plugin The plugin class to add to the Portals
+     * Adds a single Plugin to an existing Portal
+     * @param name The Portal name
+     * @param plugin The Plugin class object
+     * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
-    fun addPlugin(plugin: Class<out Plugin>) {
-        initialPlugins.add(plugin)
+    fun addPluginToPortal(name: String, plugin: Class<out Plugin?>): Unit {
+        val portal = getPortal(name)
+        portal.setPlugin(plugin)
+    }
+
+    /**
+     * Adds a single Plugin to an existing Portal
+     * @param name The Portal name
+     * @param plugins A List of Plugin class objects
+     * @throws NoSuchElementException throws this exception if the Portal does not exist
+     */
+    fun addPluginsToPortal(name: String, plugins: List<Class<out Plugin?>>): Unit {
+        val portal = getPortal(name)
+        portal.setPlugins(plugins)
     }
 }
