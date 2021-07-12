@@ -12,8 +12,7 @@ object PortalManager {
      * Adds a Portal object given the name of the portal
      * @param name The Portal name
      */
-    fun addPortal(name: String): Unit {
-        val portal = Portal()
+    fun addPortal(name: String, portal: Portal): Unit {
         portals[name] = portal
     }
 
