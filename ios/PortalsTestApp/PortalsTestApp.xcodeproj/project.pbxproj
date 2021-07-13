@@ -7,35 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E985F7EE269CD9390031F820 /* PortalsTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F7DB269CD9380031F820 /* PortalsTestAppApp.swift */; };
-		E985F7EF269CD9390031F820 /* PortalsTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F7DB269CD9380031F820 /* PortalsTestAppApp.swift */; };
-		E985F7F0269CD9390031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F7DC269CD9380031F820 /* ContentView.swift */; };
-		E985F7F1269CD9390031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F7DC269CD9380031F820 /* ContentView.swift */; };
-		E985F7F2269CD9390031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F7DD269CD9390031F820 /* Assets.xcassets */; };
-		E985F7F3269CD9390031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F7DD269CD9390031F820 /* Assets.xcassets */; };
+		E985F816269E259D0031F820 /* PortalsTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestAppApp.swift */; };
+		E985F817269E259D0031F820 /* PortalsTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestAppApp.swift */; };
+		E985F818269E259D0031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F804269E259C0031F820 /* ContentView.swift */; };
+		E985F819269E259D0031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F804269E259C0031F820 /* ContentView.swift */; };
+		E985F81A269E259D0031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F805269E259D0031F820 /* Assets.xcassets */; };
+		E985F81B269E259D0031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F805269E259D0031F820 /* Assets.xcassets */; };
+		E985F89B269E2D550031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F89A269E2D550031F820 /* IonicPortals.framework */; };
+		E985F89C269E2D550031F820 /* IonicPortals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E985F89A269E2D550031F820 /* IonicPortals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E985F89D269E2D550031F820 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E985F89C269E2D550031F820 /* IonicPortals.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		E985F7DB269CD9380031F820 /* PortalsTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalsTestAppApp.swift; sourceTree = "<group>"; };
-		E985F7DC269CD9380031F820 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E985F7DD269CD9390031F820 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E985F7E2269CD9390031F820 /* PortalsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortalsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E985F7E5269CD9390031F820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E985F7EA269CD9390031F820 /* PortalsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortalsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E985F7EC269CD9390031F820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E985F7ED269CD9390031F820 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
-		E985F7FC269CD9700031F820 /* IonicPortals */ = {isa = PBXFileReference; lastKnownFileType = folder; name = IonicPortals; path = ../../IonicPortals; sourceTree = "<group>"; };
+		E985F803269E259C0031F820 /* PortalsTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalsTestAppApp.swift; sourceTree = "<group>"; };
+		E985F804269E259C0031F820 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E985F805269E259D0031F820 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E985F80A269E259D0031F820 /* PortalsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortalsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E985F80D269E259D0031F820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E985F812269E259D0031F820 /* PortalsTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortalsTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E985F814269E259D0031F820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E985F815269E259D0031F820 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		E985F89A269E2D550031F820 /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E985F7DF269CD9390031F820 /* Frameworks */ = {
+		E985F807269E259D0031F820 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E985F89B269E2D550031F820 /* IonicPortals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E985F7E7269CD9390031F820 /* Frameworks */ = {
+		E985F80F269E259D0031F820 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,80 +62,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E985F7D5269CD9380031F820 = {
+		E985F7FD269E259C0031F820 = {
 			isa = PBXGroup;
 			children = (
-				E985F7DA269CD9380031F820 /* Shared */,
-				E985F7E4269CD9390031F820 /* iOS */,
-				E985F7EB269CD9390031F820 /* macOS */,
-				E985F7E3269CD9390031F820 /* Products */,
+				E985F802269E259C0031F820 /* Shared */,
+				E985F80C269E259D0031F820 /* iOS */,
+				E985F813269E259D0031F820 /* macOS */,
+				E985F80B269E259D0031F820 /* Products */,
+				E985F824269E25E60031F820 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		E985F7DA269CD9380031F820 /* Shared */ = {
+		E985F802269E259C0031F820 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E985F7FC269CD9700031F820 /* IonicPortals */,
-				E985F7DB269CD9380031F820 /* PortalsTestAppApp.swift */,
-				E985F7DC269CD9380031F820 /* ContentView.swift */,
-				E985F7DD269CD9390031F820 /* Assets.xcassets */,
+				E985F803269E259C0031F820 /* PortalsTestAppApp.swift */,
+				E985F804269E259C0031F820 /* ContentView.swift */,
+				E985F805269E259D0031F820 /* Assets.xcassets */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
 		};
-		E985F7E3269CD9390031F820 /* Products */ = {
+		E985F80B269E259D0031F820 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E985F7E2269CD9390031F820 /* PortalsTestApp.app */,
-				E985F7EA269CD9390031F820 /* PortalsTestApp.app */,
+				E985F80A269E259D0031F820 /* PortalsTestApp.app */,
+				E985F812269E259D0031F820 /* PortalsTestApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E985F7E4269CD9390031F820 /* iOS */ = {
+		E985F80C269E259D0031F820 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				E985F7E5269CD9390031F820 /* Info.plist */,
+				E985F80D269E259D0031F820 /* Info.plist */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		E985F7EB269CD9390031F820 /* macOS */ = {
+		E985F813269E259D0031F820 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				E985F7EC269CD9390031F820 /* Info.plist */,
-				E985F7ED269CD9390031F820 /* macOS.entitlements */,
+				E985F814269E259D0031F820 /* Info.plist */,
+				E985F815269E259D0031F820 /* macOS.entitlements */,
 			);
 			path = macOS;
+			sourceTree = "<group>";
+		};
+		E985F824269E25E60031F820 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E985F89A269E2D550031F820 /* IonicPortals.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E985F7E1269CD9390031F820 /* PortalsTestApp (iOS) */ = {
+		E985F809269E259D0031F820 /* PortalsTestApp (iOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E985F7F6269CD9390031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (iOS)" */;
+			buildConfigurationList = E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (iOS)" */;
 			buildPhases = (
-				E985F7DE269CD9390031F820 /* Sources */,
-				E985F7DF269CD9390031F820 /* Frameworks */,
-				E985F7E0269CD9390031F820 /* Resources */,
+				E985F807269E259D0031F820 /* Frameworks */,
+				E985F89D269E2D550031F820 /* Embed Frameworks */,
+				E985F806269E259D0031F820 /* Sources */,
+				E985F808269E259D0031F820 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "PortalsTestApp (iOS)";
+			packageProductDependencies = (
+			);
 			productName = "PortalsTestApp (iOS)";
-			productReference = E985F7E2269CD9390031F820 /* PortalsTestApp.app */;
+			productReference = E985F80A269E259D0031F820 /* PortalsTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E985F7E9269CD9390031F820 /* PortalsTestApp (macOS) */ = {
+		E985F811269E259D0031F820 /* PortalsTestApp (macOS) */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E985F7F9269CD9390031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (macOS)" */;
+			buildConfigurationList = E985F821269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (macOS)" */;
 			buildPhases = (
-				E985F7E6269CD9390031F820 /* Sources */,
-				E985F7E7269CD9390031F820 /* Frameworks */,
-				E985F7E8269CD9390031F820 /* Resources */,
+				E985F80E269E259D0031F820 /* Sources */,
+				E985F80F269E259D0031F820 /* Frameworks */,
+				E985F810269E259D0031F820 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -126,27 +154,27 @@
 			);
 			name = "PortalsTestApp (macOS)";
 			productName = "PortalsTestApp (macOS)";
-			productReference = E985F7EA269CD9390031F820 /* PortalsTestApp.app */;
+			productReference = E985F812269E259D0031F820 /* PortalsTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E985F7D6269CD9380031F820 /* Project object */ = {
+		E985F7FE269E259C0031F820 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					E985F7E1269CD9390031F820 = {
+					E985F809269E259D0031F820 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					E985F7E9269CD9390031F820 = {
+					E985F811269E259D0031F820 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
-			buildConfigurationList = E985F7D9269CD9380031F820 /* Build configuration list for PBXProject "PortalsTestApp" */;
+			buildConfigurationList = E985F801269E259C0031F820 /* Build configuration list for PBXProject "PortalsTestApp" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -154,59 +182,59 @@
 				en,
 				Base,
 			);
-			mainGroup = E985F7D5269CD9380031F820;
-			productRefGroup = E985F7E3269CD9390031F820 /* Products */;
+			mainGroup = E985F7FD269E259C0031F820;
+			productRefGroup = E985F80B269E259D0031F820 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E985F7E1269CD9390031F820 /* PortalsTestApp (iOS) */,
-				E985F7E9269CD9390031F820 /* PortalsTestApp (macOS) */,
+				E985F809269E259D0031F820 /* PortalsTestApp (iOS) */,
+				E985F811269E259D0031F820 /* PortalsTestApp (macOS) */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E985F7E0269CD9390031F820 /* Resources */ = {
+		E985F808269E259D0031F820 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E985F7F2269CD9390031F820 /* Assets.xcassets in Resources */,
+				E985F81A269E259D0031F820 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E985F7E8269CD9390031F820 /* Resources */ = {
+		E985F810269E259D0031F820 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E985F7F3269CD9390031F820 /* Assets.xcassets in Resources */,
+				E985F81B269E259D0031F820 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E985F7DE269CD9390031F820 /* Sources */ = {
+		E985F806269E259D0031F820 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E985F7F0269CD9390031F820 /* ContentView.swift in Sources */,
-				E985F7EE269CD9390031F820 /* PortalsTestAppApp.swift in Sources */,
+				E985F818269E259D0031F820 /* ContentView.swift in Sources */,
+				E985F816269E259D0031F820 /* PortalsTestAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E985F7E6269CD9390031F820 /* Sources */ = {
+		E985F80E269E259D0031F820 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E985F7F1269CD9390031F820 /* ContentView.swift in Sources */,
-				E985F7EF269CD9390031F820 /* PortalsTestAppApp.swift in Sources */,
+				E985F819269E259D0031F820 /* ContentView.swift in Sources */,
+				E985F817269E259D0031F820 /* PortalsTestAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E985F7F4269CD9390031F820 /* Debug */ = {
+		E985F81C269E259D0031F820 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -265,7 +293,7 @@
 			};
 			name = Debug;
 		};
-		E985F7F5269CD9390031F820 /* Release */ = {
+		E985F81D269E259D0031F820 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -317,7 +345,7 @@
 			};
 			name = Release;
 		};
-		E985F7F7269CD9390031F820 /* Debug */ = {
+		E985F81F269E259D0031F820 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -326,7 +354,7 @@
 				DEVELOPMENT_TEAM = 9YN2HU59K8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -339,7 +367,7 @@
 			};
 			name = Debug;
 		};
-		E985F7F8269CD9390031F820 /* Release */ = {
+		E985F820269E259D0031F820 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -348,7 +376,7 @@
 				DEVELOPMENT_TEAM = 9YN2HU59K8;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -362,7 +390,7 @@
 			};
 			name = Release;
 		};
-		E985F7FA269CD9390031F820 /* Debug */ = {
+		E985F822269E259D0031F820 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -386,7 +414,7 @@
 			};
 			name = Debug;
 		};
-		E985F7FB269CD9390031F820 /* Release */ = {
+		E985F823269E259D0031F820 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -413,34 +441,34 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E985F7D9269CD9380031F820 /* Build configuration list for PBXProject "PortalsTestApp" */ = {
+		E985F801269E259C0031F820 /* Build configuration list for PBXProject "PortalsTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E985F7F4269CD9390031F820 /* Debug */,
-				E985F7F5269CD9390031F820 /* Release */,
+				E985F81C269E259D0031F820 /* Debug */,
+				E985F81D269E259D0031F820 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E985F7F6269CD9390031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (iOS)" */ = {
+		E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (iOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E985F7F7269CD9390031F820 /* Debug */,
-				E985F7F8269CD9390031F820 /* Release */,
+				E985F81F269E259D0031F820 /* Debug */,
+				E985F820269E259D0031F820 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E985F7F9269CD9390031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (macOS)" */ = {
+		E985F821269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (macOS)" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E985F7FA269CD9390031F820 /* Debug */,
-				E985F7FB269CD9390031F820 /* Release */,
+				E985F822269E259D0031F820 /* Debug */,
+				E985F823269E259D0031F820 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E985F7D6269CD9380031F820 /* Project object */;
+	rootObject = E985F7FE269E259C0031F820 /* Project object */;
 }

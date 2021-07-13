@@ -10,7 +10,7 @@ To get started with both projects, you can open up corresponding `PortalsTestApp
 
 ### iOS
 
-In iOS, you can open `ios/PortalsTestApp/PortalsTestApp.xcodeproj` to open the test app. The `IonicPortals` library will already be linked to the test app project and can be developed/built independantly of the test app.
+In iOS, you can open `ios/IonicPortals.xcworkspace` to open the test app with the `IonicPortals.xcodeproj` also loaded. The `IonicPortals` library will already be linked to the test app project and can be developed/built independantly of the test app.
 
 ### Android
 
