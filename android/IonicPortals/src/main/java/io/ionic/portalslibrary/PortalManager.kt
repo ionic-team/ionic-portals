@@ -12,8 +12,8 @@ object PortalManager {
      * Adds a Portal object given the name of the portal
      * @param name The Portal name
      */
-    fun addPortal(name: String, portal: Portal): Unit {
-        portals[name] = portal
+    fun addPortal(portal: Portal) {
+        portals[portal.name] = portal
     }
 
     /**
@@ -22,7 +22,7 @@ object PortalManager {
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
     fun getPortal(name: String): Portal {
-        return portals[name] ?: throw NoSuchElementException()
+        return portals[name] ?: throw IllegalStateException("Portal with portalId $name not found in PortalManager")
     }
 
     /**
@@ -31,7 +31,7 @@ object PortalManager {
      * @param plugin The Plugin class object
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
-    fun addPluginToPortal(name: String, plugin: Class<out Plugin?>): Unit {
+    fun addPluginToPortal(name: String, plugin: Class<out Plugin?>) {
         val portal = getPortal(name)
         portal.setPlugin(plugin)
     }
@@ -42,8 +42,12 @@ object PortalManager {
      * @param plugins A List of Plugin class objects
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
-    fun addPluginsToPortal(name: String, plugins: List<Class<out Plugin?>>): Unit {
+    fun addPluginsToPortal(name: String, plugins: List<Class<out Plugin?>>) {
         val portal = getPortal(name)
         portal.setPlugins(plugins)
+    }
+
+    fun size(): Int {
+        return portals.size
     }
 }

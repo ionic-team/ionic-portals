@@ -1,64 +1,59 @@
 package io.ionic.portalslibrary
 
-class PortalFragment : Fragment {
-    protected var portal: Portal? = null
+import android.content.res.Configuration
+import android.os.Bundle
+import android.view.View
+import androidx.annotation.NonNull
+import androidx.fragment.app.Fragment
+import com.getcapacitor.*
+
+open class PortalFragment : Fragment {
+    var portal: Portal? = null
+
     private var bridge: Bridge? = null
     private var keepRunning = true
-    private val initialPlugins: MutableList<java.lang.Class<out Plugin?>> =
-        java.util.ArrayList<java.lang.Class<out Plugin?>>()
+    private val initialPlugins: MutableList<Class<out Plugin?>> = ArrayList()
     private var config: CapConfig? = null
-    private val webViewListeners: MutableList<WebViewListener> =
-        java.util.ArrayList<WebViewListener>()
+    private val webViewListeners: MutableList<WebViewListener> = ArrayList()
 
-    constructor() : super(R.layout.fragment_bridge) {}
+    constructor() : super(R.layout.fragment_bridge)
+
     constructor(portal: Portal?) : super(R.layout.fragment_bridge) {
         this.portal = portal
     }
 
-    fun onInflate(
-        @NonNull context: Context?,
-        @NonNull attrs: AttributeSet?,
-        @Nullable savedInstanceState: Bundle?
-    ) {
-        super.onInflate(context, attrs, savedInstanceState)
-    }
-
-    fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         load(savedInstanceState)
     }
 
-    fun onDestroy() {
+    override fun onDestroy() {
         super.onDestroy()
         if (bridge != null) {
-            bridge.onDestroy()
+            bridge?.onDestroy()
         }
     }
 
-    fun onResume() {
+    override fun onResume() {
         super.onResume()
-        bridge.getApp().fireStatusChange(true)
-        bridge.onResume()
+        bridge?.app?.fireStatusChange(true)
+        bridge?.onResume()
         Logger.debug("App resumed")
     }
 
-    fun onPause() {
+    override fun onPause() {
         super.onPause()
-        bridge.onPause()
+        bridge?.onPause()
         Logger.debug("App paused")
     }
 
-    fun onConfigurationChanged(@NonNull newConfig: Configuration?) {
+    override fun onConfigurationChanged(@NonNull newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
-        bridge.onConfigurationChanged(newConfig)
+        bridge?.onConfigurationChanged(newConfig)
     }
 
-    fun setPortal(portal: Portal?) {
-        this.portal = portal
-    }
-
-    fun addPlugin(plugin: java.lang.Class<out Plugin?>?) {
-        initialPlugins.add(plugin)
+    fun addPlugin(plugin: Class<out Plugin?>?) {
+        initialPlugins.add(plugin!!)
     }
 
     fun setConfig(config: CapConfig?) {
@@ -79,16 +74,16 @@ class PortalFragment : Fragment {
     protected fun load(savedInstanceState: Bundle?) {
         if (bridge == null) {
             Logger.debug("Loading Bridge with Portal")
-            val startDir: String = portal.getStartDir()
-            initialPlugins.addAll(portal.getPlugins())
-            bridge = Builder(this)
+            val startDir: String = portal?.startDir!!
+            initialPlugins.addAll(portal?.plugins!!)
+            bridge = Bridge.Builder(this)
                 .setInstanceState(savedInstanceState)
                 .setPlugins(initialPlugins)
                 .setConfig(config)
                 .addWebViewListeners(webViewListeners)
                 .create()
-            bridge.setServerAssetPath(startDir)
-            keepRunning = bridge.shouldKeepRunning()
+            bridge?.setServerAssetPath(startDir)
+            keepRunning = bridge?.shouldKeepRunning()!!
         }
     }
 }

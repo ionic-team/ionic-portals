@@ -11,7 +11,7 @@ import android.view.WindowInsets
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
+import java.util.ArrayList
 
 class PortalView : FrameLayout {
     private var mDisappearingFragmentChildren: ArrayList<View>? = null
@@ -25,13 +25,13 @@ class PortalView : FrameLayout {
     var viewId: String? = null
     var tag: String? = null
 
-    constructor(context: Context) : super(context) {}
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         readAttributes(context, attrs)
         loadPortal(context, attrs)
     }
 
-    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
         context,
         attrs,
         defStyleAttr
@@ -59,36 +59,43 @@ class PortalView : FrameLayout {
     }
 
     @Throws(Exception::class)
-    private fun loadPortal(context: Context, attrs: AttributeSet?) {
+    private fun loadPortal(context: Context, attrs: AttributeSet) {
         val id = id
-        val portalManager: PortalManager = PortalManager.getInstance()
-        if (portalManager.size() === 0) {
+
+        if (PortalManager.size() == 0) {
             throw Exception("Ionic Portals has not been setup with any Portals!")
         }
+
         if (portalId == null) {
             throw IllegalStateException("Portal views must have a defined portalId")
         }
-        val portal: Portal = portalManager.getPortal(portalId!!)
-            ?: throw IllegalStateException("Portal with portalId $portalId not found in PortalManager")
-        if (context is Activity) {
-            val fm = (context as AppCompatActivity).supportFragmentManager
-            val existingFragment = fm.findFragmentById(id)
-            // If there is a name and there is no existing fragment,
-            // we should add an inflated Fragment to the view.
-            if (existingFragment == null) {
-                if (id <= 0) {
-                    throw IllegalStateException("Portals must have an android:id defined")
+
+        portalId?.let {
+            val portal: Portal = PortalManager.getPortal(it)
+
+            if (context is Activity) {
+                val fm = (context as AppCompatActivity).supportFragmentManager
+                val existingFragment = fm.findFragmentById(id)
+
+                // If there is a name and there is no existing fragment,
+                // we should add an inflated Fragment to the view.
+                if (existingFragment == null) {
+                    if (id <= 0) {
+                        throw IllegalStateException("Portals must have an android:id defined")
+                    }
+
+                    portalFragment = fm.fragmentFactory.instantiate(
+                        context.getClassLoader(),
+                        portal.portalFragmentType.name
+                    ) as PortalFragment
+
+                    portalFragment?.portal = portal
+                    portalFragment?.onInflate(context, attrs, null)
+                    fm.beginTransaction()
+                        .setReorderingAllowed(true)
+                        .add(id, portalFragment!!, "")
+                        .commitNowAllowingStateLoss()
                 }
-                portalFragment = fm.fragmentFactory.instantiate(
-                    context.getClassLoader(),
-                    portal.getPortalFragmentType().getName()
-                ) as PortalFragment
-                portalFragment.setPortal(portal)
-                portalFragment.onInflate(context, attrs, null)
-                fm.beginTransaction()
-                    .setReorderingAllowed(true)
-                    .add(id, portalFragment, "")
-                    .commitNowAllowingStateLoss()
             }
         }
     }
