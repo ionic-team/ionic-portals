@@ -13,6 +13,14 @@ class Portal(
 ) {
 
     /**
+     * The initial context to pass to the webview.
+     *
+     * @return Either a JSON string or a Map
+     */
+    var initialContext: Any? = null
+        private set
+
+    /**
      * Get the list of Capacitor [Plugin] registered with the Portal.
      *
      * @return The list of plugins registered with the Portal.
@@ -43,6 +51,24 @@ class Portal(
      */
     fun setPlugin(plugin: Class<out Plugin?>) {
         plugins.add(plugin)
+    }
+
+    /**
+     * Sets the initial context to pass to the webview
+     *
+     * @param initialContext A map containing key/pair values that will be converted to a JavaScript object in the webview.
+     */
+    fun setInitialContext(initialContext: Map<String, Any>) {
+        this.initialContext = initialContext
+    }
+
+    /**
+     * Sets the initial context to pass to the webview
+     *
+     * @param initialContext A JSON string that will be converted to a JavaScript object in the webview.
+     */
+    fun setInitialContext(initialContext: String) {
+        this.initialContext = initialContext
     }
 
     /**

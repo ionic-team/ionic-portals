@@ -3,9 +3,13 @@ package io.ionic.portalslibrary
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebView
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import com.getcapacitor.*
+import org.json.JSONException
+import org.json.JSONObject
+import java.lang.Error
 
 open class PortalFragment : Fragment {
     var portal: Portal? = null
@@ -72,6 +76,7 @@ open class PortalFragment : Fragment {
      * Load the WebView and create the Bridge
      */
     protected fun load(savedInstanceState: Bundle?) {
+        setupInitialContextListener()
         if (bridge == null) {
             Logger.debug("Loading Bridge with Portal")
             val startDir: String = portal?.startDir!!
@@ -84,6 +89,38 @@ open class PortalFragment : Fragment {
                 .create()
             bridge?.setServerAssetPath(startDir)
             keepRunning = bridge?.shouldKeepRunning()!!
+        }
+    }
+
+    private fun setupInitialContextListener() {
+        if (portal?.initialContext !== null) {
+            val listener = object: WebViewListener() {
+                override fun onPageStarted(webView: WebView?) {
+                    super.onPageStarted(webView)
+                    val jsonObject: JSONObject = when (val initialContext = portal!!.initialContext) {
+                        is String -> {
+                            try {
+                                JSONObject(initialContext);
+                            } catch (ex: JSONException) {
+                                throw Error("initialContext must be a JSON string or a Map")
+                            }
+                        }
+                        is Map<*, *> -> {
+                            JSONObject(initialContext.toMap())
+                        }
+                        else -> {
+                            throw Error("initialContext must be a JSON string or a Map")
+                        }
+                    }
+                    val portalInitialContext = "{ \"name\": \"" + portal?.name + "\"," +
+                            " \"value\": " + jsonObject.toString() +
+                            " } "
+                    webView!!.evaluateJavascript(
+                        "window.portalInitialContext = $portalInitialContext", null
+                    )
+                }
+            }
+            webViewListeners.add(listener)
         }
     }
 }
