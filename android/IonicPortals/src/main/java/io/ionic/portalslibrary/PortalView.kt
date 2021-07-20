@@ -75,27 +75,33 @@ class PortalView : FrameLayout {
 
             if (context is Activity) {
                 val fm = (context as AppCompatActivity).supportFragmentManager
+
+                if (id <= 0) {
+                    throw IllegalStateException("Portals must have an android:id defined")
+                }
+
                 val existingFragment = fm.findFragmentById(id)
+                var fmTransaction : FragmentTransaction = fm.beginTransaction()
+                if (existingFragment != null) {
+                    fmTransaction.remove(existingFragment)
+                }
 
-                // If there is a name and there is no existing fragment,
-                // we should add an inflated Fragment to the view.
-                if (existingFragment == null) {
-                    if (id <= 0) {
-                        throw IllegalStateException("Portals must have an android:id defined")
-                    }
+                portalFragment = fm.fragmentFactory.instantiate(
+                    context.getClassLoader(),
+                    portal.portalFragmentType.name
+                ) as PortalFragment
 
-                    portalFragment = fm.fragmentFactory.instantiate(
-                        context.getClassLoader(),
-                        portal.portalFragmentType.name
-                    ) as PortalFragment
-
-                    portalFragment?.portal = portal
-                    portalFragment?.onInflate(context, attrs, null)
-                    fm.beginTransaction()
+                portalFragment?.portal = portal
+                portalFragment?.onInflate(context, attrs, null)
+                val handler = Handler()
+                val runnable = Runnable {
+                    fmTransaction
                         .setReorderingAllowed(true)
                         .add(id, portalFragment!!, "")
                         .commitNowAllowingStateLoss()
                 }
+
+                handler.post(runnable)
             }
         }
     }
