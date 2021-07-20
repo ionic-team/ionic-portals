@@ -6,13 +6,13 @@ import com.getcapacitor.Plugin
  * A singleton object for managing portals
  */
 object PortalManager {
-    private val portals: MutableMap<String, Portal> = mutableMapOf()
+    @JvmStatic private val portals: MutableMap<String, Portal> = HashMap<String, Portal>()
 
     /**
      * Adds a Portal object given the name of the portal
      * @param name The Portal name
      */
-    fun addPortal(portal: Portal) {
+    @JvmStatic fun addPortal(portal: Portal) {
         portals[portal.name] = portal
     }
 
@@ -21,7 +21,7 @@ object PortalManager {
      * @param name The Portal name
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
-    fun getPortal(name: String): Portal {
+    @JvmStatic fun getPortal(name: String): Portal {
         return portals[name] ?: throw IllegalStateException("Portal with portalId $name not found in PortalManager")
     }
 
@@ -31,7 +31,7 @@ object PortalManager {
      * @param plugin The Plugin class object
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
-    fun addPluginToPortal(name: String, plugin: Class<out Plugin?>) {
+    @JvmStatic fun addPluginToPortal(name: String, plugin: Class<out Plugin?>) {
         val portal = getPortal(name)
         portal.setPlugin(plugin)
     }
@@ -42,12 +42,12 @@ object PortalManager {
      * @param plugins A List of Plugin class objects
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
-    fun addPluginsToPortal(name: String, plugins: List<Class<out Plugin?>>) {
+    @JvmStatic fun addPluginsToPortal(name: String, plugins: List<Class<out Plugin?>>) {
         val portal = getPortal(name)
         portal.setPlugins(plugins)
     }
 
-    fun size(): Int {
+    @JvmStatic fun size(): Int {
         return portals.size
     }
 }
