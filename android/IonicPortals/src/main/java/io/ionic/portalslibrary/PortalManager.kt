@@ -58,7 +58,7 @@ object PortalManager {
      * @return A PortalBuilder object that has a fluent API to construct a Portal.
      */
     @JvmStatic
-    fun createPortal(name: String): PortalBuilder {
+    fun newPortal(name: String): PortalBuilder {
         return PortalBuilder(name, fun(portal) {
             this.addPortal(portal)
         })
