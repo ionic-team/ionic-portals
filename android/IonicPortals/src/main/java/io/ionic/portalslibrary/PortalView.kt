@@ -5,12 +5,14 @@ import android.app.Activity
 import android.content.Context
 import android.graphics.Canvas
 import android.os.Build
+import android.os.Handler
 import android.util.AttributeSet
 import android.view.View
 import android.view.WindowInsets
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentTransaction
 import java.util.ArrayList
 
 class PortalView : FrameLayout {

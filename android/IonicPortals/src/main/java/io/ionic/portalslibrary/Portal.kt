@@ -25,7 +25,7 @@ class Portal(
      *
      * @return The list of plugins registered with the Portal.
      */
-    val plugins = ArrayList<Class<out Plugin?>>()
+    internal val plugins = ArrayList<Class<out Plugin?>>()
 
     /**
      * The [PortalFragment] type used by a [PortalView] when using Portals directly in
@@ -49,8 +49,17 @@ class Portal(
      *
      * @param plugin A Plugin to be used with the Portal.
      */
-    fun setPlugin(plugin: Class<out Plugin?>) {
+    fun addPlugin(plugin: Class<out Plugin?>) {
         plugins.add(plugin)
+    }
+
+    /**
+     * Add multiple Capacitor [Plugin] to be loaded with this Portal.
+     *
+     * @param plugin A Plugin to be used with the Portal.
+     */
+    fun addPlugins(plugins: List<Class<out Plugin?>>) {
+        this.plugins.addAll(plugins)
     }
 
     /**
@@ -71,15 +80,6 @@ class Portal(
         this.initialContext = initialContext
     }
 
-    /**
-     * Add multiple Capacitor [Plugin] to be loaded with this Portal.
-     *
-     * @param plugin A Plugin to be used with the Portal.
-     */
-    fun setPlugins(plugins: List<Class<out Plugin?>>) {
-        this.plugins.addAll(plugins)
-    }
-
 }
 
 class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
@@ -93,7 +93,7 @@ class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
         return this
     }
 
-    fun setPlugin(plugin: Class<out Plugin?>): PortalBuilder {
+    fun addPlugin(plugin: Class<out Plugin?>): PortalBuilder {
         plugins.add(plugin)
         return this
     }
@@ -116,7 +116,7 @@ class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
     fun create(): Portal {
         val portal = Portal(name)
         portal.startDir = this._startDir ?: this.name
-        portal.setPlugins(plugins)
+        portal.addPlugins(plugins)
         portal.initialContext = this.initialContext
         portal.portalFragmentType = this.portalFragmentType
         onCreate(portal)
