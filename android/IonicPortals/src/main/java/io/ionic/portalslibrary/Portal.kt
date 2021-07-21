@@ -18,7 +18,7 @@ class Portal(
      * @return Either a JSON string or a Map
      */
     var initialContext: Any? = null
-        private set
+        internal set
 
     /**
      * Get the list of Capacitor [Plugin] registered with the Portal.
@@ -81,3 +81,50 @@ class Portal(
     }
 
 }
+
+class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
+    private var _startDir: String? = null
+    private var plugins = mutableListOf<Class<out Plugin?>>()
+    private var initialContext: Any? = null
+    private var portalFragmentType: Class<out PortalFragment?> = PortalFragment::class.java
+
+    fun setStartDir(startDir: String): PortalBuilder {
+        this._startDir = startDir
+        return this
+    }
+
+    fun setPlugin(plugin: Class<out Plugin?>): PortalBuilder {
+        plugins.add(plugin)
+        return this
+    }
+
+    fun setInitialContext(initialContext: Any): PortalBuilder {
+        this.initialContext = initialContext
+        return this
+    }
+
+    fun setPlugins(plugins: MutableList<Class<out Plugin?>>): PortalBuilder {
+        this.plugins = plugins
+        return this
+    }
+
+    fun setPortalFragmentType(portalFragmentType: Class<out PortalFragment?>): PortalBuilder {
+        this.portalFragmentType = portalFragmentType
+        return this
+    }
+
+    fun create(): Portal {
+        val portal = Portal(name)
+        portal.startDir = this._startDir ?: this.name
+        portal.setPlugins(plugins)
+        portal.initialContext = this.initialContext
+        portal.portalFragmentType = this.portalFragmentType
+        onCreate(portal)
+        return portal
+    }
+
+}
+
+
+
+
