@@ -18,14 +18,14 @@ class Portal(
      * @return Either a JSON string or a Map
      */
     var initialContext: Any? = null
-        private set
+        internal set
 
     /**
      * Get the list of Capacitor [Plugin] registered with the Portal.
      *
      * @return The list of plugins registered with the Portal.
      */
-    val plugins = ArrayList<Class<out Plugin?>>()
+    internal val plugins = ArrayList<Class<out Plugin?>>()
 
     /**
      * The [PortalFragment] type used by a [PortalView] when using Portals directly in
@@ -49,8 +49,17 @@ class Portal(
      *
      * @param plugin A Plugin to be used with the Portal.
      */
-    fun setPlugin(plugin: Class<out Plugin?>) {
+    fun addPlugin(plugin: Class<out Plugin?>) {
         plugins.add(plugin)
+    }
+
+    /**
+     * Add multiple Capacitor [Plugin] to be loaded with this Portal.
+     *
+     * @param plugin A Plugin to be used with the Portal.
+     */
+    fun addPlugins(plugins: List<Class<out Plugin?>>) {
+        this.plugins.addAll(plugins)
     }
 
     /**
@@ -71,13 +80,51 @@ class Portal(
         this.initialContext = initialContext
     }
 
-    /**
-     * Add multiple Capacitor [Plugin] to be loaded with this Portal.
-     *
-     * @param plugin A Plugin to be used with the Portal.
-     */
-    fun setPlugins(plugins: List<Class<out Plugin?>>) {
-        this.plugins.addAll(plugins)
+}
+
+class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
+    private var _startDir: String? = null
+    private var plugins = mutableListOf<Class<out Plugin?>>()
+    private var initialContext: Any? = null
+    private var portalFragmentType: Class<out PortalFragment?> = PortalFragment::class.java
+
+    fun setStartDir(startDir: String): PortalBuilder {
+        this._startDir = startDir
+        return this
+    }
+
+    fun addPlugin(plugin: Class<out Plugin?>): PortalBuilder {
+        plugins.add(plugin)
+        return this
+    }
+
+    fun setInitialContext(initialContext: Any): PortalBuilder {
+        this.initialContext = initialContext
+        return this
+    }
+
+    fun setPlugins(plugins: MutableList<Class<out Plugin?>>): PortalBuilder {
+        this.plugins = plugins
+        return this
+    }
+
+    fun setPortalFragmentType(portalFragmentType: Class<out PortalFragment?>): PortalBuilder {
+        this.portalFragmentType = portalFragmentType
+        return this
+    }
+
+    fun create(): Portal {
+        val portal = Portal(name)
+        portal.startDir = this._startDir ?: this.name
+        portal.addPlugins(plugins)
+        portal.initialContext = this.initialContext
+        portal.portalFragmentType = this.portalFragmentType
+        onCreate(portal)
+        return portal
     }
 
 }
+
+
+
+
