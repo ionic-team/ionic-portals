@@ -8,8 +8,15 @@
 import Foundation
 
 public class Portal {
+    
+    
+    // MARK: - Instance Properties
+
+    public let name: String;
+    
     public init() {
         print("Constructor")
+        name = "";
     }
 
     public func HelloWorld() {
