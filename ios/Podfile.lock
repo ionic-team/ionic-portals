@@ -1,0 +1,21 @@
+PODS:
+  - CapacitorCordova (3.0.1)
+  - Portals (3.0.1):
+    - CapacitorCordova (= 3.0.1)
+
+DEPENDENCIES:
+  - CapacitorCordova
+  - Portals
+
+SPEC REPOS:
+  https://github.com/native-portal/podspecs.git:
+    - CapacitorCordova
+    - Portals
+
+SPEC CHECKSUMS:
+  CapacitorCordova: 19b9a7bfa2e24a18281258c269390a7b38cb2eaf
+  Portals: 30c3554216671a1e092c24f0215045b1426185d4
+
+PODFILE CHECKSUM: a2102afa5b92a3d22f1e7af35386d31e5c3c334e
+
+COCOAPODS: 1.10.0
