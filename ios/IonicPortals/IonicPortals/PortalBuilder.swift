@@ -14,13 +14,11 @@ class PortalBuilder {
     
     // MARK: - Static Properties
 
-
     // MARK: - Instance Properties
     private let name: String
     private let onBuilderComplete: OnPortalBuilderComplete
 
     private var startDir: String?
-    private var plugins: [CAPPlugin] = []
     private var initialContext: Any?
 
     // Initialization
@@ -29,30 +27,35 @@ class PortalBuilder {
         self.onBuilderComplete = onComplete
     }
 
+    /**
+     * Sets the starting directory entry point for the web app if you have multiple web apps to choose from
+     * - Parameter startDir: The relative file path of the folder that contains your web app
+     * - Returns: self
+     */
     public func setStartDir(startDir: String) -> PortalBuilder {
         self.startDir = startDir
         return self
     }
 
-    public func addPlugin(plugin: CAPPlugin) -> PortalBuilder {
-        plugins.append(plugin)
-        return self
-    }
-
+    
+    /**
+     * Sets an initial context for the web application to pass the web application an initial state
+     * - Parameter initialContext: An object that can be serialized into JSON
+     * - Returns: self
+     */
     public func setInitialContext(initialContext: Any) -> PortalBuilder {
         self.initialContext = initialContext
         return self
     }
 
-    public func setPlugins(plugins: [CAPPlugin]) -> PortalBuilder {
-        self.plugins = plugins
-        return self
-    }
-
+    /**
+     * Sets an initial context for the web application to pass the web application an initial state
+     * - Parameter initialContext: An object that can be serialized into JSON
+     * - Returns: A newly created portal
+     */
     public func create() -> Portal {
         let portal = Portal(self.name)
         portal.startDir = self.startDir ?? portal.name
-        portal.addPlugins(plugins)
         portal.initialContext = self.initialContext
         self.onBuilderComplete(portal)
         return portal
