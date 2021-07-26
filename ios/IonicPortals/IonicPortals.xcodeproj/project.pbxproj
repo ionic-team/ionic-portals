@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */; };
+		E90B7D4C26A9C4F40067D73E /* PortalBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */; };
+		E90B7D5026A9CB880067D73E /* PortalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4F26A9CB880067D73E /* PortalManager.swift */; };
 		E985F88A269E2D260031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F880269E2D260031F820 /* IonicPortals.framework */; };
 		E985F88F269E2D260031F820 /* IonicPortalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F88E269E2D260031F820 /* IonicPortalsTests.swift */; };
 		E985F891269E2D260031F820 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -24,6 +27,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2514A9D89B5C400A41EF8FEB /* Pods-IonicPortals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IonicPortals.release.xcconfig"; path = "Target Support Files/Pods-IonicPortals/Pods-IonicPortals.release.xcconfig"; sourceTree = "<group>"; };
+		2C8BCCA3D236847121E67C22 /* Pods-IonicPortals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IonicPortals.debug.xcconfig"; path = "Target Support Files/Pods-IonicPortals/Pods-IonicPortals.debug.xcconfig"; sourceTree = "<group>"; };
+		E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PortalBuilder.swift; path = IonicPortals/PortalBuilder.swift; sourceTree = "<group>"; };
+		E90B7D4F26A9CB880067D73E /* PortalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PortalManager.swift; path = IonicPortals/PortalManager.swift; sourceTree = "<group>"; };
 		E985F880269E2D260031F820 /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985F883269E2D260031F820 /* IonicPortals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IonicPortals.h; sourceTree = "<group>"; };
 		E985F884269E2D260031F820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,13 +61,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F249143665D3AA4301AD1DE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9D0BB0A71D75531B34F29BDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2C8BCCA3D236847121E67C22 /* Pods-IonicPortals.debug.xcconfig */,
+				2514A9D89B5C400A41EF8FEB /* Pods-IonicPortals.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 		E985F876269E2D260031F820 = {
 			isa = PBXGroup;
 			children = (
+				E90B7D4F26A9CB880067D73E /* PortalManager.swift */,
+				E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */,
 				E985F89E269E2D830031F820 /* Portal.swift */,
 				E985F882269E2D260031F820 /* IonicPortals */,
 				E985F88D269E2D260031F820 /* IonicPortalsTests */,
 				E985F881269E2D260031F820 /* Products */,
+				9D0BB0A71D75531B34F29BDB /* Pods */,
+				1F249143665D3AA4301AD1DE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,6 +138,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E985F894269E2D260031F820 /* Build configuration list for PBXNativeTarget "IonicPortals" */;
 			buildPhases = (
+				6F34B2740496582483E29D5A /* [CP] Check Pods Manifest.lock */,
 				E985F87B269E2D260031F820 /* Headers */,
 				E985F87C269E2D260031F820 /* Sources */,
 				E985F87D269E2D260031F820 /* Frameworks */,
@@ -193,11 +225,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6F34B2740496582483E29D5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IonicPortals-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E985F87C269E2D260031F820 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E90B7D4C26A9C4F40067D73E /* PortalBuilder.swift in Sources */,
+				E90B7D5026A9CB880067D73E /* PortalManager.swift in Sources */,
 				E985F89F269E2D830031F820 /* Portal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,6 +404,7 @@
 		};
 		E985F895269E2D260031F820 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C8BCCA3D236847121E67C22 /* Pods-IonicPortals.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -372,6 +432,7 @@
 		};
 		E985F896269E2D260031F820 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2514A9D89B5C400A41EF8FEB /* Pods-IonicPortals.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
