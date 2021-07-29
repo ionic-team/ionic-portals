@@ -77,7 +77,7 @@ publishing {
             groupId = libraryGroupId
             artifactId = libraryArtifactId
             version = libraryVersion
-            artifact("$buildDir/outputs/aar/ionic-portals-release.aar") {
+            artifact("$buildDir/outputs/aar/IonicPortals-release.aar") {
                 builtBy(tasks.assemble)
             }
 
