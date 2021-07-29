@@ -10,8 +10,8 @@ To get started with both projects, you can open up corresponding `PortalsTestApp
 
 ### iOS
 
-TODO
+In iOS, you can open `ios/IonicPortals.xcworkspace` to open the test app with the `IonicPortals.xcodeproj` also loaded. The `IonicPortals` library will already be linked to the test app project and can be developed/built independantly of the test app.
 
 ### Android
 
-In Android, you can open the `PortalsTestApp` folder and gradle should recognize that `IonicPortals` is a dependency of the project. This is done by linking the project in the `PortalsTestApp/settings.gradle` and including it in the dependency of the test app itself in `PortalsTestApp/app/build.gradle`.
+In Android, you can open the `android/PortalsTestApp` folder and gradle should recognize that `android/IonicPortals` is a dependency of the project. This is done by linking the project in the `android/PortalsTestApp/settings.gradle` and including it in the dependency of the test app itself in `android/PortalsTestApp/app/build.gradle`.

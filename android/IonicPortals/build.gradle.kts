@@ -38,6 +38,7 @@ android {
 }
 
 dependencies {
+    implementation(kotlin("reflect"))
     implementation("io.ionic:portals:3.0.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
     implementation( "androidx.core:core-ktx:1.6.0")

@@ -6,14 +6,15 @@ import com.getcapacitor.Plugin
  * A singleton object for managing portals
  */
 object PortalManager {
-    private val portals: MutableMap<String, Portal> = mutableMapOf()
+
+    @JvmStatic private val portals: MutableMap<String, Portal> = mutableMapOf()
 
     /**
      * Adds a Portal object given the name of the portal
      * @param name The Portal name
      */
-    fun addPortal(name: String, portal: Portal): Unit {
-        portals[name] = portal
+    @JvmStatic fun addPortal(portal: Portal) {
+        portals[portal.name] = portal
     }
 
     /**
@@ -21,29 +22,24 @@ object PortalManager {
      * @param name The Portal name
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
-    fun getPortal(name: String): Portal {
-        return portals[name] ?: throw NoSuchElementException()
+    @JvmStatic fun getPortal(name: String): Portal {
+        return portals[name] ?: throw IllegalStateException("Portal with portalId $name not found in PortalManager")
+    }
+
+    @JvmStatic fun size(): Int {
+        return portals.size
     }
 
     /**
-     * Adds a single Plugin to an existing Portal
+     * A helper method to build portal classes and add them to the manager. Classes built with newPortal are added to the PortalManager automatically.
      * @param name The Portal name
-     * @param plugin The Plugin class object
-     * @throws NoSuchElementException throws this exception if the Portal does not exist
+     * @return A PortalBuilder object that has a fluent API to construct a Portal.
      */
-    fun addPluginToPortal(name: String, plugin: Class<out Plugin?>): Unit {
-        val portal = getPortal(name)
-        portal.setPlugin(plugin)
+    @JvmStatic
+    fun newPortal(name: String): PortalBuilder {
+        return PortalBuilder(name, fun(portal) {
+            this.addPortal(portal)
+        })
     }
 
-    /**
-     * Adds a single Plugin to an existing Portal
-     * @param name The Portal name
-     * @param plugins A List of Plugin class objects
-     * @throws NoSuchElementException throws this exception if the Portal does not exist
-     */
-    fun addPluginsToPortal(name: String, plugins: List<Class<out Plugin?>>): Unit {
-        val portal = getPortal(name)
-        portal.setPlugins(plugins)
-    }
 }
