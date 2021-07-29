@@ -51,7 +51,7 @@ dependencies {
 
 val libraryGroupId = "io.ionic"
 val libraryArtifactId = "portalslibrary"
-val libraryVersion = "0.0.1"
+val libraryVersion = "0.0.2"
 
 task<Jar>("sourceJar") {
     from(android.sourceSets["main"].java.srcDirs)
@@ -63,6 +63,14 @@ publishing {
         maven {
             name = "GithubPackages"
             url = uri("https://maven.pkg.github.com/ionic-team/ionic-portals")
+            credentials {
+                username = System.getenv("GITHUB_USER") ?: project.properties["GITHUB_USER"] as String?
+                password = System.getenv("GITHUB_PERSONAL_ACCESS_TOKEN") ?: project.properties["GITHUB_PERSONAL_ACCESS_TOKEN"] as String?
+            }
+        }
+        maven {
+            name = "GithubPackages-PortalsSDK"
+            url = uri("https://maven.pkg.github.com/native-portal/portals-sdk")
             credentials {
                 username = System.getenv("GITHUB_USER") ?: project.properties["GITHUB_USER"] as String?
                 password = System.getenv("GITHUB_PERSONAL_ACCESS_TOKEN") ?: project.properties["GITHUB_PERSONAL_ACCESS_TOKEN"] as String?
