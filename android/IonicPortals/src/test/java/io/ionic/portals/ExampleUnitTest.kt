@@ -1,4 +1,4 @@
-package io.ionic.portalslibrary
+package io.ionic.portals
 
 import org.junit.Test
 

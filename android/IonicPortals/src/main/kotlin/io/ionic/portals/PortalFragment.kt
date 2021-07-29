@@ -1,4 +1,4 @@
-package io.ionic.portalslibrary
+package io.ionic.portals
 
 import android.content.res.Configuration
 import android.os.Bundle

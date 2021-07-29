@@ -51,7 +51,7 @@ dependencies {
 
 val libraryGroupId = "io.ionic"
 val libraryArtifactId = "portalslibrary"
-val libraryVersion = "0.0.2"
+val libraryVersion = "0.0.3"
 
 task<Jar>("sourceJar") {
     from(android.sourceSets["main"].java.srcDirs)

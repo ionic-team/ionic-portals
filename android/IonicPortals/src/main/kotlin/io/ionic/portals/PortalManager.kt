@@ -1,6 +1,4 @@
-package io.ionic.portalslibrary
-
-import com.getcapacitor.Plugin
+package io.ionic.portals
 
 /**
  * A singleton object for managing portals

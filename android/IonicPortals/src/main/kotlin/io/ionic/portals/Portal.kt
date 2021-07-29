@@ -1,4 +1,4 @@
-package io.ionic.portalslibrary
+package io.ionic.portals
 
 import com.getcapacitor.Plugin
 import java.util.*
