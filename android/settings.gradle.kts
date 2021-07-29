@@ -1,0 +1,2 @@
+include(":IonicPortals")
+include(":portalstestapp")

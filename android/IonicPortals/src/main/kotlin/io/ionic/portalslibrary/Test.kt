@@ -1,12 +1,11 @@
 package io.ionic.portalslibrary
 
-import android.content.Context
-import android.widget.Toast
+import android.util.Log
 
 class Test {
     companion object {
-        fun helloWorld(context: Context) {
-            Toast.makeText(context, "Hello World", Toast.LENGTH_SHORT).show()
+        fun helloWorld() {
+            Log.d("DEBUG", "LOG LOG LOG")
         }
     }
 }
