@@ -1,12 +1,11 @@
-# ionic-portals
+# Ionic Portals
 
-Plugin SDK for Portals
+Plugin SDK for Ionic Portals
 
 ## Install
 
 ```bash
-npm install ionic-portals
-npx cap sync
+npm install @ionic/portals
 ```
 
 ## API
