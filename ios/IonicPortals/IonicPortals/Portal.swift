@@ -9,23 +9,12 @@ import Foundation
 import Capacitor
 
 public class Portal {
-    
-    // MARK: - Instance Properties
     public let name: String;
-    public var plugins: [CAPPlugin] = []
-    public var initialContext: Any?
-    public var startDir: String?
+    public let startDir: String;
+    public var initialContext: Any?;
     
-    public init(_ name: String) {
-        print("Constructor")
+    init(_ name: String, _ startDir: String?) {
         self.name = name
-    }
-
-    public func HelloWorld() {
-        print("Hello World")
-    }
-    
-    public func addPlugins(_ plugins: [CAPPlugin]) {
-        self.plugins = plugins
+        self.startDir = startDir ?? name
     }
 }
