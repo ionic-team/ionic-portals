@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import IonicPortals
 
 struct ContentView: View {
     var body: some View {

@@ -54,7 +54,7 @@ class PortalBuilder {
      * - Returns: A newly created portal
      */
     public func create() -> Portal {
-        let portal = Portal(self.name)
+        let portal = Portal(self.name, nil)
         portal.startDir = self.startDir ?? portal.name
         portal.initialContext = self.initialContext
         self.onBuilderComplete(portal)

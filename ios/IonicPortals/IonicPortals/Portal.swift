@@ -10,10 +10,10 @@ import Capacitor
 
 public class Portal {
     public let name: String;
-    public let startDir: String;
+    public var startDir: String;
     public var initialContext: Any?;
     
-    init(_ name: String, _ startDir: String?) {
+    public init(_ name: String, _ startDir: String?) {
         self.name = name
         self.startDir = startDir ?? name
     }
