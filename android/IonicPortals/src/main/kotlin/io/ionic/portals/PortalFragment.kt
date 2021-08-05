@@ -10,7 +10,7 @@ import com.getcapacitor.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.lang.Error
-import kotlin.reflect.full.IllegalCallableAccessException
+import kotlin.reflect.KVisibility
 
 open class PortalFragment : Fragment {
     var portal: Portal? = null
@@ -149,8 +149,10 @@ open class PortalFragment : Fragment {
     }
 
     internal fun receiveMessage(message: String, payload: String?) {
-        val msgHandler = messageHandlers[message]
-        msgHandler.let { msgHandler?.onMessageReceived(payload) } ?: run { Logger.error("Portals message handler not registered for '$message'") }
+        when (val msgHandler = messageHandlers[message]) {
+            is PayloadListener -> msgHandler.onMessageReceived(payload)
+            is EmptyListener -> msgHandler.onMessageReceived()
+        }
     }
 
     /**
@@ -193,20 +195,24 @@ open class PortalFragment : Fragment {
                 }
             }
 
-            messageHandlers[methodName] = object : PortalListener {
-                override fun onMessageReceived(data: String?) {
-                    try {
-                        when (member.parameters.size) {
-                            1 -> member.call(messageReceiverParent)
-                            2 -> member.call(messageReceiverParent, data)
-                            else -> throw IllegalArgumentException()
+            if(member.visibility != KVisibility.PUBLIC) {
+                throw IllegalAccessException("Portal Method '${member.name}' must be public!")
+            }
+
+            when (member.parameters.size) {
+                1 -> messageHandlers[methodName] = object : EmptyListener {
+                        override fun onMessageReceived() {
+                            member.call(messageReceiverParent)
                         }
-                    } catch (e:IllegalCallableAccessException) {
-                        throw IllegalAccessException("Portal Method must be public!")
-                    } catch (e:IllegalArgumentException) {
-                        throw IllegalArgumentException("Portal Method '${member.name}' must" +
-                                " contain zero parameters or a single String parameter!")
                     }
+                2 -> messageHandlers[methodName] = object : PayloadListener {
+                        override fun onMessageReceived(data: String?) {
+                            member.call(messageReceiverParent, data)
+                        }
+                    }
+                else -> {
+                    throw IllegalArgumentException("Portal Method '${member.name}' must" +
+                            " contain zero parameters or a single String parameter!")
                 }
             }
         }
