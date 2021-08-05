@@ -10,6 +10,7 @@ import com.getcapacitor.*
 import org.json.JSONException
 import org.json.JSONObject
 import java.lang.Error
+import kotlin.reflect.full.IllegalCallableAccessException
 
 open class PortalFragment : Fragment {
     var portal: Portal? = null
@@ -79,6 +80,7 @@ open class PortalFragment : Fragment {
      */
     protected fun load(savedInstanceState: Bundle?) {
         setupInitialContextListener()
+        attachPortalsPlugin()
         if (bridge == null) {
             Logger.debug("Loading Bridge with Portal")
             val startDir: String = portal?.startDir!!
@@ -121,15 +123,21 @@ open class PortalFragment : Fragment {
                         "window.portalInitialContext = $portalInitialContext", null
                     )
                 }
-
-                override fun onPageLoaded(webView: WebView?) {
-                    super.onPageLoaded(webView)
-                    setupPortalsPlugin()
-                }
             }
 
             webViewListeners.add(listener)
         }
+    }
+
+    private fun attachPortalsPlugin() {
+        val listener = object: WebViewListener() {
+            override fun onPageLoaded(webView: WebView?) {
+                super.onPageLoaded(webView)
+                setupPortalsPlugin()
+            }
+        }
+
+        webViewListeners.add(listener)
     }
 
     private fun setupPortalsPlugin() {
@@ -187,7 +195,18 @@ open class PortalFragment : Fragment {
 
             messageHandlers[methodName] = object : PortalListener {
                 override fun onMessageReceived(data: String?) {
-                    member.call(messageReceiverParent, data)
+                    try {
+                        when (member.parameters.size) {
+                            1 -> member.call(messageReceiverParent)
+                            2 -> member.call(messageReceiverParent, data)
+                            else -> throw IllegalArgumentException()
+                        }
+                    } catch (e:IllegalCallableAccessException) {
+                        throw IllegalAccessException("Portal Method must be public!")
+                    } catch (e:IllegalArgumentException) {
+                        throw IllegalArgumentException("Portal Method '${member.name}' must" +
+                                " contain zero parameters or a single String parameter!")
+                    }
                 }
             }
         }
