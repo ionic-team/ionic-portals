@@ -1,10 +1,3 @@
-//
-//  PortalManager.swift
-//  IonicPortals
-//
-//  Created by Thomas Vidas on 7/22/21.
-//
-
 import Foundation
 
 enum PortalError: Error {
@@ -12,15 +5,15 @@ enum PortalError: Error {
     case alreadyExists(String)
 }
 
-class PortalManager {
+public class PortalManager {
     
     // MARK: - Static Properties
 
-    static let shared = PortalManager()
+//    static let shared = PortalManager()
 
     // MARK: - Instance Properties
 
-    private var portals = Dictionary<String, Portal>()
+    private static var portals = Dictionary<String, Portal>()
 
     // Initialization
 
@@ -30,7 +23,7 @@ class PortalManager {
      * Returns the number of `Portal` objects in the `PortalManager`.
      * - returns: The count of `Portal` objects.
      */
-    public func count() -> Int {
+    public static func count() -> Int {
         return portals.count
     }
     
@@ -38,7 +31,7 @@ class PortalManager {
      * Adds a `Portal` object given the `name` of the portal.
      * - Parameter portal: The `Portal` to add to the manager.
      */
-    public func addPortal(_ portal: Portal) -> Void {
+    public static func addPortal(_ portal: Portal) -> Void {
         portals[portal.name] = portal
     }
     
@@ -48,7 +41,7 @@ class PortalManager {
      * - throws: `PortalError.notFound` if the `Portal` does not exist
      * - returns: The existing `Portal` class with name `name`.
      */
-    public func getPortal(_ name: String) throws -> Portal {
+    public static func getPortal(_ name: String) throws -> Portal {
         guard let output = portals[name] else {
             throw PortalError.notFound("Portal with portalId \(name) not found in PortalManager")
         }
@@ -62,7 +55,8 @@ class PortalManager {
      */
     public func newPortal(_ name: String) -> PortalBuilder {
         return PortalBuilder(name, { (portal) in
-            PortalManager.shared.addPortal(portal)
+            PortalManager.addPortal(portal)
         })
     }
 }
+

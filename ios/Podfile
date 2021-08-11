@@ -11,9 +11,18 @@ def capacitor_pods
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
   podspec :path => './IonicPortals/IonicPortals.podspec'
-  pod 'Portals'
+  pod 'Capacitor'
   pod 'CapacitorCordova'
 end
+
+# dev
+# def capacitor_pods
+#   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+#   use_frameworks!
+#   podspec :path => './IonicPortals/IonicPortals.podspec'
+#   pod 'Capacitor', :path => "../../capacitor/ios"
+#   pod 'CapacitorCordova'
+# end
 
 target 'IonicPortals' do
   project './IonicPortals/IonicPortals.xcodeproj'

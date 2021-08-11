@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/consistent-type-imports */
+import { Plugins } from '@capacitor/core';
+
 import {
   ClearMessageListener,
   InitialContext,
@@ -6,7 +9,7 @@ import {
   PortalsPlugin,
 } from './definitions';
 import { getInitialContext } from './shared';
-import { Plugins } from '@capacitor/core';
+
 
 export class PortalsAndroid implements PortalsPlugin {
   clearListener(listener: ClearMessageListener): Promise<void> {

@@ -1,16 +1,8 @@
-//
-//  PortalManager.swift
-//  IonicPortals
-//
-//  Created by Thomas Vidas on 7/22/21.
-//
-
 import Foundation
-import Capacitor
 
-typealias OnPortalBuilderComplete = (_ portal : Portal) -> Void
+public typealias OnPortalBuilderComplete = (_ portal : Portal) -> Void
 
-class PortalBuilder {
+public class PortalBuilder {
     
     // MARK: - Static Properties
 
@@ -54,10 +46,11 @@ class PortalBuilder {
      * - Returns: A newly created portal
      */
     public func create() -> Portal {
-        let portal = Portal(self.name)
+        let portal = Portal(self.name, self.startDir)
         portal.startDir = self.startDir ?? portal.name
         portal.initialContext = self.initialContext
         self.onBuilderComplete(portal)
         return portal
     }
 }
+
