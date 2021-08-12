@@ -18,10 +18,10 @@
   "license": "Commercial",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ionic-team/ionic-portals.git"
+    "url": "git+https://github.com/native-portal/ionic-portals.git"
   },
   "bugs": {
-    "url": "https://github.com/ionic-team/ionic-portals/issues"
+    "url": "https://github.com/native-portal/ionic-portals/issues"
   },
   "keywords": [
     "capacitor",
