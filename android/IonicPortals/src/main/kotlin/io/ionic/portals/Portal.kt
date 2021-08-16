@@ -45,6 +45,11 @@ class Portal(
         get() = if (field.isEmpty()) name else field
 
     /**
+     * Todo: comment about liveupdate sdk
+     */
+    var liveUpdate: LiveUpdate? = null
+
+    /**
      * Add a Capacitor [Plugin] to be loaded with this Portal.
      *
      * @param plugin A Plugin to be used with the Portal.
@@ -87,6 +92,7 @@ class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
     private var plugins = mutableListOf<Class<out Plugin?>>()
     private var initialContext: Any? = null
     private var portalFragmentType: Class<out PortalFragment?> = PortalFragment::class.java
+    private var liveUpdate: LiveUpdate? = null
 
     fun setStartDir(startDir: String): PortalBuilder {
         this._startDir = startDir
@@ -113,6 +119,11 @@ class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
         return this
     }
 
+    fun setLiveUpdate(liveUpdate: LiveUpdate): PortalBuilder {
+        this.liveUpdate = liveUpdate
+        return this
+    }
+
     fun create(): Portal {
         val portal = Portal(name)
         portal.startDir = this._startDir ?: this.name
@@ -122,5 +133,4 @@ class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
         onCreate(portal)
         return portal
     }
-
 }
