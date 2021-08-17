@@ -27,38 +27,31 @@ class LiveUpdate(
 
 }
 
-class LiveUpdateBuilder(val appId: String, val onCreate: (liveUpdate: LiveUpdate) -> Unit) {
+class LiveUpdateBuilder(val appId: String) {
     private var channel: String = "Master"
+    private var maxStore: Int = 1
+    private var minBackgroundDuration: Int = 0
 
     fun setChannel(channel: String): LiveUpdateBuilder {
         this.channel = channel
         return this
     }
 
-//    fun addPlugin(plugin: Class<out Plugin?>): PortalBuilder {
-//        plugins.add(plugin)
-//        return this
-//    }
-//
-//    fun setInitialContext(initialContext: Any): PortalBuilder {
-//        this.initialContext = initialContext
-//        return this
-//    }
-//
-//    fun setPlugins(plugins: MutableList<Class<out Plugin?>>): PortalBuilder {
-//        this.plugins = plugins
-//        return this
-//    }
-//
-//    fun setPortalFragmentType(portalFragmentType: Class<out PortalFragment?>): PortalBuilder {
-//        this.portalFragmentType = portalFragmentType
-//        return this
-//    }
+    fun setMaxStore(maxStore: Int): LiveUpdateBuilder {
+        this.maxStore = maxStore
+        return this
+    }
+
+    fun setMinBackgroundDuration(minBackgroundDuration: Int): LiveUpdateBuilder {
+        this.minBackgroundDuration = minBackgroundDuration
+        return this
+    }
 
     fun create(): LiveUpdate {
         val liveUpdate = LiveUpdate(appId)
         liveUpdate.channel = this.channel
-        onCreate(liveUpdate)
+        liveUpdate.maxStore = this.maxStore
+        liveUpdate.minBackgroundDuration = this.minBackgroundDuration
         return liveUpdate
     }
 

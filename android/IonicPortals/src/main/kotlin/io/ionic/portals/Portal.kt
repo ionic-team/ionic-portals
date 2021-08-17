@@ -130,6 +130,7 @@ class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
         portal.addPlugins(plugins)
         portal.initialContext = this.initialContext
         portal.portalFragmentType = this.portalFragmentType
+        portal.liveUpdate = this.liveUpdate
         onCreate(portal)
         return portal
     }

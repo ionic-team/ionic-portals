@@ -5,7 +5,7 @@ package io.ionic.portals
  */
 object PortalManager {
 
-    @JvmStatic private val portals: MutableMap<String, Portal> = mutableMapOf()
+    @JvmStatic val portals: MutableMap<String, Portal> = mutableMapOf()
 
     /**
      * Adds a Portal object given the name of the portal
