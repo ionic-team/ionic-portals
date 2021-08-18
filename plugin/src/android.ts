@@ -2,28 +2,34 @@
 import { Plugins } from '@capacitor/core';
 
 import {
-  ClearMessageListener,
   InitialContext,
-  PortalCallback,
   PortalMessage,
-  PortalsPlugin,
+  IonicPortalsPlugin,
+  PortalSubscription,
+  SubscribeOptions,
+  SubscriptionCallback,
 } from './definitions';
 import { getInitialContext } from './shared';
+export class PortalsAndroid implements IonicPortalsPlugin {
 
+  async publish(message: PortalMessage): Promise<void> {
+    return Plugins.IonicPortals.publishNative(message);
+  }
 
-export class PortalsAndroid implements PortalsPlugin {
-  clearListener(listener: ClearMessageListener): Promise<void> {
-    return Plugins.PortalsPlugin.clearListener(listener);
+  async subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription> {
+    return new Promise((res) => {
+      Plugins.IonicPortals.subscribeNative(options, (result: any) => {
+        if (result.subscriptionRef) {
+          res(result);
+        } else {
+          callback(result);
+        }
+      });
+    });
   }
-  listenForMessages(callback: PortalCallback): Promise<string> {
-    return Plugins.PortalsPlugin.listenForMessages(callback);
-  }
-  sendMessage(message: PortalMessage): Promise<void> {
-    return Plugins.PortalsPlugin.sendMessage(message);
-  }
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
-    return options;
+
+  async unsubscribe(options: PortalSubscription): Promise<void> {
+    return Plugins.IonicPortals.unsubscribeNative(options);
   }
 
   async getInitialContext<T>(): Promise<InitialContext<T>> {

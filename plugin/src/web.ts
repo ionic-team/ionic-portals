@@ -1,26 +1,22 @@
 import { WebPlugin } from '@capacitor/core';
 
 import {
-  ClearMessageListener,
   InitialContext,
-  PortalCallback,
   PortalMessage,
-  PortalsPlugin,
+  IonicPortalsPlugin,
+  PortalSubscription,
+  SubscribeOptions,
+  SubscriptionCallback,
 } from './definitions';
 import { getInitialContext } from './shared';
 
-export class PortalsWeb extends WebPlugin implements PortalsPlugin {
-  async clearListener(_listener: ClearMessageListener) {}
-  async sendMessage(_message: PortalMessage) {}
-  async listenForMessages(_callback: PortalCallback) {
-    return '';
-  }
-
-  async echo(options: { value: string }): Promise<{ value: string }> {
-    console.log('ECHO', options);
+export class PortalsWeb extends WebPlugin implements IonicPortalsPlugin {
+  async publish(_message: PortalMessage): Promise<void> { }
+  async subscribe<T = unknown>(_options: SubscribeOptions, _callback: SubscriptionCallback<T>): Promise<PortalSubscription> { return null as any; }
+  async unsubscribe(_options: PortalSubscription): Promise<void> { }
+  async echo(options: { value: string; }): Promise<{ value: string; }> {
     return options;
   }
-
   async getInitialContext<T>(): Promise<InitialContext<T>> {
     return getInitialContext<T>();
   }

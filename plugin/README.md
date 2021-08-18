@@ -12,32 +12,16 @@ npm install @ionic/portals
 
 <docgen-index>
 
-* [`echo(...)`](#echo)
 * [`getInitialContext()`](#getinitialcontext)
-* [`clearListener(...)`](#clearlistener)
-* [`listenForMessages(...)`](#listenformessages)
-* [`sendMessage(...)`](#sendmessage)
+* [`publish(...)`](#publish)
+* [`subscribe(...)`](#subscribe)
+* [`unsubscribe(...)`](#unsubscribe)
 * [Interfaces](#interfaces)
 
 </docgen-index>
 
 <docgen-api>
 <!--Update the source file JSDoc comments and rerun docgen to update the docs below-->
-
-### echo(...)
-
-```typescript
-echo(options: { value: string; }) => any
-```
-
-| Param         | Type                            |
-| ------------- | ------------------------------- |
-| **`options`** | <code>{ value: string; }</code> |
-
-**Returns:** <code>any</code>
-
---------------------
-
 
 ### getInitialContext()
 
@@ -50,45 +34,46 @@ getInitialContext<T = unknown>() => any
 --------------------
 
 
-### clearListener(...)
+### publish(...)
 
 ```typescript
-clearListener(listener: ClearMessageListener) => any
-```
-
-| Param          | Type                                                                  |
-| -------------- | --------------------------------------------------------------------- |
-| **`listener`** | <code><a href="#clearmessagelistener">ClearMessageListener</a></code> |
-
-**Returns:** <code>any</code>
-
---------------------
-
-
-### listenForMessages(...)
-
-```typescript
-listenForMessages(callback: PortalCallback) => any
-```
-
-| Param          | Type                                                                                             |
-| -------------- | ------------------------------------------------------------------------------------------------ |
-| **`callback`** | <code>(message: <a href="#portalmessage">PortalMessage</a> \| null, err?: any) =&gt; void</code> |
-
-**Returns:** <code>any</code>
-
---------------------
-
-
-### sendMessage(...)
-
-```typescript
-sendMessage(message: PortalMessage) => any
+publish(message: PortalMessage) => any
 ```
 
 | Param         | Type                                                    |
 | ------------- | ------------------------------------------------------- |
 | **`message`** | <code><a href="#portalmessage">PortalMessage</a></code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### subscribe(...)
+
+```typescript
+subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>) => any
+```
+
+| Param          | Type                                                          |
+| -------------- | ------------------------------------------------------------- |
+| **`options`**  | <code><a href="#subscribeoptions">SubscribeOptions</a></code> |
+| **`callback`** | <code>(result: { topic: string; data: T; }) =&gt; void</code> |
+
+**Returns:** <code>any</code>
+
+--------------------
+
+
+### unsubscribe(...)
+
+```typescript
+unsubscribe(options: PortalSubscription) => any
+```
+
+| Param         | Type                                                              |
+| ------------- | ----------------------------------------------------------------- |
+| **`options`** | <code><a href="#portalsubscription">PortalSubscription</a></code> |
 
 **Returns:** <code>any</code>
 
@@ -106,18 +91,26 @@ sendMessage(message: PortalMessage) => any
 | **`value`** | <code>T</code>      |
 
 
-#### ClearMessageListener
-
-| Prop     | Type                |
-| -------- | ------------------- |
-| **`id`** | <code>string</code> |
-
-
 #### PortalMessage
 
-| Prop          | Type                |
-| ------------- | ------------------- |
-| **`message`** | <code>string</code> |
-| **`payload`** | <code>any</code>    |
+| Prop        | Type                |
+| ----------- | ------------------- |
+| **`topic`** | <code>string</code> |
+| **`data`**  | <code>any</code>    |
+
+
+#### SubscribeOptions
+
+| Prop        | Type                |
+| ----------- | ------------------- |
+| **`topic`** | <code>string</code> |
+
+
+#### PortalSubscription
+
+| Prop                  | Type                |
+| --------------------- | ------------------- |
+| **`subscriptionRef`** | <code>number</code> |
+| **`topic`**           | <code>string</code> |
 
 </docgen-api>
