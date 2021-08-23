@@ -37,12 +37,12 @@ getInitialContext<T = unknown>() => any
 ### publish(...)
 
 ```typescript
-publish(message: PortalMessage) => any
+publish<TData>(message: PortalMessage<TData>) => any
 ```
 
-| Param         | Type                                                    |
-| ------------- | ------------------------------------------------------- |
-| **`message`** | <code><a href="#portalmessage">PortalMessage</a></code> |
+| Param         | Type                                                                 |
+| ------------- | -------------------------------------------------------------------- |
+| **`message`** | <code><a href="#portalmessage">PortalMessage</a>&lt;TData&gt;</code> |
 
 **Returns:** <code>any</code>
 
@@ -96,7 +96,7 @@ unsubscribe(options: PortalSubscription) => any
 | Prop        | Type                |
 | ----------- | ------------------- |
 | **`topic`** | <code>string</code> |
-| **`data`**  | <code>any</code>    |
+| **`data`**  | <code>TData</code>  |
 
 
 #### SubscribeOptions

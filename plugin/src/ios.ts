@@ -1,19 +1,19 @@
 /* eslint-disable @typescript-eslint/consistent-type-imports */
 import { Plugins } from '@capacitor/core';
 
-import { PortalMessage, IonicPortalsPlugin, PortalSubscription, SubscribeOptions, SubscriptionCallback } from './definitions';
+import { PortalMessage, PortalsPlugin, PortalSubscription, SubscribeOptions, SubscriptionCallback } from './definitions';
 import { getInitialContext } from './shared';
 
-export class PortalsIOS implements IonicPortalsPlugin {
+export class PortalsIOS implements PortalsPlugin {
 
   async publish(message: PortalMessage): Promise<void> {
-    return Plugins.IonicPortals.publishNative(message);
+    return Plugins.Portals.publishNative(message);
   }
 
   async subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription> {
     return new Promise((res) => {
       let subscribed = false;
-      Plugins.IonicPortals.subscribeNative(options, (result: any) => {
+      Plugins.Portals.subscribeNative(options, (result: any) => {
         if (!subscribed) {
           res(result);
           subscribed = true;
@@ -25,7 +25,7 @@ export class PortalsIOS implements IonicPortalsPlugin {
   }
 
   async unsubscribe(options: PortalSubscription): Promise<void> {
-    return Plugins.IonicPortals.unsubscribeNative(options);
+    return Plugins.Portals.unsubscribeNative(options);
   }
 
   async getInitialContext<T>() {

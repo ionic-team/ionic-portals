@@ -4,23 +4,25 @@ import { Plugins } from '@capacitor/core';
 import {
   InitialContext,
   PortalMessage,
-  IonicPortalsPlugin,
+  PortalsPlugin,
   PortalSubscription,
   SubscribeOptions,
   SubscriptionCallback,
 } from './definitions';
 import { getInitialContext } from './shared';
-export class PortalsAndroid implements IonicPortalsPlugin {
+export class PortalsAndroid implements PortalsPlugin {
 
   async publish(message: PortalMessage): Promise<void> {
-    return Plugins.IonicPortals.publishNative(message);
+    return Plugins.Portals.publishNative(message);
   }
 
   async subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription> {
     return new Promise((res) => {
-      Plugins.IonicPortals.subscribeNative(options, (result: any) => {
-        if (result.subscriptionRef) {
+      let subscribed = false;
+      Plugins.Portals.subscribeNative(options, (result: any) => {
+        if (!subscribed) {
           res(result);
+          subscribed = true;
         } else {
           callback(result);
         }
@@ -29,7 +31,7 @@ export class PortalsAndroid implements IonicPortalsPlugin {
   }
 
   async unsubscribe(options: PortalSubscription): Promise<void> {
-    return Plugins.IonicPortals.unsubscribeNative(options);
+    return Plugins.Portals.unsubscribeNative(options);
   }
 
   async getInitialContext<T>(): Promise<InitialContext<T>> {

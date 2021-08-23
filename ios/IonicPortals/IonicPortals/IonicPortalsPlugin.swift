@@ -16,12 +16,6 @@ public class IonicPortalsPlugin: CAPPlugin {
         }
         let data = call.getObject("data")
         IonicPortalsPlugin.publish(topic, data!)
-//        if let subscription = IonicPortalsPlugin.subscriptions[topic] {
-//            let data = call.getObject("data")
-//            for(_, listener) in subscription {
-//                listener(data as Any)
-//            }
-//        }
         call.resolve()
     }
     

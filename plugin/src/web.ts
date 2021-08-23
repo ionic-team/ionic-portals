@@ -3,14 +3,14 @@ import { WebPlugin } from '@capacitor/core';
 import {
   InitialContext,
   PortalMessage,
-  IonicPortalsPlugin,
+  PortalsPlugin,
   PortalSubscription,
   SubscribeOptions,
   SubscriptionCallback,
 } from './definitions';
 import { getInitialContext } from './shared';
 
-export class PortalsWeb extends WebPlugin implements IonicPortalsPlugin {
+export class PortalsWeb extends WebPlugin implements PortalsPlugin {
   async publish(_message: PortalMessage): Promise<void> { }
   async subscribe<T = unknown>(_options: SubscribeOptions, _callback: SubscriptionCallback<T>): Promise<PortalSubscription> { return null as any; }
   async unsubscribe(_options: PortalSubscription): Promise<void> { }

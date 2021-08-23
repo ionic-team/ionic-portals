@@ -1,12 +1,12 @@
 import { registerPlugin } from '@capacitor/core';
 
-import type { IonicPortalsPlugin } from './definitions';
+import type { PortalsPlugin } from './definitions';
 
-const IonicPortals = registerPlugin<IonicPortalsPlugin>('IonicPortals', {
+const Portals = registerPlugin<PortalsPlugin>('Portals', {
   web: () => import('./web').then(m => new m.PortalsWeb()),
   android: () => import('./android').then(m => new m.PortalsAndroid()),
   ios: () => import('./ios').then(m => new m.PortalsIOS())
 });
 
 export * from './definitions';
-export default IonicPortals;
+export default Portals;
