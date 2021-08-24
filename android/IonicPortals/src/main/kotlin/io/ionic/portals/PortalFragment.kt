@@ -156,14 +156,14 @@ open class PortalFragment : Fragment {
 
             when (member.parameters.size) {
                 1 -> {
-                    val ref = PortalsPlugin.subscribe(methodName) { data ->
+                    val ref = PortalsPlugin.subscribe(methodName) { result ->
                         member.call(messageReceiverParent)
                     }
                     subscriptions[methodName] = ref
                 }
                 2 -> {
-                    val ref = PortalsPlugin.subscribe(methodName) { data ->
-                        member.call(messageReceiverParent, data["data"])
+                    val ref = PortalsPlugin.subscribe(methodName) { result ->
+                        member.call(messageReceiverParent, result.data)
                     }
                     subscriptions[methodName] = ref
                 }

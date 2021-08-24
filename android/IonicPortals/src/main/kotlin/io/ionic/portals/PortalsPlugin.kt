@@ -9,25 +9,22 @@ class PortalsPlugin : Plugin() {
 
     companion object {
         @JvmStatic
-        var subscriptions = mutableMapOf<String, MutableMap<Int, (data: Map<String, Any>) -> Unit>>()
+        var subscriptions = mutableMapOf<String, MutableMap<Int, (data: SubscriptionResult) -> Unit>>()
         @JvmStatic
         var subscriptionRef = 0
+
         @JvmStatic
         fun publish(topic: String, data: Any) {
             subscriptions[topic]?.let {
                 for((ref, listener) in it) {
-                    val result = mutableMapOf<String, Any>(
-                        "topic" to topic,
-                        "subscriptionRef" to ref,
-                        "data" to data
-                    )
+                    val result = SubscriptionResult(topic, data, ref)
                     listener(result)
                 }
             }
         }
 
         @JvmStatic
-        fun subscribe(topic: String, callback: (data: Map<String, Any>) -> Unit): Int {
+        fun subscribe(topic: String, callback: (result: SubscriptionResult) -> Unit): Int {
             subscriptionRef++
             subscriptions[topic]?.let { subscription ->
                 subscription[subscriptionRef] = callback
@@ -53,11 +50,7 @@ class PortalsPlugin : Plugin() {
             return
         }
         val data = call.data.get("data");
-        if(data is JSONObject) {
-            PortalsPlugin.publish(topic, (data as JSONObject).toMap())
-        } else {
-            PortalsPlugin.publish(topic, data)
-        }
+        PortalsPlugin.publish(topic, data)
         call.resolve()
     }
 
@@ -68,8 +61,8 @@ class PortalsPlugin : Plugin() {
             return
         }
         call.setKeepAlive(true)
-        val ref = PortalsPlugin.subscribe(topic) { data ->
-            call.resolve(JSObject(JSONObject(data).toString()))
+        val ref = PortalsPlugin.subscribe(topic) { result ->
+            call.resolve(result.toJSObject())
         }
         val result = JSObject()
         result.put("topic", topic)
@@ -99,4 +92,18 @@ fun JSONObject.toMap(): Map<String, Any> {
         map[it] = this.get(it)
     }
     return map
+}
+
+data class SubscriptionResult(
+    val topic: String,
+    val data: Any,
+    val subscriptionRef: Int
+) {
+    fun toJSObject(): JSObject {
+        val jsObject = JSObject()
+        jsObject.put("topic", this.topic)
+        jsObject.put("data", this.data)
+        jsObject.put("subscriptionRef", this.subscriptionRef)
+        return jsObject
+    }
 }
