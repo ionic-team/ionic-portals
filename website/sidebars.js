@@ -30,7 +30,16 @@ module.exports = {
       items: [
         "android-overview",
         "android-tutorials",
-        "android-api-reference"
+        {
+          type: "category",
+          label: "API Reference",
+          collapsed: false,
+          items: [
+            "android/portal",
+            "android/portal-builder",
+            "android/portal-manager",
+          ],
+        }
       ],
     },
     {

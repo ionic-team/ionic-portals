@@ -13,9 +13,9 @@ module.exports = {
   projectName: 'portals-docs',
   themeConfig: {
     navbar: {
-      title: 'Auth Connect',
+      title: 'Portals',
       logo: {
-        alt: 'Auth Connect Logo',
+        alt: 'Portals Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -53,7 +53,7 @@ module.exports = {
               rel: null,
             },
             {
-              to: 'https://ionic.io/docs/auth-connect',
+              href: 'https://ionic.io/docs/auth-connect',
               label: 'Auth Connect',
               target: null,
               rel: null,
@@ -70,6 +70,12 @@ module.exports = {
               target: null,
               rel: null,
             },
+            {
+              to: 'https://ionic.io/docs/portals',
+              label: 'Portals',
+              target: null,
+              rel: null,
+            },
           ],
         },
       ],
@@ -82,7 +88,9 @@ module.exports = {
     },
     prism: {
       theme: { plain: {}, styles: [] },
-      additionalLanguages: ['shell-session'],
+      additionalLanguages: [
+        'shell-session', 'kotlin', 'groovy', 'java',
+      ],
     },
   },
   plugins: ['@ionic-internal/docusaurus-plugin-tag-manager', 'docusaurus-plugin-sass'],
