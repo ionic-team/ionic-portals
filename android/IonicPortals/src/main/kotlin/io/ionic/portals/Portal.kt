@@ -11,6 +11,19 @@ class Portal(
      */
     val name: String
 ) {
+    /**
+     * Get the list of Capacitor [Plugin] registered with the Portal.
+     *
+     * @return The list of plugins registered with the Portal.
+     */
+    internal val plugins = ArrayList<Class<out Plugin?>>()
+
+    /**
+     * Initialize the Portal and add the PortalsPlugin by default.
+     */
+    init {
+        this.plugins.add(PortalsPlugin::class.java)
+    }
 
     /**
      * The initial context to pass to the webview.
@@ -19,13 +32,6 @@ class Portal(
      */
     var initialContext: Any? = null
         internal set
-
-    /**
-     * Get the list of Capacitor [Plugin] registered with the Portal.
-     *
-     * @return The list of plugins registered with the Portal.
-     */
-    internal val plugins = ArrayList<Class<out Plugin?>>()
 
     /**
      * The [PortalFragment] type used by a [PortalView] when using Portals directly in
@@ -50,7 +56,9 @@ class Portal(
      * @param plugin A Plugin to be used with the Portal.
      */
     fun addPlugin(plugin: Class<out Plugin?>) {
-        plugins.add(plugin)
+        if(plugin != PortalsPlugin::class.java) {
+            plugins.add(plugin)
+        }
     }
 
     /**
@@ -59,7 +67,9 @@ class Portal(
      * @param plugin A Plugin to be used with the Portal.
      */
     fun addPlugins(plugins: List<Class<out Plugin?>>) {
-        this.plugins.addAll(plugins)
+        plugins.forEach {
+            this.addPlugin(it)
+        }
     }
 
     /**
