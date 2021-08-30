@@ -5,6 +5,8 @@ package io.ionic.portals
  */
 object PortalManager {
 
+    @JvmStatic private var registered: Boolean = false
+
     @JvmStatic private val portals: MutableMap<String, Portal> = mutableMapOf()
 
     /**
@@ -26,6 +28,14 @@ object PortalManager {
 
     @JvmStatic fun size(): Int {
         return portals.size
+    }
+
+    @JvmStatic fun register() {
+        registered = true
+    }
+
+    @JvmStatic fun isRegistered(): Boolean {
+        return registered;
     }
 
     /**

@@ -2,14 +2,15 @@ package io.ionic.portals
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import android.webkit.WebView
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import com.getcapacitor.*
 import org.json.JSONException
 import org.json.JSONObject
-import java.lang.Error
 import kotlin.reflect.KVisibility
 
 open class PortalFragment : Fragment {
@@ -23,10 +24,19 @@ open class PortalFragment : Fragment {
     private var portalsPlugin: PortalsPlugin? = null
     private val messageHandlers: MutableMap<String, PortalListener> = HashMap()
 
-    constructor() : super(R.layout.fragment_bridge)
+    constructor()
 
-    constructor(portal: Portal?) : super(R.layout.fragment_bridge) {
+    constructor(portal: Portal?) {
         this.portal = portal
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val layout : Int = if(PortalManager.isRegistered()) R.layout.fragment_bridge else R.layout.fragment_unregistered
+        return inflater.inflate(layout, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -78,21 +88,25 @@ open class PortalFragment : Fragment {
     /**
      * Load the WebView and create the Bridge
      */
-    protected fun load(savedInstanceState: Bundle?) {
-        setupInitialContextListener()
-        attachPortalsPlugin()
-        if (bridge == null) {
-            Logger.debug("Loading Bridge with Portal")
-            val startDir: String = portal?.startDir!!
-            initialPlugins.addAll(portal?.plugins!!)
-            bridge = Bridge.Builder(this)
-                .setInstanceState(savedInstanceState)
-                .setPlugins(initialPlugins)
-                .setConfig(config)
-                .addWebViewListeners(webViewListeners)
-                .create()
-            bridge?.setServerAssetPath(startDir)
-            keepRunning = bridge?.shouldKeepRunning()!!
+    private fun load(savedInstanceState: Bundle?) {
+        if (PortalManager.isRegistered()) {
+            setupInitialContextListener()
+            attachPortalsPlugin()
+            if (bridge == null) {
+                Logger.debug("Loading Bridge with Portal")
+                val startDir: String = portal?.startDir!!
+                initialPlugins.addAll(portal?.plugins!!)
+                bridge = Bridge.Builder(this)
+                    .setInstanceState(savedInstanceState)
+                    .setPlugins(initialPlugins)
+                    .setConfig(config)
+                    .addWebViewListeners(webViewListeners)
+                    .create()
+                bridge?.setServerAssetPath(startDir)
+                keepRunning = bridge?.shouldKeepRunning()!!
+            }
+        } else {
+            Logger.error("This copy of Portals is not registered! Enter your Portals registration key to use Portals.")
         }
     }
 
