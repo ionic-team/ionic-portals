@@ -1,13 +1,14 @@
 package io.ionic.portals
 
+import android.util.Log
+
 /**
  * A singleton object for managing portals
  */
 object PortalManager {
 
-    @JvmStatic private var registered: Boolean = false
-
     @JvmStatic private val portals: MutableMap<String, Portal> = mutableMapOf()
+    @JvmStatic private var registered: Boolean = false
 
     /**
      * Adds a Portal object given the name of the portal
@@ -15,6 +16,10 @@ object PortalManager {
      */
     @JvmStatic fun addPortal(portal: Portal) {
         portals[portal.name] = portal
+
+        if (!registered) {
+            Log.w("Portals", "Don't forget to register your copy of portals!")
+        }
     }
 
     /**
@@ -30,12 +35,15 @@ object PortalManager {
         return portals.size
     }
 
+    /**
+     * Todo: Replace stub register method with actual registration logic
+     */
     @JvmStatic fun register() {
         registered = true
     }
 
     @JvmStatic fun isRegistered(): Boolean {
-        return registered;
+        return registered
     }
 
     /**

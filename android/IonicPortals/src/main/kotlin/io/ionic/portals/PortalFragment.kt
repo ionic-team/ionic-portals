@@ -35,7 +35,7 @@ open class PortalFragment : Fragment {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val layout : Int = if(PortalManager.isRegistered()) R.layout.fragment_bridge else R.layout.fragment_unregistered
+        val layout = if(PortalManager.isRegistered()) R.layout.fragment_bridge else R.layout.fragment_unregistered
         return inflater.inflate(layout, container, false)
     }
 
