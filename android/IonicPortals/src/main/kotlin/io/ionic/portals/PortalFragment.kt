@@ -22,8 +22,7 @@ open class PortalFragment : Fragment {
     private val initialPlugins: MutableList<Class<out Plugin?>> = ArrayList()
     private var config: CapConfig? = null
     private val webViewListeners: MutableList<WebViewListener> = ArrayList()
-    private var portalsPlugin: PortalsPlugin? = null
-    private val messageHandlers: MutableMap<String, PortalListener> = HashMap()
+    private var subscriptions = mutableMapOf<String, Int>()
 
     constructor()
 
@@ -49,6 +48,9 @@ open class PortalFragment : Fragment {
         super.onDestroy()
         if (bridge != null) {
             bridge?.onDestroy()
+        }
+        for ((topic, ref) in subscriptions) {
+            PortalsPlugin.unsubscribe(topic, ref)
         }
     }
 
@@ -92,7 +94,6 @@ open class PortalFragment : Fragment {
     private fun load(savedInstanceState: Bundle?) {
         if (PortalManager.isRegistered()) {
             setupInitialContextListener()
-            attachPortalsPlugin()
             if (bridge == null) {
                 Logger.debug("Loading Bridge with Portal")
                 val startDir: String = portal?.startDir!!
@@ -144,58 +145,12 @@ open class PortalFragment : Fragment {
         }
     }
 
-    private fun attachPortalsPlugin() {
-        val listener = object: WebViewListener() {
-            override fun onPageLoaded(webView: WebView?) {
-                super.onPageLoaded(webView)
-                setupPortalsPlugin()
-            }
-        }
-
-        webViewListeners.add(listener)
-    }
-
-    private fun setupPortalsPlugin() {
-        val pluginHandle = getBridge()?.getPlugin("Portals")
-        if (pluginHandle?.instance is PortalsPlugin) {
-            portalsPlugin = pluginHandle.instance as? PortalsPlugin
-            portalsPlugin!!.portalFragment = this
-        }
-    }
-
-    internal fun receiveMessage(message: String, payload: String?) {
-        when (val msgHandler = messageHandlers[message]) {
-            is PayloadListener -> msgHandler.onMessageReceived(payload)
-            is EmptyListener -> msgHandler.onMessageReceived()
-        }
-    }
-
-    /**
-     * Send a message to the web app listening through the Portal.
-     */
-    fun sendMessage(message : String, payload : String) {
-        val data = JSObject()
-        data.put("message", message)
-        data.put("payload", payload)
-        portalsPlugin?.sendMessageToWebApp(data)
-    }
-
-    /**
-     * Register a message receiver to subscribe to messages through the Portal from the web app.
-     *
-     * The name of the message receiver should match the message name used to send messages from
-     * the web app via the Portal. When a message is received the payload will be passed through.
-     */
-    fun addMessageReceiver(name: String, messageHandler: PortalListener) {
-        messageHandlers[name] = messageHandler
-    }
-
     /**
      * Link a class with methods decorated with the [PortalMethod] annotation to use as Portals
      * message receivers.
      *
      * The name of the method should match the message name used to send messages via the Portal.
-     * Alternatively the [PortalMethod] annotation name property can be used to designate a
+     * Alternatively the [PortalMethod] annotation topic property can be used to designate a
      * different name. The registered methods should accept a single String representing the payload
      * of a message sent through the Portal.
      */
@@ -205,8 +160,8 @@ open class PortalFragment : Fragment {
         for (member in members) {
             var methodName = member.name
             for (annotation in member.annotations) {
-                if (annotation is PortalMethod && annotation.name.isNotEmpty()) {
-                    methodName = annotation.name
+                if (annotation is PortalMethod && annotation.topic.isNotEmpty()) {
+                    methodName = annotation.topic
                 }
             }
 
@@ -215,16 +170,19 @@ open class PortalFragment : Fragment {
             }
 
             when (member.parameters.size) {
-                1 -> messageHandlers[methodName] = object : EmptyListener {
-                        override fun onMessageReceived() {
-                            member.call(messageReceiverParent)
-                        }
+                1 -> {
+                    val ref = PortalsPlugin.subscribe(methodName) { result ->
+                        member.call(messageReceiverParent)
                     }
-                2 -> messageHandlers[methodName] = object : PayloadListener {
-                        override fun onMessageReceived(data: String?) {
-                            member.call(messageReceiverParent, data)
-                        }
+                    subscriptions[methodName] = ref
+                }
+                2 -> {
+                    val ref = PortalsPlugin.subscribe(methodName) { result ->
+                        member.call(messageReceiverParent, result.data)
                     }
+                    subscriptions[methodName] = ref
+                }
+
                 else -> {
                     throw IllegalArgumentException("Portal Method '${member.name}' must" +
                             " contain zero parameters or a single String parameter!")

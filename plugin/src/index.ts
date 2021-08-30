@@ -9,4 +9,4 @@ const Portals = registerPlugin<PortalsPlugin>('Portals', {
 });
 
 export * from './definitions';
-export { Portals };
+export default Portals;

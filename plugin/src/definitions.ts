@@ -1,25 +1,23 @@
 export interface PortalsPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
   getInitialContext<T = unknown>(): Promise<InitialContext<T>>;
-  clearListener(listener: ClearMessageListener): Promise<void>;
-  listenForMessages(callback: PortalCallback): Promise<CallbackID>;
-  sendMessage(message: PortalMessage): Promise<void>;
+  publish<TData>(message: PortalMessage<TData>): Promise<void>;
+  subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription>;
+  unsubscribe(options: PortalSubscription): Promise<void>;
 }
-
 export interface InitialContext<T = unknown> {
   name: string;
   value: T;
 }
-
-export type CallbackID = string;
-
-export type PortalCallback = (message: PortalMessage | null, err?: any) => void;
-
-export interface PortalMessage {
-  message: string;
-  payload?: any;
+export interface PortalMessage<TData = any> {
+  topic: string;
+  data?: TData;
+}
+export interface SubscribeOptions {
+  topic: string;
+}
+export interface PortalSubscription {
+  subscriptionRef: number;
+  topic: string;
 }
 
-export interface ClearMessageListener {
-  id: CallbackID;
-}
+export type SubscriptionCallback<T = unknown> = (result: { topic: string, data: T; }) => void;
