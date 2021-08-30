@@ -2,6 +2,7 @@ package io.ionic.portals
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -106,7 +107,7 @@ open class PortalFragment : Fragment {
                 keepRunning = bridge?.shouldKeepRunning()!!
             }
         } else {
-            Logger.error("This copy of Portals is not registered! Enter your Portals registration key to use Portals.")
+            Log.e("Portals", "This copy of Portals is not registered! Enter your Portals registration key to use Portals.")
         }
     }
 
