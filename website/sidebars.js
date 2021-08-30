@@ -37,6 +37,7 @@ module.exports = {
           items: [
             "android/portal",
             "android/portal-builder",
+            "android/portal-fragment",
             "android/portal-manager",
           ],
         }
