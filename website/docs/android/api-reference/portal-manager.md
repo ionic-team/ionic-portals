@@ -6,7 +6,7 @@ sidebar_label: Portal Manager
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `PortalManager` object is used to create a and manage multiple `Portal` instances. It follows a [Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to allow access to any `Portal` from anywhere in the application. `PortalManager` can be used in situations where you want to programmatically create a `Portal` at runtime rather than defining it via XML. An example of how to create a `Portal` using the `PortalManager` class is directly below.
+The [PortalManager](./portal-manager) object is used to create a and manage multiple [Portal](./portal) instances. It follows a [Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to allow access to any [Portal](./portal) from anywhere in the application. [PortalManager](./portal-manager) can be used in situations where you want to programmatically create a [Portal](./portal) at runtime rather than defining it via XML. An example of how to create a [Portal](./portal) using the [PortalManager](./portal-manager) class is directly below.
 
 <Tabs 
     defaultValue="kt" 
@@ -46,7 +46,7 @@ PortalManager.newPortal("my_portal")
 ### addPortal
 _static_
 
-Add an existing `Portal` to the `PortalManager` object. This is not neccessary if the `Portal` is created via the `PortalManager.newPortal()` function.
+Add an existing [Portal](./portal) to the [PortalManager](./portal-manager) object. This is not neccessary if the [Portal](./portal) is created via the [PortalManager.newPortal()](./portal-manager#newportal) function.
 
 #### Usage
 <Tabs 
@@ -78,14 +78,14 @@ PortalManager.addPortal(portal)
 
 Name | Type | Description
 :------ | :------ | :------
-`portal` | `Portal` | An existing `Portal` to add to the `PortalManager`.
+`portal` | [Portal](./portal) | An existing [Portal](./portal) to add to the [PortalManager](./portal-manager).
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 
 ### getPortal
 _static_
 
-Gets an existing `Portal` on the `PortalManager` object. This function will throw an `IllegalStateException` if the `Portal` is not found.
+Gets an existing [Portal](./portal) on the [PortalManager](./portal-manager) object. This function will throw an [IllegalStateException](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/IllegalStateException.html) if the [Portal](./portal) is not found.
 
 #### Usage
 <Tabs 
@@ -117,14 +117,14 @@ Portal portal = PortalManager.getPortal("my_portal");
 
 Name | Type | Description
 :------ | :------ | :------
-`name` | `String` | The `Portal` name to look up in the `PortalManager` object.
+`name` | `String` | The [Portal](./portal) name to look up in the [PortalManager](./portal-manager) object.
 
 **Returns:** <span class="return-code">[*Portal*](./portal)</span>
 
 ### size
 _static_
 
-Returns the number of `Portal` instances managed by the `PortalManager` object.
+Returns the number of [Portal](./portal) instances managed by the [PortalManager](./portal-manager) object.
 
 #### Usage
 
@@ -155,14 +155,14 @@ int portalCount = PortalManager.size();
 
 Name | Type | Description
 :------ | :------ | :------
-`name` | `String` | The `Portal` name to look up in the `PortalManager` object.
+`name` | `String` | The [Portal](./portal) name to look up in the [PortalManager](./portal-manager) object.
 
 **Returns:** <span class="return-code">*Int*</span>
 
 ### newPortal
 _static_
 
-A function to create a `PortalBuilder` class and, after building, add it to the `PortalManager`. Classes built with the `newPortal()` function are added to the `PortalManager` automatically.
+A function to create a [PortalBuilder](./portal-builder) class and, after building, add it to the [PortalManager](./portal-manager). Classes built with the [PortalManager.newPortal()](./portal-manager#newportal)` function are added to the [PortalManager](./portal-manager) automatically.
 
 #### Usage
 
@@ -195,6 +195,6 @@ Portal portal = builder.create();
 
 Name | Type | Description
 :------ | :------ | :------
-`name` | `String` | The `Portal` name to create.
+`name` | `String` | The [Portal](./portal) name to create.
 
 **Returns:** <span class="return-code">[*Portal*](./portal)</span>

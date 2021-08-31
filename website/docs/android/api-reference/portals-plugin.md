@@ -6,7 +6,7 @@ sidebar_label: Portals Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `PortalsPlugin` class is a Capacitor Plugin that allows for bi-directional communication between Android code and Web code. It is not meant to be used directly. To include it in your `Portal`, add it via the `.setPlugins()` function on the `PortalBuilder`.
+The [PortalsPlugin](./portals-plugin) class is a Capacitor Plugin that allows for bi-directional communication between Android code and Web code. It is not meant to be used directly. To include it in your [Portal](./portal), add it via the [PortalBuilder.setPlugins()](./portal-builder#setplugins) function.
 
 <Tabs 
     defaultValue="kt" 

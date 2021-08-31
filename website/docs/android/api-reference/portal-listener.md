@@ -6,9 +6,9 @@ sidebar_label: Portal Listener
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-`PortalListener` is an empty, shared interface for `PayloadListener` and `EmptyListener`. These classes are used internally to listen to events triggered from the [PortalsPlugin](./portals-plugin) and aren't meant to be used directly.
+[PortalListener](./portal-listener) is an empty, shared interface for [PayloadListener](./portal-listener#payloadlistener) and [EmptyListener](./portal-listener#emptylistener). These classes are used internally to listen to events triggered from the [PortalsPlugin](./portals-plugin) and aren't meant to be used directly.
 
-When using [PortalFragment.addMessageReceiver()](./portal-fragment#addmessagereceiver) you can implement either a `PayloadListener` or an `EmptyListener`. Both interfaces are documented below.
+When using [PortalFragment.addMessageReceiver()](./portal-fragment#addmessagereceiver) you can implement either a [PayloadListener](./portal-listener#payloadlistener) or an [EmptyListener](./portal-listener#emptylistener). Both interfaces are documented below.
 
 ## PayloadListener
 

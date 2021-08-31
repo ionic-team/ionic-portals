@@ -6,7 +6,7 @@ sidebar_label: Portal
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `Portal` class is the main entry point for your application. It contains the data to be passed into the web context. It is not advised to use this class directly. [PortalBuilder](./portal-builder) or [PortalManager](./portal-manager) should be used instead to construct a `Portal` instance.
+The [Portal](./portal) class is the main entry point for your application. It contains the data to be passed into the web context. It is not advised to use this class directly. [PortalBuilder](./portal-builder) or [PortalManager](./portal-manager) should be used instead to construct a [Portal](./portal) instance.
 
 ## Constructors
 
@@ -43,7 +43,7 @@ Portal portal = new Portal(name);
 
 Name | Type | Description
 :------ | :------ | :------ 
-`name` | `String` | The name of the `Portal` to be referenced via the `PortalManager` or the `PortalView`
+`name` | `String` | The name of the [Portal](./portal) to be referenced via the [PortalManager](./portal-manager) or the [PortalView](./portal-view)
 
 **Returns:** <span class="return-code">[*Portal*](./portal)</span>
 
@@ -84,7 +84,7 @@ String directoryOnDevice = portal.startDir;
 **Returns:** <span class="return-code">String</span>
 
 ### portalFragmentType
-The [PortalFragment](./portal-fragment) type used by a [PortalView](./portal-view) when using Portals directly in Android layouts/XML. The default value is `PortalFragment`, but any class that extends `PortalFragment` can be used.
+The [PortalFragment](./portal-fragment) type used by a [PortalView](./portal-view) when using Portals directly in Android layouts/XML. The default value is [PortalFragment](./portal-fragment), but any class that extends [PortalFragment](./portal-fragment) can be used.
 
 #### Usage 
 

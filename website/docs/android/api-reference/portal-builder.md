@@ -6,9 +6,9 @@ sidebar_label: Portal Builder
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `PortalBuilder` class is used to create a `Portal` instance. It follows a [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern) to construct a portal using values passed in at runtime. `PortalBuilder` can be used in situations where you want to programmatically create a single `Portal` at runtime rather than defining it via XML. For managing multiple `Portal` instances in an application, it is recommended to use the [PortalManager](./portal-manager) class.
+The [PortalBuilder](./portal-builder) class is used to create a [Portal](./portal) instance. It follows a [Builder Pattern](https://en.wikipedia.org/wiki/Builder_pattern) to construct a portal using values passed in at runtime. [PortalBuilder](./portal-builder) can be used in situations where you want to programmatically create a single [Portal](./portal)  at runtime rather than defining it via XML. For managing multiple [Portal](./portal) instances in an application, it is recommended to use the [PortalManager](./portal-manager) class.
 
-An example of how to create a `Portal` using the `PortalBuilder` class is directly below.
+An example of how to create a [Portal](./portal) using the [PortalBuilder](./portal-builder) class is directly below.
 
 <Tabs 
     defaultValue="kt" 
@@ -83,8 +83,8 @@ PortalBuilder builder = new PortalBuilder(name, portal -> {
 
 Name | Type | Description
 :------ | :------ | :------ 
-`name` | `String` | The name of the `Portal` to be referenced via the `PortalManager` or the `PortalView`
-`onCreate` | `(portal: Portal) -> Unit` | A callback function that is called during the `PortalBuilder.create()` function
+`name` | `String` | The name of the [Portal](./portal) to be referenced via the [PortalManager](./portal-manager) or the [PortalView](./portal-view)
+`onCreate` | `(portal: Portal) -> Unit` | A callback function that is called during the [PortalBuilder.create()](./portal-builder#create) function
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-buidler)</span>
 
@@ -92,7 +92,7 @@ Name | Type | Description
 
 ### setStartDir
 
-Set the directory of the `Portal`. This directory is the on device directory of where your web application is located.
+Set the directory of the [Portal](./portal). This directory is the on device directory of where your web application is located.
 
 #### Usage 
 
@@ -125,13 +125,13 @@ builder = builder.setStartDir("/path/to/web/application/");
 
 Name | Type | Description
 :------ | :------ | :------
-`startDir` | `String` | The on device directory of the web application that this `Portal` uses.
+`startDir` | `String` | The on device directory of the web application that this [Portal](./portal) uses.
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 
 ### addPlugin
 
-Add a Capacitor Plugin to be loaded with the `Portal` being built.
+Add a Capacitor Plugin to be loaded with the [Portal](./portal) being built.
 
 #### Usage 
 
@@ -164,13 +164,13 @@ builder = builder.addPlugin(MyPlugin.class)
 
 Name | Type | Description
 :------ | :------ | :------
-`plugin` | `Class<out Plugin?>` | A Plugin to be used with the `Portal`.
+`plugin` | `Class<out Plugin?>` | A Plugin to be used with the [Portal](./portal).
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 
 ### setPlugins
 
-Add multiple Capacitor Plugins to be loaded with this `Portal`.
+Add multiple Capacitor Plugins to be loaded with this [Portal](./portal).
 
 #### Usage 
 
@@ -213,7 +213,7 @@ builder = builder.setPlugins(list);
 
 Name | Type | Description
 :------ | :------ | :------
-`plugins` | `MutableList<Class<out Plugin?>>` | A list of Plugins to be used with the Portal.
+`plugins` | `MutableList<Class<out Plugin?>>` | A list of Plugins to be used with the [Portal](./portal).
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 
@@ -321,7 +321,7 @@ Name | Type | Description
 
 ### setPortalFragmentType
 
-Sets the `PortalFragment` class to use when displaying the `Portal`.
+Sets the [PortalFragment](./portal-fragment) class to use when displaying the [Portal](./portal).
 
 #### Usage 
 
@@ -356,13 +356,13 @@ builder = builder.setPortalFragmentType(list);
 
 Name | Type | Description
 :------ | :------ | :------
-`portalFragmentType` | `Class<out PortalFragment?>` | The class object of type `PortalFragment` to use for containing the `Portal`
+`portalFragmentType` | `Class<out PortalFragment?>` | The class object of type [PortalFragment](./portal-fragment) to use for containing the [Portal](./portal)
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 
 ### create
 
-Creates a `Portal` instance from the current state of `PortalBuilder` 
+Creates a [Portal](./portal) instance from the current state of [PortalBuilder](./portal-builder) 
 
 #### Usage 
 

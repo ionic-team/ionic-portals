@@ -6,9 +6,9 @@ sidebar_label: "@PortalMethod"
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `@PortalMethod` annotation is used to easily create functions to use with the `PortalsPlugin`. A function with a `@PortalMethod` can be triggered by using the `Portals.sendMessage()` function from the `PortalsPlugin` class with the `message` parameter on the web code matching the function name in the native code.
+The [@PortalMethod](./portal-method) annotation is used to easily create functions to use with the [PortalsPlugin](./portals-plugin). A function with a [@PortalMethod](./portal-method) can be triggered by using the [Portals.sendMessage()](./portals-plugin) function from the [PortalsPlugin](./portals-plugin) class with the `message` parameter on the web code matching the function name in the native code.
 
-The below example shows how to setup a function `nativeFunction` on an Android `Fragment` and call it from the web code.
+The below example shows how to setup a function `nativeFunction` on an Android [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment) and call it from the web code.
 
 ### Android
 <Tabs 
