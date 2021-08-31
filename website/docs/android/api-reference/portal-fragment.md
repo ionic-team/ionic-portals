@@ -6,9 +6,9 @@ sidebar_label: Portal Fragment
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The `PortalFragment` class is an Android `Fragment` containing a `Portal` instance. You can use the class as is, or extend it to provide customizable loading functionality. 
+The `PortalFragment` class is an Android [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment) containing a `Portal` instance. You can use the class as is, or extend it to provide customizable loading functionality. 
 
-Because it is an extended `Fragment` class, you can override the following `Fragment` functions:
+Because `PortalFragment` is an extended `Fragment` class, you can override the following `Fragment` functions:
 - `onViewCreated`
 - `onDestroy`
 - `onResume`

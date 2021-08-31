@@ -35,10 +35,14 @@ module.exports = {
           label: "API Reference",
           collapsed: false,
           items: [
-            "android/portal",
-            "android/portal-builder",
-            "android/portal-fragment",
-            "android/portal-manager",
+            "android/api-reference/portal",
+            "android/api-reference/portal-builder",
+            "android/api-reference/portal-fragment",
+            "android/api-reference/portal-manager",
+            "android/api-reference/portal-view",
+            "android/api-reference/portal-listener",
+            "android/api-reference/portal-method",
+            "android/api-reference/portals-plugin",
           ],
         }
       ],
