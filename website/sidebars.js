@@ -29,11 +29,18 @@ module.exports = {
       collapsed: false,
       items: [
         "android-overview",
-        "android-tutorials",
+        {
+          type: "category",
+          label: "Tutorials",
+          collapsed: true,
+          items: [
+            "android/tutorials/create-view-via-xml",
+          ],
+        },
         {
           type: "category",
           label: "API Reference",
-          collapsed: false,
+          collapsed: true,
           items: [
             "android/api-reference/portal",
             "android/api-reference/portal-builder",
