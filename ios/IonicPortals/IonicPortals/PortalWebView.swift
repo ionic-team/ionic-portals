@@ -55,8 +55,7 @@ public class PortalWebView: UIView {
                 let scriptSource = "window.portalInitialContext = " + portalInitialContext
                 let userScript = WKUserScript(source: scriptSource, injectionTime: .atDocumentStart, forMainFrameOnly: true)
                 userContentViewController.addUserScript(userScript)
-            }
-            
+            }            
         }
     }
     
