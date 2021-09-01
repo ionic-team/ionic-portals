@@ -12,6 +12,7 @@
 		55113DAE26D4596500BD3C9B /* PortalsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55113DAC26D4596500BD3C9B /* PortalsPlugin.swift */; };
 		5564A84C26DE8909000AF010 /* UnregisteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564A84B26DE8909000AF010 /* UnregisteredView.swift */; };
 		5564A84E26DE8D31000AF010 /* UnregisteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5564A84D26DE8D31000AF010 /* UnregisteredView.xib */; };
+		5564A85226DFE5D1000AF010 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5564A85126DFE5D1000AF010 /* images.xcassets */; };
 		55F6736526C2C098001E7AB9 /* PortalWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6736426C2C097001E7AB9 /* PortalWebView.swift */; };
 		E90B7D4C26A9C4F40067D73E /* PortalBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */; };
 		E90B7D5026A9CB880067D73E /* PortalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4F26A9CB880067D73E /* PortalManager.swift */; };
@@ -38,6 +39,7 @@
 		55113DAC26D4596500BD3C9B /* PortalsPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalsPlugin.swift; sourceTree = "<group>"; };
 		5564A84B26DE8909000AF010 /* UnregisteredView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnregisteredView.swift; sourceTree = "<group>"; };
 		5564A84D26DE8D31000AF010 /* UnregisteredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnregisteredView.xib; sourceTree = "<group>"; };
+		5564A85126DFE5D1000AF010 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		55F6736426C2C097001E7AB9 /* PortalWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalWebView.swift; sourceTree = "<group>"; };
 		E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalBuilder.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				E985F884269E2D260031F820 /* Info.plist */,
 				5564A84B26DE8909000AF010 /* UnregisteredView.swift */,
 				5564A84D26DE8D31000AF010 /* UnregisteredView.xib */,
+				5564A85126DFE5D1000AF010 /* images.xcassets */,
 			);
 			path = IonicPortals;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5564A85226DFE5D1000AF010 /* images.xcassets in Resources */,
 				5564A84E26DE8D31000AF010 /* UnregisteredView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
