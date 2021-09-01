@@ -107,8 +107,6 @@ open class PortalFragment : Fragment {
                 bridge?.setServerAssetPath(startDir)
                 keepRunning = bridge?.shouldKeepRunning()!!
             }
-        } else {
-            Log.e("Portals", "This copy of Portals is not registered! Enter your Portals registration key to use Portals.")
         }
     }
 

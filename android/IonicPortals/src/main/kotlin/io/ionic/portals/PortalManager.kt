@@ -18,7 +18,7 @@ object PortalManager {
         portals[portal.name] = portal
 
         if (!registered) {
-            Log.w("Portals", "Don't forget to register your copy of portals!")
+            Log.e("Portals", "Don't forget to register your copy of portals! Register at: ionic.io/portals")
         }
     }
 
