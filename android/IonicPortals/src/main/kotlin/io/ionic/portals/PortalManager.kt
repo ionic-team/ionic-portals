@@ -1,6 +1,11 @@
 package io.ionic.portals
 
+import android.util.Base64
 import android.util.Log
+import java.security.KeyFactory
+import java.security.PublicKey
+import java.security.Signature
+import java.security.spec.X509EncodedKeySpec
 
 /**
  * A singleton object for managing portals
@@ -36,10 +41,11 @@ object PortalManager {
     }
 
     /**
-     * Todo: Replace stub register method with actual registration logic
+     * Register this application with your Portals account.
+     * @param key The key for Portals provided by the Ionic dashboard.
      */
-    @JvmStatic fun register() {
-        registered = true
+    @JvmStatic fun register(key : String) {
+        registered = verify(key)
     }
 
     @JvmStatic fun isRegistered(): Boolean {
@@ -58,4 +64,47 @@ object PortalManager {
         })
     }
 
+    /**
+     * Verifies the provided jtw key string with the Portals public key.
+     * @param key: The jwt key to validate.
+     * @return True if validation was successful, false if not.
+     */
+    fun verify(key: String): Boolean {
+        val jwtDelimiter = '.'
+        val PUBLIC_KEY =
+            "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1+gMC3aJVGX4ha5asmEF" +
+            "TfP0FTFQlCD8d/J+dhp5dpx3ErqSReru0QSUaCRCEGV/ZK3Vp5lnv1cREQDG5H/t" +
+            "Xm9Ao06b0QJYtsYhcPgRUU9awDI7jRKueXyAq4zAx0RHZlmOsTf/cNwRnmRnkyJP" +
+            "a21mLNClmdPlhWjS6AHjaYe79ieAsftFA+QodtzoCo+w9A9YCvc6ngGOFoLIIbzs" +
+            "jv6h9ES27mi5BUqhoHsetS4u3/pCbsV2U3z255gtjANtdIX/c5inepLuAjyc1aPz" +
+            "2eu4TbzabvJnmNStje82NW36Qij1mupc4e7dYaq0aMNQyHSWk1/CuIcqEYlnK1mb" +
+            "kQIDAQAB"
+
+        try {
+            val publicBytes: ByteArray = Base64.decode(PUBLIC_KEY, Base64.DEFAULT)
+            val keySpec = X509EncodedKeySpec(publicBytes)
+            val keyFactory: KeyFactory = KeyFactory.getInstance("RSA")
+            val pubKey: PublicKey = keyFactory.generatePublic(keySpec)
+
+            val parts = key.trim().split(jwtDelimiter)
+            return if (parts.size == 3) {
+                val header = parts[0].toByteArray(Charsets.UTF_8)
+                val payload = parts[1].toByteArray(Charsets.UTF_8)
+                val tokenSignature = Base64.decode(parts[2], Base64.URL_SAFE)
+
+                val rsaSignature = Signature.getInstance("SHA256withRSA")
+                rsaSignature.initVerify(pubKey)
+                rsaSignature.update(header)
+                rsaSignature.update(jwtDelimiter.toByte())
+                rsaSignature.update(payload)
+                rsaSignature.verify(tokenSignature)
+            } else {
+                false
+            }
+        } catch (e:Exception) {
+            Log.e("Portals", "There was a problem with your registration key. Please verify it is correct.")
+        }
+
+        return false
+    }
 }
