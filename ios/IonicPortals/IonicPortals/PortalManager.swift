@@ -14,7 +14,7 @@ public class PortalManager {
     // MARK: - Instance Properties
 
     private static var portals = Dictionary<String, Portal>()
-    private static var registered = false
+    private static var registered = true
 
     // Initialization
 
