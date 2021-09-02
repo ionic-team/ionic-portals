@@ -11,8 +11,8 @@ import IonicPortals
 @main
 struct PortalsTestAppApp: App {
     init() {
-        let p = Portal("Hello");
-        p.HelloWorld();
+        // let p = Portal("Hello");
+        // p.HelloWorld();
     }
     
     

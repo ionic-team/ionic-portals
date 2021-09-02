@@ -24,7 +24,7 @@ public class PortalBuilder {
      * - Parameter startDir: The relative file path of the folder that contains your web app
      * - Returns: self
      */
-    public func setStartDir(startDir: String) -> PortalBuilder {
+    public func setStartDir(_ startDir: String) -> PortalBuilder {
         self.startDir = startDir
         return self
     }
@@ -35,7 +35,7 @@ public class PortalBuilder {
      * - Parameter initialContext: An object that can be serialized into JSON
      * - Returns: self
      */
-    public func setInitialContext(initialContext: Any) -> PortalBuilder {
+    public func setInitialContext(_ initialContext: Any) -> PortalBuilder {
         self.initialContext = initialContext
         return self
     }
