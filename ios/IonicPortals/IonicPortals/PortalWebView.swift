@@ -14,18 +14,24 @@ public class PortalWebView: UIView {
     }
     
     public init(frame: CGRect, portal: Portal) {
-
-        webView = InternalCapWebView(frame: frame, portal: portal)
-        bridge = webView!.bridge!
         super.init(frame: frame)
-        self.portalName = portal.name
+        self.portal = portal
         initView()
     }
     
-    var portalName: String?
     
     func initView () {
-        addSubview(webView!)
+        if PortalManager.isRegistered() {
+            webView = InternalCapWebView(frame: self.frame, portal: portal!)
+            bridge = webView!.bridge!
+            addSubview(webView!)
+        } else {
+            let bundle = Bundle(for: UnregisteredView.classForCoder())
+            let nib = UINib(nibName: "UnregisteredView", bundle: bundle)
+            let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+            view.frame = self.frame
+            addSubview(view)
+        }
     }
     
     class InternalCapWebView: CAPWebView {

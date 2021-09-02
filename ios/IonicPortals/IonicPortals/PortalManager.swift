@@ -14,6 +14,7 @@ public class PortalManager {
     // MARK: - Instance Properties
 
     private static var portals = Dictionary<String, Portal>()
+    private static var registered = false
 
     // Initialization
 
@@ -33,6 +34,9 @@ public class PortalManager {
      */
     public static func addPortal(_ portal: Portal) -> Void {
         portals[portal.name] = portal
+        if !registered {
+            print("Don't forget to register your copy of portals! Register at: ionic.io/portals")
+        }
     }
     
     /**
@@ -58,5 +62,18 @@ public class PortalManager {
             PortalManager.addPortal(portal)
         })
     }
+    
+    public static func isRegistered() -> Bool {
+        return self.registered
+    }
+    
+    /**
+     Todo: Replace stub register method with actual registration logic
+     */
+    static func register() {
+        self.registered = true
+    }
+    
+    
 }
 
