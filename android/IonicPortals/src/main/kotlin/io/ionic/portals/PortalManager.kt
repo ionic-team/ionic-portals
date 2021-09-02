@@ -65,11 +65,11 @@ object PortalManager {
     }
 
     /**
-     * Verifies the provided jtw key string with the Portals public key.
-     * @param key: The jwt key to validate.
+     * Verifies the provided registration key string against the Portals public key.
+     * @param key: The Portals registration key to validate.
      * @return True if validation was successful, false if not.
      */
-    fun verify(key: String): Boolean {
+    private fun verify(key: String): Boolean {
         val jwtDelimiter = '.'
         val PUBLIC_KEY =
             "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1+gMC3aJVGX4ha5asmEF" +
