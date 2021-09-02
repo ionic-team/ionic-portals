@@ -89,7 +89,7 @@ module.exports = {
     prism: {
       theme: { plain: {}, styles: [] },
       additionalLanguages: [
-        'shell-session', 'kotlin', 'groovy', 'java',
+        'shell-session', 'kotlin', 'groovy', 'java', 'swift',
       ],
     },
   },

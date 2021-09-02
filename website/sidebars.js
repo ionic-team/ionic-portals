@@ -21,7 +21,19 @@ module.exports = {
       type: "category",
       label: "iOS",
       collapsed: false,
-      items: ["ios-overview", "ios-tutorials", "ios-api-reference"],
+      items: [
+        "ios-overview",
+        "ios-tutorials",
+        {
+          type: "category",
+          label: "API Reference",
+          collapsed: true,
+          items: [
+            "ios/api-reference/portal",
+            "ios/api-reference/portal-builder",
+          ],
+        }
+      ],
     },
     {
       type: "category",
