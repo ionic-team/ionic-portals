@@ -64,7 +64,8 @@ public class PortalManager {
     }
     
     public static func isRegistered() -> Bool {
-        return self.registered
+        //return self.registered
+        return true
     }
     
     /**

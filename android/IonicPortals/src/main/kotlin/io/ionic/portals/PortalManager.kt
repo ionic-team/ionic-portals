@@ -43,7 +43,8 @@ object PortalManager {
     }
 
     @JvmStatic fun isRegistered(): Boolean {
-        return registered
+        // return registered
+        return true
     }
 
     /**
