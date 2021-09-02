@@ -11,7 +11,7 @@ public class PortalBuilder {
     private let onBuilderComplete: OnPortalBuilderComplete
 
     private var startDir: String?
-    private var initialContext: Any?
+    private var initialContext: Dictionary<String, Any>?
 
     // Initialization
     public init(_ name: String, _ onComplete: @escaping OnPortalBuilderComplete) {
@@ -35,7 +35,7 @@ public class PortalBuilder {
      * - Parameter initialContext: An object that can be serialized into JSON
      * - Returns: self
      */
-    public func setInitialContext(_ initialContext: Any) -> PortalBuilder {
+    public func setInitialContext(_ initialContext: Dictionary<String, Any>) -> PortalBuilder {
         self.initialContext = initialContext
         return self
     }
