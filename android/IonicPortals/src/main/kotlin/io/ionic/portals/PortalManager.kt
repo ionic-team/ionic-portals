@@ -8,7 +8,7 @@ import android.util.Log
 object PortalManager {
 
     @JvmStatic private val portals: MutableMap<String, Portal> = mutableMapOf()
-    @JvmStatic private var registered: Boolean = false
+    @JvmStatic private var registered: Boolean = true
 
     /**
      * Adds a Portal object given the name of the portal
@@ -43,8 +43,7 @@ object PortalManager {
     }
 
     @JvmStatic fun isRegistered(): Boolean {
-        // return registered
-        return true
+        return registered
     }
 
     /**
