@@ -6,7 +6,7 @@ module.exports = {
   trailingSlash: false,
   baseUrl: '/docs/portals/',
   baseUrlIssueBanner: false,
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/auth-connect-icon.svg',
   organizationName: 'ionic-team',
