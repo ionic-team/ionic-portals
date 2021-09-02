@@ -39,7 +39,7 @@ android {
 
 dependencies {
     implementation(kotlin("reflect"))
-    implementation("com.capacitorjs:core:3.1.2")
+    implementation("com.capacitorjs:core:3.2.1")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
     implementation( "androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
@@ -51,7 +51,7 @@ dependencies {
 
 val libraryGroupId = "io.ionic"
 val libraryArtifactId = "portalslibrary"
-val libraryVersion = "0.0.5-SNAPSHOT"
+val libraryVersion = "0.0.5"
 
 task<Jar>("sourceJar") {
     from(android.sourceSets["main"].java.srcDirs)
