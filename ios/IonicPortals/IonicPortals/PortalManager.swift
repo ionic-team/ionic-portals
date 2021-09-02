@@ -35,7 +35,7 @@ public class PortalManager {
     public static func addPortal(_ portal: Portal) -> Void {
         portals[portal.name] = portal
         if !registered {
-            print("Don't forget to register your copy of portals!")
+            print("Don't forget to register your copy of portals! Register at: ionic.io/portals")
         }
     }
     
