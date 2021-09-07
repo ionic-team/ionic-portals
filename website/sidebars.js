@@ -23,7 +23,14 @@ module.exports = {
       collapsed: false,
       items: [
         "ios-overview",
-        "ios-tutorials",
+        {
+          type: "category",
+          label: "Tutorials",
+          collapsed: true,
+          items: [
+            "ios/tutorials/create-view-via-view-controller",
+          ],
+        },
         {
           type: "category",
           label: "API Reference",
@@ -31,6 +38,9 @@ module.exports = {
           items: [
             "ios/api-reference/portal",
             "ios/api-reference/portal-builder",
+            "ios/api-reference/portal-manager",
+            "ios/api-reference/portal-webview",
+            "ios/api-reference/portals-plugin",
           ],
         }
       ],
