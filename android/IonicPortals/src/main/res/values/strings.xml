@@ -2,6 +2,6 @@
 <resources>
     <string name="unregistered_title">Register Product</string>
     <string name="unregistered_text">Please register in order to use Ionic Portals. You can do so at:</string>
-    <string name="unregistered_link">ionic.io/portals</string>
+    <string name="unregistered_link">ionic.io/register-portals</string>
     <string name="logo_content_description">Ionic Portals Logo</string>
 </resources>
