@@ -9,7 +9,6 @@ object PortalManager {
 
     @JvmStatic private val portals: MutableMap<String, Portal> = mutableMapOf()
     @JvmStatic private var registered: Boolean = true
-    @JvmStatic private var firstAdd: Boolean = true
 
     /**
      * Adds a Portal to the set of Portals
@@ -18,9 +17,8 @@ object PortalManager {
     @JvmStatic fun addPortal(portal: Portal) {
         portals[portal.name] = portal
 
-        if (firstAdd && !registered) {
+        if (!registered) {
             Log.e("Portals", "Don't forget to register your copy of portals! Register at: ionic.io/register-portals")
-            firstAdd = false
         }
     }
 
