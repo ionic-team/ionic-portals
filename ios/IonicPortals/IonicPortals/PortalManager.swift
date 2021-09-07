@@ -57,7 +57,7 @@ public class PortalManager {
      * - Parameter name: The `Portal` name
      * - returns: A `PortalBuilder` object that has a fluent API to construct a `Portal`.
      */
-    public func newPortal(_ name: String) -> PortalBuilder {
+    public static func newPortal(_ name: String) -> PortalBuilder {
         return PortalBuilder(name, { (portal) in
             PortalManager.addPortal(portal)
         })
