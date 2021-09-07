@@ -86,7 +86,7 @@ Name | Type | Description
 `name` | `String` | The name of the [Portal](./portal) to be referenced via the [PortalManager](./portal-manager) or the [PortalView](./portal-view)
 `onCreate` | `(portal: Portal) -> Unit` | A callback function that is called during the [PortalBuilder.create()](./portal-builder#create) function
 
-**Returns:** <span class="return-code">[*PortalBuilder*](./portal-buidler)</span>
+**Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 
 ## Methods
 
