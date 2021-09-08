@@ -13,26 +13,32 @@ import java.security.spec.X509EncodedKeySpec
 object PortalManager {
 
     @JvmStatic private val portals: MutableMap<String, Portal> = mutableMapOf()
-    @JvmStatic private var registered: Boolean = true
+    @JvmStatic private var registered: Boolean = false
+    @JvmStatic private var unregisteredMessageShown: Boolean = false
+    @JvmStatic private var registeredError: Boolean = false
 
     /**
-     * Adds a Portal to the set of Portals
+     * Adds a Portal to the set of Portals.
      * @param portal The Portal to add
      */
     @JvmStatic fun addPortal(portal: Portal) {
         portals[portal.name] = portal
 
-        if (!registered) {
-            Log.e("Portals", "Don't forget to register your copy of portals! Register at: ionic.io/register-portals")
+        if (!registered && !unregisteredMessageShown) {
+            displayUnregisteredMessage()
         }
     }
 
     /**
-     * Returns a Portal object given the name of the portal
+     * Returns a Portal object given the name of the portal.
      * @param name The Portal name
      * @throws NoSuchElementException throws this exception if the Portal does not exist
      */
     @JvmStatic fun getPortal(name: String): Portal {
+        if (registeredError) {
+            registrationError()
+        }
+
         return portals[name] ?: throw IllegalStateException("Portal with portalId $name not found in PortalManager")
     }
 
@@ -42,12 +48,16 @@ object PortalManager {
 
     /**
      * Register this application with your Portals account.
-     * @param key The key for Portals provided by the Ionic dashboard.
+     * @param key The key for Portals provided by the Ionic dashboard
      */
     @JvmStatic fun register(key : String) {
         registered = verify(key)
     }
 
+    /**
+     * Check if Portals has been successfully registered with a valid key.
+     * @return True if Portals is successfully registered
+     */
     @JvmStatic fun isRegistered(): Boolean {
         return registered
     }
@@ -55,7 +65,7 @@ object PortalManager {
     /**
      * A helper method to build portal classes and add them to the manager. Classes built with newPortal are added to the PortalManager automatically.
      * @param name The Portal name
-     * @return A PortalBuilder object that has a fluent API to construct a Portal.
+     * @return A PortalBuilder object that has a fluent API to construct a Portal
      */
     @JvmStatic
     fun newPortal(name: String): PortalBuilder {
@@ -66,7 +76,7 @@ object PortalManager {
 
     /**
      * Verifies the provided registration key string against the Portals public key.
-     * @param key: The Portals registration key to validate.
+     * @param key: The Portals registration key to validat
      * @return True if validation was successful, false if not.
      */
     private fun verify(key: String): Boolean {
@@ -97,14 +107,45 @@ object PortalManager {
                 rsaSignature.update(header)
                 rsaSignature.update(jwtDelimiter.toByte())
                 rsaSignature.update(payload)
-                rsaSignature.verify(tokenSignature)
+
+                val result = rsaSignature.verify(tokenSignature)
+                if (!result) {
+                    registrationError()
+                }
+
+                result
             } else {
+                registrationError()
                 false
             }
         } catch (e:Exception) {
-            Log.e("Portals", "There was a problem with your registration key. Please verify it is correct.")
+            registrationError()
         }
 
         return false
+    }
+
+    /**
+     * Display an error log to warn the developer that Portals is unregistered.
+     */
+    private fun displayUnregisteredMessage() {
+        Log.e("Portals", "Don't forget to register your copy of portals! Register at: ionic.io/register-portals")
+        unregisteredMessageShown = true
+    }
+
+    /**
+     * Display an error log to warn the developer that Portals registration failed.
+     */
+    private fun registrationError() {
+        registeredError = true
+        Log.e("Portals", "Error validating your key for Ionic Portals. Check your key and try again.")
+    }
+
+    /**
+     * Check if there is a Portals registration issue.
+     * @return True if there is a Portals registration error
+     */
+    internal fun isRegisteredError(): Boolean {
+        return registeredError
     }
 }
