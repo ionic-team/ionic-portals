@@ -76,7 +76,7 @@ object PortalManager {
 
     /**
      * Verifies the provided registration key string against the Portals public key.
-     * @param key: The Portals registration key to validat
+     * @param key: The Portals registration key to validate
      * @return True if validation was successful, false if not.
      */
     private fun verify(key: String): Boolean {
@@ -129,8 +129,8 @@ object PortalManager {
      * Display an error log to warn the developer that Portals is unregistered.
      */
     private fun displayUnregisteredMessage() {
-        Log.e("Portals", "Don't forget to register your copy of portals! Register at: ionic.io/register-portals")
         unregisteredMessageShown = true
+        Log.e("Portals", "Don't forget to register your copy of portals! Register at: ionic.io/register-portals")
     }
 
     /**
