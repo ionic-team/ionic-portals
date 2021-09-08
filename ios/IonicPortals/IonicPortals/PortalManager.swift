@@ -1,4 +1,5 @@
 import Foundation
+import UIKit
 
 enum PortalError: Error {
     case notFound(String)
@@ -16,7 +17,7 @@ public class PortalManager {
     private static var portals = Dictionary<String, Portal>()
     private static var registered = false
     private static var registeredError = false
-    private static var unregisteredMesssageShown = false
+    private static var unregisteredMessageShown = false
 
     // Initialization
 
@@ -36,7 +37,7 @@ public class PortalManager {
      */
     public static func addPortal(_ portal: Portal) -> Void {
         portals[portal.name] = portal
-        if !registered && !unregisteredMesssageShown {
+        if !registered && !unregisteredMessageShown {
             self.unregisteredMessage()
         }
     }
@@ -141,9 +142,9 @@ public class PortalManager {
     }
     
     private static func unregisteredMessage() {
-        if !self.unregisteredMesssageShown {
+        if !self.unregisteredMessageShown {
             print("Don't forget to register your copy of portals! Register at: ionic.io/register-portals")
-            self.unregisteredMesssageShown = true
+            self.unregisteredMessageShown = true
         }
     }
     
