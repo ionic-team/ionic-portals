@@ -80,8 +80,6 @@ Name | Type | Description
 :------ | :------ | :------
 `portal` | [Portal](./portal) | An existing [Portal](./portal) to add to the [PortalManager](./portal-manager).
 
-**Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
-
 ### getPortal
 _static_
 
