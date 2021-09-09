@@ -196,3 +196,40 @@ Name | Type | Description
 `name` | `String` | The [Portal](./portal) name to create.
 
 **Returns:** <span class="return-code">[*Portal*](./portal)</span>
+
+### register
+_static_
+
+A function to validate the registration of the Ionic Portals instance with your API Key. This function will work offline. Portals that are not registered will show an error screen telling you how to validate your Portal.
+
+#### Usage
+
+<Tabs 
+    defaultValue="kt" 
+    values={[
+        { label: 'Kotlin', value: 'kt', },
+        { label: 'Java', value: 'java', },
+    ]}
+>
+<TabItem value="kt">
+
+```kotlin
+PortalManager.register("MY_API_KEY")
+```
+
+</TabItem>
+<TabItem value="java">
+
+```java
+PortalManager.register("MY_API_KEY");
+``` 
+
+</TabItem>
+</Tabs>
+
+#### Parameters
+
+Name | Type | Description
+:------ | :------ | :------
+`key` | `String` | The [Portal](./portal) API Key to register.
+

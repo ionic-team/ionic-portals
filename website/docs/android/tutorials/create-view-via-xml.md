@@ -24,6 +24,7 @@ class MyApplication : Application {
     override fun onCreate(): Unit {
         super.onCreate()
 
+        PortalManager.register("MY_API_KEY")
         PortalManager.newPortal("foo") // matches `app:portalId`
             .create()
     }
@@ -39,6 +40,7 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        PortalManager.register("MY_API_KEY");
         PortalManager.newPortal("foo") // matches `app:portalId`
             .create();
     }
