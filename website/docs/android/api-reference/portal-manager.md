@@ -200,7 +200,7 @@ Name | Type | Description
 ### register
 _static_
 
-A function to validate the registration of the Ionic Portals instance with your API Key. This function will work offline. Portals that are not registered will show an error screen telling you how to validate your Portal.
+A function to validate the registration of the Ionic Portals instance with your API Key. This function will work offline and only needs to be run once before creating your first [Portal](./portal)
 
 #### Usage
 
