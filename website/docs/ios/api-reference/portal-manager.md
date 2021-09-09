@@ -96,3 +96,21 @@ Name | Type | Description
 
 **Returns:** <span class="return-code">[*Portal*](./portal)</span>
 
+### register
+_static_
+
+A function to validate the registration of the Ionic Portals instance with your API Key. This function will work offline and only needs to be run once before creating your first [Portal](./portal)
+
+#### Usage
+
+
+```swift
+PortalManager.register("MY_API_KEY")
+```
+
+#### Parameters
+
+Name | Type | Description
+:------ | :------ | :------
+`key` | `String` | The [Portal](./portal) API Key to register.
+

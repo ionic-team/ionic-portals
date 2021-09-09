@@ -6,7 +6,7 @@ sidebar_label: Portal WebView
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [PortalView](./portal-view) class is an iOS [UIView](https://developer.apple.com/documentation/uikit/uiview) that you can use to easily build a  `View` via Storyboard or SwiftUI for a [Portal](./portal). While you can show a [Portal](./portal) to a user using the [PortalView](./portal-view) class directly, it is recommended to use this via Storyboard or SwiftUI.
+The [PortalWebView](./portal-webview) class is an iOS [UIView](https://developer.apple.com/documentation/uikit/uiview) that you can use to easily build a  `View` via Storyboard or SwiftUI for a [Portal](./portal). While you can show a [Portal](./portal) to a user using the [PortalWebView](./portal-webview) class directly, it is recommended to use this via Storyboard or SwiftUI.
 
 If you need to programmtically create a view, you can override the root view in an overriden `UIView.viewDidLoad` function as shown below.
 
