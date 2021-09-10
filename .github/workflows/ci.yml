@@ -58,7 +58,7 @@ jobs:
     strategy:
       matrix:
         xcode:
-          - /Applications/Xcode_12.4.app
+          - /Applications/Xcode_12.5.app
     steps:
       - run: sudo xcode-select --switch ${{ matrix.xcode }}
       - uses: actions/checkout@v2
