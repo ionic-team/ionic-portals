@@ -62,6 +62,9 @@ jobs:
     steps:
       - run: sudo xcode-select --switch ${{ matrix.xcode }}
       - uses: actions/checkout@v2
+      - name: Install Cocoapods
+        run: gem install cocoapods
+      - run: pod install
       - run: npm run verify
         working-directory: ./ios
   # publish-plugin:
