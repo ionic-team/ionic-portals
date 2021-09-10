@@ -1,8 +1,8 @@
 package io.ionic.portals
 
+import android.app.AlertDialog
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -106,6 +106,15 @@ open class PortalFragment : Fragment {
                     .create()
                 bridge?.setServerAssetPath(startDir)
                 keepRunning = bridge?.shouldKeepRunning()!!
+            }
+        } else if (PortalManager.isRegisteredError()) {
+            if(activity != null) {
+                val alert = AlertDialog.Builder(activity)
+                alert.setMessage("Error validating your key for Ionic Portals. Check your key and try again.")
+                alert.setPositiveButton("OK") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                alert.show()
             }
         }
     }
