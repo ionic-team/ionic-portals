@@ -58,11 +58,11 @@ jobs:
     strategy:
       matrix:
         xcode:
-          - /Applications/Xcode_12.5.app
+          - /Applications/Xcode_12.4.app
     steps:
       - run: sudo xcode-select --switch ${{ matrix.xcode }}
       - uses: actions/checkout@v2
-      - run: xcodebuild -workspace IonicPortals.xcworkspace -scheme IonicPortals
+      - run: npm run verify
         working-directory: ./ios
   # publish-plugin:
   #   runs-on: ubuntu-latest
