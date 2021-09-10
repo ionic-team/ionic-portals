@@ -6,6 +6,8 @@
   },
   "scripts": {
     "lerna:version:latest": "lerna version --force-publish --conventional-commits",
-    "release:latest": "npm run lerna:version:latest"
+    "release:latest": "npm run lerna:version:latest",
+    "build": "lerna run build",
+    "postinstall": "lerna bootstrap"
   }
 }
