@@ -6,7 +6,7 @@ sidebar_label: Create View Via XML
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The easiest way to get started with Ionic Portals is to bootstrap the Portals in your base [Application](https://developer.android.com/reference/android/app/Application) class using the [PortalManager](../api-reference/portal-manager) and [PortalView](../api-reference/portal-view) classes. You can do this by using the [PortalManager.newPortal()](../api-reference/portal-manager#newportal) function in the [Application.onCreate()](https://developer.android.com/reference/android/app/Application#onCreate()) function as shown below.
+The easiest way to get started with Ionic Portals is to bootstrap the Portals in your base [Application](https://developer.android.com/reference/android/app/Application) class using the [PortalManager](../../reference/android/portal-manager) and [PortalView](../../reference/android/portal-view) classes. You can do this by using the [PortalManager.newPortal()](../../reference/android/portal-manager#newportal) function in the [Application.onCreate()](https://developer.android.com/reference/android/app/Application#onCreate()) function as shown below.
 
 ## Bootstraping the Portal instances
 

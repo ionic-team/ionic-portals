@@ -13,73 +13,126 @@ module.exports = {
   sidebar: [
     {
       type: "category",
-      label: "Getting Started",
-      collapsed: false,
-      items: ["overview", "install"],
-    },
-    {
-      type: "category",
-      label: "iOS",
-      collapsed: false,
+      label: "Overview",
+      collapsed: true,
       items: [
-        "ios-overview",
-        {
-          type: "category",
-          label: "Tutorials",
-          collapsed: true,
-          items: [
-            "ios/tutorials/create-view-via-view-controller",
-          ],
-        },
-        {
-          type: "category",
-          label: "API Reference",
-          collapsed: true,
-          items: [
-            "ios/api-reference/portal",
-            "ios/api-reference/portal-builder",
-            "ios/api-reference/portal-manager",
-            "ios/api-reference/portal-webview",
-            "ios/api-reference/portals-plugin",
-          ],
-        }
+        "overview/overview",
+        "overview/what-is-a-portal", 
+        "overview/what-is-a-portal-plugin",
+        "overview/portals-pubsub-vs-plugin",
       ],
     },
     {
       type: "category",
-      label: "Android",
-      collapsed: false,
+      label: "Getting Started",
+      collapsed: true,
       items: [
-        "android-overview",
         {
           type: "category",
-          label: "Tutorials",
+          label: "Registration Guide",
           collapsed: true,
           items: [
-            "android/tutorials/create-view-via-xml",
+            "getting-started/guide/signup",
+            "getting-started/guide/install", 
+            "getting-started/guide/configure",
+          ],
+        },
+        "getting-started/iOS", 
+        "getting-started/android",
+      ],
+    },
+    {
+      type: "category",
+      label: "Examples",
+      collapsed: true,
+      items: [
+        "examples/ecommerce-app"
+      ],
+    },
+    {
+      type: "category",
+      label: "How To",
+      collapsed: true,
+      items: [
+        "how-to/multiple-portals-multiple-web-apps",
+        "how-to/using-the-portal-plugin",
+        "how-to/using-a-capacitor-plugin",
+        "how-to/pull-in-web-bundle",
+        "how-to/define-api-in-typescript",
+      ],
+    },
+    {
+      type: "category",
+      label: "Tutorials",
+      collapsed: true,
+      items: [
+        {
+          type: "category",
+          label: "iOS",
+          collapsed: true,
+          items: [
+            "tutorials/iOS/create-view-via-view-controller",
           ],
         },
         {
           type: "category",
-          label: "API Reference",
+          label: "Android",
           collapsed: true,
           items: [
-            "android/api-reference/portal",
-            "android/api-reference/portal-builder",
-            "android/api-reference/portal-fragment",
-            "android/api-reference/portal-manager",
-            "android/api-reference/portal-view",
-            "android/api-reference/portal-listener",
-            "android/api-reference/portal-method",
-            "android/api-reference/portals-plugin",
+            "tutorials/android/create-view-via-xml",
           ],
-        }
+        },
+        "tutorials/auth-token-example",
+        "tutorials/monorepo-example",
+      ],
+    },
+
+    {
+      type: "category",
+      label: "Reference",
+      collapsed: true,
+      items: [
+        {
+          type: "category",
+          label: "iOS",
+          collapsed: true,
+          items: [
+            "reference/iOS/portal",
+            "reference/iOS/portal-builder",
+            "reference/iOS/portal-manager",
+            "reference/iOS/portal-webview",
+            "reference/iOS/portals-plugin",
+          ],
+        },
+        {
+          type: "category",
+          label: "Android",
+          collapsed: true,
+          items: [
+            "reference/android/portal",
+            "reference/android/portal-builder",
+            "reference/android/portal-fragment",
+            "reference/android/portal-manager",
+            "reference/android/portal-view",
+            "reference/android/portal-listener",
+            "reference/android/portal-method",
+            "reference/android/portals-plugin",
+          ],
+        },
+        {
+          type: "category",
+          label: "Web",
+          collapsed: true,
+          items: [
+            "reference/web/todo",
+          ],
+        },
       ],
     },
     {
       type: "category",
       label: "Plugins",
-      collapsed: false,
+      collapsed: true,
       items: ["overview"],
     },
   ],
