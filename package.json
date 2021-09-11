@@ -5,6 +5,7 @@
     "lerna": "^3.22.1"
   },
   "scripts": {
+    "lerna:publish:latest": "lerna publish from-git --force-publish --dist-tag latest --yes",
     "lerna:version:latest": "lerna version --force-publish --conventional-commits",
     "release:latest": "npm run lerna:version:latest",
     "build": "lerna run build",
