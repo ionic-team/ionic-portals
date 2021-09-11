@@ -47,7 +47,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
-      - run: npm install
+      - run: npm ci
       - run: npm run build
         working-directory: ./plugin
   verify-ios:
@@ -84,7 +84,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
-      - run: npm install
+      - run: npm ci
       - run: npm run lerna:publish:latest || true
   publish-ios:
     runs-on: macos-latest
