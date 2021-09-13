@@ -50,6 +50,13 @@ jobs:
       - run: npm ci
       - run: npm run build
         working-directory: ./plugin
+  # verify-android:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 30
+  #   needs:
+  #     - setup
+  #   steps:
+      # do androidy things
   verify-ios:
     runs-on: macos-latest
     timeout-minutes: 30
@@ -71,14 +78,14 @@ jobs:
     needs:
       - setup
       - verify-plugin
+      - verify-ios
+      # - verify-android
     steps:
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Restore Dependency Cache
         uses: actions/cache@v1
         with:
@@ -98,8 +105,6 @@ jobs:
         with:
           node-version: 14.x
       - uses: actions/checkout@v2
-        with:
-          ref: native-publish
       - name: Install Cocoapods
         run: gem install cocoapods
       - name: Deploy to Cocoapods
@@ -113,8 +118,10 @@ jobs:
   #   if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
   #   timeout-minutes: 30
   #   needs:
-  #       - setup
-  #       - verify-android
+        # - setup
+        # - verify-plugin
+        # - verify-ios
+        # - verify-android
   #   permissions:
   #     contents: read
   #     packages: write
