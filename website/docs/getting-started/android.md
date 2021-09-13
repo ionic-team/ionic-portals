@@ -1,4 +1,4 @@
 ---
-title: Getting Started - Android
-sidebar_label: Android
+title: Using Portals in Android
+sidebar_label: Using Portals in Android
 ---
