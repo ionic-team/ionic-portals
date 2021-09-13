@@ -106,7 +106,7 @@ jobs:
           node-version: 14.x
       - uses: actions/checkout@v2
         with:
-          ref: native-publish
+          ref: automated-build
       - name: Install Cocoapods
         run: gem install cocoapods
       - name: Deploy to Cocoapods
