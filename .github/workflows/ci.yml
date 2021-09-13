@@ -112,7 +112,7 @@ jobs:
       - name: Deploy to Cocoapods
         run: |
           set -eo pipefail
-          pod trunk push ./ios/IonicPortals.podspec --allow-warnings
+          pod trunk push ./ios/IonicPortals.podspec --allow-warnings --verbose
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
   # publish-android:
