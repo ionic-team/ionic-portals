@@ -54,6 +54,7 @@ module.exports = {
       label: "How To",
       collapsed: true,
       items: [
+        "how-to/multiple-portals-single-web-app",
         "how-to/multiple-portals-multiple-web-apps",
         "how-to/using-the-portal-plugin",
         "how-to/using-a-capacitor-plugin",
