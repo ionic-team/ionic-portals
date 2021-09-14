@@ -108,8 +108,9 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: lerna-madness
-      - name: Install Cocoapods
-        run: gem install cocoapods
+      # - name: Install Cocoapods
+      #   run: gem install cocoapods
+      - run: npm ci
       - name: Deploy to Cocoapods
         run: lerna changed
         # run: |
