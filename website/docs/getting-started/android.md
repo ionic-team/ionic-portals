@@ -70,7 +70,7 @@ After creating a custom Application class, be sure to add the `android:name` att
 
 ## Creating a Portal via PortalManager
 
-After registering via the [PortalManager.register()](../reference/android/portal-manager#register) function, you can create Portals. You can use the [PortalManager](../reference/android/portal-manager) to quickly create a [Portal](../reference/android/portal) and link it to an XML layout.
+After registering via the [PortalManager.register()](../reference/android/portal-manager#register) function, you can create Portals. Use the [PortalManager](../reference/android/portal-manager) to quickly create a [Portal](../reference/android/portal) and link it to an XML layout.
 
 <Tabs 
     defaultValue="kt" 
