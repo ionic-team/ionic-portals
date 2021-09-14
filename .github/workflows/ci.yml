@@ -71,53 +71,52 @@ jobs:
   #       working-directory: ./ios
   #     - run: npm run verify
   #       working-directory: ./ios
-  # publish-plugin:
-  #   runs-on: ubuntu-latest
-  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
-  #   timeout-minutes: 30
-  #   needs:
-  #     - setup
-  #     - verify-plugin
-  #     - verify-ios
-  #     # - verify-android
-  #   steps:
-  #     - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 14.x
-  #     - uses: actions/checkout@v2
-  #     - name: Restore Dependency Cache
-  #       uses: actions/cache@v1
-  #       with:
-  #         path: ~/.npm
-  #         key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
-  #     - run: npm ci
-  #     - run: npm run lerna:publish:latest || true
-  publish-ios:
-    runs-on: macos-11
-    # if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
+  publish-plugin:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
     timeout-minutes: 30
     # needs:
-        # - setup
-        # - publish-plugin
+    #   - setup
+    #   - verify-plugin
+    #   - verify-ios
+    #   # - verify-android
     steps:
-      - run: sudo xcode-select --switch /Applications/Xcode_12.5.app
+      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
       - uses: actions/checkout@v2
+      - name: Restore Dependency Cache
+        uses: actions/cache@v1
         with:
-          ref: lerna-madness
-      # - name: Install Cocoapods
-      #   run: gem install cocoapods
+          path: ~/.npm
+          key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
       - run: npm ci
-      - name: Deploy to Cocoapods
-        run: lerna changed
-        # run: |
-        #   set -eo pipefail
-        #   pod trunk push ./ios/IonicPortals.podspec --allow-warnings
-        env:
-          COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+      - run: npx lerna changed
+      # - run: npm run lerna:publish:latest || true
+  # publish-ios:
+  #   runs-on: macos-11
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
+  #   timeout-minutes: 30
+  #   needs:
+  #       - setup
+  #       - publish-plugin
+  #   steps:
+  #     - run: sudo xcode-select --switch /Applications/Xcode_12.5.app
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 14.x
+  #     - uses: actions/checkout@v2
+  #       with:
+  #         ref: lerna-madness
+  #     - name: Install Cocoapods
+  #       run: gem install cocoapods
+  #     - name: Deploy to Cocoapods        
+  #       run: |
+  #         set -eo pipefail
+  #         pod trunk push ./ios/IonicPortals.podspec --allow-warnings
+  #       env:
+  #         COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
   # publish-android:
   #   runs-on: ubuntu-latest
   #   if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
