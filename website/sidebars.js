@@ -14,52 +14,36 @@ module.exports = {
     {
       type: "category",
       label: "Overview",
-      collapsed: true,
+      collapsed: false,
       items: [
         "overview/overview",
-        "overview/what-is-a-portal", 
-        "overview/what-is-a-portal-plugin",
-        "overview/portals-pubsub-vs-plugin",
+        "overview/what-is-a-portal",
+        "overview/portal-communication",
+        "overview/choosing-a-communication",
       ],
     },
     {
       type: "category",
       label: "Getting Started",
-      collapsed: true,
+      collapsed: false,
       items: [
-        {
-          type: "category",
-          label: "Registration Guide",
-          collapsed: true,
-          items: [
-            "getting-started/guide/signup",
-            "getting-started/guide/install", 
-            "getting-started/guide/configure",
-          ],
-        },
-        "getting-started/iOS", 
+        "getting-started/guide",
+        "getting-started/iOS",
         "getting-started/android",
       ],
     },
     {
       type: "category",
-      label: "Examples",
-      collapsed: true,
-      items: [
-        "examples/ecommerce-app"
-      ],
-    },
-    {
-      type: "category",
       label: "How To",
-      collapsed: true,
+      collapsed: false,
       items: [
-        "how-to/multiple-portals-single-web-app",
-        "how-to/multiple-portals-multiple-web-apps",
+        "how-to/pull-in-web-bundle",
         "how-to/using-the-portal-plugin",
         "how-to/using-a-capacitor-plugin",
-        "how-to/pull-in-web-bundle",
         "how-to/define-api-in-typescript",
+        "how-to/multiple-portals-single-web-app",
+        "how-to/multiple-portals-multiple-web-apps",
+        "how-to/get-a-product-key",
       ],
     },
     {
@@ -70,24 +54,19 @@ module.exports = {
         {
           type: "category",
           label: "iOS",
-          collapsed: true,
-          items: [
-            "tutorials/iOS/create-view-via-view-controller",
-          ],
+          collapsible: false,
+          items: ["tutorials/iOS/create-view-via-view-controller"],
         },
         {
           type: "category",
           label: "Android",
-          collapsed: true,
-          items: [
-            "tutorials/android/create-view-via-xml",
-          ],
+          collapsible: false,
+          items: ["tutorials/android/create-view-via-xml"],
         },
         "tutorials/auth-token-example",
         "tutorials/monorepo-example",
       ],
     },
-
     {
       type: "category",
       label: "Reference",
@@ -95,7 +74,7 @@ module.exports = {
       items: [
         {
           type: "category",
-          label: "iOS",
+          label: "iOS API",
           collapsed: true,
           items: [
             "reference/iOS/portal",
@@ -107,7 +86,7 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Android",
+          label: "Android API",
           collapsed: true,
           items: [
             "reference/android/portal",
@@ -122,19 +101,18 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Web",
+          label: "Web API",
           collapsed: true,
-          items: [
-            "reference/web/todo",
-          ],
+          items: ["reference/web/todo"],
         },
       ],
     },
     {
       type: "category",
-      label: "Plugins",
+      label: "Examples",
       collapsed: true,
-      items: ["overview"],
+      items: ["examples/ecommerce-app"],
     },
+    "plugin-overview",
   ],
 };

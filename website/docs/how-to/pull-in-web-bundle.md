@@ -1,6 +1,6 @@
 ---
-title: How To Pull In A Web Bundle
-sidebar_label: Integrate Web Code
+title: How to Use a Web App in a Portal
+sidebar_label: Use a Web App in a Portal
 ---
 
 import Tabs from '@theme/Tabs';
