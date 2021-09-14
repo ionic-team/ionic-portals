@@ -5,7 +5,7 @@
       "hoist": true
     },
     "version": {
-      "allowBranch": "main",
+      "allowBranch": "lerna-madness",
       "conventionalCommits": true,
       "createRelease": "github",
       "message": "Release %s",
