@@ -32,24 +32,24 @@ jobs:
         uses: martinbeentjes/npm-get-version-action@master
         with:
           path: core/
-  verify-plugin:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    needs:
-      - setup
-    steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - uses: actions/checkout@v2
-      - name: Restore Dependency Cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
-      - run: npm ci
-      - run: npm run build
-        working-directory: ./plugin
+  # verify-plugin:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 30
+  #   needs:
+  #     - setup
+  #   steps:
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 14.x
+  #     - uses: actions/checkout@v2
+  #     - name: Restore Dependency Cache
+  #       uses: actions/cache@v1
+  #       with:
+  #         path: ~/.npm
+  #         key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
+  #     - run: npm ci
+  #     - run: npm run build
+  #       working-directory: ./plugin
   # verify-android:
   #   runs-on: ubuntu-latest
   #   timeout-minutes: 30
@@ -57,49 +57,49 @@ jobs:
   #     - setup
   #   steps:
       # do androidy things
-  verify-ios:
-    runs-on: macos-latest
-    timeout-minutes: 30
-    needs:
-      - setup
-    steps:
-      - run: sudo xcode-select --switch /Applications/Xcode_12.4.app
-      - uses: actions/checkout@v2
-      - name: Install Cocoapods
-        run: gem install cocoapods
-      - run: pod install
-        working-directory: ./ios
-      - run: npm run verify
-        working-directory: ./ios
-  publish-plugin:
-    runs-on: ubuntu-latest
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
-    timeout-minutes: 30
-    needs:
-      - setup
-      - verify-plugin
-      - verify-ios
-      # - verify-android
-    steps:
-      - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - uses: actions/checkout@v2
-      - name: Restore Dependency Cache
-        uses: actions/cache@v1
-        with:
-          path: ~/.npm
-          key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
-      - run: npm ci
-      - run: npm run lerna:publish:latest || true
+  # verify-ios:
+  #   runs-on: macos-latest
+  #   timeout-minutes: 30
+  #   needs:
+  #     - setup
+  #   steps:
+  #     - run: sudo xcode-select --switch /Applications/Xcode_12.4.app
+  #     - uses: actions/checkout@v2
+  #     - name: Install Cocoapods
+  #       run: gem install cocoapods
+  #     - run: pod install
+  #       working-directory: ./ios
+  #     - run: npm run verify
+  #       working-directory: ./ios
+  # publish-plugin:
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
+  #   timeout-minutes: 30
+  #   needs:
+  #     - setup
+  #     - verify-plugin
+  #     - verify-ios
+  #     # - verify-android
+  #   steps:
+  #     - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 14.x
+  #     - uses: actions/checkout@v2
+  #     - name: Restore Dependency Cache
+  #       uses: actions/cache@v1
+  #       with:
+  #         path: ~/.npm
+  #         key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
+  #     - run: npm ci
+  #     - run: npm run lerna:publish:latest || true
   publish-ios:
     runs-on: macos-11
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
     timeout-minutes: 30
     needs:
         - setup
-        - publish-plugin
+        # - publish-plugin
     steps:
       - run: sudo xcode-select --switch /Applications/Xcode_12.5.app
       - uses: actions/setup-node@v1
@@ -111,9 +111,10 @@ jobs:
       - name: Install Cocoapods
         run: gem install cocoapods
       - name: Deploy to Cocoapods
-        run: |
-          set -eo pipefail
-          pod trunk push ./ios/IonicPortals.podspec --allow-warnings
+        run: lerna changed
+        # run: |
+        #   set -eo pipefail
+        #   pod trunk push ./ios/IonicPortals.podspec --allow-warnings
         env:
           COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
   # publish-android:
