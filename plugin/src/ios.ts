@@ -32,4 +32,3 @@ export class PortalsIOS implements PortalsPlugin {
     return getInitialContext<T>();
   }
 }
-// silly change4
