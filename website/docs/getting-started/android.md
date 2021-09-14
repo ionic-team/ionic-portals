@@ -6,7 +6,7 @@ sidebar_label: Using Portals in Android
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once the [API Key has been obtained](./guide/signup) and [Ionic Portals library is installed](./guide/install), you can start creating Portals for your application.
+Once the [API Key has been obtained](./guide#signup) and [Ionic Portals library is installed](./guide#install), you can start creating Portals for your application.
 
 ## Creating a custom Application class
 
