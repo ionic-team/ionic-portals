@@ -1,0 +1,20 @@
+{
+  "name": "ionic-portals-android",
+  "version": "0.1.5",
+  "description": "Ionic Portals",
+  "homepage": "https://ionic.io/portals",
+  "author": "Ionic Team <hi@ionic.io> (https://ionic.io)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/ionic-portals.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/ionic-portals/issues"
+  },
+  "files": [],
+  "scripts": {
+    "verify": "./gradlew :IonicPortals:clean :IonicPortals:build :IonicPortals:test"
+  },
+  "private": true
+}
