@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-DIR=../android/IonicPortals
-GRADLE_FILE=$DIR/build.gradle.kts
+GRADLE_FILE=../android/IonicPortals/build.gradle.kts
 
 # Get the latest version of Capacitor
 CAPACITOR_PACKAGE_JSON="https://raw.githubusercontent.com/ionic-team/capacitor/main/android/package.json"
