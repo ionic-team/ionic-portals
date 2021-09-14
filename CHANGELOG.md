@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/ionic-team/ionic-portals/compare/0.1.1...0.1.2) (2021-09-14)
+
+
+### Bug Fixes
+
+* **plugin:** silly change2 ([d84e0e7](https://github.com/ionic-team/ionic-portals/commit/d84e0e7db7caa61cee4d0c9d910d287365e35e12))
+
+
+
+
+
 ## [0.1.1](https://github.com/ionic-team/ionic-portals/compare/0.1.0...0.1.1) (2021-09-14)
 
 
