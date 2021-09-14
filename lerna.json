@@ -1,5 +1,9 @@
 {
-  "packages": ["./plugin", "./android/", "./ios/"],
+  "packages": [
+    "./plugin",
+    "./android/",
+    "./ios/"
+  ],
   "command": {
     "bootstrap": {
       "hoist": true
@@ -12,5 +16,5 @@
       "tagVersionPrefix": ""
     }
   },
-  "version": "0.0.5"
+  "version": "0.1.4"
 }

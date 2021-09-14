@@ -1,6 +1,6 @@
 {
   "name": "ionic-portals-ios",
-  "version": "0.0.5",
+  "version": "0.1.4",
   "description": "Ionic Portals",
   "homepage": "https://ionic.io/portals",
   "author": "Ionic Team <hi@ionic.io> (https://ionic.io)",
@@ -12,13 +12,9 @@
   "bugs": {
     "url": "https://github.com/ionic-team/ionic-portals/issues"
   },
-  "files": [
-
-  ],
+  "files": [],
   "scripts": {
     "verify": "xcodebuild -workspace IonicPortals.xcworkspace -scheme IonicPortals"
-  },
-  "peerDependencies": {
   },
   "private": true
 }

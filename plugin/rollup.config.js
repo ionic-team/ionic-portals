@@ -1,22 +1,36 @@
+import nodeResolve from '@rollup/plugin-node-resolve';
+const banner =
+  '/*! Ionic Portals: https://ionic.io/portals - Commercial License */';
 export default {
-  input: 'dist/esm/index.js',
+  input: 'build/index.js',
   output: [
     {
       file: 'dist/plugin.js',
       format: 'iife',
-      name: 'capacitorPortals',
+      name: 'ionicPortals',
+      banner,
       globals: {
-        '@capacitor/core': 'capacitorExports',
+        '@capacitor/core': 'ionicExports',
       },
       sourcemap: true,
       inlineDynamicImports: true,
     },
     {
-      file: 'dist/plugin.cjs.js',
+      file: 'dist/index.js',
+      format: 'esm',
+      banner,
+      preferConst: true,
+      sourcemap: true,
+      inlineDynamicImports: true,
+    },
+    {
+      file: 'dist/index.cjs.js',
       format: 'cjs',
+      banner,
       sourcemap: true,
       inlineDynamicImports: true,
     },
   ],
   external: ['@capacitor/core'],
+  plugins: [nodeResolve()],
 };

@@ -1,18 +1,19 @@
 {
   "name": "@ionic/portals",
-  "version": "0.0.5",
+  "version": "0.1.4",
   "description": "SDK Plugin for Ionic Portals",
   "homepage": "https://ionic.io/portals",
-  "main": "dist/plugin.cjs.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "types": "types/index.d.ts",
   "unpkg": "dist/plugin.js",
   "files": [
     "android/src/main/",
     "android/build.gradle",
     "dist/",
     "ios/Plugin/",
-    "IonicPortals.podspec"
+    "IonicPortals.podspec",
+    "types"
   ],
   "author": "Ionic Team <hi@ionic.io> (https://ionic.io)",
   "license": "Commercial",
@@ -35,7 +36,7 @@
     "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
     "docgen": "docgen --api PortalsPlugin --output-readme README.md --output-json dist/docs.json",
     "build": "npm run clean && tsc && rollup -c rollup.config.js",
-    "clean": "rimraf ./dist",
+    "clean": "rimraf ./dist && rimraf ./build && rimraf ./types",
     "watch": "tsc --watch",
     "prepublishOnly": "npm run build"
   },
@@ -47,6 +48,7 @@
     "@ionic/eslint-config": "^0.3.0",
     "@ionic/prettier-config": "^1.0.1",
     "@ionic/swiftlint-config": "^1.1.2",
+    "@rollup/plugin-node-resolve": "^13.0.4",
     "eslint": "^7.11.0",
     "prettier": "~2.2.0",
     "prettier-plugin-java": "~1.0.0",
