@@ -92,8 +92,8 @@ jobs:
           path: ~/.npm
           key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
       - run: npm ci
-      - run: npx lerna changed
-      # - run: npm run lerna:publish:latest || true
+      # - run: npx lerna changed
+      - run: npm run lerna:publish:latest || true
   # publish-ios:
   #   runs-on: macos-11
   #   if: github.event_name == 'push' && github.ref == 'refs/heads/main' && startsWith(github.event.head_commit.message, 'Release') && (!contains(github.event.head_commit.message, 'rc') && !contains(github.event.head_commit.message, 'beta') && !contains(github.event.head_commit.message, 'alpha'))
