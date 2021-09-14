@@ -1,4 +1,4 @@
 ---
-title: Plugins
-sidebar_label: Overview
+title: Available Plugins
+sidebar_label: Available Plugins
 ---

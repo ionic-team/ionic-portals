@@ -1,4 +1,4 @@
 ---
-title: Getting Started - iOS
-sidebar_label: iOS
+title: Using Portals in iOS
+sidebar_label: Using Portals in iOS
 ---
