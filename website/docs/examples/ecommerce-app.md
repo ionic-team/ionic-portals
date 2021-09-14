@@ -3,7 +3,7 @@ title: E-commerce App
 sidebar_label: E-commerce App
 ---
 
-The Ionic Team has put together an E-commerce demo application for Android and iOS that uses both native layouts and web-based portals. The Android application uses Fragments with AndroidX navigation while the iOS application uses Storyboard/ViewController based views.
+The Ionic Team has put together an E-commerce demo application for Android and iOS that uses both native layouts and web-based portals. The Android application uses Fragments while the iOS application uses Storyboard/ViewController based views.
 
 Below is a list of which portions of the app are native and which portions of the app are portals.
 
