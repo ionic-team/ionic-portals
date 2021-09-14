@@ -1,0 +1,24 @@
+{
+  "name": "ionic-portals-ios",
+  "version": "0.0.5",
+  "description": "Ionic Portals",
+  "homepage": "https://ionic.io/portals",
+  "author": "Ionic Team <hi@ionic.io> (https://ionic.io)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic-team/ionic-portals.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ionic-team/ionic-portals/issues"
+  },
+  "files": [
+
+  ],
+  "scripts": {
+    "verify": "xcodebuild -workspace IonicPortals.xcworkspace -scheme IonicPortals"
+  },
+  "peerDependencies": {
+  },
+  "private": true
+}

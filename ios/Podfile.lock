@@ -1,21 +1,21 @@
 PODS:
-  - Capacitor (3.1.2):
-    - CapacitorCordova (= 3.1.2)
-  - CapacitorCordova (3.1.2)
+  - Capacitor (3.2.2):
+    - CapacitorCordova
+  - CapacitorCordova (3.2.2)
 
 DEPENDENCIES:
   - Capacitor
   - CapacitorCordova
 
 SPEC REPOS:
-  https://github.com/native-portal/podspecs.git:
+  trunk:
     - Capacitor
     - CapacitorCordova
 
 SPEC CHECKSUMS:
-  Capacitor: a94c3a4dd5b29e6f7b514e60c54f8008d54917bb
-  CapacitorCordova: f4f68103ada4c693e878928645f94b5e016f8f5f
+  Capacitor: 393373b4c4e53bbb8d05a4977cd445ea0c53c6cd
+  CapacitorCordova: 7f8d701b1c863b861a467a43d635873382f88a04
 
-PODFILE CHECKSUM: a859e339f414c8102bfffc49e0a0ada35dda58af
+PODFILE CHECKSUM: 8294c038c0796b9664198f1e180f73e4ac53b132
 
 COCOAPODS: 1.10.1
