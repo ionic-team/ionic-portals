@@ -2,6 +2,11 @@
 
 GRADLE_FILE=../android/IonicPortals/build.gradle.kts
 
+if [[ $(git status --porcelain --untracked-files=no | wc -l) -gt 0 ]]; then
+    printf %"s\n" "There are uncommited changes in the repo. Commit or clean the working branch and try again."
+    exit 1
+fi
+
 # Get the latest version of Capacitor
 CAPACITOR_PACKAGE_JSON="https://raw.githubusercontent.com/ionic-team/capacitor/main/android/package.json"
 CAPACITOR_LATEST_VERSION=$(curl -s $CAPACITOR_PACKAGE_JSON | awk -F\" '/"version":/ {print $4}')
