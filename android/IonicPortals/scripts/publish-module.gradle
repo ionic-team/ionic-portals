@@ -46,7 +46,7 @@ afterEvaluate {
                     url = 'https://github.com/ionic-team/ionic-portals'
                     licenses {
                         license {
-                            name = 'MIT'
+                            name = 'Ionic Portals License'
                             url = 'https://github.com/ionic-team/ionic-portals/blob/main/LICENSE'
                         }
                     }
