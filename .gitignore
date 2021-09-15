@@ -191,5 +191,5 @@ iOSInjectionProject/
 # ==========
 # Plugin ignore
 # ==========
-plugin/node_modules
+node_modules
 plugin/dist

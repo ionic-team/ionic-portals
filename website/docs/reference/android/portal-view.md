@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 The [PortalView](./portal-view) class is an Android [FrameLayout](https://developer.android.com/reference/android/widget/FrameLayout) that you can use to easily build a  `View` via XML for a [Portal](./portal). While you can show a [Portal](./portal) to a user using the [PortalView](./portal-view) class directly, it is recommended to use this via XML. If you need to programmtically create a view, you should use [PortalFragment](./portal-fragment) if you can.
 
-You can use [PortalView](./portal-view) like any other [View](https://developer.android.com/reference/android/view/View) class. Below is an example of using XML to load the [Portal](./portal) with the ID of _"help"_. A full example is available [here](../tutorials/create-view-via-xml).
+You can use [PortalView](./portal-view) like any other [View](https://developer.android.com/reference/android/view/View) class. Below is an example of using XML to load the [Portal](./portal) with the ID of _"help"_. A full example is available [here](../../tutorials/android/create-view-via-xml).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
