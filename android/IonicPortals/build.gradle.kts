@@ -39,7 +39,7 @@ android {
 
 dependencies {
     implementation(kotlin("reflect"))
-    implementation("com.capacitorjs:core:3.2.1")
+    implementation("com.capacitorjs:core:3.2.2")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
     implementation( "androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
