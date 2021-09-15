@@ -2,8 +2,9 @@
 
 GRADLE_FILE=../android/IonicPortals/build.gradle.kts
 
+# Check if there are local git changes and abort first. There should be a clean branch
 if [[ $(git status --porcelain --untracked-files=no | wc -l) -gt 0 ]]; then
-    printf %"s\n" "There are uncommited changes in the repo. Commit or clean the working branch and try again."
+    printf %"s\n" "There are uncommited changes in the repo. Commit or clean the uncommited track files and try again."
     exit 1
 fi
 
@@ -34,6 +35,8 @@ perl -i -pe"s/com.capacitorjs:core:.*\"/com.capacitorjs:core:$CAPACITOR_PUBLISHE
 
 printf %"s\n\n" "Done!"
 
+# Check if there are local git changes and try to add and commit the updated Gradle file with the new capacitor dependency version
+# If there are no changes this should all be skipped
 if [[ $(git status --porcelain --untracked-files=no | wc -l) -gt 0 ]]; then
     git add $GRADLE_FILE
     git commit -m "feat(android): updated Capacitor Dependency version to $CAPACITOR_PUBLISHED_VERSION"
