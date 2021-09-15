@@ -116,7 +116,7 @@ Now, the [Portal](../reference/android/portal) is successfully created and manag
 
 ## Linking the Portal in a Layout file
 
-In order to link the Portal to an XML layout file, you need to add a `portalId` attribute to the XML tag as shown below.
+One way to use Portals in android is directly in an XML layout file. Use the `portalId` attribute in the XML tag as shown below to link it to the Portal you created.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
