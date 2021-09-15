@@ -39,8 +39,9 @@ module.exports = {
       items: [
         "how-to/pull-in-web-bundle",
         "how-to/using-the-portal-plugin",
-        "how-to/define-api-in-typescript",
         "how-to/using-a-capacitor-plugin",
+        "how-to/define-api-in-typescript",
+        "how-to/multiple-portals-single-web-app",
         "how-to/multiple-portals-multiple-web-apps",
         "how-to/get-a-product-key",
       ],
