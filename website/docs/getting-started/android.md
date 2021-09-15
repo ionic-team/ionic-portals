@@ -127,7 +127,7 @@ In order to link the Portal to an XML layout file, you need to add a `portalId` 
 />
 ```
 
-We recommended using the `strings.xml` resources file to make sure the Portal ids match up, but it isn't neccessary to do so.
+You can use the `strings.xml` resources file to make sure the Portal ids match up, but it isn't neccessary to do so.
 
 ## Adding Web Code
 
