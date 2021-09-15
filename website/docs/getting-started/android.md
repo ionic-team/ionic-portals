@@ -127,7 +127,7 @@ One way to use Portals in android is directly in an XML layout file. Use the `po
 />
 ```
 
-You can use the `strings.xml` resources file to make sure the Portal ids match up, but it isn't neccessary to do so.
+The `strings.xml` resources file can be used to ensure the Portal ids match up, but it isn't necessary to do so.
 
 ## Adding Web Code
 
