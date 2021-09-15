@@ -32,4 +32,11 @@ printf %"s" "Updating Android Capacitor dependency version to $CAPACITOR_PUBLISH
 # Replace Capacitor library version in Android build.gradle.kts with the latest published version
 perl -i -pe"s/com.capacitorjs:core:.*\"/com.capacitorjs:core:$CAPACITOR_PUBLISHED_VERSION\"/g" $GRADLE_FILE
 
-printf %"s\n" "Done!"
+printf %"s\n\n" "Done!"
+
+if [[ $(git status --porcelain --untracked-files=no | wc -l) -gt 0 ]]; then
+    git add $GRADLE_FILE
+    git commit -m "feat(android): updated Capacitor Dependency version to $CAPACITOR_PUBLISHED_VERSION"
+else
+    printf %"s\n" "There was no change to the Android Capacitor dependency version! Continuing..."
+fi
