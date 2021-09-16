@@ -11,17 +11,10 @@
 
 module.exports = {
   sidebar: [
-    {
-      type: "category",
-      label: "Overview",
-      collapsed: false,
-      items: [
-        "overview/overview",
-        "overview/what-is-a-portal",
-        "overview/portal-communication",
-        "overview/choosing-a-communication",
-      ],
-    },
+    "overview",
+    "what-is-a-portal",
+    "portal-communication",
+    "choosing-a-communication",
     {
       type: "category",
       label: "Getting Started",
