@@ -22,7 +22,7 @@ values={[
 
 ```ruby
 # Podfile
-pod 'IonicPortals', '~> 0.0.5'
+pod 'IonicPortals', '~> 0.2.0'
 ```
 
 </TabItem>
@@ -30,7 +30,7 @@ pod 'IonicPortals', '~> 0.0.5'
 
 ```java
 // build.gradle
-implementation 'io.ionic:portalslibrary:0.0.5'
+implementation 'io.ionic:portals:0.2.0'
 ```
 
 </TabItem>
@@ -53,14 +53,6 @@ import SwiftUI
 import IonicPortals
 
 @main
-struct MyApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         PortalManager.register("MY_API_KEY")
