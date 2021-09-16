@@ -19,7 +19,7 @@ See our guide on [How To Use a Capacitor Plugin](./how-to/using-a-capacitor-plug
 
 ## Custom Plugins
 
-Using the Capacitor Plugin system you can develop a custom interface for the communication through Portals inside your native application and provide the web part of your application a Typescript interface to use that plugin as you would any Capacitor Plugin.
+Using the Capacitor Plugin system you can develop a custom interface for the communication through Portals inside your native application and provide your web application a Typescript interface to use that plugin as you would any Capacitor Plugin.
 
 See our guide on [How To Define a Portal API](./how-to/define-api-in-typescript)
 
