@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-DIR=..
-ANDROID_DIR=$DIR/android
+ANDROID_DIR=../android
 LOG_OUTPUT=./tmp/portals-android.txt
-PORTALS_VERSION=`grep '"version": ' $DIR/plugin/package.json | awk '{print $2}' | tr -d '",'`
+PORTALS_VERSION=`grep '"version": ' $ANDROID_DIR/package.json | awk '{print $2}' | tr -d '",'`
 echo Attempting to build and publish Portals native library with version $PORTALS_VERSION
 
 # Get the latest version of Capacitor
