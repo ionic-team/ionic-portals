@@ -10,7 +10,7 @@ import TabItem from '@theme/TabItem';
 
 ## Install
 
-Ionic Portals is publicly available on both Maven Central and Cocoapods. To add it to your project, add the following lines to your `Podfile` on iOS or your `build.gradle` files for Android.
+Ionic Portals is publicly available on both Maven Central and Cocoapods. To add it to your project, put the following lines to your `Podfile` on iOS or your `build.gradle` files for Android.
 
 <Tabs
 defaultValue="ios"
