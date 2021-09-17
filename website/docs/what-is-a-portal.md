@@ -7,7 +7,7 @@ A "Portal" is a mobile view for iOS and Android projects capable of displaying a
 
 ## How does it work?
 
-Ionic Portals uses [Capacitor](https://capacitorjs.com) as a bridge between the native code and the web code; meaning that there is a production ready, battle tested solution for connecting these two codebases. The Ionic Portals library then provides tooling and functionality around Capacitor to easily embed Capacitor instances, known as "Portals," into your application. Each web application is sandboxed and has a separate connection to the native app. The native code will remain as the "source of truth" for your data as well as allowing your project to continue to use native layouts/views first and foremost.
+Ionic Portals uses [Capacitor](https://capacitorjs.com) as a bridge between the native code and the web code. This means that there is a production ready, battle tested solution for connecting these two codebases. The Ionic Portals library then provides tooling and functionality around Capacitor to easily embed Capacitor instances, known as "Portals," into your application. Each web application is sandboxed and has a separate connection to the native app. The native code will remain as the "source of truth" for your data as well as allowing your project to continue to use native layouts/views first and foremost.
 
 ## When should I use a Portal?
 
@@ -19,7 +19,7 @@ While Ionic Portals may seem like a silver bullet to completely replace the exis
 
 #### Ionic Portals is not drop-in replacement for the system webview
 
-While we do use the system webview in Ionic Portals, it has a separate API and is centered around communication between the native application code and web codebases.
+While we do use the system webview in Ionic Portals, it is not a drop-in replacement. Think of it as a webview with a more robust API for communication between native and web layers. Ionic Portals provides access to the webview itself, but handles all of the heavy lifting for you.
 
 #### Ionic Portals is not a different browser engine
 
@@ -27,4 +27,4 @@ Ionic Portals leverages the existing browser engine on iOS and Android devices. 
 
 #### Ionic Portals is not framework/toolkit for building entire applications using web code only
 
-Ionic Portals is used to embded web experiences in native codebases on Android and iOS. If you want to use HTML, CSS, and Javascript for an entire mobile application, try out [Capacitor](https://capacitorjs.com/docs/getting-started).
+Ionic Portals is used to embed web experiences in native codebases on Android and iOS. If you want to use HTML, CSS, and Javascript for an entire mobile application, try out [Capacitor](https://capacitorjs.com/docs/getting-started).
