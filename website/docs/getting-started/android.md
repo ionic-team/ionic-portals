@@ -131,6 +131,6 @@ The `strings.xml` resources file can be used to ensure the Portal ids match up, 
 
 ## Adding Web Code
 
-Now that your Portal is successfully registered, created, and linked, you need to add the web code to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](../reference/android/portal-manager) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](../reference/android/portal-builder#setStartDir) function to set the web application's directory.
+Now that your Portal is successfully registered, created, and linked, you need to add the web assets to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](../reference/android/portal-manager) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](../reference/android/portal-builder#setStartDir) function to set the web application's directory.
 
 For more information on how to setup your web bundle, see our how to guide on [how to pull in a web bundle](../how-to/pull-in-web-bundle).
