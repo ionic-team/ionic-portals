@@ -3,7 +3,7 @@ title: Portals Plugin
 sidebar_label: Portals Plugin
 ---
 
-The PortalsPlugin class is the main way to interface with a Portal instance. It uses a [PubSub pattern](https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern) to publish data to a given topic and react accordingly.
+The PortalsPlugin class is the main way to interface with a Portal instance. It has methods to easily pass messages back and forth to the native side via a publish/subscribe interface, and ways to pass data to a web view before it initializes.
 
 ## Types
 
