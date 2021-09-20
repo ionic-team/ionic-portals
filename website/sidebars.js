@@ -96,7 +96,9 @@ module.exports = {
           type: "category",
           label: "Web API",
           collapsed: true,
-          items: ["reference/web/todo"],
+          items: [
+            "reference/web/portals-plugin"
+          ],
         },
       ],
     },
