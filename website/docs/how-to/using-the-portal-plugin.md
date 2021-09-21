@@ -12,7 +12,7 @@ The Portal Plugin provides useful features to aid in communication between your 
 
 ### Android and iOS
 
-Follow the [Getting Started Guide](../getting-started/guide) to install the Ionic Portals library into your native mobile projects. The Portal Plugin is automatically added to every instance of of a Portal.
+Follow the [Getting Started Guide](../getting-started/guide) to install the Ionic Portals library into your native mobile projects. The Portal Plugin is automatically added to every instance of a Portal.
 
 ### Web
 
