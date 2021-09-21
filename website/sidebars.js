@@ -31,7 +31,7 @@ module.exports = {
       collapsed: false,
       items: [
         "how-to/pull-in-web-bundle",
-        "how-to/using-the-portal-plugin",
+        "how-to/using-the-portals-plugin",
         "how-to/using-a-capacitor-plugin",
         "how-to/define-api-in-typescript",
         "how-to/multiple-portals-single-web-app",

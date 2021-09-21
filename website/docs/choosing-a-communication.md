@@ -15,7 +15,7 @@ The Portal Plugin is part of the Portals library and provides a helpful, lightwe
 
 We recommend this approach when performing small UI tasks like dismissing a native modal from inside the web application, or passing short messages. This mechanism may also be more appealing to small teams or solo developers who want to communicate through a Portal without the desire to build a Custom Plugin.
 
-See our guide on [How To Use The Portal Plugin](./how-to/using-the-portal-plugin).
+See our guide on [How To Use The Portals Plugin](./how-to/using-the-portals-plugin).
 
 ### Custom Plugin
 
@@ -35,7 +35,7 @@ The Ionic Portals library provides a way to set initial context data for the web
 
 - You may wish to use a single-page web application in your project and navigate to different sections depending on which Portal is displayed in the native application. Navigating after the Portal is loaded reveals the page reload event to the user, whereas using the initial context mechanism to navigate before the page is loaded in the Portal provides a more immersive experience.
 
-For more information about using the initial context mechanism, see our guide on [How To Use The Portal Plugin](./how-to/using-the-portal-plugin).
+For more information about using the initial context mechanism, see our guide on [How To Use The Portals Plugin](./how-to/using-the-portals-plugin).
 
 ## Capacitor Core Plugins
 
