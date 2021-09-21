@@ -11,7 +11,7 @@ Communicating data through a Portal from web to native, or vice versa, creates i
 
 ### Portals Plugin
 
-The Portal Plugin is part of the Portals library and provides a helpful, lightweight way to publish and subscribe to messages through a Portal without needing to write a custom Capacitor Plugin in your native application.
+The Portals Plugin is part of the Portals library and provides a helpful, lightweight way to publish and subscribe to messages through a Portal without needing to write a custom Capacitor Plugin in your native application.
 
 We recommend this approach when performing small UI tasks like dismissing a native modal from inside the web application, or passing short messages. This mechanism may also be more appealing to small teams or solo developers who want to communicate through a Portal without the desire to build a Custom Plugin.
 
