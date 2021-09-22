@@ -87,7 +87,6 @@ module.exports = {
             "reference/android/portal-fragment",
             "reference/android/portal-manager",
             "reference/android/portal-view",
-            "reference/android/portal-listener",
             "reference/android/portal-method",
             "reference/android/portals-plugin",
           ],
