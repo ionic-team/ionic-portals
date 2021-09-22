@@ -96,9 +96,9 @@ Subscribe to receive messages from the web application.
 <TabItem value="kt">
 
 ```kotlin
-// Subscribe to the "example-result" topic and check for
+// Subscribe to the "dismiss" topic and check for
 // a specific string to act on
-PortalsPlugin.subscribe("example-result") { result ->
+PortalsPlugin.subscribe("dismiss") { result ->
     if (result.data == "cancel" || result.data == "success") {
         this.dismiss()
     }
@@ -109,9 +109,9 @@ PortalsPlugin.subscribe("example-result") { result ->
 <TabItem value="java">
 
 ```java
-// Subscribe to the "example-result" topic and check for
+// Subscribe to the "dismiss" topic and check for
 // a specific string to act on
-PortalsPlugin.subscribe("example-result", (result -> {
+PortalsPlugin.subscribe("dismiss", (result -> {
     boolean doDismiss = result.getData().equals("cancel")
                     || result.getData().equals("success");
 
@@ -130,7 +130,7 @@ PortalsPlugin.subscribe("example-result", (result -> {
 
 Name | Type | Description
 :------ | :------ | :------
-`topic` | `String` | The topic associated with the message
+`topic` | `String` | The topic to subscribe to
 `data` | [SubscriptionResult](./portals-plugin#subscriptionresult) -> Unit | A function to receive and handle the message
 
 ### unsubscribe
@@ -149,27 +149,27 @@ Unsubscribe from messages sent to a certain topic from the web application.
 <TabItem value="kt">
 
 ```kotlin
-// Subscribe to the "example-result" topic and check for
+// Subscribe to the "dismiss" topic and check for
 // a specific string to act on. Store the result of subscribe
 // to keep a reference to unsubscribe with later
-val subscription = PortalsPlugin.subscribe("example-result") { result ->
+val subscription = PortalsPlugin.subscribe("dismiss") { result ->
     if (result.data == "cancel" || result.data == "success") {
         this.dismiss()
     }
 }
 
-// Unsubscribe from "example-result"
-PortalsPlugin.unsubscribe("example-result", subscription)
+// Unsubscribe from "dismiss"
+PortalsPlugin.unsubscribe("dismiss", subscription)
 ```
 
 </TabItem>
 <TabItem value="java">
 
 ```java
-// Subscribe to the "example-result" topic and check for
+// Subscribe to the "dismiss" topic and check for
 // a specific string to act on. Store the result of subscribe
 // to keep a reference to unsubscribe with later
-int subscription = PortalsPlugin.subscribe("example-result", (result -> {
+int subscription = PortalsPlugin.subscribe("dismiss", (result -> {
     boolean doDismiss = result.getData().equals("cancel")
             || result.getData().equals("success");
 
@@ -180,8 +180,8 @@ int subscription = PortalsPlugin.subscribe("example-result", (result -> {
     return Unit.INSTANCE;
 }));
 
-// Unsubscribe from "example-result"
-PortalsPlugin.unsubscribe("example-result", subscription);
+// Unsubscribe from "dismiss"
+PortalsPlugin.unsubscribe("dismiss", subscription);
 ```
 
 </TabItem>
