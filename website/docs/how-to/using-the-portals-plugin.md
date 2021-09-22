@@ -18,7 +18,7 @@ Follow the [Getting Started Guide](../getting-started/guide) to install the Ioni
 
 Install the [Ionic Portals](https://www.npmjs.com/package/@ionic/portals) package from NPM into your Web application.
 
-```sh
+```bash
 npm install @ionic/portals
 ```
 
