@@ -3,6 +3,9 @@ title: How To Define a Portal APIs
 sidebar_label: Define your own Portal APIs
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 One of the biggest benefits of including Ionic Portals in an application is the ability to easily communicate between web and native code using the [PortalsPlugin](../reference/web/portals-plugin). However, in some more niche cases, creating your own Plugins may be neccessary. By creating a [Capacitor Plugin](https://capacitorjs.com/docs/plugins/creating-plugins), you can create your own API to communicate between web and native code.
 
 For this example, we will create a Plugin called `EchoPlugin` that has a single function: `echo`.
@@ -26,10 +29,19 @@ If you are not using TypeScript, this step is not needed, but you'll need to tak
 
 ## Implementing the API 
 
-Once the API has been defined, you can start building the plugin. In this example, the `EchoPlguin`, will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
+First, you'll need to [install the proper dependencies](../getting-started/guide#install). On Android, you will need to explicitly add Capacitor to your list of dependencies in order to use the Capacitor Plugin class. On iOS this is not neccessary.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+```groovy
+// ----------------------------------------------
+//  Module-level build.gradle
+// ----------------------------------------------
+dependencies {
+    implementation 'io.ionic:portals:0.2.0'
+    implementation 'com.capacitorjs:core:3.2.2'
+}
+```
+
+After installing the dependencies once the API has been defined, you can start building the plugin. In this example, the `EchoPlugin`, will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
 
 <Tabs 
     defaultValue="swift" 
