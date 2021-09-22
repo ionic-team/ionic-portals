@@ -194,7 +194,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     val portalFragment = PortalFragment(portal)
 
     // listen on the topic "dismiss" and act on the result data.
-    // This is an example to dismiss a containign native DialogFragment.
+    // This is an example to dismiss a containing native DialogFragment.
     PortalsPlugin.subscribe("dismiss") { result ->
         if (result.data == "cancel" || result.data == "success") {
             this.dismiss()
@@ -224,7 +224,7 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
     PortalFragment portalFragment = new FadePortalFragment(portal);
 
     // listen on the topic "dismiss" and act on the result data.
-    // This is an example to dismiss a containign native DialogFragment.
+    // This is an example to dismiss a containing native DialogFragment.
     PortalsPlugin.subscribe("dismiss", (subscriptionResult -> {
         if(subscriptionResult.getData().equals("cancel") 
             || subscriptionResult.getData().equals("success")) {
