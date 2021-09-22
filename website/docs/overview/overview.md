@@ -3,14 +3,14 @@ title: Ionic Portals
 sidebar_label: Overview
 ---
 
+import WistiaVideo from '@site/src/components/WistiaVideo';
+
 Ionic Portals is a supercharged native Web View component for iOS and Android that lets you add web-based experiences to native mobile apps. It enables native and web teams to better collaborate and bring new and existing web experiences to mobile in a safe, controlled way.
 
 todo: direct portals signup link:
 Ionic Portals is free. [Try it now](http://dashboard.ionicframework.com/personal/apps?native_trial=1).
 
-TODO: embed JT demo video from youtube
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rq9MEt_gOf0" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen style={{paddingBottom: 15}}></iframe>
+<WistiaVideo videoId="jz6bwia807" />
 
 ## Why Ionic Portals?
 
