@@ -28,7 +28,7 @@ pod 'IonicPortals', '~> 0.2.0'
 </TabItem>
 <TabItem value="android">
 
-```java
+```groovy
 // ----------------------------------------------
 //  Top-level build.gradle
 // ----------------------------------------------
