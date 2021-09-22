@@ -6,7 +6,7 @@ sidebar_label: Use a Capacitor Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ionic Portals uses Capacitor under the hood, meaning that you can use existing Capacitor Plugins in your Portals. In order to use a Capacitor Plugin, you need to install the plugin as a dependency and include it via the `PortalManager` initialization.
+Ionic Portals uses Capacitor under the hood, meaning that you can use existing Capacitor Plugins in your Portals. These plugins allow Portals to use native functionality without much setup on either the native or web developers part.
 
 <Tabs 
     defaultValue="ios" 
@@ -16,6 +16,21 @@ Ionic Portals uses Capacitor under the hood, meaning that you can use existing C
     ]}
 >
 <TabItem value="ios">
+
+## Usage
+In order to use a Capacitor Plugin, you need to install the plugin as a dependency and inject the Plugin to the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
+
+```swift
+override func viewDidLoad() {
+    // Inject the plugin into the native bridge
+    apiPlugin = bridge?.plugin(withName: "MyPlugin") as? MyPlugin
+    
+    // now call super which will start the initial load
+    super.viewDidLoad()
+}
+```
+
+## Published Plugins
 
 In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example, the `@capacitor/storage` plugin on npm is named `CapacitorStorage` on CocoaPods. The following Plugins are available in CocoaPods.
 
@@ -102,9 +117,40 @@ The Text Zoom API provides the ability to change Web View text size for visual a
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
 
-
 </TabItem>
 <TabItem value="android">
+
+## Usage 
+In order to use a Capacitor Plugin, you need to install the plugin as a dependency and include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
+
+<Tabs 
+    defaultValue="kt" 
+    values={[
+        { label: 'Kotlin', value: 'kt', },
+        { label: 'Java', value: 'java', },
+    ]}
+>
+<TabItem value="kt">
+
+```kotlin
+var builder: PortalBuilder = someValue
+builder = builder.addPlugin(MyPlugin::class.java)
+```
+
+</TabItem>
+
+<TabItem value="java">
+
+```java
+PortalBuilder builder = someValue;
+builder = builder.addPlugin(MyPlugin.class)
+```
+
+</TabItem>
+
+</Tabs>
+
+## Published Plugins
 
 In MavenCentral, the Capacitor plugins are prepended with `com.capacitorjs`. For example, the `@capacitor/storage` plugin on npm is named `com.capacitorjs.storage` on Maven. The following Plugins are available in MavenCentral.
 
