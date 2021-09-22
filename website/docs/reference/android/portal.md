@@ -281,9 +281,9 @@ interface MyPortalInitialContext {
 }
 
 Portals.getInitialContext<MyPortalInitialContext>().then(context => {
-    console.log(context.foo)    // "bar"
-    console.log(context.ionic)  // "portals"
-    console.log(context.num)    // 42
+    console.log(context.value.foo)    // "bar"
+    console.log(context.value.ionic)  // "portals"
+    console.log(context.value.num)    // 42
 })
 ```
 

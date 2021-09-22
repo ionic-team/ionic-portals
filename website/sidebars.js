@@ -11,17 +11,10 @@
 
 module.exports = {
   sidebar: [
-    {
-      type: "category",
-      label: "Overview",
-      collapsed: false,
-      items: [
-        "overview/overview",
-        "overview/what-is-a-portal",
-        "overview/portal-communication",
-        "overview/choosing-a-communication",
-      ],
-    },
+    "overview",
+    "what-is-a-portal",
+    "portal-communication",
+    "choosing-a-communication",
     {
       type: "category",
       label: "Getting Started",
@@ -38,7 +31,7 @@ module.exports = {
       collapsed: false,
       items: [
         "how-to/pull-in-web-bundle",
-        "how-to/using-the-portal-plugin",
+        "how-to/using-the-portals-plugin",
         "how-to/using-a-capacitor-plugin",
         "how-to/define-api-in-typescript",
         "how-to/multiple-portals-single-web-app",
@@ -94,7 +87,6 @@ module.exports = {
             "reference/android/portal-fragment",
             "reference/android/portal-manager",
             "reference/android/portal-view",
-            "reference/android/portal-listener",
             "reference/android/portal-method",
             "reference/android/portals-plugin",
           ],
@@ -103,7 +95,9 @@ module.exports = {
           type: "category",
           label: "Web API",
           collapsed: true,
-          items: ["reference/web/todo"],
+          items: [
+            "reference/web/portals-plugin"
+          ],
         },
       ],
     },

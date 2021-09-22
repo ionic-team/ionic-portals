@@ -76,11 +76,7 @@ public class PortalsPlugin: CAPPlugin {
             PortalsPlugin.subscriptions[topic] = subscription
         }
     }
-    
-    public static func removeMessageListener(_ messageName: String) {
-        PortalsPlugin.subscriptions.removeValue(forKey: messageName)
-    }
-        
+            
 }
 
 public struct SubscriptionResult {

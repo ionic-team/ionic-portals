@@ -50,13 +50,15 @@ jobs:
       - run: npm ci
       - run: npm run build
         working-directory: ./plugin
-  # verify-android:
-  #   runs-on: ubuntu-latest
-  #   timeout-minutes: 30
-  #   needs:
-  #     - setup
-  #   steps:
-      # do androidy things
+  verify-android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs:
+      - setup
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm run verify
+        working-directory: ./android
   verify-ios:
     runs-on: macos-latest
     timeout-minutes: 30
@@ -79,7 +81,7 @@ jobs:
       - setup
       - verify-plugin
       - verify-ios
-      # - verify-android
+      - verify-android
     steps:
       - run: echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" >> ~/.npmrc
       - uses: actions/setup-node@v1
