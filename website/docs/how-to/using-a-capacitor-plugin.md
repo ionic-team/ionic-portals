@@ -17,8 +17,20 @@ Ionic Portals uses Capacitor under the hood, meaning that you can use existing C
 >
 <TabItem value="ios">
 
-## Usage
-In order to use a Capacitor Plugin, you need to install the plugin as a dependency and inject the Plugin to the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
+## Native Usage
+In order to use a Capacitor Plugin, you need to install the plugin as a dependency in your `Podfile`.
+
+```ruby
+# Podfile
+pod 'IonicPortals', '~> 0.2.0'
+pod 'CapacitorStorage', '~> 1.2.0'
+```
+
+:::warning
+Make sure that the versions in your `Podfile`, `build.gradle`, and `package.json` all match! Otherwise you will run into errors.
+:::
+
+After installing the dependency inject the Plugin to the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
 
 ```swift
 override func viewDidLoad() {
@@ -121,7 +133,20 @@ The Toast API provides a notification pop up for displaying important informatio
 <TabItem value="android">
 
 ## Usage 
-In order to use a Capacitor Plugin, you need to install the plugin as a dependency and include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
+In order to use a Capacitor Plugin, you need to install the plugin as a dependency in your `build.gradle` file.
+
+```groovy
+dependencies {
+    implementation 'io.ionic:portals:0.2.0'
+    implementation 'com.capacitorjs.storage:1.2.0'
+}
+```
+
+:::warning
+Make sure that the versions in your `Podfile`, `build.gradle`, and `package.json` all match! Otherwise you will run into errors.
+:::
+
+and include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
 
 <Tabs 
     defaultValue="kt" 
@@ -241,3 +266,12 @@ The Toast API provides a notification pop up for displaying important informatio
 
 </TabItem>
 </Tabs>
+
+## Web Usage
+Web Developers need to install the web dependency of the plugins from `npm`. The packages are listed under the `@capacitor` scope. To install a plugin, run `npm i @capacitor/<plugin_name>` at the root of your web project.
+
+:::warning
+Make sure that the versions in your `Podfile`, `build.gradle`, and `package.json` all match! Otherwise you will run into errors
+:::
+
+For more information on how to use Capacitor Plugins in your web application, [check out the Capacitor Plugin docs](https://capacitorjs.com/docs/apis).
