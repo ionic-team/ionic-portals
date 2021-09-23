@@ -37,7 +37,7 @@ First, you'll need to [install the proper dependencies](../getting-started/guide
 // ----------------------------------------------
 dependencies {
     implementation 'io.ionic:portals:0.2.0'
-    implementation 'com.capacitorjs:core:3.2.2'
+    api 'com.capacitorjs:core:3.2.2'
 }
 ```
 
