@@ -8,8 +8,7 @@ import WistiaVideo from '@site/src/components/WistiaVideo';
 
 Ionic Portals is a supercharged native Web View component for iOS and Android that lets you add web-based experiences to native mobile apps. It enables native and web teams to better collaborate and bring new and existing web experiences to mobile in a safe, controlled way.
 
-todo: direct portals signup link:
-Ionic Portals is free. [Try it now](http://dashboard.ionicframework.com/personal/apps?native_trial=1).
+Ionic Portals is free. [Try it now](https://ionic.io/register-portals).
 
 <WistiaVideo videoId="jz6bwia807" />
 
