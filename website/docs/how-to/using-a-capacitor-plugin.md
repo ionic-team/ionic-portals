@@ -132,7 +132,7 @@ The Toast API provides a notification pop up for displaying important informatio
 </TabItem>
 <TabItem value="android">
 
-## Usage 
+## Native Usage
 In order to use a Capacitor Plugin, you need to install the plugin as a dependency in your `build.gradle` file.
 
 ```groovy title=build.gradle {3}
