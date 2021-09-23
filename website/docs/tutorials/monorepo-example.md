@@ -3,7 +3,7 @@ title: Copying Web Assets to Native Projects in a Monorepo
 sidebar_label: Copying Web Assets to Native Projects in a Monorepo
 ---
 
-With Ionic Portals, you need to get the built web assets for each of the portals into your native applications. There could be many ways to go about doing so, which will highly depend on your project. This quick tutorial will show how you can accomplish this when working on a monorepo project in which your web apps are in the same repository as your web apps.
+With Ionic Portals, you need to get the built web assets for each of the portals into your native applications. There could be many ways to go about doing so, which will highly depend on your project. This quick tutorial will show how you can accomplish this when working on a monorepo project in which your web apps are in the same repository as your native apps.
 
 ## Project Structure
 
@@ -11,39 +11,40 @@ We will set up some NPM scripts in a moment to do the copy tasks. First, though,
 
 
 ```
-project root
-│ android  
-│   .gradle  
-│   app  
-  │  src
-    │ main
-      │ assets    
-        │ webapp    
-│   build.gradle  
-│   [etc...]  
-│ ios
-│   Pods
-│   your native app
-      │ webapp
-│   Podfile
-│   [etc...]
-│ web
-│   build
-│   src
-│   package.json
-│   [etc...]
+project root/
+├─ android/  
+├─   .gradle  
+├─   app/  
+  ├─  src/
+    ├─ main/
+      ├─ assets/    
+        ├─ webapp/    
+├─   build.gradle  
+├─   [etc...]  
+├─ ios/
+├─   Pods/
+├─   your native app/
+      ├─ webapp/
+├─   Podfile
+├─   [etc...]
+├─ web/
+├─   build/
+├─   src/
+├─   package.json
+├─   [etc...]
 ```
 
 :::note 
 For iOS, the `webapp` folder will also need to be added to the XCode project to package the web assets with the app. To do so, drag the `webapp` folder from Finder and drop it to the same folder in the Project Navigator while in XCode. 
 :::
+
 ## Using NPM Scripts to copy assets
 
 Now that we know where to copy the built web assets, we will use NPM scripts to run after the build step. 
 
 Here, we will set up a `postbuild` script that will run after the `npm run build` task finishes, which will in turn call `copyto:android` and `copyto:ios`:
 
-```json title=package.json scripts
+```json title="package.json scripts"
 "postbuild": "npm run copyto:android && npm run copyto:ios",
 "copyto:android": "rm -rf ../android/app/src/main/assets/webapp && cp -R build/ ../android/app/src/main/assets/webapp",
 "copyto:ios": "rm -rf '../ios/portal test app/webapp' && cp -R build/ .'./ios/portal test app/webapp'"    
