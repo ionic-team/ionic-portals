@@ -26,8 +26,8 @@ pod 'IonicPortals', '~> 0.2.0'
 pod 'CapacitorStorage', '~> 1.2.0'
 ```
 
-:::warning
-Make sure that the versions in your `Podfile`, `build.gradle`, and `package.json` all match! Otherwise you will run into errors.
+:::caution
+Make sure that the versions in your `Podfile` and `package.json` match! Otherwise you could run into errors.
 :::
 
 After installing the dependency inject the Plugin to the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
