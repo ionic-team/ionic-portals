@@ -142,8 +142,8 @@ dependencies {
 }
 ```
 
-:::warning
-Make sure that the versions in your `Podfile`, `build.gradle`, and `package.json` all match! Otherwise you will run into errors.
+:::caution
+Make sure that the versions in your `build.gradle` and `package.json` match! Otherwise you could run into errors.
 :::
 
 and include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
