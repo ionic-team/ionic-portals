@@ -6,7 +6,7 @@ sidebar_label: Use a Capacitor Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Ionic Portals uses Capacitor under the hood, meaning that you can use existing Capacitor Plugins in your Portals. These plugins allow Portals to use native functionality without much setup on either the native or web developers part.
+Ionic Portals uses Capacitor under the hood, meaning that you can use [existing Capacitor Core Plugins](https://capacitorjs.com/docs/apis) in your Portals. These plugins allow Portals to use native functionality without much setup on either the native or web developers part.
 
 <Tabs 
     defaultValue="ios" 
@@ -20,8 +20,7 @@ Ionic Portals uses Capacitor under the hood, meaning that you can use existing C
 ## Native Usage
 In order to use a Capacitor Plugin, you need to install the plugin as a dependency in your `Podfile`.
 
-```ruby
-# Podfile
+```ruby title=Podfile {2}
 pod 'IonicPortals', '~> 0.2.0'
 pod 'CapacitorStorage', '~> 1.2.0'
 ```
@@ -46,86 +45,87 @@ override func viewDidLoad() {
 
 In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example, the `@capacitor/storage` plugin on npm is named `CapacitorStorage` on CocoaPods. The following Plugins are available in CocoaPods.
 
-### CapacitorActionSheet
+**CapacitorActionSheet**
 
 The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
 
-### CapacitorAppLauncher
+**CapacitorAppLauncher**
 
 The AppLauncher API allows to open other apps
 
-### CapacitorBrowser
+**CapacitorBrowser**
 
 The Browser API provides the ability to open an in-app browser and subscribe to browser events.
 
-### CapacitorCamera
+**CapacitorCamera**
 
 The Camera API provides the ability to take a photo with the camera or choose an existing one from the photo album.
 
-### CapacitorClipboard
+**CapacitorClipboard**
 
 The Clipboard API enables copy and pasting to/from the system clipboard.
 
-### CapacitorDevice
+**CapacitorDevice**
 
 The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
 
-### CapacitorDialog
+**CapacitorDialog**
 
 The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts
 
-### CapacitorFilesystem
+**CapacitorFilesystem**
 
 The Filesystem API provides a NodeJS-like API for working with files on the device.
 
-### CapacitorGeolocation
+**CapacitorGeolocation**
 
 The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
 
-### CapacitorHaptics
+**CapacitorHaptics**
 
 The Haptics API provides physical feedback to the user through touch or vibration.
 
-### CapacitorKeyboard
+**CapacitorKeyboard**
 
 The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
 
-### CapacitorLocalNotifications
+**CapacitorLocalNotifications**
 
 The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
 
-### CapacitorNetwork
+**CapacitorNetwork**
 
 The Network API provides network and connectivity information.
 
-### CapacitorPushNotifications
+**CapacitorPushNotifications**
 
 The Push Notifications API provides access to native push notifications.
 
-### CapacitorScreenReader
+**CapacitorScreenReader**
 
 The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides simple text-to-speech capabilities for visual accessibility.
-### CapacitorShare
+
+**CapacitorShare**
 
 The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
 
-### CapacitorSplashScreen
+**CapacitorSplashScreen**
 
 The Splash Screen API provides methods for showing or hiding a Splash image.
 
-### CapacitorStatusBar
+**CapacitorStatusBar**
 
 The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
 
-### CapacitorStorage
+**CapacitorStorage**
 
 The Storage API provides a simple key/value persistent store for lightweight data.
 
-### CapacitorTextZoom
+**CapacitorTextZoom**
 
 The Text Zoom API provides the ability to change Web View text size for visual accessibility.
 
-### CapacitorToast
+**CapacitorToast**
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
 
@@ -135,7 +135,7 @@ The Toast API provides a notification pop up for displaying important informatio
 ## Usage 
 In order to use a Capacitor Plugin, you need to install the plugin as a dependency in your `build.gradle` file.
 
-```groovy
+```groovy title=build.gradle {3}
 dependencies {
     implementation 'io.ionic:portals:0.2.0'
     implementation 'com.capacitorjs.storage:1.2.0'
@@ -179,87 +179,87 @@ builder = builder.addPlugin(MyPlugin.class)
 
 In MavenCentral, the Capacitor plugins are prepended with `com.capacitorjs`. For example, the `@capacitor/storage` plugin on npm is named `com.capacitorjs.storage` on Maven. The following Plugins are available in MavenCentral.
 
-### com.capacitorjs.action-sheet
+**com.capacitorjs.action-sheet**
 
 The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
 
-### com.capacitorjs.app-launcher
+**com.capacitorjs.app-launcher**
 
 The AppLauncher API allows to open other apps
 
-### com.capacitorjs.browser
+**com.capacitorjs.browser**
 
 The Browser API provides the ability to open an in-app browser and subscribe to browser events.
 
-### com.capacitorjs.camera
+**com.capacitorjs.camera**
 
 The Camera API provides the ability to take a photo with the camera or choose an existing one from the photo album.
 
-### com.capacitorjs.clipboard
+**com.capacitorjs.clipboard**
 
 The Clipboard API enables copy and pasting to/from the system clipboard.
 
-### com.capacitorjs.device
+**com.capacitorjs.device**
 
 The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
 
-### com.capacitorjs.dialog
+**com.capacitorjs.dialog**
 
 The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts
 
-### com.capacitorjs.filesystem
+**com.capacitorjs.filesystem**
 
 The Filesystem API provides a NodeJS-like API for working with files on the device.
 
-### com.capacitorjs.geolocation
+**com.capacitorjs.geolocation**
 
 The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
 
-### com.capacitorjs.haptics
+**com.capacitorjs.haptics**
 
 The Haptics API provides physical feedback to the user through touch or vibration.
 
-### com.capacitorjs.keyboard
+**com.capacitorjs.keyboard**
 
 The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
 
-### com.capacitorjs.local-notifications
+**com.capacitorjs.local-notifications**
 
 The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
 
-### com.capacitorjs.network
+**com.capacitorjs.network**
 
 The Network API provides network and connectivity information.
 
-### com.capacitorjs.push-notifications
+**com.capacitorjs.push-notifications**
 
 The Push Notifications API provides access to native push notifications.
 
-### com.capacitorjs.screen-reader
+**com.capacitorjs.screen-reader**
 
 The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides simple text-to-speech capabilities for visual accessibility.
 
-### com.capacitorjs.share
+**com.capacitorjs.share**
 
 The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
 
-### com.capacitorjs.splash-screen
+**com.capacitorjs.splash-screen**
 
 The Splash Screen API provides methods for showing or hiding a Splash image.
 
-### com.capacitorjs.status-bar
+**com.capacitorjs.status-bar**
 
 The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
 
-### com.capacitorjs.storage
+**com.capacitorjs.storage**
 
 The Storage API provides a simple key/value persistent store for lightweight data.
 
-### com.capacitorjs.text-zoom
+**com.capacitorjs.text-zoom**
 
 The Text Zoom API provides the ability to change Web View text size for visual accessibility.
 
-### com.capacitorjs.toast
+**com.capacitorjs.toast**
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
 
