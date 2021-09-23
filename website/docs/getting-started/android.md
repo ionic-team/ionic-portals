@@ -129,6 +129,26 @@ One way to use Portals in android is directly in an XML layout file. Use the `po
 
 The `strings.xml` resources file can be used to ensure the Portal ids match up, but it isn't necessary to do so.
 
+## Preparing the Containing Activity
+
+Configuration changes in Android can cause WebViews to restart within an Activity. We recommend adding the following line of code in your application `AndroidManifest.xml` file for any Activity that will contain a Portal.
+
+`android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"`
+
+For example:
+
+```xml
+<activity
+    android:name=".MainActivity"
+    android:label="MyExampleApp"
+    android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
+
 ## Adding Web Code
 
 Now that your Portal is successfully registered, created, and linked, you need to add the web assets to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](../reference/android/portal-manager) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](../reference/android/portal-builder#setStartDir) function to set the web application's directory.
