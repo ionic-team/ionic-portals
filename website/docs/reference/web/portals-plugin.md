@@ -137,9 +137,8 @@ Gets the [IntialContext](./portals-plugin#initialcontext) of the Portal that was
 
 ```typescript
 // Passed in value is { foo: 'bar' }
-Portals.getInitialContext<{ foo: string; }>(context => {
-    console.log(context.name);  // foo
-    console.log(context.value); // bar
+Portals.getInitialContext<{ foo: string; }>().then(context => {
+    console.log(context.value.foo); // bar
 });
 ```
 
@@ -150,7 +149,7 @@ A real world example might be navigating to a route in a single page application
 Portals.getInitialContext<{ startingRoute: string; }>().then(context => {
   ReactDOM.render(
     <React.StrictMode>
-      <App context={context.value}/> 
+      <App context={context.value}/> {/* context.value = { startingRoute: '/help' } */}
     </React.StrictMode>,
     document.getElementById('root')
   );
