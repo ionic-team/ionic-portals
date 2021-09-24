@@ -1,27 +1,27 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 module.exports = {
-  title: 'Ionic Portals',
-  tagline: 'Portals tagline',
-  url: 'https://ionic.io',
+  title: "Ionic Portals",
+  tagline: "Portals tagline",
+  url: "https://ionic.io",
   trailingSlash: false,
-  baseUrl: '/docs/portals/',
+  baseUrl: "/docs/portals/",
   baseUrlIssueBanner: false,
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/auth-connect-icon.svg',
-  organizationName: 'ionic-team',
-  projectName: 'portals-docs',
-  titleDelimiter: '-',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
+  favicon: "img/logo.svg",
+  organizationName: "ionic-team",
+  projectName: "portals-docs",
+  titleDelimiter: "-",
   themeConfig: {
     navbar: {
-      title: 'Portals',
+      title: "Portals",
       logo: {
-        alt: 'Portals Logo',
-        src: 'img/logo.svg',
+        alt: "Portals Logo",
+        src: "img/logo.svg",
       },
       items: [
         {
-          type: 'docsVersionDropdown',
+          type: "docsVersionDropdown",
         },
       ],
     },
@@ -29,29 +29,37 @@ module.exports = {
       respectPrefersColorScheme: true,
     },
     tagManager: {
-      trackingID: 'GTM-TKMGCBC',
+      trackingID: "GTM-TKMGCBC",
     },
     prism: {
       theme: { plain: {}, styles: [] },
       additionalLanguages: [
-        'shell-session', 'kotlin', 'groovy', 'java', 'swift', 'ruby'
+        "shell-session",
+        "kotlin",
+        "groovy",
+        "java",
+        "swift",
+        "ruby",
       ],
     },
   },
-  plugins: ['@ionic-internal/docusaurus-plugin-tag-manager', 'docusaurus-plugin-sass'],
-  themes: ['@ionic-internal/docusaurus-theme'],
+  plugins: [
+    "@ionic-internal/docusaurus-plugin-tag-manager",
+    "docusaurus-plugin-sass",
+  ],
+  themes: ["@ionic-internal/docusaurus-theme"],
   presets: [
     [
-      '@docusaurus/preset-classic',
+      "@docusaurus/preset-classic",
       {
         docs: {
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: "/",
+          sidebarPath: require.resolve("./sidebars.js"),
         },
         blog: false,
         pages: false,
         theme: {
-          customCss: ['prismjs/themes/prism-tomorrow.css'],
+          customCss: ["prismjs/themes/prism-tomorrow.css"],
         },
       },
     ],
