@@ -150,7 +150,7 @@ Portals.subscribe<any>({ topic: 'login' }, result: { topic: string, data: any } 
 });
 ```
 
-For more information on how to use the Portals Plugin, [see our how to guide](../how-to/using-the-portal-plugin).
+For more information on how to use the Portals Plugin, [see our how to guide](../how-to/using-the-portals-plugin).
 
 ### Using a Custom Plugin
 
@@ -226,6 +226,8 @@ PortalsPlugin.subscribe("login", (@NotNull Object result) -> {
 </TabItem>
 
 </Tabs>
+
+For more information on how to use the Portals Plugin, [see our how to guide](../how-to/using-the-portals-plugin).
 
 ### Using a Custom Plugin
 
