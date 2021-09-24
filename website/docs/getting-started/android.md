@@ -22,7 +22,7 @@ In Android, you will have to register your Portals instance and start creating P
 <TabItem value="kt">
 
 ```kotlin
-class MyApplication : Application {
+class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
@@ -82,7 +82,7 @@ After registering via the [PortalManager.register()](../reference/android/portal
 <TabItem value="kt">
 
 ```kotlin
-class MyApplication : Application {
+class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
