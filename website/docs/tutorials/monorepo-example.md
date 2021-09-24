@@ -7,7 +7,7 @@ With Ionic Portals, you need to get the built web assets for each of the portals
 
 ## Project Structure
 
-We will set up some NPM scripts in a moment to do the copy tasks. First, though, is you need to know where to copy the assets to in each native project. For Android, the web assets will go into a folder under `app/src/main/assets`, and for iOS, the folder will go directly into the folder named after your app. Below is a sample monorepo setup with three projects in the root directory (android, ios, and web), and in each native project, we will copy the web assets into a folder named `web app`. The scripts below match this structure. You will need to modify the scripts accordingly based on your project.
+We will set up some NPM scripts in a moment to do the copy tasks. First, though, you need to know where to copy the assets to each native project. For Android, the web assets will go into a folder under `app/src/main/assets`, and for iOS, the folder will go directly into the folder named after your app. Below is a sample monorepo setup with three projects in the root directory (android, ios, and web), and in each native project, we will copy the web assets into a folder named `web app`. The scripts below match this structure. You will need to modify the scripts accordingly based on your project.
 
 
 ```
