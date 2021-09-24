@@ -86,7 +86,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 import android.app.Application
 import io.ionic.portals.PortalManager
 
-class MyApplication : Application {
+class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
