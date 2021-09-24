@@ -160,7 +160,7 @@ Another way to use Portals in Android is to inflate a [PortalFragment](../refere
 <TabItem value="kt">
 
 ```kotlin
-class MyContainerFragment : Fragment {
+class MyContainerFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater,
