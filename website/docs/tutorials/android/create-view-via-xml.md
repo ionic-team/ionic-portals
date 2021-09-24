@@ -20,7 +20,7 @@ The easiest way to get started with Ionic Portals is to bootstrap the Portals in
 <TabItem value="kt">
 
 ```kotlin
-class MyApplication : Application {
+class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
 
