@@ -15,7 +15,7 @@ For this example, we will create a Plugin called `EchoPlugin` that has a single 
 We strongly recommend using TypeScript to create a type defintion file which can be used to define your API. This way, there is a central source of truth for the API across Android and iOS as well as having type defintions for the web code.
 
 ```typescript
-export interface IEchoPlugin {
+export interface EchoPlugin {
    echo(options: { value: string }): Promise<{ value: string }>;
 }
 ```
@@ -37,7 +37,7 @@ First, you'll need to [install the proper dependencies](../getting-started/guide
 // ----------------------------------------------
 dependencies {
     implementation 'io.ionic:portals:0.2.0'
-    implementation 'com.capacitorjs:core:3.2.2'
+    api 'com.capacitorjs:core:3.2.2'
 }
 ```
 
@@ -54,7 +54,7 @@ After installing the dependencies once the API has been defined, you can start b
 
 <TabItem value="swift">
 
-```swift
+```swift title=EchoPlugin.swift
 import Capacitor
 
 @objc(ECHO_PLUGIN)
@@ -69,7 +69,7 @@ public class EchoPlugin: CAPPlugin {
 :::info
 In iOS, if you require Objective-C compatibility, you'll also need a file called `EchoPlugin.m` to create Objective-C bindings with helper functions that Capacitor provides. Below is what the `EchoPlugin` Objective-C bindings would look like.
 
-```c
+```c title=EchoPlugin.m
 #import <Capacitor/Capacitor.h>
 
 CAP_PLUGIN(ECHO_PLUGIN, "EchoPlugin",
@@ -83,7 +83,7 @@ CAP_PLUGIN(ECHO_PLUGIN, "EchoPlugin",
 
 <TabItem value="kt">
 
-```kotlin
+```kotlin title=EchoPlugin.kt
 import com.getcapacitor.Plugin
 import com.getcapacitor.PluginCall
 import com.getcapacitor.PluginMethod
@@ -103,7 +103,7 @@ class EchoPlugin : Plugin {
 
 <TabItem value="java">
 
-```java
+```java title=EchoPlugin.java
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
@@ -179,10 +179,10 @@ Once the Plugin has been defined, implemented, and initialized in the native cod
 
 ```typescript
 import { registerPlugin } from "@capacitor/core";
-import { IEchoPlugin } from "./types";
+import { EchoPlugin } from "./types";
 
-const EchoPlugin = registerPlugin<IEchoPlugin>("EchoPlugin");
-export default EchoPlugin;
+const Plugin = registerPlugin<EchoPlugin>("EchoPlugin");
+export default Plugin;
 ```
 
 Once the Plugin has been registered in the web code, you can use anywhere in your codebase without needing to register it again in the web code.

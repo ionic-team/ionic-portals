@@ -39,7 +39,7 @@ android {
 
 dependencies {
     implementation(kotlin("reflect"))
-    implementation("com.capacitorjs:core:3.2.2")
+    api("com.capacitorjs:core:3.2.2")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
     implementation( "androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")
@@ -47,69 +47,4 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-}
-
-val libraryGroupId = "io.ionic"
-val libraryArtifactId = "portalslibrary"
-val libraryVersion = "0.0.5"
-
-task<Jar>("sourceJar") {
-    from(android.sourceSets["main"].java.srcDirs)
-    archiveClassifier.set("sources")
-}
-
-publishing {
-    repositories {
-        maven {
-            name = "GithubPackages"
-            url = uri("https://maven.pkg.github.com/ionic-team/ionic-portals")
-            credentials {
-                username = System.getenv("GITHUB_USER") ?: project.properties["GITHUB_USER"] as String?
-                password = System.getenv("GITHUB_PERSONAL_ACCESS_TOKEN") ?: project.properties["GITHUB_PERSONAL_ACCESS_TOKEN"] as String?
-            }
-        }
-        maven {
-            name = "GithubPackages-PortalsSDK"
-            url = uri("https://maven.pkg.github.com/native-portal/portals-sdk")
-            credentials {
-                username = System.getenv("GITHUB_USER") ?: project.properties["GITHUB_USER"] as String?
-                password = System.getenv("GITHUB_PERSONAL_ACCESS_TOKEN") ?: project.properties["GITHUB_PERSONAL_ACCESS_TOKEN"] as String?
-            }
-        }
-        maven {
-            name = "MavenRepo"
-            url = uri("file://${buildDir}/repo")
-        }
-    }
-    publications {
-        create<MavenPublication>("portalslibrary") {
-            groupId = libraryGroupId
-            artifactId = libraryArtifactId
-            version = libraryVersion
-            artifact("$buildDir/outputs/aar/IonicPortals-release.aar") {
-                builtBy(tasks.assemble)
-            }
-
-            artifact(tasks.getByName("sourceJar")) {
-                builtBy(tasks.assemble)
-            }
-
-            pom.withXml {
-                val dependenciesNode = asNode().appendNode("dependencies")
-                val addDependency = { dep: Dependency, scope: String ->
-                    if (dep.group !== null && dep.version !== null && dep.name !== "unspecified") {
-                        val dependencyNode = dependenciesNode.appendNode("dependency")
-                        dependencyNode.appendNode("groupId", dep.group)
-                        dependencyNode.appendNode("artifactId", dep.name)
-                        dependencyNode.appendNode("version", dep.version)
-                        dependencyNode.appendNode("scope", scope)
-                    }
-                }
-
-                configurations.compile.get().dependencies.forEach { dep -> addDependency(dep, "compile") }
-                configurations.api.get().dependencies.forEach { dep -> addDependency(dep, "compile") }
-                configurations.implementation.get().dependencies.forEach { dep -> addDependency(dep, "runtime") }
-            }
-        }
-    }
 }
