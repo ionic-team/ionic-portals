@@ -22,7 +22,7 @@ In Android, you will have to register your Portals instance and start creating P
 <TabItem value="kt">
 
 ```kotlin
-class MyApplication : Application {
+class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
@@ -82,7 +82,7 @@ After registering via the [PortalManager.register()](../reference/android/portal
 <TabItem value="kt">
 
 ```kotlin
-class MyApplication : Application {
+class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
@@ -128,6 +128,106 @@ One way to use Portals in android is directly in an XML layout file. Use the `po
 ```
 
 The `strings.xml` resources file can be used to ensure the Portal ids match up, but it isn't necessary to do so.
+
+## Using a Portal in Code
+
+Another way to use Portals in Android is to inflate a [PortalFragment](../reference/android/portal-fragment) with a Portal into a view. This method may be preferred if using a Portal in a [ViewPager](https://developer.android.com/training/animation/screen-slide-2) or a more dynamic UI structure. The following trivial example shows how to inflate a [PortalFragment](../reference/android/portal-fragment) into an existing FrameLayout.
+
+```xml title=fragment_container.xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/my_portal_space"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>
+```
+
+<Tabs
+    defaultValue="kt"
+    values={[
+        { label: 'Kotlin', value: 'kt', },
+        { label: 'Java', value: 'java', },
+    ]}
+>
+<TabItem value="kt">
+
+```kotlin
+class MyContainerFragment : Fragment() {
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_container, container, false)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val myFirstPortal = getPortal("MY_FIRST_PORTAL")
+        val portalFragment = PortalFragment(myFirstPortal)
+
+        val fragmentManager: FragmentManager = childFragmentManager
+        fragmentManager.beginTransaction().replace(R.id.my_portal_space, portalFragment).commit()
+    }
+}
+```
+
+</TabItem>
+<TabItem value="java">
+
+```java
+public class MyContainerFragment extends Fragment {
+
+    @Override
+    public View onCreateView(@NonNull @NotNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_container, container, false);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        Portal myFirstPortal = PortalManager.getPortal("MY_FIRST_PORTAL");
+        PortalFragment portalFragment = new PortalFragment(myFirstPortal);
+
+        final FragmentManager fragmentManager = getChildFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.my_portal_space, portalFragment).commit();
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
+## Preparing the Containing Activity
+
+Configuration changes in Android can cause WebViews to restart within an Activity. We recommend adding the following line of code in your application `AndroidManifest.xml` file for any Activity that will contain a Portal.
+
+`android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"`
+
+For example:
+
+```xml
+<activity
+    android:name=".MainActivity"
+    android:label="MyExampleApp"
+    android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode">
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN" />
+        <category android:name="android.intent.category.LAUNCHER" />
+    </intent-filter>
+</activity>
+```
 
 ## Adding Web Code
 
