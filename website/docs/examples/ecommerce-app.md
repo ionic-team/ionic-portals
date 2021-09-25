@@ -29,7 +29,7 @@ The source is [available on GitHub](https://github.com/ionic-team/portals-ecomme
 
 ### Native
 
-The Android application is structured using a single Activity class with different Fragments for the separate pages. A [ViewPager](https://developer.android.com/training/animation/screen-slide-2) is used as the main way to navigate between the three main different sections of the application: the Products page, Cart page, and the User Details page. We chose to use a ViewPager because it allowed us to load the User Details fragment immediately when the application loads, despite it being out of view from the user. When navigating to the User Details page by tapping the tab, the web application in the Portal is already loaded.
+The Android application is built around a single Activity class with different Fragments for each page. A [ViewPager](https://developer.android.com/training/animation/screen-slide-2) is used as the main way to navigate between the three main different sections of the application: the Products page, Cart page, and the User Details page. We chose to use a ViewPager because it allowed us to load the User Details fragment immediately when the application loads, despite it being out of view from the user. When navigating to the User Details page by tapping the tab, the web application in the Portal is already loaded and ready to use.
 
 ### Cart Portal
 
@@ -48,3 +48,15 @@ Custom classes extending `PortalFragment` can be used directly in XML layouts if
 The Portal that displays the User Details web application is added via code in the [PageAdapter](https://github.com/ionic-team/portals-ecommerce-demo/blob/main/android/PortalsEcommerce/app/src/main/java/io/ionic/demo/ecommerce/PageAdapter.java) used by the ViewPager in `MainActivity`. We overrode the `PortalFragment` class to create [ProfileFragment](https://github.com/ionic-team/portals-ecommerce-demo/blob/main/android/PortalsEcommerce/app/src/main/java/io/ionic/demo/ecommerce/ui/profile/ProfileFragment.java), a thin wrapper class that fetches the "profile" Portal it uses.
 
 ## iOS Highlights
+
+### Native
+
+The iOS application uses ViewControllers for each page in the app. The main navigation is built using Storyboard with a [UITabBarController](https://developer.apple.com/documentation/uikit/uitabbarcontroller) to navigate between the three main different sections of the application: the Products page, Cart page, and the User Details page.
+
+### Cart Portal
+
+The Portal used to present the shopping cart web application is displayed as an overlay with the [PageSheet](https://developer.apple.com/documentation/uikit/uimodalpresentationstyle/pagesheet) style, demonstrating Portals use in a modal view.
+
+### Help and User Details Portal
+
+The Help and User Details pages display the portal in a ViewController. These are implemented the same way, however the User Details page is displayed as the third tab in the main application navigation Storyboard.
