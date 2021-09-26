@@ -12,7 +12,7 @@ A common scenario that a developer might run into is having a web experience tai
 
 When showing a Portal after a user has logged in, there are a few different ways to pass user auth tokens to a Portal.
 - Using the `PortalBuilder.setInitialContext()` function to set the initial state of the Portal.
-- Using the `PortalsPublish` to publish a message to the web app with the current auth tokens.
+- Using the `PortalsPlugin` to publish a message to the web app with the current auth tokens.
 - Using a custom plugin to send data back and forth from native and web.
 
 ### Using PortalBuilder.setInitialContext()
