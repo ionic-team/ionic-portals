@@ -84,74 +84,6 @@ Portals.getInitialContext<MyPortalContext>().then(context => {
 });
 ```
 
-### Using the built in PortalsPlugin pub/sub functions
-One of the functions of the built in `PortalsPlugin` is to publish/subscribe to events. In this example, you could create a `login` topic and call `PortalsPlugin.publish()` as shown below.
-
-:::info
-This method will not work if the View your Portal is tied to is unloaded during the login process. Make sure your Portal's View is in memory when setting up web side subscriptions.
-:::
-
-<br/>
-
-On the native side, you just need to publish a `topic` and the auth data so that it bubbles up to the web application.
-
-<Tabs 
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-
-<TabItem value="swift">
-
-```swift
-let topic = "login"
-let auth = /* Auth Data */
-
-PortalManager.publish(topic, auth)
-```
-
-</TabItem>
-
-<TabItem value="kt">
-
-```kotlin
-val topic = "login"
-val auth = /* Auth Data */
-
-PortalManager.publish(topic, auth)
-```
-
-</TabItem>
-
-<TabItem value="java">
-
-```java
-String topic = "login";
-@NotNull Object auth = /* Auth Data */;
-
-PortalManager.publish(topic, auth);
-```
-
-</TabItem>
-
-</Tabs>
-
-In the web application, you would subscribe to the `login` topic and react to the events accordingly
-
-```typescript
-import Portals from '@ionic/portals';
-
-Portals.subscribe<any>({ topic: 'login' }, result: { topic: string, data: any } => {
-    const auth = data;
-    // rest of the web app...
-});
-```
-
-For more information on how to use the Portals Plugin, [see our how to guide](../how-to/using-the-portals-plugin).
-
 ### Using a Custom Plugin
 
 Another solution you can do is to create a custom Plugin to handle passing data to and from native and web. This is the solution we used in [the example E-commerce Application](../examples/ecommerce-app) since it scales nicely and allows more than just authentication data be passed to and from the layers.
@@ -162,9 +94,9 @@ For information on how to build your own Portal APIs, [see our how to guide](../
 
 In some cases, login information changes in the web layer and you want to save the new auth credentials in the native layer. There are several ways of doing that similar to the previous methods. 
 
-### Using the built in PortalsPlugin pub/sub functions
+### Using the built-in PortalsPlugin pub/sub functions
 
-Similar to the previous section, you can publish events from the web layer and subscribe to them on the native layer.
+One of the functions of the built-in `PortalsPlugin` is to publish/subscribe to events. In this example, you could create a `login` topic and call `PortalsPlugin.publish()` as shown below.
 
 ```typescript {9}
 import Portals from '@ionic/portals';
