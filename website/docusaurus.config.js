@@ -1,4 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
+
+const lernaConfig = require('../lerna.json');
+
 module.exports = {
   title: "Ionic Portals",
   tagline: "Portals tagline",
@@ -64,4 +67,8 @@ module.exports = {
       },
     ],
   ],
+  customFields: {
+    portalsVersion: lernaConfig.version,
+    capacitorVersion: lernaConfig.capacitorVersion,
+  }
 };

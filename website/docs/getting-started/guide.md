@@ -5,6 +5,8 @@ sidebar_label: Getting Started Guide
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import { getCapacitorVersion, getPortalsVersion } from '@site/src/util';
 
 ## Signup
 
@@ -23,18 +25,36 @@ values={[
 
 To add Portals to your iOS project, put the following line to your `Podfile`:
 
-```ruby title=Podfile
-pod 'IonicPortals', '~> 0.2.0'
-```
+<CodeBlock className="language-ruby" title="Podfile">
+{`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
+</CodeBlock>
 
 And then run `pod install`.
 
 </TabItem>
 <TabItem value="android">
 
-To add Portals to your Android project, add the dependency to your top-level `build.gradle` file:
+To add Portals to your Android project, add the dependency to your `build.gradle` files
 
-```groovy title=build.gradle {16}
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+// ----------------------------------------------
+//  Module-level build.gradle
+// ----------------------------------------------
+dependencies {
+    implementation 'io.ionic:portals:${getPortalsVersion()}'
+}`.trim()
+}
+</CodeBlock>
+
+
+And in the top level `build.gradle` file, be sure that you include `jcenter` and `maven` in your repositories section
+
+```groovy title=build.gradle
+// ----------------------------------------------
+//  Top-level build.gradle
+// ----------------------------------------------
 allprojects {
     repositories {
         google()
@@ -45,13 +65,6 @@ allprojects {
         mavenCentral()
     }
 }
-
-// ----------------------------------------------
-//  Module-level build.gradle
-// ----------------------------------------------
-dependencies {
-    implementation 'io.ionic:portals:0.2.0'
-}
 ```
 
 </TabItem>
@@ -60,9 +73,12 @@ dependencies {
 
 To add Portals to your web project(s), install it via NPM:
 
-```bash
-npm install @ionic/portals@0.2.0
-```
+<CodeBlock className="language-bash">
+{`
+npm install @ionic/portals@${getPortalsVersion()}
+`.trim()
+}
+</CodeBlock>
 
 </TabItem>
 
