@@ -43,7 +43,7 @@ PortalsPlugin.publish("cart", items)
 Name | Type | Description
 :------ | :------ | :------
 `topic` | `String` | The topic associated with the message. [Subscribers](./portals-plugin#subscribe) of this topic will receive the message
-`data` | `Any` | A message to send
+`data` | `Any` | A message to send. **Note**: this is transmitted as JSON through the Capacitor Bridge and should be a compatible type: map, array, string, boolean, integer, etc.
 
 ### subscribe
 
