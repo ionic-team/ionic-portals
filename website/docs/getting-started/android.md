@@ -69,8 +69,6 @@ After creating a custom Application class, be sure to add the `android:name` att
 </manifest>  
 ```
 
-TODO: add section on using a portal programatically in the fragment
-
 ## Creating a Portal via PortalManager
 
 After registering via the [PortalManager.register()](../reference/android/portal-manager#register) function, you can create Portals. Use the [PortalManager](../reference/android/portal-manager) to quickly create a [Portal](../reference/android/portal) and link it to an XML layout.

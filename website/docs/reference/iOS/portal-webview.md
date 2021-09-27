@@ -24,8 +24,6 @@ class MyViewController: AppParticipantViewController {
 }
 ```
 
-A full example is available HERE TODO: ADD TUTORIAL HERE
-
 :::info
 Even though there are no Objective-C code samples, the Ionic Portals library can be used with apps written in Objective-C.
 :::
