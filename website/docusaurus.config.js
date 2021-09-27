@@ -22,11 +22,6 @@ module.exports = {
         alt: "Portals Logo",
         src: "img/logo.svg",
       },
-      items: [
-        {
-          type: "docsVersionDropdown",
-        },
-      ],
     },
     colorMode: {
       respectPrefersColorScheme: true,
