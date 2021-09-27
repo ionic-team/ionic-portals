@@ -5,11 +5,11 @@ sidebar_label: Portal Communication
 
 Ionic Portals provides multiple ways to communicate between the web and native parts of your application.
 
-## Portals Plugin
+## PortalsPlugin
 
-The Ionic Portals library comes packaged with a plugin called the Portals Plugin that provides a way to communicate between the web and native parts of your application in a publish-subscribe fashion. This method provides a way to pass data or control elements of the native UI without needing to write a custom Capacitor plugin.
+The Ionic Portals library comes packaged with a plugin called the `PortalsPlugin` that provides a way to communicate between the web and native parts of your application in a publish-subscribe fashion. This method provides a way to pass data or control elements of the native UI without needing to write a custom Capacitor plugin.
 
-See our guide on [How To Use The Portals Plugin](./how-to/using-the-portals-plugin)
+See our guide on [How To Use The PortalsPlugin](./how-to/using-the-portals-plugin)
 
 ## Capacitor Core Plugins
 

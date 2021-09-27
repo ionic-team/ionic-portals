@@ -1,18 +1,18 @@
 ---
-title: How To Use The Portals Plugin
-sidebar_label: Use the Portals Plugin
+title: How To Use The PortalsPlugin
+sidebar_label: Use the PortalsPlugin
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The Portals Plugin provides useful features to aid in communication between your Web and Native applications. It is included in the Ionic Portals library by default and takes advantage of the Capacitor Plugin system.
+The `PortalsPlugin` provides useful features to aid in communication between your Web and Native applications. It is included in the Ionic Portals library by default and takes advantage of the Capacitor Plugin system.
 
 ## Setup
 
 ### Android and iOS
 
-Follow the [Getting Started Guide](../getting-started/guide) to install the Ionic Portals library into your native mobile projects. The Portals Plugin is automatically added to every instance of a Portal.
+Follow the [Getting Started Guide](../getting-started/guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
 
 ### Web
 
@@ -114,7 +114,7 @@ mapsPortal.setInitialContext(Map.of("ic_example", "hello world"));
 
 ### Using Initial Context
 
-To access the initial context from the Portals Plugin in your web application, import Portals and use the [Portals.getInitialContext()](../reference/web/portals-plugin#getinitialcontext) function.
+To access the initial context from the `PortalsPlugin` class in your web application, import Portals and use the [Portals.getInitialContext()](../reference/web/portals-plugin#getinitialcontext) function.
 
 ```typescript
 Portals.getInitialContext<{ ic_example: string; }>().then(context => {
@@ -127,7 +127,7 @@ Initial context is useful when using a Single Page Application (SPA) across mult
 
 ## Communicating via Pub/Sub
 
-The Publish and Subscribe mechanism (pub/sub) in the Portals Plugin allows you to send data between your web and native applications through a Portal. 
+The Publish and Subscribe mechanism (pub/sub) built into the `PortalsPlugin` allows you to send data between your web and native applications through a Portal. 
 
 ### Defining Subscribers
 
@@ -386,4 +386,4 @@ PortalsPlugin.publish("weather", "sunny");
 
 ## Examples
 
-The Portals Plugin is used in the [E-Commerce App](./examples/ecommerce-app) demo.
+The `PortalsPlugin` is used in the [E-Commerce App](./examples/ecommerce-app) demo.
