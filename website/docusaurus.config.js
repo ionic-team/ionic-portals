@@ -1,4 +1,7 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
+
+const lernaConfig = require('../lerna.json');
+
 module.exports = {
   title: "Ionic Portals",
   tagline: "Portals tagline",
@@ -8,7 +11,7 @@ module.exports = {
   baseUrlIssueBanner: false,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
-  favicon: "img/auth-connect-icon.svg",
+  favicon: "img/logo.svg",
   organizationName: "ionic-team",
   projectName: "portals-docs",
   titleDelimiter: "-",
@@ -59,4 +62,8 @@ module.exports = {
       },
     ],
   ],
+  customFields: {
+    portalsVersion: lernaConfig.version,
+    capacitorVersion: lernaConfig.capacitorVersion,
+  }
 };
