@@ -92,4 +92,4 @@ With this _initialContext_ value set, you can use this to properly navigate to t
 
 ## Project Structure
 
-In your project, you'll need to a single folder in your Assets directory that contains the built output for your SPA. For more information on how to setup web bundles in your native project, see [our how to guide](./pull-in-web-bundle).
+In your project, you'll need to a single folder in your Assets directory that contains the built output for your SPA. For more information on how to setup web bundles in your native project, see [our how-to guide](./pull-in-web-bundle).

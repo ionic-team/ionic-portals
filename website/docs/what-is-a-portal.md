@@ -3,7 +3,7 @@ title: What Is A Portal?
 sidebar_label: What Is A Portal?
 ---
 
-A "Portal" is a mobile view for iOS and Android projects capable of displaying and running a web based application; similar to the system webview. It uses [Capacitor](https://capacitorjs.com) as a bridge between the native code and the web code to allow for cross-communication between the two layers. Because Ionic Portals uses Capacitor under the hood, you are able to use any existing [Capacitor Plugins](https://capacitorjs.com/docs/plugins) and even most [Cordova Plugins](https://capacitorjs.com/docs/plugins/cordova) while continuing to use your existing native workflow.
+A "Portal" is a mobile view for iOS and Android projects capable of displaying and running a web based application; similar to the system WebView. It uses [Capacitor](https://capacitorjs.com) as a bridge between the native code and the web code to allow for cross-communication between the two layers. Because Ionic Portals uses Capacitor under the hood, you are able to use any existing [Capacitor Plugins](https://capacitorjs.com/docs/plugins) and even most [Cordova Plugins](https://capacitorjs.com/docs/plugins/cordova) while continuing to use your existing native workflow.
 
 ## How Does It Work?
 
@@ -15,11 +15,11 @@ If your company has a complex web experience that they'd like to embed into an e
 
 ## What Is Ionic Portals Not?
 
-While Ionic Portals may seem like a silver bullet to completely replace the existing system webview, that isn't the case.
+While Ionic Portals may seem like a silver bullet to completely replace the existing system WebView, that isn't the case.
 
-#### Ionic Portals Is Not Drop-in Replacement for the System Webview
+#### Ionic Portals Is Not Drop-in Replacement for the System WebView
 
-While we do use the system webview in Ionic Portals, it is not a drop-in replacement. Think of it as a webview with a more robust API for communication between native and web layers. Ionic Portals provides access to the webview itself, but handles all of the heavy lifting for you.
+While we do use the system WebView in Ionic Portals, it is not a drop-in replacement. Think of it as a WebView with a more robust API for communication between native and web layers. Ionic Portals provides access to the WebView itself, but handles all of the heavy lifting for you.
 
 #### Ionic Portals Is Not a Different Browser Engine
 
