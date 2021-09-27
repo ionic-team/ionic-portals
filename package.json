@@ -10,6 +10,7 @@
     "prelerna:version:latest": "(cd ./scripts && sh ./android-dependency-update.sh)",
     "release:latest": "npm run lerna:version:latest",
     "build": "lerna run build",
-    "postinstall": "lerna bootstrap"
+    "postinstall": "lerna bootstrap",
+    "updateCapVersion": "node scripts/get-latest-capacitor-version.mjs"
   }
 }

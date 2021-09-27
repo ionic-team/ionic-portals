@@ -5,6 +5,8 @@ sidebar_label: Use a Capacitor Plugin
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import { getPortalsVersion } from '@site/src/util';
 
 Ionic Portals uses Capacitor under the hood, meaning that you can use [existing Capacitor Core Plugins](https://capacitorjs.com/docs/apis) in your Portals. These plugins allow Portals to use native functionality without much setup on either the native or web developers part.
 
@@ -20,10 +22,13 @@ Ionic Portals uses Capacitor under the hood, meaning that you can use [existing 
 ## Native Usage
 In order to use a Capacitor Plugin, you need to install the plugin as a dependency in your `Podfile`.
 
-```ruby title=Podfile {2}
-pod 'IonicPortals', '~> 0.2.0'
+<CodeBlock className="language-ruby" title="Podfile">
+{
+`pod 'IonicPortals', '~> ${getPortalsVersion()}'
 pod 'CapacitorStorage', '~> 1.2.0'
-```
+`.trim()
+}
+</CodeBlock>
 
 :::caution
 Make sure that the versions in your `Podfile` and `package.json` match! Otherwise you could run into errors.
