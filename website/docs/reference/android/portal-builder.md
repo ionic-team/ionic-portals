@@ -33,8 +33,7 @@ val portal: Portal = PortalBuilder("myPortal", onCreate)
 <TabItem value="java">
 
 ```java
-// TODO: Add java typing for onCreate function
-Portal portal = new PortalBuilder("myPortal", onCreate)
+Portal portal = new PortalBuilder("myPortal")
     .addPlugin(MyCapacitorPlugin.class)
     .setPortalFragmentType(MyFadeInOutPortalFragment.class)
     .setInitialContext(Map.of("myVariableFromAndroid", 42))
@@ -299,9 +298,9 @@ interface MyPortalInitialContext {
 }
 
 Portals.getInitialContext<MyPortalInitialContext>().then(context => {
-    console.log(context.foo)    // "bar"
-    console.log(context.ionic)  // "portals"
-    console.log(context.num)    // 42
+    console.log(context.value.foo)    // "bar"
+    console.log(context.value.ionic)  // "portals"
+    console.log(context.value.num)    // 42
 })
 ```
 

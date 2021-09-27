@@ -201,7 +201,7 @@ Name | Type | Description
 
 ### setInitialContext
 
-Sets the initial context to pass to the webview. You can pass in either a `Map` or a `String` that will be parsed into a JSON object.
+Sets the initial context to pass to the WebView. You can pass in either a `Map` or a `String` that will be parsed into a JSON object.
 
 #### Usage 
 
@@ -281,9 +281,9 @@ interface MyPortalInitialContext {
 }
 
 Portals.getInitialContext<MyPortalInitialContext>().then(context => {
-    console.log(context.foo)    // "bar"
-    console.log(context.ionic)  // "portals"
-    console.log(context.num)    // 42
+    console.log(context.value.foo)    // "bar"
+    console.log(context.value.ionic)  // "portals"
+    console.log(context.value.num)    // 42
 })
 ```
 
@@ -291,8 +291,8 @@ Portals.getInitialContext<MyPortalInitialContext>().then(context => {
 
 Name | Type | Description
 :------ | :------ | :------
-`initialContext` | `Map<String, Any>` | A map containing key/pair values that will be converted to a JavaScript object in the webview.
+`initialContext` | `Map<String, Any>` | A map containing key/pair values that will be converted to a JavaScript object in the WebView.
 
 Name | Type | Description
 :------ | :------ | :------
-`initialContext` | `String` | A JSON-valid string that will be converted to a JavaScript object in the webview.
+`initialContext` | `String` | A JSON-valid string that will be converted to a JavaScript object in the WebView.

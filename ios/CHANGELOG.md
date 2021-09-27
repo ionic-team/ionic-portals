@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/ionic-team/ionic-portals/compare/0.2.0...0.2.1) (2021-09-27)
+
+
+### Bug Fixes
+
+* **ios:** remove unused method ([#55](https://github.com/ionic-team/ionic-portals/issues/55)) ([ac46b82](https://github.com/ionic-team/ionic-portals/commit/ac46b822c1e92048b58812a54ed2cc22b676a9a2))
+
+
+
+
+
 # 0.2.0 (2021-09-14)
 
 

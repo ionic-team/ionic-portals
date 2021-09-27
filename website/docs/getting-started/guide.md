@@ -5,36 +5,88 @@ sidebar_label: Getting Started Guide
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+import { getCapacitorVersion, getPortalsVersion } from '@site/src/util';
 
 ## Signup
 
 ## Install
 
-Ionic Portals is publicly available on both Maven Central and Cocoapods. To add it to your project, you just need to add the following line to your `Podfile` on iOS or your app level `build.gradle` file for Android.
+Ionic Portals is publicly available on Maven Central, Cocoapods, and NPM. 
 
 <Tabs
 defaultValue="ios"
 values={[
 { label: 'iOS', value: 'ios', },
 { label: 'Android', value: 'android', },
+{ label: 'Web', value: 'web', },
 ]}>
 <TabItem value="ios">
 
-```ruby
-# Podfile
-pod 'IonicPortals', '~> 0.0.5'
-```
+To add Portals to your iOS project, put the following line to your `Podfile`:
+
+<CodeBlock className="language-ruby" title="Podfile">
+{`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
+</CodeBlock>
+
+And then run `pod install`.
 
 </TabItem>
 <TabItem value="android">
 
-```java
-// build.gradle
-implementation 'io.ionic:portalslibrary:0.0.5'
+To add Portals to your Android project, add the dependency to your `build.gradle` files
+
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+// ----------------------------------------------
+//  Module-level build.gradle
+// ----------------------------------------------
+dependencies {
+    implementation 'io.ionic:portals:${getPortalsVersion()}'
+}`.trim()
+}
+</CodeBlock>
+
+
+And in the top level `build.gradle` file, be sure that you include `jcenter` and `maven` in your repositories section
+
+```groovy title=build.gradle
+// ----------------------------------------------
+//  Top-level build.gradle
+// ----------------------------------------------
+allprojects {
+    repositories {
+        google()
+
+        // Make sure JCenter and Maven Central are
+        // in your project repositories
+        jcenter()
+        mavenCentral()
+    }
+}
 ```
 
 </TabItem>
+
+<TabItem value="web">
+
+To add Portals to your web project(s), install it via NPM:
+
+<CodeBlock className="language-bash">
+{`
+npm install @ionic/portals@${getPortalsVersion()}
+`.trim()
+}
+</CodeBlock>
+
+</TabItem>
+
 </Tabs>
+
+:::info
+It is important to keep the version of Portals in sync between all the platforms.
+:::
 
 ## Configure
 
@@ -48,22 +100,15 @@ values={[
 ]}>
 <TabItem value="ios">
 
-```swift
+```swift title=AppDelegate.swift
 import SwiftUI
 import IonicPortals
 
 @main
-struct MyApp: App {
-    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         PortalManager.register("MY_API_KEY")
+        // setup portals...
         return true
     }
 }
@@ -72,14 +117,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 </TabItem>
 <TabItem value="android">
 
-```kotlin
+```kotlin title=MyApplication.kt
 import android.app.Application
 import io.ionic.portals.PortalManager
 
-class MyApplication : Application {
+class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
+        // setup portals...
     }}
 }
 ```

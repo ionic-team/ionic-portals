@@ -7,8 +7,10 @@
   "scripts": {
     "lerna:publish:latest": "lerna publish from-git --force-publish --dist-tag latest --yes",
     "lerna:version:latest": "lerna version --force-publish --conventional-commits",
+    "prelerna:version:latest": "(cd ./scripts && sh ./android-dependency-update.sh)",
     "release:latest": "npm run lerna:version:latest",
     "build": "lerna run build",
-    "postinstall": "lerna bootstrap"
+    "postinstall": "lerna bootstrap",
+    "updateCapVersion": "node scripts/get-latest-capacitor-version.mjs"
   }
 }

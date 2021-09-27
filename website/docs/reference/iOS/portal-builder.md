@@ -95,7 +95,7 @@ Portals.getInitialContext<MyPortalInitialContext>().then(context => {
 
 Name | Type | Description
 :------ | :------ | :------
-`startDir` | `Dictionary<String, Any>` | A Dictionary containing key/pair values that will be converted to a JavaScript object in the webview.
+`startDir` | `Dictionary<String, Any>` | A Dictionary containing key/pair values that will be converted to a JavaScript object in the WebView.
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 
