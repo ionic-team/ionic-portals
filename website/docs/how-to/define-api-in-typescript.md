@@ -31,18 +31,7 @@ If you are not using TypeScript, this step is not needed, but you'll need to tak
 
 ## Implementing the API 
 
-First, you'll need to [install the proper dependencies](../getting-started/guide#install). On Android, you will need to explicitly add Capacitor to your list of dependencies in order to use the Capacitor Plugin class. On iOS this is not neccessary.
-
-<CodeBlock className="language-groovy" title="build.gradle">
-{`
-dependencies {
-    implementation 'io.ionic:portals:${getPortalsVersion()}'
-    api 'com.capacitorjs:core:${getCapacitorVersion()}'
-}.trim()
-`}
-</CodeBlock>
-
-After installing the dependencies once the API has been defined, you can start building the plugin. In this example, the `EchoPlugin`, will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
+First, you'll need to [install the proper dependencies](../getting-started/guide#install). You can now start building the plugin. In this example, the `EchoPlugin`, will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
 
 <Tabs 
     defaultValue="swift" 
