@@ -39,7 +39,7 @@ printf %"s\n\n" "Done!"
 # If there are no changes this should all be skipped
 if [[ $(git status --porcelain --untracked-files=no | wc -l) -gt 0 ]]; then
     git add $GRADLE_FILE
-    git commit -m "feat(android): updated Capacitor Dependency version to $CAPACITOR_PUBLISHED_VERSION"
+    git commit -m "chore(android): updated Capacitor Dependency version to $CAPACITOR_PUBLISHED_VERSION"
 else
     printf %"s\n" "There was no change to the Android Capacitor dependency version! Continuing..."
 fi
