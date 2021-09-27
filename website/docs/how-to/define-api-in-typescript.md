@@ -10,7 +10,7 @@ One of the biggest benefits of including Ionic Portals in an application is the 
 
 For this example, we will create a Plugin called `EchoPlugin` that has a single function: `echo`.
 
-## Creating API definitions
+## Creating API Definitions
 
 We strongly recommend using TypeScript to create a type defintion file which can be used to define your API. This way, there is a central source of truth for the API across Android and iOS as well as having type defintions for the web code.
 
@@ -173,7 +173,7 @@ override func viewDidLoad() {
 }
 ```
 
-## Calling your Plugin code via the Web
+## Calling Your Plugin Code via the Web
 
 Once the Plugin has been defined, implemented, and initialized in the native code, you will need to register the Plugin on the web. To do this, you can using the `Capacitor.registerPlugin()` function. From there, Capacitor will handle communication across native and web code.
 

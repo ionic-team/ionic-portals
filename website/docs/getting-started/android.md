@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Once the [API Key has been obtained](./guide#signup) and [Ionic Portals library is installed](./guide#install), you can start creating Portals for your application.
 
-## Creating a custom Application class
+## Creating a Custom Application Class
 
 In Android, you will have to register your Portals instance and start creating Portals via the [PortalManager](../reference/android/portal-manager). To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals.
 
@@ -117,7 +117,7 @@ public class MyApplication extends Application {
 
 Now, the [Portal](../reference/android/portal) is successfully created and managed by the [PortalManager](../reference/android/portal-manager).
 
-## Linking the Portal in a Layout file
+## Linking the Portal in a Layout File
 
 One way to use Portals in android is directly in an XML layout file. Use the `portalId` attribute in the XML tag as shown below to link it to the Portal you created.
 
