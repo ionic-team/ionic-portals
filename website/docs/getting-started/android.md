@@ -21,12 +21,13 @@ In Android, you will have to register your Portals instance and start creating P
 >
 <TabItem value="kt">
 
-```kotlin
+
+```kotlin title=MyApplication.kt
 class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
-        // ...
+        // setup portals
     }
 }
 ```
@@ -34,13 +35,13 @@ class MyApplication : Application() {
 </TabItem>
 <TabItem value="java">
 
-```java
+```java title=MyApplication.java
 public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
         PortalManager.register("MY_API_KEY");
-        // ...
+        // setup portals
     }
 }
 ``` 
@@ -50,7 +51,7 @@ public class MyApplication extends Application {
 
 After creating a custom Application class, be sure to add the `android:name` attribute to your `application` tag in the `AndroidManifest.xml`.
 
-```xml
+```xml title=AndroidManifest.xml {7}
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -67,6 +68,8 @@ After creating a custom Application class, be sure to add the `android:name` att
     </application>
 </manifest>  
 ```
+
+TODO: add section on using a portal programatically in the fragment
 
 ## Creating a Portal via PortalManager
 

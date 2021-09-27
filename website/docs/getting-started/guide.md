@@ -84,7 +84,7 @@ values={[
 ]}>
 <TabItem value="ios">
 
-```swift
+```swift title=AppDelegate.swift
 import SwiftUI
 import IonicPortals
 
@@ -92,6 +92,7 @@ import IonicPortals
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         PortalManager.register("MY_API_KEY")
+        // setup portals...
         return true
     }
 }
@@ -100,7 +101,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 </TabItem>
 <TabItem value="android">
 
-```kotlin
+```kotlin title=MyApplication.kt
 import android.app.Application
 import io.ionic.portals.PortalManager
 
@@ -108,6 +109,7 @@ class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
         PortalManager.register("MY_API_KEY")
+        // setup portals...
     }}
 }
 ```
