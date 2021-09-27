@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 Once the [API Key has been obtained](./guide#signup) and [Ionic Portals library is installed](./guide#install), you can start creating Portals for your application.
 
-## Creating a custom Application class
+## Creating a Custom Application Class
 
 In Android, you will have to register your Portals instance and start creating Portals via the [PortalManager](../reference/android/portal-manager). To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals.
 
@@ -69,8 +69,6 @@ After creating a custom Application class, be sure to add the `android:name` att
 </manifest>  
 ```
 
-TODO: add section on using a portal programatically in the fragment
-
 ## Creating a Portal via PortalManager
 
 After registering via the [PortalManager.register()](../reference/android/portal-manager#register) function, you can create Portals. Use the [PortalManager](../reference/android/portal-manager) to quickly create a [Portal](../reference/android/portal) and link it to an XML layout.
@@ -117,7 +115,7 @@ public class MyApplication extends Application {
 
 Now, the [Portal](../reference/android/portal) is successfully created and managed by the [PortalManager](../reference/android/portal-manager).
 
-## Linking the Portal in a Layout file
+## Linking the Portal in a Layout File
 
 One way to use Portals in android is directly in an XML layout file. Use the `portalId` attribute in the XML tag as shown below to link it to the Portal you created.
 
@@ -236,4 +234,4 @@ For example:
 
 Now that your Portal is successfully registered, created, and linked, you need to add the web assets to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](../reference/android/portal-manager) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](../reference/android/portal-builder#setStartDir) function to set the web application's directory.
 
-For more information on how to setup your web bundle, see our how to guide on [how to pull in a web bundle](../how-to/pull-in-web-bundle).
+For more information on how to setup your web bundle, see our how-to guide on [how to pull in a web bundle](../how-to/pull-in-web-bundle).

@@ -33,8 +33,7 @@ val portal: Portal = PortalBuilder("myPortal", onCreate)
 <TabItem value="java">
 
 ```java
-// TODO: Add java typing for onCreate function
-Portal portal = new PortalBuilder("myPortal", onCreate)
+Portal portal = new PortalBuilder("myPortal")
     .addPlugin(MyCapacitorPlugin.class)
     .setPortalFragmentType(MyFadeInOutPortalFragment.class)
     .setInitialContext(Map.of("myVariableFromAndroid", 42))
