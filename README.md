@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <img src="https://user-images.githubusercontent.com/236501/105104854-e5e42e80-5a67-11eb-8cb8-46fccb079062.png" width="560" />
+  <img src="https://user-images.githubusercontent.com/5769389/134952353-7d7b4145-3a80-4946-9b08-17b3a22c03a1.png" width="560" />
 </div>
 <div align="center">
   ⚡️ A supercharged native Web View for iOS and Android ⚡️
@@ -27,7 +27,7 @@ See our docs to [get started with Portals](https://ionic.io/docs/portals/getting
 
 ## Registration
 
-The native Portals libraries require a free license key to use. Once you have integrated Portals into your project, login to your ionic account to get a key. See our doc on [how to register for free and get your Portals license key](https://ionic.io/docs/portals/how-to/get-a-product-key) and refer to the [Android](https://ionic.io/docs/portals/getting-started/android) or [iOS](https://ionic.io/docs/portals/getting-started/iOS) getting started guides to see where to add your key.
+The Ionic Portals libraries for Android and iOS require a free license key to use. Once you have integrated Portals into your project, login to your ionic account to get a key. See our doc on [how to register for free and get your Portals license key](https://ionic.io/docs/portals/how-to/get-a-product-key) and refer to the [Android](https://ionic.io/docs/portals/getting-started/android) or [iOS](https://ionic.io/docs/portals/getting-started/iOS) getting started guides to see where to add your key.
 
 ## FAQ
 
