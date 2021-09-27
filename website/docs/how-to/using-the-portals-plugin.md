@@ -154,7 +154,7 @@ To listen for messages published from the web side of a Portal, define a subscri
 >
 <TabItem value="swift">
 
-```swift
+```swift title="MyViewController.swift"
 override func viewDidLoad() {
     let portal = try! PortalManager.getPortal("example")
     

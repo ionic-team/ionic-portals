@@ -159,7 +159,7 @@ PortalsPlugin.subscribe("login", (@NotNull Object result) -> {
 
 </Tabs>
 
-For more information on how to use the PortalsPlugin, [see our how to guide](../how-to/using-the-portals-plugin).
+For more information on how to use the `PortalsPlugin`, [see our how to guide](../how-to/using-the-portals-plugin).
 
 ### Using a Custom Plugin
 
