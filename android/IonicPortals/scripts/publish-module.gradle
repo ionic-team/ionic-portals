@@ -47,7 +47,7 @@ afterEvaluate {
                     licenses {
                         license {
                             name = 'Ionic Portals License'
-                            url = 'https://github.com/ionic-team/ionic-portals/blob/main/LICENSE'
+                            url = 'https://github.com/ionic-team/ionic-portals/blob/main/LICENSE.md'
                         }
                     }
                     developers {
