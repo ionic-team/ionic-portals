@@ -80,7 +80,7 @@ PortalManager.newPortal("MY_PORTAL_ID")
 </TabItem>
 </Tabs>
 
-## Automating the process
+## Automating the Process
 
 Once you have your web code and native code linked up, you will need a process to continually copy in new versions of the web application into your mobile projects. 
 

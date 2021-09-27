@@ -38,7 +38,7 @@ project root/
 For iOS, the `webapp` folder will also need to be added to the XCode project to package the web assets with the app. To do so, drag the `webapp` folder from Finder and drop it to the same folder in the Project Navigator while in XCode. 
 :::
 
-## Using NPM Scripts to copy assets
+## Using NPM Scripts to Copy Assets
 
 Now that we know where to copy the built web assets, we will use NPM scripts to run after the build step. 
 
@@ -61,6 +61,3 @@ The dev workflow for this process is:
 1. Make changes to the web app
 2. Run the `npm run build` task in the web folder
 3. Build the native apps
-
-
-

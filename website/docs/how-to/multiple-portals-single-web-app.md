@@ -86,10 +86,10 @@ Similarly, the "Shopping & Checkout" Portal will be a separate instance of the S
 }
 ```
 
-## Injecting the Initial Context into the Web Application
+## Injecting the Initial Context Into the Web Application
 
-With this _initialContext_ value set, you can use this to properly navigate to the correct route within your Portal. The [Portals E-commerce example](../examples/ecommerce-app) uses this method. You can see how we [inject the context here on Github](https://github.com/ionic-team/portals-ecommerce-demo/blob/main/web/src/index.tsx) using the `Portal.getInitialContext()` function TODO: <-- Link to Web API Reference
+With this _initialContext_ value set, you can use this to properly navigate to the correct route within your Portal. The [Portals E-commerce example](../examples/ecommerce-app) uses this method. You can see how we [inject the context here on Github](https://github.com/ionic-team/portals-ecommerce-demo/blob/main/web/src/index.tsx) using the [Portal.getInitialContext() function](../reference/web/portals-plugin#getinitialcontext).
 
 ## Project Structure
 
-In your project, you'll need to a single folder in your Assets directory that contains the built output for your SPA. For more information on how to setup web bundles in your native project, see [our how to guide](./pull-in-web-bundle).
+In your project, you'll need to a single folder in your Assets directory that contains the built output for your SPA. For more information on how to setup web bundles in your native project, see [our how-to guide](./pull-in-web-bundle).
