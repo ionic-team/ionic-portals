@@ -39,7 +39,7 @@ For more information about using the initial context mechanism, see our guide on
 
 ## Capacitor Core Plugins
 
-The library of [Core Capacitor Plugins](https://capacitorjs.com/docs/apis) is available out of the box and ready to use with Portals. We have made all core plugins available as native dependencies through Maven Central and Cocoapods so that when added to a native project, they will allow web applications in Portals to use them with no custom code required. By using the Capacitor Core Plugins you can save time by not having to write your own native code to take a photo or store files, for example.
+The library of [Core Capacitor Plugins](https://capacitorjs.com/docs/apis) is available out of the box and ready to use with Portals. We have made all core plugins available as native dependencies through Maven Central and CocoaPods so that when added to a native project, they will allow web applications in Portals to use them with no custom code required. By using the Capacitor Core Plugins you can save time by not having to write your own native code to take a photo or store files, for example.
 
 See our guide on [How To Use a Capacitor Plugin](./how-to/using-a-capacitor-plugin).
 
