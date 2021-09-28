@@ -132,3 +132,7 @@ class MyApplication : Application() {
 
 </TabItem>
 </Tabs>
+
+:::caution
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::
