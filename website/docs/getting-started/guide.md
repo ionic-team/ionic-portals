@@ -10,9 +10,19 @@ import { getCapacitorVersion, getPortalsVersion } from '@site/src/util';
 
 ## Signup
 
+Ionic Portals is a free product, but it does require a product key to use. Getting a key is easy.
+Just head to the [Ionic Dashboard](https://ionic.io/register-portals) and click "Get Access".
+
+This will present you with a form asking for some additional information.
+After submitting the page will refresh and you will immediately see the key that can be used to unlock the use of Portals in your app.
+
+:::info
+You can always use this shareable link to signup for a Product Key: [ionic.io/register-portals](https://ionic.io/register-portals)
+:::
+
 ## Install
 
-Ionic Portals is publicly available on Maven Central, Cocoapods, and NPM. 
+Ionic Portals is publicly available on Maven Central, Cocoapods, and NPM.
 
 <Tabs
 defaultValue="ios"
@@ -47,7 +57,6 @@ dependencies {
 }`.trim()
 }
 </CodeBlock>
-
 
 And in the top level `build.gradle` file, be sure that you include `jcenter` and `maven` in your repositories section
 
