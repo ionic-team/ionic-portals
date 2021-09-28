@@ -10,7 +10,7 @@ The [PortalWebView](./portal-webview) class is an iOS [UIView](https://developer
 
 If you need to programmtically create a view, you can override the root view in an overriden `UIView.viewDidLoad` function as shown below.
 
-```swift
+```swift title=MyViewController.swift
 import UIKit
 import IonicPortals
 
@@ -23,6 +23,8 @@ class MyViewController: AppParticipantViewController {
     }
 }
 ```
+
+See our [getting started guide](../../getting-started/iOS#using-the-portalwebview) for more information on this approach.
 
 :::info
 Even though there are no Objective-C code samples, the Ionic Portals library can be used with apps written in Objective-C.

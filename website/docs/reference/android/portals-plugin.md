@@ -1,6 +1,6 @@
 ---
 title: PortalsPlugin
-sidebar_label: Portals Plugin
+sidebar_label: PortalsPlugin
 ---
 
 import Tabs from '@theme/Tabs';
