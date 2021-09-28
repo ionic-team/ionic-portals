@@ -44,18 +44,6 @@ module.exports = {
       label: "Tutorials",
       collapsed: true,
       items: [
-        {
-          type: "category",
-          label: "iOS",
-          collapsible: false,
-          items: ["tutorials/iOS/create-view-via-view-controller"],
-        },
-        {
-          type: "category",
-          label: "Android",
-          collapsible: false,
-          items: ["tutorials/android/create-view-via-xml"],
-        },
         "tutorials/auth-token-example",
         "tutorials/monorepo-example",
       ],

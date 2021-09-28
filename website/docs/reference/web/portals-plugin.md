@@ -1,6 +1,6 @@
 ---
-title: Portals Plugin
-sidebar_label: Portals Plugin
+title: PortalsPlugin
+sidebar_label: PortalsPlugin
 ---
 
 The PortalsPlugin class is the main way to interface with a Portal instance. It has methods to easily pass messages back and forth to the native side via a publish/subscribe interface, and ways to pass data to a web view before it initializes.

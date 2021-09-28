@@ -7,15 +7,15 @@ This page explores the different kinds of Communication Mechanisms in Ionic Port
 
 ## Data Messages and UI Control
 
-Communicating data through a Portal from web to native, or vice versa, creates immersive experiences that blurs the boundary between where native ends and web starts. Portals provides two different ways to pass data: the Portals Plugin, and writing a custom Capacitor Plugin.
+Communicating data through a Portal from web to native, or vice versa, creates immersive experiences that blurs the boundary between where native ends and web starts. Portals provides two different ways to pass data: the `PortalsPlugin`, and writing a custom Capacitor Plugin.
 
-### Portals Plugin
+### The PortalsPlugin class
 
-The Portals Plugin is part of the Portals library and provides a helpful, lightweight way to publish and subscribe to messages through a Portal without needing to write a custom Capacitor Plugin in your native application.
+The `PortalsPlugin` class is part of the Portals library and provides a helpful, lightweight way to publish and subscribe to messages through a Portal without needing to write a custom Capacitor Plugin in your native application.
 
 We recommend this approach when performing small UI tasks like dismissing a native modal from inside the web application, or passing short messages. This mechanism may also be more appealing to small teams or solo developers who want to communicate through a Portal without the desire to build a Custom Plugin.
 
-See our guide on [How To Use The Portals Plugin](./how-to/using-the-portals-plugin).
+See our guide on [How To Use The PortalsPlugin](./how-to/using-the-portals-plugin).
 
 ### Custom Plugin
 
@@ -35,7 +35,7 @@ The Ionic Portals library provides a way to set initial context data for the web
 
 - You may wish to use a single-page web application in your project and navigate to different sections depending on which Portal is displayed in the native application. Navigating after the Portal is loaded reveals the page reload event to the user, whereas using the initial context mechanism to navigate before the page is loaded in the Portal provides a more immersive experience.
 
-For more information about using the initial context mechanism, see our guide on [How To Use The Portals Plugin](./how-to/using-the-portals-plugin).
+For more information about using the initial context mechanism, see our guide on [How To Use The PortalsPlugin](./how-to/using-the-portals-plugin).
 
 ## Capacitor Core Plugins
 
