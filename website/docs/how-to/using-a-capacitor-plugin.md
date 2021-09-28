@@ -140,12 +140,15 @@ The Toast API provides a notification pop up for displaying important informatio
 ## Native Usage
 In order to use a Capacitor Plugin, you need to install the plugin as a dependency in your `build.gradle` file.
 
-```groovy title=build.gradle {3}
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
 dependencies {
-    implementation 'io.ionic:portals:0.2.0'
+    implementation 'io.ionic:portals:${getPortalsVersion()}'
     implementation 'com.capacitorjs.storage:1.2.0'
+}`.trim()
 }
-```
+</CodeBlock>
 
 :::caution
 Make sure that the versions in your `build.gradle` and `package.json` match! Otherwise you could run into errors.
