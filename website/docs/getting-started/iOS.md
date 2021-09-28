@@ -26,6 +26,10 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
+:::caution
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::
+
 The [newPortal()](../reference/ios/portal-manager#newportal) method takes in the `portalId` that will be used to identify the portal.
 
 By default, the PortalManager will look for a folder named the same as the `portalId` as the location of the web assets. You can use the [setStartDir()](../reference/ios/portal-builder#setstartdir) function to set the web application's directory.

@@ -202,6 +202,10 @@ _static_
 
 A function to validate the registration of the Ionic Portals instance with your API Key. This function will work offline and only needs to be run once before creating your first [Portal](./portal)
 
+:::caution
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::
+
 #### Usage
 
 <Tabs 

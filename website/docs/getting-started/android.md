@@ -49,6 +49,10 @@ public class MyApplication extends Application {
 </TabItem>
 </Tabs>
 
+:::caution
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::
+
 After creating a custom Application class, be sure to add the `android:name` attribute to your `application` tag in the `AndroidManifest.xml`.
 
 ```xml title=AndroidManifest.xml {7}
