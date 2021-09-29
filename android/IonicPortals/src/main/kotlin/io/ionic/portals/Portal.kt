@@ -97,6 +97,11 @@ class PortalBuilder(val name: String) {
     private var plugins = mutableListOf<Class<out Plugin?>>()
     private var initialContext: Any? = null
     private var portalFragmentType: Class<out PortalFragment?> = PortalFragment::class.java
+    private var onCreate: (portal: Portal) -> Unit = {}
+
+    internal constructor(name: String, onCreate: (portal: Portal) -> Unit) : this(name) {
+        this.onCreate = onCreate;
+    }
 
     fun setStartDir(startDir: String): PortalBuilder {
         this._startDir = startDir
