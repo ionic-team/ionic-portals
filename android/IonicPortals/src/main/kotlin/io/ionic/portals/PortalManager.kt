@@ -63,18 +63,6 @@ object PortalManager {
     }
 
     /**
-     * A helper method to build portal classes and add them to the manager. Classes built with newPortal are added to the PortalManager automatically.
-     * @param name The Portal name
-     * @return A PortalBuilder object that has a fluent API to construct a Portal
-     */
-    @JvmStatic
-    fun newPortal(name: String): PortalBuilder {
-        return PortalBuilder(name, fun(portal) {
-            this.addPortal(portal)
-        })
-    }
-
-    /**
      * Verifies the provided registration key string against the Portals public key.
      * @param key: The Portals registration key to validate
      * @return True if validation was successful, false if not.

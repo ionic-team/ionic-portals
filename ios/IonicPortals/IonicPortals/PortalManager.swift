@@ -58,15 +58,6 @@ public class PortalManager {
         return output
     }
     
-    /**
-     * A helper method to build `Portal` classes and add them to the manager. Classes built with newPortal are added to the `PortalManager` automatically.
-     * - Parameter name: The `Portal` name
-     * - returns: A `PortalBuilder` object that has a fluent API to construct a `Portal`.
-     */
-    public static func newPortal(_ name: String) -> PortalBuilder {
-        return PortalBuilder(name)
-    }
-    
     public static func isRegistered() -> Bool {
         return self.registered
     }

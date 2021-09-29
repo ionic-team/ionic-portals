@@ -92,7 +92,7 @@ class Portal(
 
 }
 
-class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
+class PortalBuilder(val name: String) {
     private var _startDir: String? = null
     private var plugins = mutableListOf<Class<out Plugin?>>()
     private var initialContext: Any? = null
@@ -129,7 +129,7 @@ class PortalBuilder(val name: String, val onCreate: (portal: Portal) -> Unit) {
         portal.addPlugins(plugins)
         portal.initialContext = this.initialContext
         portal.portalFragmentType = this.portalFragmentType
-        onCreate(portal)
+        PortalManager.addPortal(portal)
         return portal
     }
 
