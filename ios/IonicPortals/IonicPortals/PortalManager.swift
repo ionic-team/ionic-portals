@@ -64,9 +64,7 @@ public class PortalManager {
      * - returns: A `PortalBuilder` object that has a fluent API to construct a `Portal`.
      */
     public static func newPortal(_ name: String) -> PortalBuilder {
-        return PortalBuilder(name, { (portal) in
-            PortalManager.addPortal(portal)
-        })
+        return PortalBuilder(name)
     }
     
     public static func isRegistered() -> Bool {

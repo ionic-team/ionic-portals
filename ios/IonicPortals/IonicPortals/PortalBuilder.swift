@@ -8,15 +8,13 @@ public class PortalBuilder {
 
     // MARK: - Instance Properties
     private let name: String
-    private let onBuilderComplete: OnPortalBuilderComplete
 
     private var startDir: String?
     private var initialContext: Dictionary<String, Any>?
 
     // Initialization
-    public init(_ name: String, _ onComplete: @escaping OnPortalBuilderComplete) {
+    public init(_ name: String) {
         self.name = name
-        self.onBuilderComplete = onComplete
     }
 
     /**
@@ -49,7 +47,7 @@ public class PortalBuilder {
         let portal = Portal(self.name, self.startDir)
         portal.startDir = self.startDir ?? portal.name
         portal.initialContext = self.initialContext
-        self.onBuilderComplete(portal)
+        PortalManager.addPortal(portal)
         return portal
     }
 }
