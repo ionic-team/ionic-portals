@@ -8,11 +8,11 @@
 <br />
 <p align="center">
   <a href="https://github.com/ionic-team/ionic-portals/actions?query=workflow%3ACI"><img src="https://img.shields.io/github/workflow/status/ionic-team/ionic-portals/CI?style=flat-square" /></a>
-  <a href="https://www.npmjs.com/package/@ionic/portals"><img src="https://img.shields.io/npm/v/@ionic/portals?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@ionic/portals"><img src="https://img.shields.io/npm/dw/@ionic/portals?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@ionic/portals"><img src="https://img.shields.io/npm/l/@ionic/portals?style=flat-square" /></a>
 </p>
 <p align="center">
-  <a href="https://www.npmjs.com/package/@ionic/portals"><img src="https://img.shields.io/npm/dw/@ionic/portals?style=flat-square" /></a>
+  <a href="https://www.npmjs.com/package/@ionic/portals"><img src="https://img.shields.io/npm/v/@ionic/portals?style=flat-square" /></a>
   <a href="https://search.maven.org/artifact/io.ionic/portals"><img src="https://img.shields.io/maven-central/v/io.ionic/portals" /></a>
   <img src="https://img.shields.io/cocoapods/v/IonicPortals" />
 </p>
