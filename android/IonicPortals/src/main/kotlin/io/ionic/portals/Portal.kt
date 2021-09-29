@@ -134,7 +134,7 @@ class PortalBuilder(val name: String) {
         portal.addPlugins(plugins)
         portal.initialContext = this.initialContext
         portal.portalFragmentType = this.portalFragmentType
-        PortalManager.addPortal(portal)
+        onCreate(portal)
         return portal
     }
 
