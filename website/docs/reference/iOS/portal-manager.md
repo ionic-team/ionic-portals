@@ -76,6 +76,24 @@ Name | Type | Description
 
 **Returns:** <span class="return-code">[*Portal*](./portal)</span>
 
+### newPortal
+_static_
+
+A function to create a [PortalBuilder](./portal-builder) class and, after building, add it to the [PortalManager](./portal-manager). Classes built with the [PortalManager.newPortal()](./portal-manager#newportal)` function are added to the [PortalManager](./portal-manager) automatically.
+#### Usage
+```swift
+let builder: PortalBuilder = PortalManager.newPortal("MyPortal")
+let portal: Portal = builder.create()
+```
+
+#### Parameters
+
+Name | Type | Description
+:------ | :------ | :------
+`name` | `String` | The [Portal](./portal) name to create.
+
+**Returns:** <span class="return-code">[*Portal*](./portal)</span>
+
 ### register
 _static_
 
