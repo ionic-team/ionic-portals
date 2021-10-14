@@ -193,3 +193,7 @@ iOSInjectionProject/
 # ==========
 node_modules
 plugin/dist
+
+# Carthage
+ios/Carthage
+ios/IonicPortals.xcframework.zip
