@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/ionic-team/ionic-portals/compare/0.2.1...0.2.2) (2021-10-15)
+
+
+### Bug Fixes
+
+* **android:** readme and to incr. version ([f1524da](https://github.com/ionic-team/ionic-portals/commit/f1524dad01c9121b15cc88cfa158909e507be80c))
+
+
+
+
+
 ## [0.2.1](https://github.com/ionic-team/ionic-portals/compare/0.2.0...0.2.1) (2021-09-27)
 
 
