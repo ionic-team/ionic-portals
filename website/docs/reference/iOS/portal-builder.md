@@ -26,7 +26,7 @@ Even though there are no Objective-C code samples, the Ionic Portals library can
 
 ```swift
 let name: String = "MyPortal"
-let builder = PortalBuilder(self.name, { portal in /* ... onComplete callback */ })
+let builder = PortalBuilder(name)
 ``` 
 
 #### Parameters
@@ -34,7 +34,6 @@ let builder = PortalBuilder(self.name, { portal in /* ... onComplete callback */
 Name | Type | Description
 :------ | :------ | :------ 
 `name` | `String` | The name of the [Portal](./portal) to be created.
-`onComplete` | `@escaping (_ portal : Portal) -> Void` | A completion handler run after the [PortalBuilder.create()](./portal-builder#create) function is run.
 
 **Returns:** <span class="return-code">[*Portal*](./portal)</span>
 

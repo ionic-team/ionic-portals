@@ -161,9 +161,7 @@ Name | Type | Description
 _static_
 
 A function to create a [PortalBuilder](./portal-builder) class and, after building, add it to the [PortalManager](./portal-manager). Classes built with the [PortalManager.newPortal()](./portal-manager#newportal)` function are added to the [PortalManager](./portal-manager) automatically.
-
 #### Usage
-
 <Tabs 
     defaultValue="kt" 
     values={[
@@ -172,7 +170,6 @@ A function to create a [PortalBuilder](./portal-builder) class and, after buildi
     ]}
 >
 <TabItem value="kt">
-
 ```kotlin
 val builder: PortalBuilder = PortalManager.newPortal("my_portal")
 val portal: Portal = builder.create()
@@ -201,6 +198,10 @@ Name | Type | Description
 _static_
 
 A function to validate the registration of the Ionic Portals instance with your API Key. This function will work offline and only needs to be run once before creating your first [Portal](./portal)
+
+:::caution
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::
 
 #### Usage
 

@@ -1,6 +1,6 @@
 ---
 title: PortalsPlugin
-sidebar_label: Portals Plugin
+sidebar_label: PortalsPlugin
 ---
 
 The [PortalsPlugin](./portals-plugin) class is a special Capacitor Plugin within the Portals library that allows for bi-directional communication between iOS code and Web code. It is loaded with every Portal automatically and does not need to be added like other plugins.

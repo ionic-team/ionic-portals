@@ -20,8 +20,7 @@ An example of how to create a [Portal](./portal) using the [PortalBuilder](./por
 <TabItem value="kt">
 
 ```kotlin
-val onCreate = fun (portal) { /* Run post-creation */ }
-val portal: Portal = PortalBuilder("myPortal", onCreate)
+val portal: Portal = PortalBuilder("myPortal")
     .addPlugin(MyCapacitorPlugin::class.java)
     .setPortalFragmentType(MyFadeInOutPortalFragment::class.java)
     .setInitialContext(mapOf("myVariableFromAndroid" to 42))
@@ -61,8 +60,7 @@ Portal portal = new PortalBuilder("myPortal")
 
 ```kotlin
 val name: String = "Hello World"
-val callbackFunc: (portal: Portal) -> Unit = /* callback function here */
-var builder: PortalBuilder = PortalBuilder(name, callbackFunc)
+var builder: PortalBuilder = PortalBuilder(name)
 ``` 
 
 </TabItem>
@@ -70,9 +68,7 @@ var builder: PortalBuilder = PortalBuilder(name, callbackFunc)
 
 ```java
 String name = "Hello World"
-PortalBuilder builder = new PortalBuilder(name, portal -> {
-    /* callback function here */
-});
+PortalBuilder builder = new PortalBuilder(name);
 ``` 
 
 </TabItem>
@@ -83,7 +79,6 @@ PortalBuilder builder = new PortalBuilder(name, portal -> {
 Name | Type | Description
 :------ | :------ | :------ 
 `name` | `String` | The name of the [Portal](./portal) to be referenced via the [PortalManager](./portal-manager) or the [PortalView](./portal-view)
-`onCreate` | `(portal: Portal) -> Unit` | A callback function that is called during the [PortalBuilder.create()](./portal-builder#create) function
 
 **Returns:** <span class="return-code">[*PortalBuilder*](./portal-builder)</span>
 

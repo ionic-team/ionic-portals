@@ -6,7 +6,7 @@ sidebar_label: Using Portals in Android
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once the [API Key has been obtained](./guide#signup) and [Ionic Portals library is installed](./guide#install), you can start creating Portals for your application.
+Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide#install), you can start creating Portals for your application.
 
 ## Creating a Custom Application Class
 
@@ -48,6 +48,10 @@ public class MyApplication extends Application {
 
 </TabItem>
 </Tabs>
+
+:::caution
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::
 
 After creating a custom Application class, be sure to add the `android:name` attribute to your `application` tag in the `AndroidManifest.xml`.
 

@@ -80,9 +80,7 @@ Name | Type | Description
 _static_
 
 A function to create a [PortalBuilder](./portal-builder) class and, after building, add it to the [PortalManager](./portal-manager). Classes built with the [PortalManager.newPortal()](./portal-manager#newportal)` function are added to the [PortalManager](./portal-manager) automatically.
-
 #### Usage
-
 ```swift
 let builder: PortalBuilder = PortalManager.newPortal("MyPortal")
 let portal: Portal = builder.create()
@@ -101,8 +99,11 @@ _static_
 
 A function to validate the registration of the Ionic Portals instance with your API Key. This function will work offline and only needs to be run once before creating your first [Portal](./portal)
 
-#### Usage
+:::caution
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::
 
+#### Usage
 
 ```swift
 PortalManager.register("MY_API_KEY")
