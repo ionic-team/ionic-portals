@@ -3,6 +3,7 @@ import WebKit
 import UIKit
 import Capacitor
 
+@objc(PortalWebView)
 public class PortalWebView: UIView {
     
     var webView: InternalCapWebView?
@@ -13,12 +14,11 @@ public class PortalWebView: UIView {
         super.init(coder: coder)
     }
     
-    public init(frame: CGRect, portal: Portal) {
+    @objc public init(frame: CGRect, portal: Portal) {
         super.init(frame: frame)
         self.portal = portal
         initView()
     }
-    
     
     func initView () {
         if PortalManager.isRegistered() {

@@ -6,7 +6,8 @@ enum PortalError: Error {
     case alreadyExists(String)
 }
 
-public class PortalManager {
+@objc(PortalManager)
+public class PortalManager: NSObject {
     
     // MARK: - Static Properties
 
@@ -27,7 +28,7 @@ public class PortalManager {
      * Returns the number of `Portal` objects in the `PortalManager`.
      * - returns: The count of `Portal` objects.
      */
-    public static func count() -> Int {
+    @objc public static func count() -> Int {
         return portals.count
     }
     
@@ -35,7 +36,7 @@ public class PortalManager {
      * Adds a `Portal` object given the `name` of the portal.
      * - Parameter portal: The `Portal` to add to the manager.
      */
-    public static func addPortal(_ portal: Portal) -> Void {
+    @objc public static func addPortal(_ portal: Portal) -> Void {
         portals[portal.name] = portal
         if !registered && !unregisteredMessageShown {
             self.unregisteredMessage()
@@ -48,7 +49,7 @@ public class PortalManager {
      * - throws: `PortalError.notFound` if the `Portal` does not exist
      * - returns: The existing `Portal` class with name `name`.
      */
-    public static func getPortal(_ name: String) throws -> Portal {
+    @objc public static func getPortal(_ name: String) throws -> Portal {
         guard let output = portals[name] else {
             throw PortalError.notFound("Portal with portalId \(name) not found in PortalManager")
         }
@@ -63,17 +64,17 @@ public class PortalManager {
      * - Parameter name: The `Portal` name
      * - returns: A `PortalBuilder` object that has a fluent API to construct a `Portal`.
      */
-    public static func newPortal(_ name: String) -> PortalBuilder {
+    @objc public static func newPortal(_ name: String) -> PortalBuilder {
         return PortalBuilder(name, { (portal) in
             PortalManager.addPortal(portal)
         })
     }
     
-    public static func isRegistered() -> Bool {
+    @objc public static func isRegistered() -> Bool {
         return self.registered
     }
     
-    public static func register(_ key: String) {
+    @objc public static func register(_ key: String) {
         self.registered = self.validateToken(key)
     }
     

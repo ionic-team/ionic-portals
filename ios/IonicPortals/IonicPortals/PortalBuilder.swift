@@ -2,7 +2,8 @@ import Foundation
 
 public typealias OnPortalBuilderComplete = (_ portal : Portal) -> Void
 
-public class PortalBuilder {
+@objc(PortalBuilder)
+public class PortalBuilder: NSObject {
     
     // MARK: - Static Properties
 
@@ -14,7 +15,7 @@ public class PortalBuilder {
     private var onBuilderComplete: OnPortalBuilderComplete?
 
     // Initialization
-    public init(_ name: String) {
+    @objc public init(_ name: String) {
         self.name = name
         self.onBuilderComplete = nil
     }
@@ -29,7 +30,7 @@ public class PortalBuilder {
      * - Parameter startDir: The relative file path of the folder that contains your web app
      * - Returns: self
      */
-    public func setStartDir(_ startDir: String) -> PortalBuilder {
+    @objc public func setStartDir(_ startDir: String) -> PortalBuilder {
         self.startDir = startDir
         return self
     }
@@ -40,7 +41,7 @@ public class PortalBuilder {
      * - Parameter initialContext: An object that can be serialized into JSON
      * - Returns: self
      */
-    public func setInitialContext(_ initialContext: Dictionary<String, Any>) -> PortalBuilder {
+    @objc public func setInitialContext(_ initialContext: Dictionary<String, Any>) -> PortalBuilder {
         self.initialContext = initialContext
         return self
     }
@@ -50,7 +51,7 @@ public class PortalBuilder {
      * - Parameter initialContext: An object that can be serialized into JSON
      * - Returns: A newly created portal
      */
-    public func create() -> Portal {
+    @objc public func create() -> Portal {
         let portal = Portal(self.name, self.startDir)
         portal.startDir = self.startDir ?? portal.name
         portal.initialContext = self.initialContext
