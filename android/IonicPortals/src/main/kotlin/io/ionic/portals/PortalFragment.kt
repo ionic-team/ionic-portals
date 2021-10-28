@@ -10,12 +10,15 @@ import android.webkit.WebView
 import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import com.getcapacitor.*
+import io.ionic.liveupdates.LiveUpdateManager
 import org.json.JSONException
 import org.json.JSONObject
+import java.io.File
 import kotlin.reflect.KVisibility
 
 open class PortalFragment : Fragment {
     var portal: Portal? = null
+    var liveUpdateFiles: File? = null
 
     private var bridge: Bridge? = null
     private var keepRunning = true
@@ -88,6 +91,24 @@ open class PortalFragment : Fragment {
         webViewListeners.add(webViewListener)
     }
 
+    fun reload() {
+        if(portal?.liveUpdateConfig != null) {
+            val latestLiveUpdateFiles = LiveUpdateManager.getLatestAppDirectory(requireContext(), portal?.liveUpdateConfig?.appId!!)
+            if (latestLiveUpdateFiles != null) {
+                if (liveUpdateFiles == null || liveUpdateFiles!!.path != latestLiveUpdateFiles.path) {
+                    liveUpdateFiles = latestLiveUpdateFiles
+
+                    // Reload the bridge to the new files path
+                    bridge?.serverBasePath = liveUpdateFiles!!.path
+                    return
+                }
+            }
+        }
+
+        // Reload the bridge to the existing start url
+        bridge?.reload()
+    }
+
     /**
      * Load the WebView and create the Bridge
      */
@@ -104,7 +125,18 @@ open class PortalFragment : Fragment {
                     .setConfig(config)
                     .addWebViewListeners(webViewListeners)
                     .create()
-                bridge?.setServerAssetPath(startDir)
+
+                if (portal?.liveUpdateConfig != null) {
+                    liveUpdateFiles = LiveUpdateManager.getLatestAppDirectory(requireContext(), portal?.liveUpdateConfig?.appId!!)
+                    if (liveUpdateFiles != null) {
+                        bridge?.serverBasePath = liveUpdateFiles!!.path
+                    } else {
+                        bridge?.setServerAssetPath(startDir)
+                    }
+                } else {
+                    bridge?.setServerAssetPath(startDir)
+                }
+
                 keepRunning = bridge?.shouldKeepRunning()!!
             }
         } else if (PortalManager.isRegisteredError()) {
@@ -127,7 +159,7 @@ open class PortalFragment : Fragment {
                     val jsonObject: JSONObject = when (val initialContext = portal!!.initialContext) {
                         is String -> {
                             try {
-                                JSONObject(initialContext);
+                                JSONObject(initialContext)
                             } catch (ex: JSONException) {
                                 throw Error("initialContext must be a JSON string or a Map")
                             }

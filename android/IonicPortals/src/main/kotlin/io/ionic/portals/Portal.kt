@@ -1,6 +1,9 @@
 package io.ionic.portals
 
+import android.content.Context
 import com.getcapacitor.Plugin
+import io.ionic.liveupdates.LiveUpdate
+import io.ionic.liveupdates.LiveUpdateManager
 import java.util.*
 
 class Portal(
@@ -51,6 +54,16 @@ class Portal(
         get() = if (field.isEmpty()) name else field
 
     /**
+     * LiveUpdate config if live updates is being used.
+     */
+    var liveUpdateConfig: LiveUpdate? = null
+
+    /**
+     * Whether to run a live update sync when the portal is added to the manager.
+     */
+    var liveUpdateOnAppLoad: Boolean = true
+
+    /**
      * Add a Capacitor [Plugin] to be loaded with this Portal.
      *
      * @param plugin A Plugin to be used with the Portal.
@@ -98,6 +111,7 @@ class PortalBuilder(val name: String) {
     private var initialContext: Any? = null
     private var portalFragmentType: Class<out PortalFragment?> = PortalFragment::class.java
     private var onCreate: (portal: Portal) -> Unit = {}
+    private var liveUpdateConfig: LiveUpdate? = null
 
     internal constructor(name: String, onCreate: (portal: Portal) -> Unit) : this(name) {
         this.onCreate = onCreate;
@@ -128,12 +142,23 @@ class PortalBuilder(val name: String) {
         return this
     }
 
+    fun setLiveUpdateConfig(context: Context, liveUpdateConfig: LiveUpdate, updateOnAppLoad: Boolean = true): PortalBuilder {
+        this.liveUpdateConfig = liveUpdateConfig
+        LiveUpdateManager.initialize(context)
+        LiveUpdateManager.addLiveUpdateInstance(context, liveUpdateConfig)
+        if (updateOnAppLoad) {
+            LiveUpdateManager.sync(context, arrayOf(liveUpdateConfig.appId))
+        }
+        return this
+    }
+
     fun create(): Portal {
         val portal = Portal(name)
         portal.startDir = this._startDir ?: this.name
         portal.addPlugins(plugins)
         portal.initialContext = this.initialContext
         portal.portalFragmentType = this.portalFragmentType
+        portal.liveUpdateConfig = this.liveUpdateConfig
         onCreate(portal)
         return portal
     }
