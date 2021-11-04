@@ -14,7 +14,8 @@
   },
   "files": [],
   "scripts": {
-    "verify": "xcodebuild -workspace IonicPortals.xcworkspace -scheme IonicPortals"
+    "verify": "xcodebuild -workspace IonicPortals.xcworkspace -scheme IonicPortals -destination generic/platform=iOS",
+    "carthage": "sh carthage.sh"
   },
   "private": true
 }
