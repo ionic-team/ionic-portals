@@ -197,7 +197,7 @@ The AppLauncher API allows to open other apps
 
 **com.capacitorjs.browser**
 
-The Browser API provides the ability to open an in-app browser and subscribe to browser events.
+The Browser API provides the capability to open an in-app browser and subscribe to browser events.
 
 **com.capacitorjs.camera**
 
