@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { getPortalsVersion } from '@site/src/util';
 
-Ionic Portals uses Capacitor under the hood, meaning that you can use [existing Capacitor Core Plugins](https://capacitorjs.com/docs/apis) in your Portals. These plugins allow Portals to use native functionality without much setup on either the native or web developers part.
+Ionic Portals uses Capacitor under the hood, meaning that you can use [Capacitor Core Plugins](https://capacitorjs.com/docs/apis) in your Portals. These plugins allow Portals to use native functionality with minimal configuration by the native developer or the web developer.
 
 <Tabs 
     defaultValue="ios" 
@@ -31,10 +31,10 @@ pod 'CapacitorStorage', '~> 1.2.0'
 </CodeBlock>
 
 :::caution
-Make sure that the versions in your `Podfile` and `package.json` match! Otherwise you could run into errors.
+To avoid errors, make sure that the versions in your `Podfile` and `package.json` match!
 :::
 
-After installing the dependency inject the Plugin to the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
+After installing the dependency, inject the Plugin into the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
 
 ```swift
 override func viewDidLoad() {
@@ -60,11 +60,11 @@ The AppLauncher API allows to open other apps
 
 **CapacitorBrowser**
 
-The Browser API provides the ability to open an in-app browser and subscribe to browser events.
+The Browser API provides the capability to open an in-app browser and subscribe to browser events.
 
 **CapacitorCamera**
 
-The Camera API provides the ability to take a photo with the camera or choose an existing one from the photo album.
+The Camera API provides the capability to take a photo with the camera or to choose photos from the photo album.
 
 **CapacitorClipboard**
 
@@ -76,7 +76,7 @@ The Device API exposes internal information about the device, such as the model 
 
 **CapacitorDialog**
 
-The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts
+The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts.
 
 **CapacitorFilesystem**
 
@@ -112,7 +112,7 @@ The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides si
 
 **CapacitorShare**
 
-The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
+The Share API provides methods for sharing content to any sharing-enabled apps that the user may have installed.
 
 **CapacitorSplashScreen**
 
@@ -151,7 +151,7 @@ dependencies {
 </CodeBlock>
 
 :::caution
-Make sure that the versions in your `build.gradle` and `package.json` match! Otherwise you could run into errors.
+To avoid errors, make sure that the versions in your `build.gradle` and `package.json` match!
 :::
 
 Next, include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
@@ -201,7 +201,7 @@ The Browser API provides the ability to open an in-app browser and subscribe to 
 
 **com.capacitorjs.camera**
 
-The Camera API provides the ability to take a photo with the camera or choose an existing one from the photo album.
+The Camera API provides the capability to take a photo with the camera or to choose photos from the photo album.
 
 **com.capacitorjs.clipboard**
 
@@ -213,7 +213,7 @@ The Device API exposes internal information about the device, such as the model 
 
 **com.capacitorjs.dialog**
 
-The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts
+The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts.
 
 **com.capacitorjs.filesystem**
 
@@ -249,7 +249,7 @@ The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides si
 
 **com.capacitorjs.share**
 
-The Share API provides methods for sharing content in any sharing-enabled apps the user may have installed.
+The Share API provides methods for sharing content to any sharing-enabled apps that the user may have installed.
 
 **com.capacitorjs.splash-screen**
 
@@ -276,10 +276,10 @@ The Toast API provides a notification pop up for displaying important informatio
 </Tabs>
 
 ## Web Usage
-Web Developers need to install the web dependency of the plugins from `npm`. The packages are listed under the `@capacitor` scope. To install a plugin, run `npm i @capacitor/<plugin_name>` at the root of your web project.
+Web Developers need to install the web dependencies of the plugins from `npm`. The packages are listed under the `@capacitor` scope. To install a plugin, run `npm i @capacitor/<plugin_name>` from the root of your web project.
 
 :::warning
-Make sure that the versions in your `Podfile`, `build.gradle`, and `package.json` all match! Otherwise you will run into errors
+To avoid errors, make sure that the versions in your `Podfile`, `build.gradle`, and `package.json` all match!
 :::
 
 For more information on how to use Capacitor Plugins in your web application, [check out the Capacitor Plugin docs](https://capacitorjs.com/docs/apis).
