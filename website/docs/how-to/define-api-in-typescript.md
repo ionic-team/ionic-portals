@@ -1,5 +1,5 @@
 ---
-title: How To Define a Portal APIs
+title: How To Define a Portal API
 sidebar_label: Define your own Portal APIs
 ---
 
