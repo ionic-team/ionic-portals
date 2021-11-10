@@ -30,13 +30,9 @@ jobs:
         run: carthage bootstrap --use-xcframeworks
       - name: Build .xcframework.zip file
         run: ./carthage.sh
-  build:
-    runs-on: macos-11
-    needs:
-      - build-xcframework
-    steps:
       - name: Release Zip
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: IonicPortals.xcframework.zip
+      
