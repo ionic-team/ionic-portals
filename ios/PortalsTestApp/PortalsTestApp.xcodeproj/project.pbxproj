@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,23 +14,7 @@
 		E985F819269E259D0031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F804269E259C0031F820 /* ContentView.swift */; };
 		E985F81A269E259D0031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F805269E259D0031F820 /* Assets.xcassets */; };
 		E985F81B269E259D0031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F805269E259D0031F820 /* Assets.xcassets */; };
-		E985F89B269E2D550031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F89A269E2D550031F820 /* IonicPortals.framework */; };
-		E985F89C269E2D550031F820 /* IonicPortals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E985F89A269E2D550031F820 /* IonicPortals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E985F89D269E2D550031F820 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E985F89C269E2D550031F820 /* IonicPortals.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		09680184EB42C0DC6C11256E /* Pods-PortalsTestApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
@@ -52,7 +36,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E985F89B269E2D550031F820 /* IonicPortals.framework in Frameworks */,
 				BC5925F02FA8099E098526D4 /* Pods_PortalsTestApp__iOS_.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,7 +126,6 @@
 			buildPhases = (
 				9F3B401080EA2DF2EEB9F9B2 /* [CP] Check Pods Manifest.lock */,
 				E985F807269E259D0031F820 /* Frameworks */,
-				E985F89D269E2D550031F820 /* Embed Frameworks */,
 				E985F806269E259D0031F820 /* Sources */,
 				E985F808269E259D0031F820 /* Resources */,
 				91CD9E7CAA49D4EA8A6DAF79 /* [CP] Embed Pods Frameworks */,
