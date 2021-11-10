@@ -7,13 +7,13 @@ jobs:
     timeout-minutes: 30
     steps:
       - run: sudo xcode-select --switch /Applications/Xcode_13.0.app
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Install Cocoapods
         run: gem install cocoapods
       - run: pod install
         working-directory: ./ios
       - name: Install Carthage Packages
-      - run: carthage bootstrap --use-xcframeworks
+        run: carthage bootstrap --use-xcframeworks
       - run: npm run verify
         working-directory: ./ios
   build-xcframework:
@@ -21,15 +21,15 @@ jobs:
     timeout-minutes: 30
     steps:
       - run: sudo xcode-select --switch /Applications/Xcode_13.0.app
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
       - name: Install Cocoapods
         run: gem install cocoapods
       - run: pod install
         working-directory: ./ios
       - name: Install Carthage Packages
-      - run: carthage bootstrap --use-xcframeworks
+        run: carthage bootstrap --use-xcframeworks
       - name: Build .xcframework.zip file
-      - run: ./carthage.sh
+        run: ./carthage.sh
   build:
     runs-on: macos-11
     needs:
