@@ -60,12 +60,12 @@ jobs:
       - run: npm run verify
         working-directory: ./android
   verify-ios:
-    runs-on: macos-latest
+    runs-on: macos-11
     timeout-minutes: 30
     needs:
       - setup
     steps:
-      - run: sudo xcode-select --switch /Applications/Xcode_13.0.app
+      - run: sudo xcode-select --switch /Applications/Xcode_13.1.app
       - uses: actions/checkout@v2
       - name: Install Cocoapods
         run: gem install cocoapods
@@ -106,7 +106,7 @@ jobs:
         - setup
         - publish-plugin
     steps:
-      - run: sudo xcode-select --switch /Applications/Xcode_12.5.app
+      - run: sudo xcode-select --switch /Applications/Xcode_13.0app
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
