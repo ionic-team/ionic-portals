@@ -1,5 +1,6 @@
-name: Publish Carthage .xcframework
+name: Publish Carthage xcframework
 
+on: release
 jobs:
   verify:
     runs-on: macos-11
