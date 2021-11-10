@@ -71,6 +71,7 @@ jobs:
         run: gem install cocoapods
       - run: pod install
         working-directory: ./ios
+      - run: carthage bootstrap --use-xcframeworks
       - run: npm run verify
         working-directory: ./ios
   publish-plugin:
