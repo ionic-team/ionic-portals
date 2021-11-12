@@ -16,14 +16,14 @@
 		55F6736526C2C098001E7AB9 /* PortalWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6736426C2C097001E7AB9 /* PortalWebView.swift */; };
 		E90B7D4C26A9C4F40067D73E /* PortalBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */; };
 		E90B7D5026A9CB880067D73E /* PortalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4F26A9CB880067D73E /* PortalManager.swift */; };
-		E96A1C19273B5C86006E80D7 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; };
-		E96A1C1A273B5C86006E80D7 /* Capacitor.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E96A1C1C273B5C89006E80D7 /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */; };
-		E96A1C1D273B5C89006E80D7 /* CapacitorCordova.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E985F88A269E2D260031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F880269E2D260031F820 /* IonicPortals.framework */; };
 		E985F88F269E2D260031F820 /* IonicPortalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F88E269E2D260031F820 /* IonicPortalsTests.swift */; };
 		E985F891269E2D260031F820 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E985F89F269E2D830031F820 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F89E269E2D830031F820 /* Portal.swift */; };
+		E9AFB5A9273C52A9004F8FB6 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; };
+		E9AFB5AA273C52A9004F8FB6 /* Capacitor.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E9AFB5AC273C52AB004F8FB6 /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */; };
+		E9AFB5AD273C52AB004F8FB6 /* CapacitorCordova.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,14 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E96A1C1B273B5C86006E80D7 /* Embed Frameworks */ = {
+		E9AFB5AB273C52A9004F8FB6 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E96A1C1A273B5C86006E80D7 /* Capacitor.xcframework in Embed Frameworks */,
-				E96A1C1D273B5C89006E80D7 /* CapacitorCordova.xcframework in Embed Frameworks */,
+				E9AFB5AA273C52A9004F8FB6 /* Capacitor.xcframework in Embed Frameworks */,
+				E9AFB5AD273C52AB004F8FB6 /* CapacitorCordova.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,8 +79,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E96A1C19273B5C86006E80D7 /* Capacitor.xcframework in Frameworks */,
-				E96A1C1C273B5C89006E80D7 /* CapacitorCordova.xcframework in Frameworks */,
+				E9AFB5A9273C52A9004F8FB6 /* Capacitor.xcframework in Frameworks */,
+				E9AFB5AC273C52AB004F8FB6 /* CapacitorCordova.xcframework in Frameworks */,
 				3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,7 +186,7 @@
 				E985F87C269E2D260031F820 /* Sources */,
 				E985F87D269E2D260031F820 /* Frameworks */,
 				E985F87E269E2D260031F820 /* Resources */,
-				E96A1C1B273B5C86006E80D7 /* Embed Frameworks */,
+				E9AFB5AB273C52A9004F8FB6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -497,6 +497,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = IonicPortals/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -510,6 +511,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = NO;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -541,6 +543,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9YN2HU59K8;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				INFOPLIST_FILE = IonicPortalsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
