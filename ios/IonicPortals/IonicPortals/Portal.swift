@@ -1,6 +1,7 @@
 import Foundation
 
-public class Portal {
+@objc(Portal)
+public class Portal: NSObject {
     
     // MARK: - Instance Properties
     public let name: String;
