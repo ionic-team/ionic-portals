@@ -16,6 +16,6 @@
       "tagVersionPrefix": ""
     }
   },
-  "version": "0.2.2",
-  "capacitorVersion": "3.2.5"
+  "version": "0.3.0",
+  "capacitorVersion": "3.3.2"
 }

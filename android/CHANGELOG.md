@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ionic-team/ionic-portals/compare/0.3.0-pre...0.3.0) (2021-11-18)
+
+
+### Bug Fixes
+
+* **android:** replaced fragment tried to re-instantiate with null portal ([#95](https://github.com/ionic-team/ionic-portals/issues/95)) ([ccccb6a](https://github.com/ionic-team/ionic-portals/commit/ccccb6a5a7eba8f235a7674518a62add2f2c1670))
+* **android:** replaced old bridgefragment layout with new portal layout ([#96](https://github.com/ionic-team/ionic-portals/issues/96)) ([4ca463a](https://github.com/ionic-team/ionic-portals/commit/4ca463ab8cfff70e783b99ac5231f339508b2265))
+
+
+
+
+
 ## [0.2.2](https://github.com/ionic-team/ionic-portals/compare/0.2.1...0.2.2) (2021-10-15)
 
 

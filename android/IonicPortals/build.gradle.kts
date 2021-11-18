@@ -8,13 +8,11 @@ plugins {
 apply(from = file("./scripts/publish-module.gradle"))
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 30
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = 21
+        targetSdk = 30
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -41,7 +39,7 @@ android {
 
 dependencies {
     implementation(kotlin("reflect"))
-    api("com.capacitorjs:core:3.2.5")
+    api("com.capacitorjs:core:3.3.2")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")
     implementation( "androidx.core:core-ktx:1.6.0")
     implementation("androidx.appcompat:appcompat:1.3.1")

@@ -1,5 +1,5 @@
 ---
-title: How To Define a Portal APIs
+title: How To Define a Portal API
 sidebar_label: Define your own Portal APIs
 ---
 
@@ -26,12 +26,12 @@ On the Android or iOS side, the `EchoPlugin` class will need to match this type 
 
 
 :::info
-If you are not using TypeScript, this step is not needed, but you'll need to take steps to make sure that the method signatures across Android and iOS match if you are using reusing Portals across multiple mobile applications.
+If you are not using TypeScript, you can skip this step, but you'll need to take steps to make sure that the method signatures across Android and iOS match if you are using reusing Portals across multiple mobile applications.
 :::
 
 ## Implementing the API 
 
-First, you'll need to [install the proper dependencies](../getting-started/guide#install). You can now start building the plugin. In this example, the `EchoPlugin`, will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
+First, you'll need to [install the proper dependencies](../getting-started/guide#install). You can now start building the plugin. In this example, the `EchoPlugin` will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
 
 <Tabs 
     defaultValue="swift" 
@@ -57,7 +57,7 @@ public class EchoPlugin: CAPPlugin {
 ```
 
 :::info
-In iOS, if you require Objective-C compatibility, you'll also need a file called `EchoPlugin.m` to create Objective-C bindings with helper functions that Capacitor provides. Below is what the `EchoPlugin` Objective-C bindings would look like.
+In iOS, if you require Objective-C compatibility, you'll also need a file called `EchoPlugin.m` to create Objective-C bindings with helper functions that Capacitor provides. Below is an example of `EchoPlugin` Objective-C bindings.
 
 ```c title=EchoPlugin.m
 #import <Capacitor/Capacitor.h>
@@ -115,7 +115,7 @@ public class EchoPlugin extends Plugin {
 
 ## Adding the Plugin to the Portal
 
-Once the Capacitor Plugin has been created, its time to add it to the Portal for usage.
+After creating the Capacitor Plugin, add the Plugin to the Portal to use it.
 
 ### Android
 
@@ -165,7 +165,7 @@ override func viewDidLoad() {
 
 ## Calling Your Plugin Code via the Web
 
-Once the Plugin has been defined, implemented, and initialized in the native code, you will need to register the Plugin on the web. To do this, you can using the `Capacitor.registerPlugin()` function. From there, Capacitor will handle communication across native and web code.
+Once the Plugin has been defined, implemented, and initialized in the native code, you will need to register the Plugin on the web. To do this, you can use the `Capacitor.registerPlugin()` function. After calling this function, Capacitor will handle communication across native and web code.
 
 ```typescript
 import { registerPlugin } from "@capacitor/core";
@@ -175,7 +175,7 @@ const Plugin = registerPlugin<EchoPlugin>("EchoPlugin");
 export default Plugin;
 ```
 
-Once the Plugin has been registered in the web code, you can use anywhere in your codebase without needing to register it again in the web code.
+Once the Plugin has been registered in the web code, you can use it anywhere in your codebase without needing to register it again in the web code.
 
 ```typescript
 import EchoPlugin from './echo-plugin'
