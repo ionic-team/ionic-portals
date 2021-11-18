@@ -106,7 +106,7 @@ jobs:
         - setup
         - publish-plugin
     steps:
-      - run: sudo xcode-select --switch /Applications/Xcode_13.0app
+      - run: sudo xcode-select --switch /Applications/Xcode_13.0.app
       - uses: actions/setup-node@v1
         with:
           node-version: 14.x
