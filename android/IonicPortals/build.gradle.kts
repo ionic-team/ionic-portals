@@ -1,7 +1,7 @@
 plugins {
     id("maven-publish")
     id("com.android.library")
-    id("org.jetbrains.kotlin.plugin.serialization") version "1.5.21"
+    id("org.jetbrains.kotlin.plugin.serialization")
     id("kotlin-android")
 }
 
@@ -38,8 +38,9 @@ android {
 dependencies {
     implementation(kotlin("reflect"))
 
-    api("com.capacitorjs:core:3.3.0-alpha1")
-    api("io.ionic:liveupdates:0.0.1-alpha1")
+    api("com.capacitorjs:core:3.3.2")
+    //compileOnly(project(":liveupdates"))
+    compileOnly("io.ionic:liveupdates:0.0.1-alpha2")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib:1.5.21")

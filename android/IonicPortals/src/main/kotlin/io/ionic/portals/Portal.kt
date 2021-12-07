@@ -2,6 +2,7 @@ package io.ionic.portals
 
 import android.content.Context
 import com.getcapacitor.Plugin
+import io.ionic.liveupdates.CleanupCallback
 import io.ionic.liveupdates.LiveUpdate
 import io.ionic.liveupdates.LiveUpdateManager
 import java.util.*
@@ -145,6 +146,7 @@ class PortalBuilder(val name: String) {
     fun setLiveUpdateConfig(context: Context, liveUpdateConfig: LiveUpdate, updateOnAppLoad: Boolean = true): PortalBuilder {
         this.liveUpdateConfig = liveUpdateConfig
         LiveUpdateManager.initialize(context)
+        LiveUpdateManager.cleanVersions(context, liveUpdateConfig.appId)
         LiveUpdateManager.addLiveUpdateInstance(context, liveUpdateConfig)
         if (updateOnAppLoad) {
             LiveUpdateManager.sync(context, arrayOf(liveUpdateConfig.appId))
