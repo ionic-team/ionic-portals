@@ -1,4 +1,5 @@
 import Foundation
+import IonicLiveUpdates
 
 public typealias OnPortalBuilderComplete = (_ portal : Portal) -> Void
 
@@ -12,6 +13,7 @@ public class PortalBuilder {
     private var startDir: String?
     private var initialContext: Dictionary<String, Any>?
     private var onBuilderComplete: OnPortalBuilderComplete?
+    private var liveUpdateConfig: LiveUpdate? = nil
 
     // Initialization
     public init(_ name: String) {
@@ -44,6 +46,22 @@ public class PortalBuilder {
         self.initialContext = initialContext
         return self
     }
+    
+    /**
+     * Sets the live update configuration for this specific portal
+     * - Parameter liveUpdateConfig: A live update object that contains information on how to handle the Appflow Live Update functionality
+     * - Parameter updateOnAppLoad: Starts an immediate sync to download the latest update on the Portal
+     */
+    public func setLiveUpdateConfig(liveUpdateConfig: LiveUpdate, updateOnAppLoad: Bool = true) -> PortalBuilder {
+        self.liveUpdateConfig = liveUpdateConfig
+        LiveUpdateManager.initialize()
+        LiveUpdateManager.cleanVersions(liveUpdateConfig.getAppId())
+        LiveUpdateManager.addLiveUpdateInstance(liveUpdateConfig)
+        if (updateOnAppLoad) {
+            LiveUpdateManager.sync(appId: liveUpdateConfig.getAppId())
+        }
+        return self
+    }
 
     /**
      * Sets an initial context for the web application to pass the web application an initial state
@@ -54,6 +72,7 @@ public class PortalBuilder {
         let portal = Portal(self.name, self.startDir)
         portal.startDir = self.startDir ?? portal.name
         portal.initialContext = self.initialContext
+        portal.liveUpdateConfig = self.liveUpdateConfig
         
         guard let onComplete = self.onBuilderComplete else {
             return portal

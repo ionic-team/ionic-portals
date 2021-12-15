@@ -2,11 +2,13 @@ import Foundation
 import WebKit
 import UIKit
 import Capacitor
+import IonicLiveUpdates
 
 public class PortalWebView: UIView {
     
     var webView: InternalCapWebView?
     var portal: Portal?
+    var liveUpdatePath: URL? = nil
     public var bridge: CAPBridgeProtocol?
     
     required public init?(coder: NSCoder) {
@@ -23,7 +25,22 @@ public class PortalWebView: UIView {
     func initView () {
         if PortalManager.isRegistered() {
             webView = InternalCapWebView(frame: self.frame, portal: portal!)
-            bridge = webView!.bridge!
+            
+            guard let portal = portal else { return }
+            guard let bridge = webView?.bridge else { return }
+            guard let capViewController = bridge.viewController as? CAPBridgeViewController else { return }
+            guard let liveUpdateConfig = portal.liveUpdateConfig else {
+                capViewController.setServerBasePath(path: portal.startDir ?? portal.name)
+                return
+            }
+
+            self.liveUpdatePath = LiveUpdateManager.getLatestAppDirectory(liveUpdateConfig.getAppId())
+            if (liveUpdatePath != nil) {
+                capViewController.setServerBasePath(path: liveUpdatePath!.path)
+            } else {
+                capViewController.setServerBasePath(path: portal.startDir ?? portal.name)
+            }
+            
             addSubview(webView!)
         } else {
             let bundle = Bundle(for: UnregisteredView.classForCoder())
@@ -32,6 +49,23 @@ public class PortalWebView: UIView {
             view.frame = self.frame
             addSubview(view)
         }
+    }
+    
+    func reload() {
+        guard let portal = portal else { return }
+        guard let bridge = bridge else { return }
+        guard let liveUpdate = portal.liveUpdateConfig else { return }
+        guard let capViewController = bridge.viewController as? CAPBridgeViewController else { return }
+        guard let latestAppPath = LiveUpdateManager.getLatestAppDirectory(liveUpdate.getAppId()) else { return }
+        
+        if (liveUpdatePath == nil || liveUpdatePath?.path != latestAppPath.path) {
+            liveUpdatePath = latestAppPath
+            capViewController.setServerBasePath(path: liveUpdatePath!.path)
+            return
+        }
+
+        // Reload the bridge to the existing start url
+        bridge.webView?.reload()
     }
     
     class InternalCapWebView: CAPWebView {

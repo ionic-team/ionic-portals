@@ -7,12 +7,14 @@
 
 import SwiftUI
 import IonicPortals
+import IonicLiveUpdates
 
 @main
-struct PortalsTestAppApp: App {
+struct PortalsTestAppApp: SwiftUI.App {
     init() {
         // let p = Portal("Hello");
         // p.HelloWorld();
+        print(LiveUpdateManager.LIVE_UPDATES_DIR)
     }
     
     
