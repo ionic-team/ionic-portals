@@ -10,7 +10,7 @@ https://ionic.io/docs/portals
 
 Add the latest Alpha version of Portals to your application
 
-```Groovy
+```groovy
 implementation 'io.ionic:portals:0.3.0-alpha1'
 ```
 
@@ -36,7 +36,7 @@ Deployments in Appflow will be downloaded as new Live Updates.
 
 Add a LiveUpdate config where your Portal is created. The LiveUpdate object needs an appId that corresponds with an appId in Appflow, and the channel name to subscribe to for updates. 
 
-```Kotlin
+```kotlin
 // Register Portals
 PortalManager.register("MY_API_KEY")
 
@@ -50,7 +50,7 @@ By default, when the app loads for the first time and the portal is created, a s
 
 If you prefer to not perform an automatic sync when the app is initially loaded, pass `false` in to `setLiveUpdateConfig` as well like so:
 
-```Kotlin
+```kotlin
 .setLiveUpdateConfig(applicationContext, LiveUpdate("ebd6138b", "production"), false)
 ```
 
@@ -59,7 +59,7 @@ If you prefer to not perform an automatic sync when the app is initially loaded,
 
 - A sync can be performed manually at any time after a Portal has been setup for Live Updates
 
-```Kotlin
+```kotlin
 // All registered Portals using Live Updates
 LiveUpdateManager.sync(context)
 
@@ -85,7 +85,7 @@ override fun onResume() {
 
 - A callback can be passed to a sync operation
 
-```Kotlin
+```kotlin
 LiveUpdateManager.sync(requireContext(), async = true, callback = object : SyncCallback {
     override fun onAppComplete(liveUpdate: LiveUpdate, failStep: FailStep?) {
         if(failStep != null) {
@@ -103,12 +103,12 @@ LiveUpdateManager.sync(requireContext(), async = true, callback = object : SyncC
 
 - If you know a Portal is visible when a sync completes you can choose to reload the Portal right away
 
-```Kotlin
+```kotlin
 portalFragment.reload()
 ```
 
 - The state of an updating Portal can be checked at any time
 
-```Kotlin
+```kotlin
 PortalManager.getPortal("portal1").liveUpdateConfig?.appState
 ```
