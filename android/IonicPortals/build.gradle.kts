@@ -40,7 +40,7 @@ dependencies {
 
     api("com.capacitorjs:core:3.3.2")
     //compileOnly(project(":liveupdates"))
-    compileOnly("io.ionic:liveupdates:0.0.1-alpha2")
+    compileOnly("io.ionic:liveupdates:0.0.1-alpha4")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0")
     implementation( "androidx.core:core-ktx:1.6.0")
