@@ -13,6 +13,7 @@ Add the latest Alpha version of Portals and Live Updates to your application
 ```groovy
 implementation 'io.ionic:portals:0.4.0-alpha4'
 implementation 'io.ionic:liveupdates:0.0.1-alpha4'
+```
 
 Make sure to [provide the initial web assets](https://ionic.io/docs/portals/how-to/pull-in-web-bundle) for your Portal. This is the web application bundled with the native application that will load in the Portal.
 
