@@ -143,6 +143,7 @@ class PortalBuilder(val name: String) {
         return this
     }
 
+    @JvmOverloads
     fun setLiveUpdateConfig(context: Context, liveUpdateConfig: LiveUpdate, updateOnAppLoad: Boolean = true): PortalBuilder {
         this.liveUpdateConfig = liveUpdateConfig
         LiveUpdateManager.initialize(context)
