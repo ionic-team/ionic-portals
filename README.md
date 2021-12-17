@@ -37,7 +37,7 @@ The Ionic Portals libraries for Android and iOS require a **free** license key t
 
 ### Is Portals Free?
 
-Yes
+Yes.
 
 ### Is Portals Open Source?
 

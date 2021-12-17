@@ -3,6 +3,41 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/ionic-team/ionic-portals/compare/0.3.0...0.3.1) (2021-12-17)
+
+**Note:** Version bump only for package ionic-portals-ios
+
+
+
+
+
+# [0.3.0](https://github.com/ionic-team/ionic-portals/compare/0.3.0-pre...0.3.0) (2021-11-18)
+
+
+### Bug Fixes
+
+* Carthage requirement for bundling Capacitor/Cordova ([4f655ad](https://github.com/ionic-team/ionic-portals/commit/4f655adbb1279a808e26c32a252cb46bcb96eb04))
+* Do not embed self framework ([4e15620](https://github.com/ionic-team/ionic-portals/commit/4e15620ee4872c4f047597d73cffadf8b21b9cca))
+* Remove dependency from correct project ([b88e673](https://github.com/ionic-team/ionic-portals/commit/b88e67367d140016fb2d8269a07b10f8048fb57c))
+
+
+### Features
+
+* **ios:** diverse use cases via [@objc](https://github.com/objc) ([#91](https://github.com/ionic-team/ionic-portals/issues/91)) ([39ee7f7](https://github.com/ionic-team/ionic-portals/commit/39ee7f7d2945420a7e3ef24064ea951f2c7e0e48))
+* Add Github Action to generate .xcframwork on release ([#93](https://github.com/ionic-team/ionic-portals/issues/93)) ([2158843](https://github.com/ionic-team/ionic-portals/commit/215884321f037feeea07a8cb09246bc1264b8d19))
+
+
+
+
+
+## [0.2.2](https://github.com/ionic-team/ionic-portals/compare/0.2.1...0.2.2) (2021-10-15)
+
+**Note:** Version bump only for package ionic-portals-ios
+
+
+
+
+
 ## [0.2.1](https://github.com/ionic-team/ionic-portals/compare/0.2.0...0.2.1) (2021-09-27)
 
 

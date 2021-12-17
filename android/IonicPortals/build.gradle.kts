@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 30
 
     defaultConfig {
-        minSdkVersion(21)
-        targetSdkVersion(30)
+        minSdk = 21
+        targetSdk = 30
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -38,7 +38,7 @@ android {
 dependencies {
     implementation(kotlin("reflect"))
 
-    api("com.capacitorjs:core:3.3.2")
+    api("com.capacitorjs:core:3.3.3")
     //compileOnly(project(":liveupdates"))
     compileOnly("io.ionic:liveupdates:0.0.1-alpha4")
 

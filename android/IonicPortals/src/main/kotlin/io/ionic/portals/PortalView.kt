@@ -86,6 +86,8 @@ class PortalView : FrameLayout {
                 var fmTransaction : FragmentTransaction = fm.beginTransaction()
                 if (existingFragment != null) {
                     fmTransaction.remove(existingFragment)
+                    fmTransaction.commit()
+                    fmTransaction = fm.beginTransaction()
                 }
 
                 portalFragment = fm.fragmentFactory.instantiate(
