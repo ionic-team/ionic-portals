@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/ionic-team/ionic-portals/compare/0.3.0...0.3.1) (2021-12-17)
+
+
+### Bug Fixes
+
+* **android:** exception when re-adding a portal fragment within a pager ([#103](https://github.com/ionic-team/ionic-portals/issues/103)) ([0026e60](https://github.com/ionic-team/ionic-portals/commit/0026e601ba6c847e463de010b21ce203389f9ce1))
+
+
+
+
+
 # [0.3.0](https://github.com/ionic-team/ionic-portals/compare/0.3.0-pre...0.3.0) (2021-11-18)
 
 

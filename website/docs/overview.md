@@ -10,7 +10,7 @@ Ionic Portals is a supercharged native WebView component for iOS and Android tha
 
 Ionic Portals is free. [Try it now](https://ionic.io/register-portals).
 
-<WistiaVideo videoId="jz6bwia807" />
+<WistiaVideo videoId="7r1h9hvqnu" />
 
 ## Why Ionic Portals?
 
