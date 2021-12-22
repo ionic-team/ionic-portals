@@ -102,6 +102,8 @@ open class PortalFragment : Fragment {
                     bridge?.serverBasePath = liveUpdateFiles!!.path
                     return
                 }
+            } else {
+                bridge?.setServerAssetPath(portal?.startDir!!)
             }
         }
 
