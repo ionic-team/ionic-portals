@@ -103,6 +103,7 @@ open class PortalFragment : Fragment {
                     return
                 }
             } else {
+                liveUpdateFiles = null
                 bridge?.setServerAssetPath(portal?.startDir!!)
             }
         }
