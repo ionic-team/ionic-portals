@@ -14,7 +14,8 @@ Pod::Spec.new do |s|
   s.source = { :git => 'https://github.com/ionic-team/ionic-portals.git', :tag => s.version.to_s }
   s.source_files = 'ios/IonicPortals/IonicPortals/*.{swift,h,m}'
   s.resources = ['ios/IonicPortals/IonicPortals/**/*.{xib,xcassets,svg}']
-  s.dependency 'Capacitor'
   s.swift_version = '5.1'
+  s.dependency 'Capacitor'
+  s.dependency 'IonicLiveUpdates'
 end
 
