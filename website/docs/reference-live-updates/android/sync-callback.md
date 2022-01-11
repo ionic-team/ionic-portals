@@ -72,7 +72,7 @@ Called when the [LiveUpdateManager.sync()](./live-update-manager#sync) method ha
 Name | Type | Description
 :------ | :------ | :------
 `liveUpdate` | [LiveUpdate](./live-update) | Information about the app synced.
-`failStep` | [FailStep](./fail-step) | Contains information about the step the sync failed on if an error occurred when syncing an app.
+`failStep` | FailStep | Contains information about the step the sync failed on if an error occurred when syncing an app.
 
 ### onSyncComplete
 _static_
