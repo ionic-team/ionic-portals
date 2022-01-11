@@ -1,6 +1,6 @@
 ---
 title: SyncCallback
-sidebar_label: "SyncCallback"
+sidebar_label: "Sync Callback"
 ---
 
 import Tabs from '@theme/Tabs';

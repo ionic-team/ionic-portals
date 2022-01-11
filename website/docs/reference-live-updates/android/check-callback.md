@@ -1,6 +1,6 @@
 ---
 title: CheckCallback
-sidebar_label: "CheckCallback"
+sidebar_label: "Check Callback"
 ---
 
 import Tabs from '@theme/Tabs';

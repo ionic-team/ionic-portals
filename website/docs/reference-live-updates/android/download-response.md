@@ -1,6 +1,6 @@
 ---
 title: DownloadResponse
-sidebar_label: "DownloadResponse"
+sidebar_label: "Download Response"
 ---
 
 import Tabs from '@theme/Tabs';
@@ -12,5 +12,5 @@ The Download Response data class is used to provide response details when using 
 
 Name | Type | Description
 :------ | :------ | :------
-`error` | [ErrorResponse?](./error-response) | Details about the response if there was an error.
 `File` | File? | The download file if successful.
+`error` | [ErrorResponse?](./error-response) | Details about the response if there was an error.

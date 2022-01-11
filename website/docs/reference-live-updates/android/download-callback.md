@@ -1,6 +1,6 @@
 ---
 title: DownloadCallback
-sidebar_label: "DownloadCallback"
+sidebar_label: "Download Callback"
 ---
 
 import Tabs from '@theme/Tabs';

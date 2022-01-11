@@ -1,6 +1,6 @@
 ---
 title: ExtractCallback
-sidebar_label: "ExtractCallback"
+sidebar_label: "Extract Callback"
 ---
 
 import Tabs from '@theme/Tabs';
