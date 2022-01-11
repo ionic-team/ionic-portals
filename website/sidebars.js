@@ -23,6 +23,7 @@ module.exports = {
         "getting-started/guide",
         "getting-started/iOS",
         "getting-started/android",
+        "getting-started/live-updates",
       ],
     },
     {
@@ -37,6 +38,8 @@ module.exports = {
         "how-to/multiple-portals-single-web-app",
         "how-to/multiple-portals-multiple-web-apps",
         "how-to/get-a-product-key",
+        "how-to/sync-with-live-updates",
+        "how-to/reloading-with-live-updates",
       ],
     },
     {
@@ -91,9 +94,35 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Reference - Live Updates",
+      collapsed: true,
+      items: [
+        {
+          type: "category",
+          label: "iOS API",
+          collapsed: true,
+          items: [
+            "reference-live-updates/iOS/live-update-manager",
+          ],
+        },
+        {
+          type: "category",
+          label: "Android API",
+          collapsed: true,
+          items: [
+            "reference-live-updates/android/live-update-manager",
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Examples",
       collapsed: true,
-      items: ["examples/ecommerce-app"],
+      items: [
+        "examples/ecommerce-app",
+        "examples/ecommerce-app-live-updates",
+      ],
     },
     "plugin-overview",
   ],
