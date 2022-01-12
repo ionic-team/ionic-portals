@@ -1,21 +1,29 @@
 PODS:
-  - Capacitor (3.2.2):
+  - Capacitor (3.3.3):
     - CapacitorCordova
-  - CapacitorCordova (3.2.2)
+  - CapacitorCordova (3.3.3)
+  - IonicLiveUpdates (0.0.1):
+    - ZIPFoundation
+  - ZIPFoundation (0.9.13)
 
 DEPENDENCIES:
   - Capacitor
   - CapacitorCordova
+  - IonicLiveUpdates
 
 SPEC REPOS:
   trunk:
     - Capacitor
     - CapacitorCordova
+    - IonicLiveUpdates
+    - ZIPFoundation
 
 SPEC CHECKSUMS:
-  Capacitor: 393373b4c4e53bbb8d05a4977cd445ea0c53c6cd
-  CapacitorCordova: 7f8d701b1c863b861a467a43d635873382f88a04
+  Capacitor: 12eccd7fc495a508b09c4b78a96347979e0ce1c0
+  CapacitorCordova: 8f6815c74e4ca9d074ea1527f60c790855ded405
+  IonicLiveUpdates: f9845ee47b56447788005bc413e447b984679a38
+  ZIPFoundation: ae5b4b813d216d3bf0a148773267fff14bd51d37
 
-PODFILE CHECKSUM: dd17c059883acce829bd588d1839469c5653b692
+PODFILE CHECKSUM: a96a779fa93ec6940c09d8e518190bf1ff56ff2a
 
-COCOAPODS: 1.11.0
+COCOAPODS: 1.11.2
