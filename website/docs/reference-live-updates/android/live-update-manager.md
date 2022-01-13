@@ -6,7 +6,7 @@ sidebar_label: Live Update Manager
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [LiveUpdateManager](./live-update-manager) object is used to manage instances of web apps used with Live Updates. It follows a [Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to allow access from anywhere in the application. [LiveUpdateManager](./live-update-manager) can be used in situations where you want to manually sync a web app, check the status of an active sync, and get the file path of the latest web assets on the device.
+The [LiveUpdateManager](./live-update-manager) is used to manage instances of web apps used with Live Updates. It follows a [Singleton Pattern](https://en.wikipedia.org/wiki/Singleton_pattern) to allow access from anywhere in the application. [LiveUpdateManager](./live-update-manager) can be used in situations where you want to manually sync a web app, check the status of an active sync, and get the file path of the latest web assets on the device.
 
 ## Methods
 

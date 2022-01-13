@@ -40,11 +40,10 @@ values={[
 ]}>
 <TabItem value="ios">
 
-To add Live Updates to your Portals iOS project, put the following lines in your `Podfile`:
+Live Updates is already added to your iOS project if you have the depdency for Portals in your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
 {`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
-{`pod 'IonicLiveUpdates', '~> 0.0.1-alpha1'`}
 </CodeBlock>
 
 And then run `pod install`.
