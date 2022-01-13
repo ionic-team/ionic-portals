@@ -15,6 +15,7 @@ module.exports = {
     "what-is-a-portal",
     "portal-communication",
     "choosing-a-communication",
+    "live-updates",
     {
       type: "category",
       label: "Getting Started",
