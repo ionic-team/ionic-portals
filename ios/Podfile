@@ -12,6 +12,7 @@ def capacitor_pods
   use_frameworks!
   pod 'Capacitor'
   pod 'CapacitorCordova'
+  pod 'IonicLiveUpdates'
 end
 
 target 'IonicPortals' do

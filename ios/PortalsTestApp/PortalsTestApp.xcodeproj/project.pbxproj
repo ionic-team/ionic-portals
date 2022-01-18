@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BC5925F02FA8099E098526D4 /* Pods_PortalsTestApp__iOS_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB808F557ADC62A7FAD03BE3 /* Pods_PortalsTestApp__iOS_.framework */; };
-		E96A1BF7273B54F4006E80D7 /* Pods_IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E96A1BF6273B54F4006E80D7 /* Pods_IonicPortals.framework */; };
 		E985F816269E259D0031F820 /* PortalsTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestAppApp.swift */; };
 		E985F817269E259D0031F820 /* PortalsTestAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestAppApp.swift */; };
 		E985F818269E259D0031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F804269E259C0031F820 /* ContentView.swift */; };
@@ -21,7 +20,6 @@
 		09680184EB42C0DC6C11256E /* Pods-PortalsTestApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		0E99D95CF46AC2C97E26C361 /* Pods-PortalsTestApp (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).release.xcconfig"; sourceTree = "<group>"; };
 		DB808F557ADC62A7FAD03BE3 /* Pods_PortalsTestApp__iOS_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortalsTestApp__iOS_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E96A1BF6273B54F4006E80D7 /* Pods_IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985F803269E259C0031F820 /* PortalsTestAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalsTestAppApp.swift; sourceTree = "<group>"; };
 		E985F804269E259C0031F820 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E985F805269E259D0031F820 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,7 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BC5925F02FA8099E098526D4 /* Pods_PortalsTestApp__iOS_.framework in Frameworks */,
-				E96A1BF7273B54F4006E80D7 /* Pods_IonicPortals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,7 +111,6 @@
 		E985F824269E25E60031F820 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E96A1BF6273B54F4006E80D7 /* Pods_IonicPortals.framework */,
 				E985F89A269E2D550031F820 /* IonicPortals.framework */,
 				DB808F557ADC62A7FAD03BE3 /* Pods_PortalsTestApp__iOS_.framework */,
 			);
