@@ -36,7 +36,6 @@ public class PortalWebView: UIView {
             
             addSubview(webView!)
         } else {
-            print("444444444444444")
             let bundle = Bundle(for: UnregisteredView.classForCoder())
             let nib = UINib(nibName: "UnregisteredView", bundle: bundle)
             let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
