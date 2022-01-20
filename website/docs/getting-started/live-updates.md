@@ -43,7 +43,7 @@ values={[
 Live Updates is already added to your iOS project if you have the depdency for Portals in your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
+{`pod 'IonicPortals', '~> 0.4.0'`}
 </CodeBlock>
 
 And then run `pod install`.
@@ -90,7 +90,7 @@ allprojects {
 
 ## Configure
 
-After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provie the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates. 
+After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates. 
 
 <Tabs
 defaultValue="ios"
@@ -109,8 +109,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         PortalManager.register("MY_API_KEY")
 
+        // Setup Live Update
+        let checkoutLiveUpdate = LiveUpdate(appId: "ebd6138b", channel: "production")
+
         // setup portals (example)
-        TODO put example here
+        let portal1 = PortalManager.newPortal("portal1")
+            .setLiveUpdateConfig(liveUpdateConfig: checkoutLiveUpdate)
+            .create()
+
+        PortalManager.addPortal(portal1)
 
         return true
     }
