@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,10 +20,6 @@
 		E985F88F269E2D260031F820 /* IonicPortalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F88E269E2D260031F820 /* IonicPortalsTests.swift */; };
 		E985F891269E2D260031F820 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E985F89F269E2D830031F820 /* Portal.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F89E269E2D830031F820 /* Portal.swift */; };
-		E9AFB5A9273C52A9004F8FB6 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; };
-		E9AFB5AA273C52A9004F8FB6 /* Capacitor.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		E9AFB5AC273C52AB004F8FB6 /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */; };
-		E9AFB5AD273C52AB004F8FB6 /* CapacitorCordova.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,21 +31,6 @@
 			remoteInfo = IonicPortals;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		E9AFB5AB273C52A9004F8FB6 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				E9AFB5AA273C52A9004F8FB6 /* Capacitor.xcframework in Embed Frameworks */,
-				E9AFB5AD273C52AB004F8FB6 /* CapacitorCordova.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2514A9D89B5C400A41EF8FEB /* Pods-IonicPortals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IonicPortals.release.xcconfig"; path = "Target Support Files/Pods-IonicPortals/Pods-IonicPortals.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,8 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9AFB5A9273C52A9004F8FB6 /* Capacitor.xcframework in Frameworks */,
-				E9AFB5AC273C52AB004F8FB6 /* CapacitorCordova.xcframework in Frameworks */,
 				3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,7 +165,6 @@
 				E985F87C269E2D260031F820 /* Sources */,
 				E985F87D269E2D260031F820 /* Frameworks */,
 				E985F87E269E2D260031F820 /* Resources */,
-				E9AFB5AB273C52A9004F8FB6 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
