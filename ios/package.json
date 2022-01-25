@@ -17,5 +17,8 @@
     "verify": "xcodebuild -workspace IonicPortals.xcworkspace -scheme IonicPortals -destination generic/platform=iOS",
     "carthage": "sh carthage.sh"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@ionic/portals": "^0.3.1"
+  }
 }
