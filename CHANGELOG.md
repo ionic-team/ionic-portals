@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/ionic-team/ionic-portals/compare/0.4.0...0.4.1) (2022-01-27)
+
+
+### Bug Fixes
+
+* **android:** restore portal link when fragment recreated ([#114](https://github.com/ionic-team/ionic-portals/issues/114)) ([8ab627e](https://github.com/ionic-team/ionic-portals/commit/8ab627e3ae7af079a095e9deb5a59e13ec7ceffa))
+* Remove missing .xcframework files ([#113](https://github.com/ionic-team/ionic-portals/issues/113)) ([e9aac61](https://github.com/ionic-team/ionic-portals/commit/e9aac611ebe05d5d52f503486ac26eb6a7f25709))
+
+
+
+
+
 ## [0.3.1](https://github.com/ionic-team/ionic-portals/compare/0.3.0...0.3.1) (2021-12-17)
 
 
