@@ -11,7 +11,7 @@ https://ionic.io/docs/portals
 Add the latest Alpha version of Portals and Live Updates to your application
 
 ```groovy
-implementation 'io.ionic:portals:0.4.0-alpha4'
+implementation 'io.ionic:portals:0.4.0-alpha7'
 implementation 'io.ionic:liveupdates:0.0.1-alpha4'
 ```
 
