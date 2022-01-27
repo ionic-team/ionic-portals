@@ -35,9 +35,9 @@ The Ionic Portals libraries for Android and iOS require a **free** license key t
 
 ## FAQ
 
-### Is Portals Free?
+### What is the pricing for Portals use?
 
-Yes.
+Portals is free to use in non-production environments. Businesses with more than USD $1 million in annual revenue are required to purchase a license from Ionic before using Portals in production.
 
 ### Is Portals Open Source?
 
