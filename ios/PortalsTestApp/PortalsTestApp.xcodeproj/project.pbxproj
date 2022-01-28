@@ -133,9 +133,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E985F809269E259D0031F820 /* PortalsTestApp */ = {
+		E985F809269E259D0031F820 /* PortalsTestApp-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp" */;
+			buildConfigurationList = E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp-iOS" */;
 			buildPhases = (
 				9F3B401080EA2DF2EEB9F9B2 /* [CP] Check Pods Manifest.lock */,
 				E985F807269E259D0031F820 /* Frameworks */,
@@ -149,14 +149,14 @@
 			);
 			dependencies = (
 			);
-			name = PortalsTestApp;
+			name = "PortalsTestApp-iOS";
 			productName = "PortalsTestApp (iOS)";
 			productReference = E985F80A269E259D0031F820 /* PortalsTestApp.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E985F811269E259D0031F820 /* PortalsTestApp (macOS) */ = {
+		E985F811269E259D0031F820 /* PortalsTestApp-macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E985F821269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (macOS)" */;
+			buildConfigurationList = E985F821269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp-macOS" */;
 			buildPhases = (
 				E985F80E269E259D0031F820 /* Sources */,
 				E985F80F269E259D0031F820 /* Frameworks */,
@@ -166,7 +166,7 @@
 			);
 			dependencies = (
 			);
-			name = "PortalsTestApp (macOS)";
+			name = "PortalsTestApp-macOS";
 			productName = "PortalsTestApp (macOS)";
 			productReference = E985F812269E259D0031F820 /* PortalsTestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -201,8 +201,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E985F809269E259D0031F820 /* PortalsTestApp */,
-				E985F811269E259D0031F820 /* PortalsTestApp (macOS) */,
+				E985F809269E259D0031F820 /* PortalsTestApp-iOS */,
+				E985F811269E259D0031F820 /* PortalsTestApp-macOS */,
 			);
 		};
 /* End PBXProject section */
@@ -426,7 +426,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27RN89Z549;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -469,7 +469,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 27RN89Z549;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp" */ = {
+		E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E985F81F269E259D0031F820 /* Debug */,
@@ -570,7 +570,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E985F821269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (macOS)" */ = {
+		E985F821269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp-macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E985F822269E259D0031F820 /* Debug */,

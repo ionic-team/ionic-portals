@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E985F809269E259D0031F820"
                BuildableName = "PortalsTestApp.app"
-               BlueprintName = "PortalsTestApp"
+               BlueprintName = "PortalsTestApp-iOS"
                ReferencedContainer = "container:PortalsTestApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +46,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E985F809269E259D0031F820"
             BuildableName = "PortalsTestApp.app"
-            BlueprintName = "PortalsTestApp"
+            BlueprintName = "PortalsTestApp-iOS"
             ReferencedContainer = "container:PortalsTestApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E985F809269E259D0031F820"
             BuildableName = "PortalsTestApp.app"
-            BlueprintName = "PortalsTestApp"
+            BlueprintName = "PortalsTestApp-iOS"
             ReferencedContainer = "container:PortalsTestApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
