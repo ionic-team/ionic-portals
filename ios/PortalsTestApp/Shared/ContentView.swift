@@ -13,15 +13,22 @@ struct ContentView: View {
     
     init() {
         portal = PortalManager
-                    .newPortal("portalWeb")
+                    .newPortal("portals/portalWeb")
                     .create()
+        
+        var initialContext: [String: String] = [:]
+        initialContext["startingRoute"] = "/help"
+        portal.initialContext = initialContext
     }
     
     var body: some View {
         VStack {
-            Text("here be portal!")
+            Rectangle().frame(height: 1)
             
-            //PortalWebView()
+            Text("SwiftUI - Here's a portal:")
+                
+            Rectangle().frame(height: 1)
+            
             PortalUIWebView(self.portal)
         }
     }

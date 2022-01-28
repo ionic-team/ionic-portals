@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D4B988B227A055710036033A /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4B988B127A055710036033A /* IonicPortals.framework */; };
-		D4B988B327A055710036033A /* IonicPortals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D4B988B127A055710036033A /* IonicPortals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		D42DFCB027A4347800803A1A /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42DFCAF27A4347800803A1A /* IonicPortals.framework */; };
+		D42DFCB127A4347800803A1A /* IonicPortals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D42DFCAF27A4347800803A1A /* IonicPortals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E985F816269E259D0031F820 /* PortalsTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestApp.swift */; };
 		E985F817269E259D0031F820 /* PortalsTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestApp.swift */; };
 		E985F818269E259D0031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F804269E259C0031F820 /* ContentView.swift */; };
@@ -18,13 +18,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		D4B988B427A055720036033A /* Embed Frameworks */ = {
+		D42DFCAE27A4346E00803A1A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				D4B988B327A055710036033A /* IonicPortals.framework in Embed Frameworks */,
+				D42DFCB127A4347800803A1A /* IonicPortals.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -34,7 +34,7 @@
 /* Begin PBXFileReference section */
 		09680184EB42C0DC6C11256E /* Pods-PortalsTestApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		0E99D95CF46AC2C97E26C361 /* Pods-PortalsTestApp (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).release.xcconfig"; sourceTree = "<group>"; };
-		D4B988B127A055710036033A /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D42DFCAF27A4347800803A1A /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985F803269E259C0031F820 /* PortalsTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalsTestApp.swift; sourceTree = "<group>"; };
 		E985F804269E259C0031F820 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E985F805269E259D0031F820 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4B988B227A055710036033A /* IonicPortals.framework in Frameworks */,
+				D42DFCB027A4347800803A1A /* IonicPortals.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,17 +74,9 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
-		D4B988AC27A0482A0036033A /* portalWeb */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = portalWeb;
-			sourceTree = "<group>";
-		};
 		E985F7FD269E259C0031F820 = {
 			isa = PBXGroup;
 			children = (
-				D4B988AC27A0482A0036033A /* portalWeb */,
 				E985F802269E259C0031F820 /* Shared */,
 				E985F80C269E259D0031F820 /* iOS */,
 				E985F813269E259D0031F820 /* macOS */,
@@ -133,7 +125,7 @@
 		E985F824269E25E60031F820 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D4B988B127A055710036033A /* IonicPortals.framework */,
+				D42DFCAF27A4347800803A1A /* IonicPortals.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,22 +133,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E985F809269E259D0031F820 /* PortalsTestApp (iOS) */ = {
+		E985F809269E259D0031F820 /* PortalsTestApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (iOS)" */;
+			buildConfigurationList = E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp" */;
 			buildPhases = (
 				9F3B401080EA2DF2EEB9F9B2 /* [CP] Check Pods Manifest.lock */,
 				E985F807269E259D0031F820 /* Frameworks */,
 				E985F806269E259D0031F820 /* Sources */,
 				E985F808269E259D0031F820 /* Resources */,
 				91CD9E7CAA49D4EA8A6DAF79 /* [CP] Embed Pods Frameworks */,
-				D4B988B427A055720036033A /* Embed Frameworks */,
+				D42DFCAE27A4346E00803A1A /* Embed Frameworks */,
+				D42DFCB227A4388B00803A1A /* Copy Web App */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "PortalsTestApp (iOS)";
+			name = PortalsTestApp;
 			productName = "PortalsTestApp (iOS)";
 			productReference = E985F80A269E259D0031F820 /* PortalsTestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -208,7 +201,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E985F809269E259D0031F820 /* PortalsTestApp (iOS) */,
+				E985F809269E259D0031F820 /* PortalsTestApp */,
 				E985F811269E259D0031F820 /* PortalsTestApp (macOS) */,
 			);
 		};
@@ -272,6 +265,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		D42DFCB227A4388B00803A1A /* Copy Web App */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Web App";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_NAME=\"portalWeb\"\n\nEMBEDDED_DIR=\"${BUILT_PRODUCTS_DIR}/${TARGET_NAME}.app/portals\"\nEMBEDDED_APP=\"${SRCROOT}/portalWeb/build\"\n\nZIP_FILE=\"${APP_NAME}.zip\"\n\nmkdir \"${EMBEDDED_DIR}\"\n\nif [ -d \"${EMBEDDED_DIR}/${APP_NAME}\" ]\nthen\n    cd \"${EMBEDDED_DIR}\"\n    rm -r \"${APP_NAME}\"\nfi\n\nmkdir \"${EMBEDDED_DIR}/${APP_NAME}\"\n\nif [ -d \"${EMBEDDED_APP}\" ] \nthen\n    cd \"${EMBEDDED_APP}\"\n    zip -vr \"${ZIP_FILE}\" * -x \"*.DS_Store\"\n    unzip \"${ZIP_FILE}\" -d \"${EMBEDDED_DIR}/${APP_NAME}\"\n    rm \"${ZIP_FILE}\"\nelse\n    echo \"App ${APP_NAME} has not been built!\"\n    exit 999\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -417,6 +428,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 27RN89Z549;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/Capacitor\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/CapacitorCordova\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/IonicLiveUpdates\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/ZIPFoundation\"",
+				);
 				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -543,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp (iOS)" */ = {
+		E985F81E269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E985F81F269E259D0031F820 /* Debug */,

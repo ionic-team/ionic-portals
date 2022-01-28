@@ -7,21 +7,22 @@
 
 import SwiftUI
 
-struct PortalUIWebView: UIViewControllerRepresentable {
-    typealias UIViewControllerType = UIViewController
+public struct PortalUIWebView: UIViewControllerRepresentable {
+    public typealias UIViewControllerType = UIViewController
 
     var portal: Portal?
 
-    init(_ portal: Portal?) {
+    public init(_ portal: Portal?) {
         self.portal = portal
     }
 
-    func makeUIViewController(context: Context) -> UIViewController {
+    public func makeUIViewController(context: Context) -> UIViewController {
         let vc = UIViewController()
 
         let frame = vc.view.frame
 
-        let uiView = PortalWebView(frame: frame, portal: self.portal!)
+        let uiView = PortalWebView(frame: frame,
+                                   portal: self.portal!)
         uiView.translatesAutoresizingMaskIntoConstraints = false
 
         vc.view.addSubview(uiView)
@@ -39,7 +40,7 @@ struct PortalUIWebView: UIViewControllerRepresentable {
         return vc
     }
 
-    func updateUIViewController(_ uiViewController: UIViewController,
+    public func updateUIViewController(_ uiViewController: UIViewController,
                                 context: Context) {
     }
 }
