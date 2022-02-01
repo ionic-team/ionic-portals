@@ -53,7 +53,7 @@ public class PortalBuilder: NSObject {
      * - Parameter liveUpdateConfig: A live update object that contains information on how to handle the Appflow Live Update functionality
      * - Parameter updateOnAppLoad: Starts an immediate sync to download the latest update on the Portal
      */
-    public func setLiveUpdateConfig(liveUpdateConfig: LiveUpdate, updateOnAppLoad: Bool = true) -> PortalBuilder {
+    @objc public func setLiveUpdateConfig(liveUpdateConfig: LiveUpdate, updateOnAppLoad: Bool = true) -> PortalBuilder {
         self.liveUpdateConfig = liveUpdateConfig
         LiveUpdateManager.initialize()
         LiveUpdateManager.cleanVersions(liveUpdateConfig.getAppId())

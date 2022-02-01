@@ -10,7 +10,7 @@ public class PortalWebView: UIView {
     var webView: InternalCapWebView?
     var portal: Portal?
     var liveUpdatePath: URL? = nil
-    public var bridge: CAPBridgeProtocol?
+    @objc public var bridge: CAPBridgeProtocol?
     
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -44,7 +44,7 @@ public class PortalWebView: UIView {
         }
     }
     
-    func reload() {
+    @objc public func reload() {
         guard let portal = portal else { return }
         guard let bridge = bridge else { return }
         guard let liveUpdate = portal.liveUpdateConfig else { return }
