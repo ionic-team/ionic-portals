@@ -56,10 +56,12 @@ public class PortalBuilder: NSObject {
     public func setLiveUpdateConfig(liveUpdateConfig: LiveUpdate, updateOnAppLoad: Bool = true) -> PortalBuilder {
         self.liveUpdateConfig = liveUpdateConfig
         LiveUpdateManager.initialize()
-        LiveUpdateManager.cleanVersions(liveUpdateConfig.getAppId())
+        LiveUpdateManager.cleanVersions(liveUpdateConfig.appId)
         LiveUpdateManager.addLiveUpdateInstance(liveUpdateConfig)
         if (updateOnAppLoad) {
-            LiveUpdateManager.sync(appId: liveUpdateConfig.getAppId())
+            LiveUpdateManager.sync(appId: liveUpdateConfig.appId)
+        } else {
+            LiveUpdateManager.setupAppInstancesWithoutSync()
         }
         return self
     }
