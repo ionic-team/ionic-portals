@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1320"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E985F809269E259D0031F820"
                BuildableName = "PortalsTestApp.app"
-               BlueprintName = "PortalsTestApp (iOS)"
+               BlueprintName = "PortalsTestApp-iOS"
                ReferencedContainer = "container:PortalsTestApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,7 +46,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E985F809269E259D0031F820"
             BuildableName = "PortalsTestApp.app"
-            BlueprintName = "PortalsTestApp (iOS)"
+            BlueprintName = "PortalsTestApp-iOS"
             ReferencedContainer = "container:PortalsTestApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -63,7 +63,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E985F809269E259D0031F820"
             BuildableName = "PortalsTestApp.app"
-            BlueprintName = "PortalsTestApp (iOS)"
+            BlueprintName = "PortalsTestApp-iOS"
             ReferencedContainer = "container:PortalsTestApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
