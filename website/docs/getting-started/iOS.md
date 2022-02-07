@@ -44,7 +44,7 @@ To do so, you first obtain your desired Portal from the [PortalManager.getPortal
 
 To display the Portal, you use the [PortalWebView](../reference/ios/portal-webview) class. You pass in a reference to the current view's frame, and the Portal class obtained by `id` from the PortalManager class.
 
-For SwiftUI, use the [PortalWebUIView](../refernce/ios/portal-webuiview) struct. Pass in a reference to the portal, and use SwiftUI Layout to do the rest.
+For SwiftUI, use the [PortalWebUIView](../reference/ios/portal-webuiview) struct. Pass in a reference to the portal, and use SwiftUI Layout to do the rest.
 
 
 <Tabs 
