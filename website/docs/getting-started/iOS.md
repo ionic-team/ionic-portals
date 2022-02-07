@@ -40,7 +40,7 @@ Now, the [Portal](../reference/ios/portal) is successfully created and managed b
 
 After setting up your portal, you can begin to use it on your pages.
 
-To do so, you first obtain your desired Portal from the [PortalManager#getPortal](../reference/ios/portal-manager#getPortal) method. Then, you create a [PortalWebView](../reference/ios/portal-webview) by passing in the current view's frame, and then the portal. Last, you replace the current view controller's view with the portal web view.
+To do so, you first obtain your desired Portal from the [PortalManager.getPortal](../reference/ios/portal-manager#getPortal) method. Then, you create a [PortalWebView](../reference/ios/portal-webview) by passing in the current view's frame, and then the portal. Last, you replace the current view controller's view with the portal web view.
 
 To display the Portal, you use the [PortalWebView](../reference/ios/portal-webview) class. You pass in a reference to the current view's frame, and the Portal class obtained by `id` from the PortalManager class.
 
