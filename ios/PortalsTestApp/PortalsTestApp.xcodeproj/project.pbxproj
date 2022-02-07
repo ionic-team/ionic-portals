@@ -3,10 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D830140E4EAD87F3854D645 /* libPods-PortalsTestApp-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F33803B652CE5B876D77FAE /* libPods-PortalsTestApp-iOS.a */; };
+		973750CD5C86188B05045DBF /* libPods-PortalsTestApp-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD15D78E03DC696F1BAAA7E9 /* libPods-PortalsTestApp-macOS.a */; };
 		D42DFCB027A4347800803A1A /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42DFCAF27A4347800803A1A /* IonicPortals.framework */; };
 		D42DFCB127A4347800803A1A /* IonicPortals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D42DFCAF27A4347800803A1A /* IonicPortals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E985F816269E259D0031F820 /* PortalsTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestApp.swift */; };
@@ -34,7 +36,13 @@
 /* Begin PBXFileReference section */
 		09680184EB42C0DC6C11256E /* Pods-PortalsTestApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		0E99D95CF46AC2C97E26C361 /* Pods-PortalsTestApp (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		242A05A9C72F4F174E66F6B4 /* Pods-PortalsTestApp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-iOS.release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-iOS/Pods-PortalsTestApp-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		4F33803B652CE5B876D77FAE /* libPods-PortalsTestApp-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PortalsTestApp-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		839961D48A24D9C7853127D8 /* Pods-PortalsTestApp-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-macOS.release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-macOS/Pods-PortalsTestApp-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		D42DFCAF27A4347800803A1A /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD15D78E03DC696F1BAAA7E9 /* libPods-PortalsTestApp-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PortalsTestApp-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5AA69DE3B6E62FEDEB69C6A /* Pods-PortalsTestApp-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-macOS.debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-macOS/Pods-PortalsTestApp-macOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E6CE48FE16C0ABC47F8B0E25 /* Pods-PortalsTestApp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-iOS.debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-iOS/Pods-PortalsTestApp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E985F803269E259C0031F820 /* PortalsTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalsTestApp.swift; sourceTree = "<group>"; };
 		E985F804269E259C0031F820 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E985F805269E259D0031F820 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42DFCB027A4347800803A1A /* IonicPortals.framework in Frameworks */,
+				2D830140E4EAD87F3854D645 /* libPods-PortalsTestApp-iOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				973750CD5C86188B05045DBF /* libPods-PortalsTestApp-macOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +79,10 @@
 			children = (
 				09680184EB42C0DC6C11256E /* Pods-PortalsTestApp (iOS).debug.xcconfig */,
 				0E99D95CF46AC2C97E26C361 /* Pods-PortalsTestApp (iOS).release.xcconfig */,
+				E6CE48FE16C0ABC47F8B0E25 /* Pods-PortalsTestApp-iOS.debug.xcconfig */,
+				242A05A9C72F4F174E66F6B4 /* Pods-PortalsTestApp-iOS.release.xcconfig */,
+				E5AA69DE3B6E62FEDEB69C6A /* Pods-PortalsTestApp-macOS.debug.xcconfig */,
+				839961D48A24D9C7853127D8 /* Pods-PortalsTestApp-macOS.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -126,6 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				D42DFCAF27A4347800803A1A /* IonicPortals.framework */,
+				4F33803B652CE5B876D77FAE /* libPods-PortalsTestApp-iOS.a */,
+				DD15D78E03DC696F1BAAA7E9 /* libPods-PortalsTestApp-macOS.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -141,7 +157,6 @@
 				E985F807269E259D0031F820 /* Frameworks */,
 				E985F806269E259D0031F820 /* Sources */,
 				E985F808269E259D0031F820 /* Resources */,
-				91CD9E7CAA49D4EA8A6DAF79 /* [CP] Embed Pods Frameworks */,
 				D42DFCAE27A4346E00803A1A /* Embed Frameworks */,
 				D42DFCB227A4388B00803A1A /* Copy Web App */,
 			);
@@ -158,6 +173,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E985F821269E259D0031F820 /* Build configuration list for PBXNativeTarget "PortalsTestApp-macOS" */;
 			buildPhases = (
+				BCACE021CA60136C0EE26EEE /* [CP] Check Pods Manifest.lock */,
 				E985F80E269E259D0031F820 /* Sources */,
 				E985F80F269E259D0031F820 /* Frameworks */,
 				E985F810269E259D0031F820 /* Resources */,
@@ -189,7 +205,7 @@
 				};
 			};
 			buildConfigurationList = E985F801269E259C0031F820 /* Build configuration list for PBXProject "PortalsTestApp" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -227,23 +243,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		91CD9E7CAA49D4EA8A6DAF79 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS)-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS)-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS)-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9F3B401080EA2DF2EEB9F9B2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -259,7 +258,29 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-PortalsTestApp (iOS)-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-PortalsTestApp-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCACE021CA60136C0EE26EEE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PortalsTestApp-macOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -421,7 +442,7 @@
 		};
 		E985F81F269E259D0031F820 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 09680184EB42C0DC6C11256E /* Pods-PortalsTestApp (iOS).debug.xcconfig */;
+			baseConfigurationReference = E6CE48FE16C0ABC47F8B0E25 /* Pods-PortalsTestApp-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -464,7 +485,7 @@
 		};
 		E985F820269E259D0031F820 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0E99D95CF46AC2C97E26C361 /* Pods-PortalsTestApp (iOS).release.xcconfig */;
+			baseConfigurationReference = 242A05A9C72F4F174E66F6B4 /* Pods-PortalsTestApp-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -501,6 +522,7 @@
 		};
 		E985F822269E259D0031F820 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5AA69DE3B6E62FEDEB69C6A /* Pods-PortalsTestApp-macOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -526,6 +548,7 @@
 		};
 		E985F823269E259D0031F820 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 839961D48A24D9C7853127D8 /* Pods-PortalsTestApp-macOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
