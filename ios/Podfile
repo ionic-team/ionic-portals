@@ -15,3 +15,12 @@ target 'IonicPortals' do
   project './IonicPortals/IonicPortals.xcodeproj'
   capacitor_pods
 end
+
+target 'PortalsTestApp-iOS' do
+  project './PortalsTestApp/PortalsTestApp.xcodeproj'
+end
+
+target 'PortalsTestApp-macOS' do
+  project './PortalsTestApp/PortalsTestApp.xcodeproj'
+end
+
