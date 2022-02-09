@@ -1,0 +1,24 @@
+name: Attach .xcframework file to release
+
+on: workflow_dispatch
+jobs:
+  publish-xcframework:
+    runs-on: macos-11
+    timeout-minutes: 30
+    steps:
+      - run: sudo xcode-select --switch /Applications/Xcode_12.5.app
+      - run: brew install ghr
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: native-publish
+      - name: Build IonicPortals.xcframework.zip
+        run: |
+          carthage update --use-xcframeworks
+          carthage build --no-skip-current --use-xcframeworks
+          zip -r IonicPortals.xcframework.zip Carthage
+      - name: Attach ZIP to latest release
+        run: ghr -t ${{ secrets.GITHUB_TOKEN }} -replace $(git describe --tags --abbrev=0) IonicPortals.xcframework.zip
