@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E985F87F269E2D260031F820"
-               BuildableName = "IonicPortals.framework"
-               BlueprintName = "IonicPortals"
-               ReferencedContainer = "container:IonicPortals.xcodeproj">
+               BlueprintIdentifier = "E985F809269E259D0031F820"
+               BuildableName = "PortalsTestApp.app"
+               BlueprintName = "PortalsTestApp-iOS"
+               ReferencedContainer = "container:PortalsTestApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,16 +28,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E985F888269E2D260031F820"
-               BuildableName = "IonicPortalsTests.xctest"
-               BlueprintName = "IonicPortalsTests"
-               ReferencedContainer = "container:IonicPortals.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -50,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "E985F809269E259D0031F820"
+            BuildableName = "PortalsTestApp.app"
+            BlueprintName = "PortalsTestApp-iOS"
+            ReferencedContainer = "container:PortalsTestApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -57,15 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E985F87F269E2D260031F820"
-            BuildableName = "IonicPortals.framework"
-            BlueprintName = "IonicPortals"
-            ReferencedContainer = "container:IonicPortals.xcodeproj">
+            BlueprintIdentifier = "E985F809269E259D0031F820"
+            BuildableName = "PortalsTestApp.app"
+            BlueprintName = "PortalsTestApp-iOS"
+            ReferencedContainer = "container:PortalsTestApp.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
