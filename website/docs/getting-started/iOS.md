@@ -72,7 +72,7 @@ class ViewController: UIViewController {
 </TabItem>
 <TabItem value="swiftui">
 
-```swift
+```swift title=ContentView.swift
 struct ContentView: View {
     var portal = PortalManager.getPortal("MY_FIRST_PORTAL")
     

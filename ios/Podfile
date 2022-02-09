@@ -23,4 +23,3 @@ end
 target 'PortalsTestApp-macOS' do
   project './PortalsTestApp/PortalsTestApp.xcodeproj'
 end
-

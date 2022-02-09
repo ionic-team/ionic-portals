@@ -29,14 +29,18 @@ defaultValue="ios"
 values={[
 { label: 'iOS', value: 'ios', },
 { label: 'Android', value: 'android', },
-{ label: 'Web', value: 'web', },
+{ label: 'Web', value: 'web', }
 ]}>
 <TabItem value="ios">
 
 To add Portals to your iOS project, put the following line to your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
+```
+    use_frameworks
+    pod 'Capacitor'
+    pod 'IonicPortals', '~> ${getPortalsVersion()
+```
 </CodeBlock>
 
 And then run `pod install`.
