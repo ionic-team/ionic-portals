@@ -27,7 +27,7 @@ public class PortalWebView: UIView {
             guard let portal = portal else { return }
 
             if let liveUpdateConfig = portal.liveUpdateConfig {
-                self.liveUpdatePath = LiveUpdateManager.getLatestAppDirectory(liveUpdateConfig.getAppId())
+                self.liveUpdatePath = LiveUpdateManager.getLatestAppDirectory(liveUpdateConfig.appId)
             }
             
             webView = InternalCapWebView(frame: self.frame, portal: portal, liveUpdatePath: self.liveUpdatePath)
@@ -53,12 +53,8 @@ public class PortalWebView: UIView {
         guard let bridge = bridge else { return }
         
         guard let liveUpdate = portal.liveUpdateConfig else { return }
-        
-        guard let capViewController = bridge.viewController as? CAPBridgeViewController else
-        { return }
-        
-        guard let latestAppPath = LiveUpdateManager.getLatestAppDirectory(liveUpdate.getAppId()) else
-        { return }
+        guard let capViewController = bridge.viewController as? CAPBridgeViewController else { return }
+        guard let latestAppPath = LiveUpdateManager.getLatestAppDirectory(liveUpdate.appId) else { return }
 
         if (liveUpdatePath == nil || liveUpdatePath?.path != latestAppPath.path) {
             liveUpdatePath = latestAppPath
