@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D830140E4EAD87F3854D645 /* libPods-PortalsTestApp-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F33803B652CE5B876D77FAE /* libPods-PortalsTestApp-iOS.a */; };
-		973750CD5C86188B05045DBF /* libPods-PortalsTestApp-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DD15D78E03DC696F1BAAA7E9 /* libPods-PortalsTestApp-macOS.a */; };
+		4CBEC2411B2D677D201CBDD6 /* Pods_PortalsTestApp_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EFC323D7A65471535DEF4C4 /* Pods_PortalsTestApp_iOS.framework */; };
 		D42DFCB027A4347800803A1A /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42DFCAF27A4347800803A1A /* IonicPortals.framework */; };
 		D42DFCB127A4347800803A1A /* IonicPortals.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D42DFCAF27A4347800803A1A /* IonicPortals.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E985F816269E259D0031F820 /* PortalsTestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F803269E259C0031F820 /* PortalsTestApp.swift */; };
@@ -17,6 +16,7 @@
 		E985F819269E259D0031F820 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F804269E259C0031F820 /* ContentView.swift */; };
 		E985F81A269E259D0031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F805269E259D0031F820 /* Assets.xcassets */; };
 		E985F81B269E259D0031F820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E985F805269E259D0031F820 /* Assets.xcassets */; };
+		F44EC04AC7A2EB938BB93909 /* Pods_PortalsTestApp_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29C616A5EEDE7744C17B81A /* Pods_PortalsTestApp_macOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,11 +36,11 @@
 /* Begin PBXFileReference section */
 		09680184EB42C0DC6C11256E /* Pods-PortalsTestApp (iOS).debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).debug.xcconfig"; sourceTree = "<group>"; };
 		0E99D95CF46AC2C97E26C361 /* Pods-PortalsTestApp (iOS).release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp (iOS).release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp (iOS)/Pods-PortalsTestApp (iOS).release.xcconfig"; sourceTree = "<group>"; };
+		1EFC323D7A65471535DEF4C4 /* Pods_PortalsTestApp_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortalsTestApp_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		242A05A9C72F4F174E66F6B4 /* Pods-PortalsTestApp-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-iOS.release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-iOS/Pods-PortalsTestApp-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		4F33803B652CE5B876D77FAE /* libPods-PortalsTestApp-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PortalsTestApp-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		839961D48A24D9C7853127D8 /* Pods-PortalsTestApp-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-macOS.release.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-macOS/Pods-PortalsTestApp-macOS.release.xcconfig"; sourceTree = "<group>"; };
+		C29C616A5EEDE7744C17B81A /* Pods_PortalsTestApp_macOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PortalsTestApp_macOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D42DFCAF27A4347800803A1A /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD15D78E03DC696F1BAAA7E9 /* libPods-PortalsTestApp-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PortalsTestApp-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AA69DE3B6E62FEDEB69C6A /* Pods-PortalsTestApp-macOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-macOS.debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-macOS/Pods-PortalsTestApp-macOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E6CE48FE16C0ABC47F8B0E25 /* Pods-PortalsTestApp-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PortalsTestApp-iOS.debug.xcconfig"; path = "Target Support Files/Pods-PortalsTestApp-iOS/Pods-PortalsTestApp-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		E985F803269E259C0031F820 /* PortalsTestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalsTestApp.swift; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D42DFCB027A4347800803A1A /* IonicPortals.framework in Frameworks */,
-				2D830140E4EAD87F3854D645 /* libPods-PortalsTestApp-iOS.a in Frameworks */,
+				4CBEC2411B2D677D201CBDD6 /* Pods_PortalsTestApp_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				973750CD5C86188B05045DBF /* libPods-PortalsTestApp-macOS.a in Frameworks */,
+				F44EC04AC7A2EB938BB93909 /* Pods_PortalsTestApp_macOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,8 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				D42DFCAF27A4347800803A1A /* IonicPortals.framework */,
-				4F33803B652CE5B876D77FAE /* libPods-PortalsTestApp-iOS.a */,
-				DD15D78E03DC696F1BAAA7E9 /* libPods-PortalsTestApp-macOS.a */,
+				1EFC323D7A65471535DEF4C4 /* Pods_PortalsTestApp_iOS.framework */,
+				C29C616A5EEDE7744C17B81A /* Pods_PortalsTestApp_macOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,6 +159,7 @@
 				E985F808269E259D0031F820 /* Resources */,
 				D42DFCAE27A4346E00803A1A /* Embed Frameworks */,
 				D42DFCB227A4388B00803A1A /* Copy Web App */,
+				B01E6D3E51F68FEA8DF5657A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -177,6 +178,7 @@
 				E985F80E269E259D0031F820 /* Sources */,
 				E985F80F269E259D0031F820 /* Frameworks */,
 				E985F810269E259D0031F820 /* Resources */,
+				C06D1B4F2A520E90247F6753 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -265,6 +267,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B01E6D3E51F68FEA8DF5657A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp-iOS/Pods-PortalsTestApp-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp-iOS/Pods-PortalsTestApp-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp-iOS/Pods-PortalsTestApp-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BCACE021CA60136C0EE26EEE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +304,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C06D1B4F2A520E90247F6753 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp-macOS/Pods-PortalsTestApp-macOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp-macOS/Pods-PortalsTestApp-macOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PortalsTestApp-macOS/Pods-PortalsTestApp-macOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D42DFCB227A4388B00803A1A /* Copy Web App */ = {

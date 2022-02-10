@@ -18,9 +18,11 @@ end
 
 target 'PortalsTestApp-iOS' do
   project './PortalsTestApp/PortalsTestApp.xcodeproj'
+  capacitor_pods
 end
 
 target 'PortalsTestApp-macOS' do
   project './PortalsTestApp/PortalsTestApp.xcodeproj'
+  capacitor_pods
 end
 
