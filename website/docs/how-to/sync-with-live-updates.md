@@ -23,7 +23,19 @@ A sync can be triggered by calling the `sync` function in the Live Update Manage
 <TabItem value="swift">
 
 ```swift
-//TODO
+// Sync all apps
+LiveUpdateManager.sync()
+
+// Sync a specific app
+LiveUpdateManager.sync(appId: "appId")
+
+// Sync all apps not in parallel and with a callback
+private class MyLiveUpdateCallbacks: ISyncCallback {
+    func onAppComplete(_ liveUpdate: LiveUpdate) { print("Single Sync completed!") }
+    func onSyncComplete() { print("Sync completed!") }
+}
+
+LiveUpdateManager.sync(isParallel = false, callbacks = MyLiveUpdateCallbacks())
 ```
 
 </TabItem>
@@ -113,7 +125,18 @@ The following example performs a sync when an app resumes as long as six hours h
 <TabItem value="swift">
 
 ```swift
-//TODO
+// Placed in an iOS View Controller
+override fun viewDidLoad() {
+  // If it has been more than 6 hours since last update check, sync now.
+  let lastUpdateTime = LiveUpdateManager.getLastSync(this)
+  let sixHoursAgo = Calendar.current.date(byAdding: .hour, value: -6, to: Date())
+
+  if(lastUpdateTime < sixHoursAgo) {
+    LiveUpdateManager.sync(this)
+  }
+
+  super.viewDidLoad()
+}
 ```
 
 </TabItem>
