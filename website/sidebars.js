@@ -104,6 +104,25 @@ module.exports = {
           collapsed: true,
           items: [
             "reference-live-updates/iOS/live-update-manager",
+            "reference-live-updates/iOS/live-update",
+            "reference-live-updates/iOS/i-sync-callback",
+            "reference-live-updates/iOS/i-check-callback",
+            "reference-live-updates/iOS/i-download-callback",
+            "reference-live-updates/iOS/i-extract-callback",
+            {
+              type: "category",
+              label: "iOS Data Classes",
+              collapsed: true,
+              items: [
+                "reference-live-updates/iOS/data-classes/channel",
+                "reference-live-updates/iOS/data-classes/details",
+                "reference-live-updates/iOS/data-classes/error",
+                "reference-live-updates/iOS/data-classes/ion-data",
+                "reference-live-updates/iOS/data-classes/ion-webapp",
+                "reference-live-updates/iOS/data-classes/meta",
+                "reference-live-updates/iOS/data-classes/snapshot",
+              ],
+            },
           ],
         },
         {

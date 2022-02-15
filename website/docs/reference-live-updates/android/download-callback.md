@@ -51,4 +51,4 @@ LiveUpdateManager.downloadUpdate(getContext(), "appId", "snapshotId", downloadRe
 
 Name | Type | Description
 :------ | :------ | :------
-`response` | [DownloadResponse](./download-response) | Download response model containing result data if successful or error information if failed.
+`response` | [DownloadResponse](./i-download-callback) | Download response model containing result data if successful or error information if failed.

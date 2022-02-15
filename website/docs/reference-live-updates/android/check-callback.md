@@ -51,4 +51,4 @@ LiveUpdateManager.checkForUpdate(context, "appId", checkResponse -> {
 
 Name | Type | Description
 :------ | :------ | :------
-`response` | [CheckResponse](./check-response) | Check response model containing result data if successful or error information if failed.
+`response` | [CheckResponse](./i-check-callback) | Check response model containing result data if successful or error information if failed.
