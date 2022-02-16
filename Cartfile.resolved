@@ -1,2 +1,3 @@
 github "ionic-team/capacitor" "3.4.1"
 github "ionic-team/ionic-live-updates-releases" "0.0.5"
+github "weichsel/ZIPFoundation" "0.9.14"
