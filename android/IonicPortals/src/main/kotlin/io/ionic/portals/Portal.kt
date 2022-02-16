@@ -2,7 +2,6 @@ package io.ionic.portals
 
 import android.content.Context
 import com.getcapacitor.Plugin
-import io.ionic.liveupdates.CleanupCallback
 import io.ionic.liveupdates.LiveUpdate
 import io.ionic.liveupdates.LiveUpdateManager
 import java.util.*
