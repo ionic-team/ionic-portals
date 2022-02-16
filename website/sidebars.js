@@ -15,6 +15,7 @@ module.exports = {
     "what-is-a-portal",
     "portal-communication",
     "choosing-a-communication",
+    "live-updates",
     {
       type: "category",
       label: "Getting Started",
@@ -23,6 +24,7 @@ module.exports = {
         "getting-started/guide",
         "getting-started/iOS",
         "getting-started/android",
+        "getting-started/live-updates",
       ],
     },
     {
@@ -37,6 +39,8 @@ module.exports = {
         "how-to/multiple-portals-single-web-app",
         "how-to/multiple-portals-multiple-web-apps",
         "how-to/get-a-product-key",
+        "how-to/sync-with-live-updates",
+        "how-to/reloading-with-live-updates",
       ],
     },
     {
@@ -91,9 +95,62 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Reference - Live Updates",
+      collapsed: true,
+      items: [
+        {
+          type: "category",
+          label: "iOS API",
+          collapsed: true,
+          items: [
+            "reference-live-updates/iOS/live-update-manager",
+            "reference-live-updates/iOS/live-update",
+            "reference-live-updates/iOS/i-sync-callback",
+            "reference-live-updates/iOS/i-check-callback",
+            "reference-live-updates/iOS/i-download-callback",
+            "reference-live-updates/iOS/i-extract-callback",
+            {
+              type: "category",
+              label: "iOS Data Classes",
+              collapsed: true,
+              items: [
+                "reference-live-updates/iOS/data-classes/channel",
+                "reference-live-updates/iOS/data-classes/details",
+                "reference-live-updates/iOS/data-classes/error",
+                "reference-live-updates/iOS/data-classes/ion-data",
+                "reference-live-updates/iOS/data-classes/ion-webapp",
+                "reference-live-updates/iOS/data-classes/meta",
+                "reference-live-updates/iOS/data-classes/snapshot",
+              ],
+            },
+          ],
+        },
+        {
+          type: "category",
+          label: "Android API",
+          collapsed: true,
+          items: [
+            "reference-live-updates/android/live-update-manager",
+            "reference-live-updates/android/live-update",
+            "reference-live-updates/android/sync-callback",
+            "reference-live-updates/android/check-callback",
+            "reference-live-updates/android/download-callback",
+            "reference-live-updates/android/extract-callback",
+            "reference-live-updates/android/check-response",
+            "reference-live-updates/android/download-response",
+            "reference-live-updates/android/error-response",
+          ],
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Examples",
       collapsed: true,
-      items: ["examples/ecommerce-app"],
+      items: [
+        "examples/ecommerce-app",
+        "examples/ecommerce-app-live-updates",
+      ],
     },
     "plugin-overview",
   ],
