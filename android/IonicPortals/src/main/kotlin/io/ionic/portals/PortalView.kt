@@ -12,6 +12,7 @@ import android.view.WindowInsets
 import android.widget.FrameLayout
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import java.util.ArrayList
 
@@ -52,16 +53,24 @@ class PortalView : FrameLayout {
      * @param context
      * @param attrs
      */
-    private fun readAttributes(context: Context, attrs: AttributeSet?) {
+    private fun readAttributes(context: Context, attrs: AttributeSet) {
         val a = context.obtainStyledAttributes(attrs, R.styleable.PortalView, 0, 0)
         portalId = a.getString(R.styleable.PortalView_portalId)
-        viewId = attrs!!.getAttributeValue("http://schemas.android.com/apk/res/android", "id")
+        viewId = attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "id")
         tag = attrs.getAttributeValue("http://schemas.android.com/apk/res/android", "tag")
         a.recycle()
     }
 
     @Throws(Exception::class)
-    private fun loadPortal(context: Context, attrs: AttributeSet) {
+    fun loadPortal(context: Context, attrs: AttributeSet?) {
+        if (context is Activity) {
+            val fm = (context as AppCompatActivity).supportFragmentManager
+            loadPortal(fm, attrs)
+        }
+    }
+
+    @Throws(Exception::class)
+    fun loadPortal(fm: FragmentManager, attrs: AttributeSet?) {
         val id = id
 
         if (PortalManager.size() == 0) {
@@ -75,40 +84,40 @@ class PortalView : FrameLayout {
         portalId?.let {
             val portal: Portal = PortalManager.getPortal(it)
 
-            if (context is Activity) {
-                val fm = (context as AppCompatActivity).supportFragmentManager
-
-                if (id <= 0) {
-                    throw IllegalStateException("Portals must have an android:id defined")
-                }
-
-                val existingFragment = fm.findFragmentById(id)
-                var fmTransaction : FragmentTransaction = fm.beginTransaction()
-                if (existingFragment != null) {
-                    fmTransaction.remove(existingFragment)
-                    fmTransaction.commit()
-                    fmTransaction = fm.beginTransaction()
-                }
-
-                portalFragment = fm.fragmentFactory.instantiate(
-                    context.getClassLoader(),
-                    portal.portalFragmentType.name
-                ) as PortalFragment
-
-                portalFragment?.portal = portal
-                portalFragment?.onInflate(context, attrs, null)
-                val handler = Handler()
-                val runnable = Runnable {
-                    fmTransaction
-                        .setReorderingAllowed(true)
-                        .add(id, portalFragment!!, "")
-                        .commitNowAllowingStateLoss()
-                }
-
-                handler.post(runnable)
+            if (id <= 0) {
+                throw IllegalStateException("Portals must have an android:id defined")
             }
+
+            val existingFragment = fm.findFragmentById(id)
+            var fmTransaction : FragmentTransaction = fm.beginTransaction()
+            if (existingFragment != null) {
+                fmTransaction.remove(existingFragment)
+                fmTransaction.commit()
+                fmTransaction = fm.beginTransaction()
+            }
+
+            portalFragment = fm.fragmentFactory.instantiate(
+                context.classLoader,
+                portal.portalFragmentType.name
+            ) as PortalFragment
+
+            portalFragment?.portal = portal
+            attrs?.let {
+                portalFragment?.onInflate(context, it, null)
+            }
+            val handler = Handler()
+            val runnable = Runnable {
+                fmTransaction
+                    .setReorderingAllowed(true)
+                    .add(id, portalFragment!!, "")
+                    .commitNowAllowingStateLoss()
+            }
+
+            handler.post(runnable)
         }
     }
+
+
 
     /**
      * When called, this method throws a [UnsupportedOperationException] on APIs above 17.

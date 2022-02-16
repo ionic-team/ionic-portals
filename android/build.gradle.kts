@@ -1,5 +1,9 @@
 buildscript {
-    val kotlin_version by extra("1.5.21")
+    val kotlinVersion = "1.5.31"
+    extra.apply {
+        set("kotlinVersion", kotlinVersion)
+    }
+
     repositories {
         google()
         mavenCentral()
@@ -8,9 +12,10 @@ buildscript {
         }
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.2.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
-        classpath("io.github.gradle-nexus:publish-plugin:1.1.0")
+        classpath("com.android.tools.build:gradle:7.0.3")
+        classpath(kotlin("gradle-plugin", version = kotlinVersion))
+        classpath(kotlin("serialization", version = kotlinVersion))
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 

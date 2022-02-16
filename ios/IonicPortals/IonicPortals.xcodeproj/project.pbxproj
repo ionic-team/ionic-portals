@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		5564A84E26DE8D31000AF010 /* UnregisteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5564A84D26DE8D31000AF010 /* UnregisteredView.xib */; };
 		5564A85226DFE5D1000AF010 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5564A85126DFE5D1000AF010 /* images.xcassets */; };
 		55F6736526C2C098001E7AB9 /* PortalWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F6736426C2C097001E7AB9 /* PortalWebView.swift */; };
+		D4B988A7279F4E0A0036033A /* PortalUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B988A6279F4E0A0036033A /* PortalUIWebView.swift */; };
 		E90B7D4C26A9C4F40067D73E /* PortalBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */; };
 		E90B7D5026A9CB880067D73E /* PortalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4F26A9CB880067D73E /* PortalManager.swift */; };
 		E985F88A269E2D260031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F880269E2D260031F820 /* IonicPortals.framework */; };
@@ -41,6 +42,9 @@
 		5564A84D26DE8D31000AF010 /* UnregisteredView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnregisteredView.xib; sourceTree = "<group>"; };
 		5564A85126DFE5D1000AF010 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		55F6736426C2C097001E7AB9 /* PortalWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalWebView.swift; sourceTree = "<group>"; };
+		D4B9889F279F451A0036033A /* Capacitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Capacitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4B988A0279F451A0036033A /* Cordova.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Cordova.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4B988A6279F4E0A0036033A /* PortalUIWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalUIWebView.swift; sourceTree = "<group>"; };
 		E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalBuilder.swift; sourceTree = "<group>"; };
 		E90B7D4F26A9CB880067D73E /* PortalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalManager.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		1F249143665D3AA4301AD1DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D4B9889F279F451A0036033A /* Capacitor.framework */,
+				D4B988A0279F451A0036033A /* Cordova.framework */,
 				E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */,
 				E99B34F02735CEB500821FB4 /* Capacitor.xcframework */,
 				E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */,
@@ -129,6 +135,7 @@
 				5564A84B26DE8909000AF010 /* UnregisteredView.swift */,
 				5564A84D26DE8D31000AF010 /* UnregisteredView.xib */,
 				5564A85126DFE5D1000AF010 /* images.xcassets */,
+				D4B988A6279F4E0A0036033A /* PortalUIWebView.swift */,
 			);
 			path = IonicPortals;
 			sourceTree = "<group>";
@@ -212,7 +219,7 @@
 				};
 			};
 			buildConfigurationList = E985F87A269E2D260031F820 /* Build configuration list for PBXProject "IonicPortals" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -284,6 +291,7 @@
 				E90B7D5026A9CB880067D73E /* PortalManager.swift in Sources */,
 				55F6736526C2C098001E7AB9 /* PortalWebView.swift in Sources */,
 				55113DAD26D4596500BD3C9B /* PortalsPlugin.m in Sources */,
+				D4B988A7279F4E0A0036033A /* PortalUIWebView.swift in Sources */,
 				55113DAE26D4596500BD3C9B /* PortalsPlugin.swift in Sources */,
 				E985F89F269E2D830031F820 /* Portal.swift in Sources */,
 			);
