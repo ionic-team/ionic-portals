@@ -43,7 +43,7 @@ values={[
 Live Updates is already added to your iOS project if you have the depdency for Portals in your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> 0.4.0'`}
+{`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
 </CodeBlock>
 
 And then run `pod install`.
@@ -60,8 +60,8 @@ To add Live Updates to your Portals Android project, add the dependency to your 
 //  Module-level build.gradle
 // ----------------------------------------------
 dependencies {
-    implementation 'io.ionic:portals:0.4.0-alpha7'
-    implementation 'io.ionic:liveupdates:0.0.1-alpha4'
+    implementation 'io.ionic:portals:${getPortalsVersion()}'
+    implementation 'io.ionic:liveupdates:0.0.5'
 }`.trim()
 }
 </CodeBlock>
