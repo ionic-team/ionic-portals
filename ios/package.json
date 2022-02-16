@@ -1,6 +1,6 @@
 {
   "name": "ionic-portals-ios",
-  "version": "0.3.1",
+  "version": "0.4.2",
   "description": "Ionic Portals",
   "homepage": "https://ionic.io/portals",
   "author": "Ionic Team <hi@ionic.io> (https://ionic.io)",
@@ -17,5 +17,8 @@
     "verify": "xcodebuild -workspace IonicPortals.xcworkspace -scheme IonicPortals -destination generic/platform=iOS",
     "carthage": "sh carthage.sh"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@ionic/portals": "^0.3.1"
+  }
 }

@@ -17,6 +17,7 @@ import java.io.File
 import kotlin.reflect.KVisibility
 
 open class PortalFragment : Fragment {
+    val PORTAL_NAME = "PORTALNAME"
     var portal: Portal? = null
     var liveUpdateFiles: File? = null
 
@@ -70,6 +71,11 @@ open class PortalFragment : Fragment {
         Logger.debug("App paused")
     }
 
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putString(PORTAL_NAME, portal?.name)
+    }
+
     override fun onConfigurationChanged(@NonNull newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
         bridge?.onConfigurationChanged(newConfig)
@@ -120,27 +126,35 @@ open class PortalFragment : Fragment {
             setupInitialContextListener()
             if (bridge == null) {
                 Logger.debug("Loading Bridge with Portal")
-                val startDir: String = portal?.startDir!!
-                initialPlugins.addAll(portal?.plugins!!)
-                bridge = Bridge.Builder(this)
-                    .setInstanceState(savedInstanceState)
-                    .setPlugins(initialPlugins)
-                    .setConfig(config)
-                    .addWebViewListeners(webViewListeners)
-                    .create()
 
-                if (portal?.liveUpdateConfig != null) {
-                    liveUpdateFiles = LiveUpdateManager.getLatestAppDirectory(requireContext(), portal?.liveUpdateConfig?.appId!!)
-                    if (liveUpdateFiles != null) {
-                        bridge?.serverBasePath = liveUpdateFiles!!.path
+                val existingPortalName = savedInstanceState?.getString(PORTAL_NAME, null)
+                if (existingPortalName != null && portal == null) {
+                    portal = PortalManager.getPortal(existingPortalName)
+                }
+
+                if (portal != null) {
+                    val startDir: String = portal?.startDir!!
+                    initialPlugins.addAll(portal?.plugins!!)
+                    bridge = Bridge.Builder(this)
+                        .setInstanceState(savedInstanceState)
+                        .setPlugins(initialPlugins)
+                        .setConfig(config)
+                        .addWebViewListeners(webViewListeners)
+                        .create()
+
+                    if (portal?.liveUpdateConfig != null) {
+                        liveUpdateFiles = LiveUpdateManager.getLatestAppDirectory(requireContext(), portal?.liveUpdateConfig?.appId!!)
+                        if (liveUpdateFiles != null) {
+                            bridge?.serverBasePath = liveUpdateFiles!!.path
+                        } else {
+                            bridge?.setServerAssetPath(startDir)
+                        }
                     } else {
                         bridge?.setServerAssetPath(startDir)
                     }
-                } else {
-                    bridge?.setServerAssetPath(startDir)
-                }
 
-                keepRunning = bridge?.shouldKeepRunning()!!
+                    keepRunning = bridge?.shouldKeepRunning()!!
+                }
             }
         } else if (PortalManager.isRegisteredError()) {
             if(activity != null) {
