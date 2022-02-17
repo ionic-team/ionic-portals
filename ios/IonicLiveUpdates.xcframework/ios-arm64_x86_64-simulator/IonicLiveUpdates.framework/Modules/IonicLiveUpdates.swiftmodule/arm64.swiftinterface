@@ -1,0 +1,181 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5 (swiftlang-1300.0.31.1 clang-1300.0.29.1)
+// swift-module-flags: -target arm64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name IonicLiveUpdates
+import Foundation
+import Swift
+import UIKit
+import ZIPFoundation
+import _Concurrency
+@_hasMissingDesignatedInitializers @objc(IONCheckResponse) public class CheckResponse : ObjectiveC.NSObject, Swift.Codable {
+  final public let success: IonicLiveUpdates.SuccessResponse?
+  final public let error: IonicLiveUpdates.ErrorResponse?
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONLiveUpdateData) public class IonData : ObjectiveC.NSObject, Swift.Codable {
+  final public let url: Swift.String?
+  final public let available: Swift.Bool
+  final public let snapshot: Swift.String?
+  final public let partial: Swift.Bool
+  final public let build: Swift.Int?
+  final public let compatible: Swift.Bool
+  final public let incompatibleUpdateAvailable: Swift.Bool
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public typealias IDownloadCallback = (IonicLiveUpdates.DownloadResponse?) -> Swift.Void
+public protocol ISyncCallback {
+  func onAppComplete(_ liveUpdate: IonicLiveUpdates.LiveUpdate, _ failStep: IonicLiveUpdates.FailStep?)
+  func onSyncComplete()
+}
+public enum FailStep {
+  case CHECK, DOWNLOAD, UNPACK, UPDATE, CANCEL
+  public static func == (a: IonicLiveUpdates.FailStep, b: IonicLiveUpdates.FailStep) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+@objc(IONLiveUpdate) public class LiveUpdate : ObjectiveC.NSObject, Swift.Codable {
+  public init(appId: Swift.String, snapshotId: Swift.String? = nil, file: Foundation.URL? = nil, channelName: Swift.String = "production")
+  final public let appId: Swift.String
+  final public let channel: Swift.String
+  public var snapshotId: Swift.String?
+  public var file: Foundation.URL?
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public typealias IExtractCallback = (Foundation.URL?) -> Swift.Void
+@_hasMissingDesignatedInitializers @objc(IONLiveUpdateError) public class Error : ObjectiveC.NSObject, Swift.Codable {
+  final public let link: Swift.String?
+  final public let message: Swift.String
+  final public let type: Swift.String
+  final public let details: [IonicLiveUpdates.Details]?
+  final public let event_id: Swift.String
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONChannel) public class Channel : ObjectiveC.NSObject, Swift.Codable {
+  final public let id: Swift.String
+  public var current_snapshot: Swift.String
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONDownloadResponse) public class DownloadResponse : ObjectiveC.NSObject, Swift.Codable {
+  public var error: IonicLiveUpdates.ErrorResponse?
+  public var file: Foundation.URL?
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONLiveUpdateApp) public class IonWebApp : ObjectiveC.NSObject, Swift.Codable {
+  public var channels: [IonicLiveUpdates.Channel]
+  public var snapshots: [Swift.String]
+  public var last_sync: Swift.Int64
+  final public let id: Swift.String
+  public func addChannel(_ channel: IonicLiveUpdates.Channel)
+  public func getChannel(_ id: Swift.String) -> IonicLiveUpdates.Channel?
+  public func getCurrentSnapshot(_ channelId: Swift.String) -> Swift.String?
+  public func removeSnapshot(_ snapshotId: Swift.String)
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+public typealias ICheckCallback = (IonicLiveUpdates.CheckResponse) -> Swift.Void
+@_hasMissingDesignatedInitializers @objc(IONDevice) public class Device : ObjectiveC.NSObject, Swift.Codable {
+  public var platform: Swift.String
+  public var platform_version: Swift.String
+  final public let binary_version: Swift.String
+  final public let device_id: Swift.String
+  public var snapshot: Swift.String?
+  public var build: Swift.String?
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONSuccessResponse) public class SuccessResponse : ObjectiveC.NSObject, Swift.Codable {
+  final public let data: IonicLiveUpdates.IonData
+  final public let meta: IonicLiveUpdates.Meta
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONMetaResponse) public class Meta : ObjectiveC.NSObject, Swift.Codable {
+  final public let status: Swift.Int
+  final public let request_id: Swift.String?
+  final public let version: Swift.String
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONLiveUpdateDetails) public class Details : ObjectiveC.NSObject, Swift.Codable {
+  final public let parameter: Swift.String
+  final public let error_type: Swift.String
+  final public let errors: [Swift.String]
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers public class IonicHttpClient {
+  public static func checkForUpdate(_ checkRequest: IonicLiveUpdates.CheckRequest, _ callback: IonicLiveUpdates.ICheckCallback? = nil)
+  public static func downloadUpdate(_ appId: Swift.String, _ snapshotId: Swift.String, _ callback: IonicLiveUpdates.IDownloadCallback? = nil)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(IONCheckRequest) public class CheckRequest : ObjectiveC.NSObject, Swift.Codable {
+  final public let device: IonicLiveUpdates.Device
+  final public let app_id: Swift.String
+  final public let channel_name: Swift.String
+  public var plugin_version: Swift.String
+  public var manifest: Swift.Bool
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_inheritsConvenienceInitializers @objc(IONLiveUpdateManager) public class LiveUpdateManager : ObjectiveC.NSObject {
+  public static let LIVE_UPDATES_DIR: Swift.String
+  public static func reset(retainCache: Swift.Bool = false)
+  public static func addLiveUpdateInstance(_ liveUpdate: IonicLiveUpdates.LiveUpdate)
+  public static func getLastSync(_ appId: Swift.String) -> Foundation.Date?
+  public static func getLastSync() -> Foundation.Date?
+  public static func setupAppInstancesWithoutSync()
+  public static func sync(appId: Swift.String, channel: Swift.String = "production", isParallel: Swift.Bool = true, callbacks: IonicLiveUpdates.ISyncCallback? = nil)
+  public static func sync(appIds: [Swift.String], channel: Swift.String = "production", isParallel: Swift.Bool = true, callbacks: IonicLiveUpdates.ISyncCallback? = nil)
+  public static func sync(channel: Swift.String = "production", isParallel: Swift.Bool = true, callbacks: IonicLiveUpdates.ISyncCallback? = nil)
+  public static func cancelSync(_ appId: Swift.String)
+  public static func cleanStaleVersions(_ appId: Swift.String)
+  public static func cleanVersions(_ appId: Swift.String? = nil)
+  public static func checkForUpdate(_ appId: Swift.String, _ callback: IonicLiveUpdates.ICheckCallback? = nil)
+  public static func checkForUpdate(_ appId: Swift.String, _ channel: Swift.String, _ callback: IonicLiveUpdates.ICheckCallback? = nil)
+  public static func downloadUpdate(_ appId: Swift.String, _ snapshotId: Swift.String, _ callback: IonicLiveUpdates.IDownloadCallback? = nil)
+  public static func extractUpdate(_ appId: Swift.String, _ snapshotId: Swift.String, _ callback: IonicLiveUpdates.IExtractCallback? = nil)
+  public static func applyUpdate(_ appId: Swift.String, _ snapshotId: Swift.String, _ buildId: Swift.String)
+  public static func getApps() -> [Swift.String : IonicLiveUpdates.LiveUpdate]
+  public static func getLatestAppDirectory(_ appId: Swift.String) -> Foundation.URL?
+  public static func getAppSnapshots(_ appId: Swift.String) -> [IonicLiveUpdates.Snapshot]
+  public static func getLiveUpdatesDirectory(_ appId: Swift.String) -> Foundation.URL
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers @objc(IONSnapshot) public class Snapshot : ObjectiveC.NSObject, Swift.Codable {
+  final public let id: Swift.String
+  final public let build_id: Swift.String
+  public var binary_version: Swift.String
+  public var last_used: Swift.Int64
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers @objc(IONErrorResponse) public class ErrorResponse : ObjectiveC.NSObject, Swift.Codable {
+  final public let error: IonicLiveUpdates.Error
+  final public let meta: IonicLiveUpdates.Meta
+  @objc deinit
+  public func encode(to encoder: Swift.Encoder) throws
+  required public init(from decoder: Swift.Decoder) throws
+}
+extension IonicLiveUpdates.FailStep : Swift.Equatable {}
+extension IonicLiveUpdates.FailStep : Swift.Hashable {}

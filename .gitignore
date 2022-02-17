@@ -195,6 +195,8 @@ node_modules
 plugin/dist
 
 # Carthage
-Carthage
+Carthage/Checkouts
 IonicPortals.xcframework.zip
 Capacitor.xcframework.zip
+
+!/Carthage/Build/IonicLiveUpdates.xcframework/*
