@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1320"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
-      parallelizeBuildables = "YES"
+      parallelizeBuildables = "NO"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "cd $SRCROOT&#10;&#10;cd ../capacitor&#10;&#10;# Build Capacitor.xcframework&#10;carthage build --no-skip-current --use-xcframeworks&#10;&#10;# Build CapacitorCordova.xcframework&#10;cd ios/CapacitorCordova&#10;xcodebuild archive -scheme Cordova -sdk iphonesimulator SKIP_INSTALL=NO -archivePath Build/iOS-Simulator&#10;xcodebuild archive -scheme Cordova -sdk iphoneos SKIP_INSTALL=NO -archivePath Build/iOS &#10;xcodebuild -create-xcframework -framework Build/iOS.xcarchive/Products/Library/Frameworks/Cordova.framework -framework Build/iOS-Simulator.xcarchive/Products/Library/Frameworks/Cordova.framework -output CapacitorCordova.xcframework&#10;cd ../..&#10;&#10;mkdir Carthage/Build/CapacitorCordova.xcframework&#10;mv ios/CapacitorCordova/CapacitorCordova.xcframework/* Carthage/Build/CapacitorCordova.xcframework&#10;zip -r Capacitor.xcframework.zip Carthage/Build&#10;rm -rf ios/CapacitorCordova/CapacitorCordova.xcframework&#10;&#10;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "E90F572D27BD877B00CEAF60"
+                     BuildableName = "IonicPortals_Carthage.framework"
+                     BlueprintName = "IonicPortals-Carthage"
+                     ReferencedContainer = "container:IonicPortals.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"

@@ -79,13 +79,6 @@
 			remoteGlobalIDString = "ZIPFoundation::ZIPFoundationTests::Product";
 			remoteInfo = ZIPFoundationTests;
 		};
-		E90F57AD27BEEAF200CEAF60 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E985F877269E2D260031F820 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E90F57A827BEEAA700CEAF60;
-			remoteInfo = BundledCapacitor;
-		};
 		E985F88B269E2D260031F820 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E985F877269E2D260031F820 /* Project object */;
@@ -150,10 +143,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E90F578127BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Frameworks */,
 				E90F57BD27BEF66300CEAF60 /* Capacitor.xcframework in Frameworks */,
-				E90F57BC27BEF4B100CEAF60 /* ZIPFoundation in Frameworks */,
 				E90F57BF27BEF66500CEAF60 /* CapacitorCordova.xcframework in Frameworks */,
+				E90F578127BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Frameworks */,
+				E90F57BC27BEF4B100CEAF60 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +293,6 @@
 			buildPhases = (
 				E90F572927BD877B00CEAF60 /* Headers */,
 				E90F572A27BD877B00CEAF60 /* Sources */,
-				E90F57A727BEEA6500CEAF60 /* ShellScript */,
 				E90F572B27BD877B00CEAF60 /* Frameworks */,
 				E90F572C27BD877B00CEAF60 /* Resources */,
 				E90F578327BD8B6300CEAF60 /* Embed Frameworks */,
@@ -308,7 +300,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				E90F57AE27BEEAF200CEAF60 /* PBXTargetDependency */,
+				E9A742CE27BEFDF600EBDC7D /* PBXTargetDependency */,
 			);
 			name = "IonicPortals-Carthage";
 			packageProductDependencies = (
@@ -509,23 +501,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E90F57A727BEEA6500CEAF60 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
-		};
 		E90F57AC27BEEABB00CEAF60 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -541,7 +516,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd ../capacitor\n\nif [ -f \"Capacitor.xcframework.zip\" ]; then\n    echo \"Already built, skipping build.\";\nelse\n    # Build Capacitor.xcframework\n    carthage build --no-skip-current --use-xcframeworks\n\n    # Build CapacitorCordova.xcframework\n    cd ios/CapacitorCordova\n    xcodebuild archive -scheme Cordova -sdk iphonesimulator SKIP_INSTALL=NO -archivePath Build/iOS-Simulator\n    xcodebuild archive -scheme Cordova -sdk iphoneos SKIP_INSTALL=NO -archivePath Build/iOS \n    xcodebuild -create-xcframework -framework Build/iOS.xcarchive/Products/Library/Frameworks/Cordova.framework -framework Build/iOS-Simulator.xcarchive/Products/Library/Frameworks/Cordova.framework -output CapacitorCordova.xcframework\n    cd ../..\n\n    mkdir Carthage/Build/CapacitorCordova.xcframework\n    mv ios/CapacitorCordova/CapacitorCordova.xcframework/* Carthage/Build/CapacitorCordova.xcframework\n    zip -r Capacitor.xcframework.zip Carthage/Build\n    rm -rf ios/CapacitorCordova/CapacitorCordova.xcframework\n\nfi\n";
+			shellScript = "cd ../capacitor\n\n# Build Capacitor.xcframework\ncarthage build --no-skip-current --use-xcframeworks\n\n# Build CapacitorCordova.xcframework\ncd ios/CapacitorCordova\nxcodebuild archive -scheme Cordova -sdk iphonesimulator SKIP_INSTALL=NO -archivePath Build/iOS-Simulator\nxcodebuild archive -scheme Cordova -sdk iphoneos SKIP_INSTALL=NO -archivePath Build/iOS \nxcodebuild -create-xcframework -framework Build/iOS.xcarchive/Products/Library/Frameworks/Cordova.framework -framework Build/iOS-Simulator.xcarchive/Products/Library/Frameworks/Cordova.framework -output CapacitorCordova.xcframework\ncd ../..\n\nmkdir Carthage/Build/CapacitorCordova.xcframework\nmv ios/CapacitorCordova/CapacitorCordova.xcframework/* Carthage/Build/CapacitorCordova.xcframework\nzip -r Capacitor.xcframework.zip Carthage/Build\nrm -rf ios/CapacitorCordova/CapacitorCordova.xcframework\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -599,15 +574,14 @@
 			target = E90F572D27BD877B00CEAF60 /* IonicPortals-Carthage */;
 			targetProxy = E90F573927BD877C00CEAF60 /* PBXContainerItemProxy */;
 		};
-		E90F57AE27BEEAF200CEAF60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E90F57A827BEEAA700CEAF60 /* BundledCapacitor */;
-			targetProxy = E90F57AD27BEEAF200CEAF60 /* PBXContainerItemProxy */;
-		};
 		E985F88C269E2D260031F820 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = E985F87F269E2D260031F820 /* IonicPortals */;
 			targetProxy = E985F88B269E2D260031F820 /* PBXContainerItemProxy */;
+		};
+		E9A742CE27BEFDF600EBDC7D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = E9A742CD27BEFDF600EBDC7D /* ZIPFoundation */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1039,6 +1013,11 @@
 			productName = ZIPFoundation;
 		};
 		E90F57BB27BEF4B100CEAF60 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E90F57B827BEF49500CEAF60 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		E9A742CD27BEFDF600EBDC7D /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E90F57B827BEF49500CEAF60 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
