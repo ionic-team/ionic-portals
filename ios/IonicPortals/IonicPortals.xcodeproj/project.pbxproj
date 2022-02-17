@@ -6,6 +6,20 @@
 	objectVersion = 55;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		E90F57A827BEEAA700CEAF60 /* BundledCapacitor */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = E90F57A927BEEAA700CEAF60 /* Build configuration list for PBXAggregateTarget "BundledCapacitor" */;
+			buildPhases = (
+				E90F57AC27BEEABB00CEAF60 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = BundledCapacitor;
+			productName = BundledCapacitor;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */; };
 		55113DAD26D4596500BD3C9B /* PortalsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 55113DAB26D4596500BD3C9B /* PortalsPlugin.m */; };
@@ -31,8 +45,8 @@
 		E90F578227BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E90F578C27BD8CAD00CEAF60 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5564A85126DFE5D1000AF010 /* images.xcassets */; };
 		E90F578D27BD8CB000CEAF60 /* UnregisteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5564A84D26DE8D31000AF010 /* UnregisteredView.xib */; };
-		E90F579327BD938500CEAF60 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; };
-		E90F579427BD938600CEAF60 /* Capacitor.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E99B34F02735CEB500821FB4 /* Capacitor.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E90F57B027BEED6200CEAF60 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */; };
+		E90F57B227BEED6C00CEAF60 /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */; };
 		E985F88A269E2D260031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F880269E2D260031F820 /* IonicPortals.framework */; };
 		E985F88F269E2D260031F820 /* IonicPortalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F88E269E2D260031F820 /* IonicPortalsTests.swift */; };
 		E985F891269E2D260031F820 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -61,6 +75,13 @@
 			remoteGlobalIDString = "ZIPFoundation::ZIPFoundationTests::Product";
 			remoteInfo = ZIPFoundationTests;
 		};
+		E90F57AD27BEEAF200CEAF60 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E985F877269E2D260031F820 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E90F57A827BEEAA700CEAF60;
+			remoteInfo = BundledCapacitor;
+		};
 		E985F88B269E2D260031F820 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E985F877269E2D260031F820 /* Project object */;
@@ -77,7 +98,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E90F579427BD938600CEAF60 /* Capacitor.xcframework in Embed Frameworks */,
 				E90F578227BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -107,6 +127,8 @@
 		E90F576127BD89FB00CEAF60 /* ZIPFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZIPFoundation.xcodeproj; path = ../../Carthage/Checkouts/ZIPFoundation/ZIPFoundation.xcodeproj; sourceTree = "<group>"; };
 		E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IonicLiveUpdates.xcframework; path = ../../Carthage/Build/IonicLiveUpdates.xcframework; sourceTree = "<group>"; };
 		E90F578727BD8BCC00CEAF60 /* ZIPFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ZIPFoundation; path = ../../Carthage/Checkouts/ZIPFoundation; sourceTree = "<group>"; };
+		E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Capacitor.xcframework; path = ../capacitor/Carthage/Build/Capacitor.xcframework; sourceTree = "<group>"; };
+		E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CapacitorCordova.xcframework; path = ../capacitor/Carthage/Build/CapacitorCordova.xcframework; sourceTree = "<group>"; };
 		E985F880269E2D260031F820 /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985F883269E2D260031F820 /* IonicPortals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IonicPortals.h; sourceTree = "<group>"; };
 		E985F884269E2D260031F820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,7 +145,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E90F579327BD938500CEAF60 /* Capacitor.xcframework in Frameworks */,
+				E90F57B227BEED6C00CEAF60 /* CapacitorCordova.xcframework in Frameworks */,
+				E90F57B027BEED6200CEAF60 /* Capacitor.xcframework in Frameworks */,
 				E90F578127BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +181,8 @@
 		1F249143665D3AA4301AD1DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */,
+				E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */,
 				E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */,
 				E90F576127BD89FB00CEAF60 /* ZIPFoundation.xcodeproj */,
 				E90F575E27BD88D800CEAF60 /* ZIPFoundation.framework */,
@@ -277,6 +302,7 @@
 			buildPhases = (
 				E90F572927BD877B00CEAF60 /* Headers */,
 				E90F572A27BD877B00CEAF60 /* Sources */,
+				E90F57A727BEEA6500CEAF60 /* ShellScript */,
 				E90F572B27BD877B00CEAF60 /* Frameworks */,
 				E90F572C27BD877B00CEAF60 /* Resources */,
 				E90F578327BD8B6300CEAF60 /* Embed Frameworks */,
@@ -284,7 +310,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				E90F578F27BD8CD600CEAF60 /* PBXTargetDependency */,
+				E90F579727BEE77800CEAF60 /* PBXTargetDependency */,
+				E90F57AE27BEEAF200CEAF60 /* PBXTargetDependency */,
 			);
 			name = "IonicPortals-Carthage";
 			productName = "IonicPortals-Carthage";
@@ -361,6 +388,9 @@
 					E90F573627BD877C00CEAF60 = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
+					E90F57A827BEEAA700CEAF60 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					E985F87F269E2D260031F820 = {
 						CreatedOnToolsVersion = 12.5.1;
 						LastSwiftMigration = 1250;
@@ -391,6 +421,7 @@
 			targets = (
 				E985F87F269E2D260031F820 /* IonicPortals */,
 				E90F572D27BD877B00CEAF60 /* IonicPortals-Carthage */,
+				E90F57A827BEEAA700CEAF60 /* BundledCapacitor */,
 				E985F888269E2D260031F820 /* IonicPortalsTests */,
 				E90F573627BD877C00CEAF60 /* IonicPortals-CarthageTests */,
 			);
@@ -472,6 +503,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E90F57A727BEEA6500CEAF60 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
+		E90F57AC27BEEABB00CEAF60 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ../capacitor\n\nif [ -f \"Capacitor.xcframework.zip\" ]; then\n    echo \"Already built, skipping build.\";\nelse\n    # Build Capacitor.xcframework\n    carthage build --no-skip-current --use-xcframeworks\n\n    # Build CapacitorCordova.xcframework\n    cd ios/CapacitorCordova\n    xcodebuild archive -scheme Cordova -sdk iphonesimulator SKIP_INSTALL=NO -archivePath Build/iOS-Simulator\n    xcodebuild archive -scheme Cordova -sdk iphoneos SKIP_INSTALL=NO -archivePath Build/iOS \n    xcodebuild -create-xcframework -framework Build/iOS.xcarchive/Products/Library/Frameworks/Cordova.framework -framework Build/iOS-Simulator.xcarchive/Products/Library/Frameworks/Cordova.framework -output CapacitorCordova.xcframework\n    cd ../..\n\n    mkdir Carthage/Build/CapacitorCordova.xcframework\n    mv ios/CapacitorCordova/CapacitorCordova.xcframework/* Carthage/Build/CapacitorCordova.xcframework\n    zip -r Capacitor.xcframework.zip Carthage/Build\n    rm -rf ios/CapacitorCordova/CapacitorCordova.xcframework\n\nfi\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -528,9 +593,14 @@
 			target = E90F572D27BD877B00CEAF60 /* IonicPortals-Carthage */;
 			targetProxy = E90F573927BD877C00CEAF60 /* PBXContainerItemProxy */;
 		};
-		E90F578F27BD8CD600CEAF60 /* PBXTargetDependency */ = {
+		E90F579727BEE77800CEAF60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = E90F578E27BD8CD600CEAF60 /* ZIPFoundation */;
+			productRef = E90F579627BEE77800CEAF60 /* ZIPFoundation */;
+		};
+		E90F57AE27BEEAF200CEAF60 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E90F57A827BEEAA700CEAF60 /* BundledCapacitor */;
+			targetProxy = E90F57AD27BEEAF200CEAF60 /* PBXContainerItemProxy */;
 		};
 		E985F88C269E2D260031F820 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -641,6 +711,24 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E90F57AA27BEEAA700CEAF60 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9YN2HU59K8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E90F57AB27BEEAA700CEAF60 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9YN2HU59K8;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -893,6 +981,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		E90F57A927BEEAA700CEAF60 /* Build configuration list for PBXAggregateTarget "BundledCapacitor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E90F57AA27BEEAA700CEAF60 /* Debug */,
+				E90F57AB27BEEAA700CEAF60 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		E985F87A269E2D260031F820 /* Build configuration list for PBXProject "IonicPortals" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -923,7 +1020,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E90F578E27BD8CD600CEAF60 /* ZIPFoundation */ = {
+		E90F579627BEE77800CEAF60 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ZIPFoundation;
 		};

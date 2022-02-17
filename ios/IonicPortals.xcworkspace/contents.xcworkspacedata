@@ -10,4 +10,10 @@
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:capacitor/ios/CapacitorCordova/CapacitorCordova.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:capacitor/ios/Capacitor/Capacitor.xcodeproj">
+   </FileRef>
 </Workspace>

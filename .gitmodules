@@ -1,0 +1,4 @@
+[submodule "capacitor"]
+	path = ios/capacitor
+	url = https://github.com/ionic-team/capacitor
+	branch = native-publish
