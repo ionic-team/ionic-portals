@@ -42,7 +42,6 @@
 		E90F575C27BD888100CEAF60 /* PortalUIWevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B988A6279F4E0A0036033A /* PortalUIWevView.swift */; };
 		E90F575D27BD88B000CEAF60 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E90F578127BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */; };
-		E90F578227BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E90F578C27BD8CAD00CEAF60 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5564A85126DFE5D1000AF010 /* images.xcassets */; };
 		E90F578D27BD8CB000CEAF60 /* UnregisteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5564A84D26DE8D31000AF010 /* UnregisteredView.xib */; };
 		E90F57BA27BEF49500CEAF60 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E90F57B927BEF49500CEAF60 /* ZIPFoundation */; };
@@ -97,7 +96,6 @@
 			files = (
 				E90F57BE27BEF66400CEAF60 /* Capacitor.xcframework in Embed Frameworks */,
 				E90F57C027BEF66500CEAF60 /* CapacitorCordova.xcframework in Embed Frameworks */,
-				E90F578227BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
