@@ -42,13 +42,15 @@
 		E90F575C27BD888100CEAF60 /* PortalUIWevView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B988A6279F4E0A0036033A /* PortalUIWevView.swift */; };
 		E90F575D27BD88B000CEAF60 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E90F578127BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */; };
-		E90F578227BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E90F578227BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E90F578C27BD8CAD00CEAF60 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5564A85126DFE5D1000AF010 /* images.xcassets */; };
 		E90F578D27BD8CB000CEAF60 /* UnregisteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5564A84D26DE8D31000AF010 /* UnregisteredView.xib */; };
-		E90F57B027BEED6200CEAF60 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */; };
-		E90F57B227BEED6C00CEAF60 /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */; };
 		E90F57BA27BEF49500CEAF60 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E90F57B927BEF49500CEAF60 /* ZIPFoundation */; };
 		E90F57BC27BEF4B100CEAF60 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E90F57BB27BEF4B100CEAF60 /* ZIPFoundation */; };
+		E90F57BD27BEF66300CEAF60 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */; };
+		E90F57BE27BEF66400CEAF60 /* Capacitor.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E90F57BF27BEF66500CEAF60 /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */; };
+		E90F57C027BEF66500CEAF60 /* CapacitorCordova.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E985F88A269E2D260031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F880269E2D260031F820 /* IonicPortals.framework */; };
 		E985F88F269E2D260031F820 /* IonicPortalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F88E269E2D260031F820 /* IonicPortalsTests.swift */; };
 		E985F891269E2D260031F820 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -100,6 +102,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E90F57BE27BEF66400CEAF60 /* Capacitor.xcframework in Embed Frameworks */,
+				E90F57C027BEF66500CEAF60 /* CapacitorCordova.xcframework in Embed Frameworks */,
 				E90F578227BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -146,10 +150,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E90F57B227BEED6C00CEAF60 /* CapacitorCordova.xcframework in Frameworks */,
-				E90F57B027BEED6200CEAF60 /* Capacitor.xcframework in Frameworks */,
 				E90F578127BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Frameworks */,
+				E90F57BD27BEF66300CEAF60 /* Capacitor.xcframework in Frameworks */,
 				E90F57BC27BEF4B100CEAF60 /* ZIPFoundation in Frameworks */,
+				E90F57BF27BEF66500CEAF60 /* CapacitorCordova.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
