@@ -47,6 +47,8 @@
 		E90F578D27BD8CB000CEAF60 /* UnregisteredView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5564A84D26DE8D31000AF010 /* UnregisteredView.xib */; };
 		E90F57B027BEED6200CEAF60 /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */; };
 		E90F57B227BEED6C00CEAF60 /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */; };
+		E90F57BA27BEF49500CEAF60 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E90F57B927BEF49500CEAF60 /* ZIPFoundation */; };
+		E90F57BC27BEF4B100CEAF60 /* ZIPFoundation in Frameworks */ = {isa = PBXBuildFile; productRef = E90F57BB27BEF4B100CEAF60 /* ZIPFoundation */; };
 		E985F88A269E2D260031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F880269E2D260031F820 /* IonicPortals.framework */; };
 		E985F88F269E2D260031F820 /* IonicPortalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F88E269E2D260031F820 /* IonicPortalsTests.swift */; };
 		E985F891269E2D260031F820 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -126,7 +128,6 @@
 		E90F575E27BD88D800CEAF60 /* ZIPFoundation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ZIPFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90F576127BD89FB00CEAF60 /* ZIPFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZIPFoundation.xcodeproj; path = ../../Carthage/Checkouts/ZIPFoundation/ZIPFoundation.xcodeproj; sourceTree = "<group>"; };
 		E90F577F27BD8B4800CEAF60 /* IonicLiveUpdates.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IonicLiveUpdates.xcframework; path = ../../Carthage/Build/IonicLiveUpdates.xcframework; sourceTree = "<group>"; };
-		E90F578727BD8BCC00CEAF60 /* ZIPFoundation */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ZIPFoundation; path = ../../Carthage/Checkouts/ZIPFoundation; sourceTree = "<group>"; };
 		E90F57AF27BEED6200CEAF60 /* Capacitor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Capacitor.xcframework; path = ../capacitor/Carthage/Build/Capacitor.xcframework; sourceTree = "<group>"; };
 		E90F57B127BEED6C00CEAF60 /* CapacitorCordova.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CapacitorCordova.xcframework; path = ../capacitor/Carthage/Build/CapacitorCordova.xcframework; sourceTree = "<group>"; };
 		E985F880269E2D260031F820 /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -148,6 +149,7 @@
 				E90F57B227BEED6C00CEAF60 /* CapacitorCordova.xcframework in Frameworks */,
 				E90F57B027BEED6200CEAF60 /* Capacitor.xcframework in Frameworks */,
 				E90F578127BD8B6300CEAF60 /* IonicLiveUpdates.xcframework in Frameworks */,
+				E90F57BC27BEF4B100CEAF60 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */,
+				E90F57BA27BEF49500CEAF60 /* ZIPFoundation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,18 +218,9 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E90F578627BD8BCC00CEAF60 /* Packages */ = {
-			isa = PBXGroup;
-			children = (
-				E90F578727BD8BCC00CEAF60 /* ZIPFoundation */,
-			);
-			name = Packages;
-			sourceTree = "<group>";
-		};
 		E985F876269E2D260031F820 = {
 			isa = PBXGroup;
 			children = (
-				E90F578627BD8BCC00CEAF60 /* Packages */,
 				E985F882269E2D260031F820 /* IonicPortals */,
 				E985F88D269E2D260031F820 /* IonicPortalsTests */,
 				E985F881269E2D260031F820 /* Products */,
@@ -310,10 +304,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				E90F579727BEE77800CEAF60 /* PBXTargetDependency */,
 				E90F57AE27BEEAF200CEAF60 /* PBXTargetDependency */,
 			);
 			name = "IonicPortals-Carthage";
+			packageProductDependencies = (
+				E90F57BB27BEF4B100CEAF60 /* ZIPFoundation */,
+			);
 			productName = "IonicPortals-Carthage";
 			productReference = E90F572E27BD877B00CEAF60 /* IonicPortals_Carthage.framework */;
 			productType = "com.apple.product-type.framework";
@@ -351,6 +347,9 @@
 			dependencies = (
 			);
 			name = IonicPortals;
+			packageProductDependencies = (
+				E90F57B927BEF49500CEAF60 /* ZIPFoundation */,
+			);
 			productName = IonicPortals;
 			productReference = E985F880269E2D260031F820 /* IonicPortals.framework */;
 			productType = "com.apple.product-type.framework";
@@ -409,6 +408,9 @@
 				Base,
 			);
 			mainGroup = E985F876269E2D260031F820;
+			packageReferences = (
+				E90F57B827BEF49500CEAF60 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
+			);
 			productRefGroup = E985F881269E2D260031F820 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -592,10 +594,6 @@
 			isa = PBXTargetDependency;
 			target = E90F572D27BD877B00CEAF60 /* IonicPortals-Carthage */;
 			targetProxy = E90F573927BD877C00CEAF60 /* PBXContainerItemProxy */;
-		};
-		E90F579727BEE77800CEAF60 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = E90F579627BEE77800CEAF60 /* ZIPFoundation */;
 		};
 		E90F57AE27BEEAF200CEAF60 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1019,9 +1017,26 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		E90F57B827BEF49500CEAF60 /* XCRemoteSwiftPackageReference "ZIPFoundation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/weichsel/ZIPFoundation";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.9;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		E90F579627BEE77800CEAF60 /* ZIPFoundation */ = {
+		E90F57B927BEF49500CEAF60 /* ZIPFoundation */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = E90F57B827BEF49500CEAF60 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
+			productName = ZIPFoundation;
+		};
+		E90F57BB27BEF4B100CEAF60 /* ZIPFoundation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E90F57B827BEF49500CEAF60 /* XCRemoteSwiftPackageReference "ZIPFoundation" */;
 			productName = ZIPFoundation;
 		};
 /* End XCSwiftPackageProductDependency section */
