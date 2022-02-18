@@ -1,0 +1,11 @@
+framework module IonicPortals {
+  umbrella header "IonicPortals.h"
+
+  export *
+  module * { export * }
+}
+
+module IonicPortals.Swift {
+    header "IonicPortals-Swift.h"
+    requires objc
+}

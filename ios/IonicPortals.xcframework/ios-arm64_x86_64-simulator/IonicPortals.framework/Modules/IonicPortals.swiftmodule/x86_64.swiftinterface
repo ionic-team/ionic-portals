@@ -1,0 +1,71 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.5.2 (swiftlang-1300.0.47.5 clang-1300.0.29.30)
+// swift-module-flags: -target x86_64-apple-ios13.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name IonicPortals
+import Capacitor
+import Foundation
+import IonicLiveUpdates
+@_exported import IonicPortals
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+@objc @_inheritsConvenienceInitializers @_Concurrency.MainActor(unsafe) public class UnregisteredView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public typealias OnPortalBuilderComplete = (_ portal: IonicPortals.Portal) -> Swift.Void
+@_hasMissingDesignatedInitializers @objc(PortalBuilder) public class PortalBuilder : ObjectiveC.NSObject {
+  @objc public init(_ name: Swift.String)
+  @objc public func setStartDir(_ startDir: Swift.String) -> IonicPortals.PortalBuilder
+  @objc public func setInitialContext(_ initialContext: Swift.Dictionary<Swift.String, Any>) -> IonicPortals.PortalBuilder
+  public func setLiveUpdateConfig(liveUpdateConfig: IonicLiveUpdates.LiveUpdate, updateOnAppLoad: Swift.Bool = true) -> IonicPortals.PortalBuilder
+  @objc public func create() -> IonicPortals.Portal
+  @objc deinit
+}
+@_inheritsConvenienceInitializers @objc(PortalManager) public class PortalManager : ObjectiveC.NSObject {
+  @objc public static func count() -> Swift.Int
+  @objc public static func addPortal(_ portal: IonicPortals.Portal)
+  @objc public static func getPortal(_ name: Swift.String) throws -> IonicPortals.Portal
+  @objc public static func newPortal(_ name: Swift.String) -> IonicPortals.PortalBuilder
+  @objc public static func isRegistered() -> Swift.Bool
+  @objc public static func register(_ key: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc(PortalWebView) @_Concurrency.MainActor(unsafe) public class PortalWebView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) public var bridge: Capacitor.CAPBridgeProtocol?
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc @_Concurrency.MainActor(unsafe) public init(frame: CoreGraphics.CGRect, portal: IonicPortals.Portal)
+  @objc deinit
+}
+@_Concurrency.MainActor(unsafe) public struct PortalUIWebView : SwiftUI.UIViewControllerRepresentable {
+  public typealias UIViewControllerType = UIKit.UIViewController
+  @_Concurrency.MainActor(unsafe) public init(_ portal: IonicPortals.Portal, onBridgeAvailable: @escaping (Capacitor.CAPBridgeProtocol?) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) public func makeUIViewController(context: IonicPortals.PortalUIWebView.Context) -> UIKit.UIViewController
+  @_Concurrency.MainActor(unsafe) public func updateUIViewController(_ uiViewController: UIKit.UIViewController, context: IonicPortals.PortalUIWebView.Context)
+  public typealias Body = Swift.Never
+  public typealias Coordinator = Swift.Void
+}
+@_inheritsConvenienceInitializers @objc(PortalsPlugin) public class PortalsPlugin : Capacitor.CAPPlugin {
+  public static func subscribe(_ topic: Swift.String, _ callback: @escaping (_ result: IonicPortals.SubscriptionResult) -> ()) -> Swift.Int
+  public static func publish(_ topic: Swift.String, _ data: Any)
+  public static func unsubscribe(_ topic: Swift.String, _ subscriptionRef: Swift.Int)
+  @objc override dynamic public init(bridge: Capacitor.CAPBridgeProtocol, pluginId: Swift.String, pluginName: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+public struct SubscriptionResult {
+  public var topic: Swift.String
+  public var data: Any
+  public var subscriptionRef: Swift.Int
+}
+@objc(Portal) public class Portal : ObjectiveC.NSObject {
+  final public let name: Swift.String
+  public var initialContext: Swift.Dictionary<Swift.String, Any>?
+  public var startDir: Swift.String?
+  public var liveUpdateConfig: IonicLiveUpdates.LiveUpdate?
+  public init(_ name: Swift.String, _ startDir: Swift.String?)
+  @objc deinit
+}

@@ -1,0 +1,4 @@
+framework module IonicLiveUpdates {
+  header "IonicLiveUpdates-Swift.h"
+  requires objc
+}

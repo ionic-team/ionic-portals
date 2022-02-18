@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */; };
 		55113DAD26D4596500BD3C9B /* PortalsPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 55113DAB26D4596500BD3C9B /* PortalsPlugin.m */; };
 		55113DAE26D4596500BD3C9B /* PortalsPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55113DAC26D4596500BD3C9B /* PortalsPlugin.swift */; };
 		5564A84C26DE8909000AF010 /* UnregisteredView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564A84B26DE8909000AF010 /* UnregisteredView.swift */; };
@@ -17,6 +16,12 @@
 		D4B988A7279F4E0A0036033A /* PortalUIWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4B988A6279F4E0A0036033A /* PortalUIWebView.swift */; };
 		E90B7D4C26A9C4F40067D73E /* PortalBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */; };
 		E90B7D5026A9CB880067D73E /* PortalManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90B7D4F26A9CB880067D73E /* PortalManager.swift */; };
+		E9128E0927C0000B0020B9DA /* Capacitor.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9128E0827C0000A0020B9DA /* Capacitor.xcframework */; };
+		E9128E0A27C0000B0020B9DA /* Capacitor.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9128E0827C0000A0020B9DA /* Capacitor.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E9128E0D27C000130020B9DA /* CapacitorCordova.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9128E0C27C000130020B9DA /* CapacitorCordova.xcframework */; };
+		E9128E0E27C000130020B9DA /* CapacitorCordova.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9128E0C27C000130020B9DA /* CapacitorCordova.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E9128E1027C0001A0020B9DA /* IonicLiveUpdates.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9128E0F27C0001A0020B9DA /* IonicLiveUpdates.xcframework */; };
+		E9128E1127C0001A0020B9DA /* IonicLiveUpdates.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E9128E0F27C0001A0020B9DA /* IonicLiveUpdates.xcframework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E985F88A269E2D260031F820 /* IonicPortals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E985F880269E2D260031F820 /* IonicPortals.framework */; };
 		E985F88F269E2D260031F820 /* IonicPortalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E985F88E269E2D260031F820 /* IonicPortalsTests.swift */; };
 		E985F891269E2D260031F820 /* IonicPortals.h in Headers */ = {isa = PBXBuildFile; fileRef = E985F883269E2D260031F820 /* IonicPortals.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -33,6 +38,22 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E9128E0B27C0000B0020B9DA /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E9128E0A27C0000B0020B9DA /* Capacitor.xcframework in Embed Frameworks */,
+				E9128E1127C0001A0020B9DA /* IonicLiveUpdates.xcframework in Embed Frameworks */,
+				E9128E0E27C000130020B9DA /* CapacitorCordova.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		2514A9D89B5C400A41EF8FEB /* Pods-IonicPortals.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IonicPortals.release.xcconfig"; path = "Target Support Files/Pods-IonicPortals/Pods-IonicPortals.release.xcconfig"; sourceTree = "<group>"; };
 		2C8BCCA3D236847121E67C22 /* Pods-IonicPortals.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IonicPortals.debug.xcconfig"; path = "Target Support Files/Pods-IonicPortals/Pods-IonicPortals.debug.xcconfig"; sourceTree = "<group>"; };
@@ -48,6 +69,9 @@
 		E44A8EABC3166358F2924543 /* Pods_IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E90B7D4B26A9C4F40067D73E /* PortalBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortalBuilder.swift; sourceTree = "<group>"; };
 		E90B7D4F26A9CB880067D73E /* PortalManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PortalManager.swift; sourceTree = "<group>"; };
+		E9128E0827C0000A0020B9DA /* Capacitor.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Capacitor.xcframework; path = ../Frameworks/Capacitor.xcframework; sourceTree = "<group>"; };
+		E9128E0C27C000130020B9DA /* CapacitorCordova.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = CapacitorCordova.xcframework; path = ../Frameworks/CapacitorCordova.xcframework; sourceTree = "<group>"; };
+		E9128E0F27C0001A0020B9DA /* IonicLiveUpdates.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = IonicLiveUpdates.xcframework; path = ../Frameworks/IonicLiveUpdates.xcframework; sourceTree = "<group>"; };
 		E985F880269E2D260031F820 /* IonicPortals.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = IonicPortals.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E985F883269E2D260031F820 /* IonicPortals.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IonicPortals.h; sourceTree = "<group>"; };
 		E985F884269E2D260031F820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -64,7 +88,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3845A534A28C7E3728A0A58A /* Pods_IonicPortals.framework in Frameworks */,
+				E9128E0927C0000B0020B9DA /* Capacitor.xcframework in Frameworks */,
+				E9128E1027C0001A0020B9DA /* IonicLiveUpdates.xcframework in Frameworks */,
+				E9128E0D27C000130020B9DA /* CapacitorCordova.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +108,9 @@
 		1F249143665D3AA4301AD1DE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E9128E0F27C0001A0020B9DA /* IonicLiveUpdates.xcframework */,
+				E9128E0C27C000130020B9DA /* CapacitorCordova.xcframework */,
+				E9128E0827C0000A0020B9DA /* Capacitor.xcframework */,
 				D4B9889F279F451A0036033A /* Capacitor.framework */,
 				D4B988A0279F451A0036033A /* Cordova.framework */,
 				E99B34F42735CEC600821FB4 /* CapacitorCordova.xcframework */,
@@ -172,6 +201,7 @@
 				E985F87C269E2D260031F820 /* Sources */,
 				E985F87D269E2D260031F820 /* Frameworks */,
 				E985F87E269E2D260031F820 /* Resources */,
+				E9128E0B27C0000B0020B9DA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
