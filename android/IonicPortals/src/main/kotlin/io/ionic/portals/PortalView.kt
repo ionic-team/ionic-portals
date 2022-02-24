@@ -30,8 +30,10 @@ class PortalView : FrameLayout {
 
     constructor(context: Context) : super(context)
 
+    // Provided for Compose
     constructor(context: Context, portalId: String) : this(context, portalId, portalId+"_view")
 
+    // Provided for Compose
     constructor(context: Context, portalId: String, viewId: String) : super(context) {
         this.portalId = portalId
         this.viewId = viewId
