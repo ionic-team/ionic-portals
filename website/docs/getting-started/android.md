@@ -214,6 +214,23 @@ public class MyContainerFragment extends Fragment {
 </TabItem>
 </Tabs>
 
+## Jetpack Compose
+
+Portals can be used with [Jetpack Compose](https://developer.android.com/jetpack/compose).
+
+```kotlin
+@Composable
+fun loadPortal(portalId: String) {
+    AndroidView(factory = {
+        PortalView(it, "myPortalName")
+    })
+}
+```
+
+:::note
+Jetpack Compose support is new. If you encounter any issues, please [open an issue](https://github.com/ionic-team/ionic-portals-android) in our repository.
+:::
+
 ## Preparing the Containing Activity
 
 Configuration changes in Android can cause WebViews to restart within an Activity. We recommend adding the following line of code in your application `AndroidManifest.xml` file for any Activity that will contain a Portal.
