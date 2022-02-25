@@ -29,6 +29,18 @@ class PortalView : FrameLayout {
     var tag: String? = null
 
     constructor(context: Context) : super(context)
+
+    // Provided for Compose
+    constructor(context: Context, portalId: String) : this(context, portalId, portalId+"_view")
+
+    // Provided for Compose
+    constructor(context: Context, portalId: String, viewId: String) : super(context) {
+        this.portalId = portalId
+        this.viewId = viewId
+        this.id = View.generateViewId()
+        loadPortal(context, null)
+    }
+
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
         readAttributes(context, attrs)
         loadPortal(context, attrs)
