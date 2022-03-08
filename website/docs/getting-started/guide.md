@@ -10,7 +10,7 @@ import { getCapacitorVersion, getPortalsVersion } from '@site/src/util';
 
 ## Signup
 
-Ionic Portals is a free product, but it does require a product key to use. Getting a key is easy.
+Ionic Portals requires a product key to use. Getting a key is easy.
 Just head to the [Ionic Dashboard](https://ionic.io/register-portals) and click "Get Access".
 
 This will present you with a form asking for some additional information.
