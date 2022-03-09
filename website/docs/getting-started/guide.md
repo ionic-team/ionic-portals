@@ -6,7 +6,7 @@ sidebar_label: Getting Started Guide
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getCapacitorVersion, getPortalsVersion } from '@site/src/util';
+import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 
 ## Signup
 
@@ -36,7 +36,7 @@ values={[
 To add Portals to your iOS project, put the following line to your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
+{`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
 </CodeBlock>
 
 And then run `pod install`.
@@ -53,7 +53,7 @@ To add Portals to your Android project, add the dependency to your `build.gradle
 //  Module-level build.gradle
 // ----------------------------------------------
 dependencies {
-    implementation 'io.ionic:portals:${getPortalsVersion()}'
+    implementation 'io.ionic:portals:${getPortalsVersionAndroid()}'
 }`.trim()
 }
 </CodeBlock>

@@ -17,5 +17,7 @@
     }
   },
   "version": "0.5.0",
+  "iosVersion": "0.5.1",
+  "androidVersion": "0.5.0",
   "capacitorVersion": "3.4.1"
 }

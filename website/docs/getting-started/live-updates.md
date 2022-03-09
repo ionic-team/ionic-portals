@@ -6,7 +6,7 @@ sidebar_label: Live Updates
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getCapacitorVersion, getPortalsVersion } from '@site/src/util';
+import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 
 Getting started with Live Updates in your Portals app.
 
@@ -43,7 +43,7 @@ values={[
 Live Updates is already added to your iOS project if you have the depdency for Portals in your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> ${getPortalsVersion()}'`}
+{`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
 </CodeBlock>
 
 And then run `pod install`.
@@ -60,7 +60,7 @@ To add Live Updates to your Portals Android project, add the dependency to your 
 //  Module-level build.gradle
 // ----------------------------------------------
 dependencies {
-    implementation 'io.ionic:portals:${getPortalsVersion()}'
+    implementation 'io.ionic:portals:${getPortalsVersionAndroid()}'
     implementation 'io.ionic:liveupdates:0.0.5'
 }`.trim()
 }
