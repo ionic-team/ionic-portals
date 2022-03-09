@@ -64,6 +64,8 @@ module.exports = {
   ],
   customFields: {
     portalsVersion: lernaConfig.version,
+    portalsVersionIos: lernaConfig.iosVersion,
+    portalsVersionAndroid: lernaConfig.androidVersion,
     capacitorVersion: lernaConfig.capacitorVersion,
   }
 };

@@ -10,3 +10,13 @@ export const getPortalsVersion = () => {
     const { siteConfig } = useDocusaurusContext();
     return siteConfig.customFields.portalsVersion;
 }
+
+export const getPortalsVersionIos = () => {
+    const { siteConfig } = useDocusaurusContext();
+    return siteConfig.customFields.portalsVersionIos;
+}
+
+export const getPortalsVersionAndroid = () => {
+    const { siteConfig } = useDocusaurusContext();
+    return siteConfig.customFields.portalsVersionAndroid;
+}
