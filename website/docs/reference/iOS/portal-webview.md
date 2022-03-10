@@ -38,12 +38,11 @@ Even though there are no Objective-C code samples, the Ionic Portals library can
 ```swift
 let view: UIView = someView
 let portal: Portal = somePortal
-let portalWebView: PortalWebView = PortalWebView(frame: view.frame, portal: portal)
+let portalWebView: PortalWebView = PortalWebView(portal: portal)
 ``` 
 
 #### Parameters
 
 Name | Type | Description
 :------ | :------ | :------
-`frame` | [CGRect](https://developer.apple.com/documentation/coregraphics/cgrect) | The bounding [CGRect](https://developer.apple.com/documentation/coregraphics/cgrect) to contain the [Portal](./portal). 
 `portal` | [Portal](./portal) | The [Portal](./portal) to show when in the WebView.

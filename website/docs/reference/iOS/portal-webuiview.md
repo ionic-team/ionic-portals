@@ -44,3 +44,4 @@ let portalWebUIView: PortalWebUIView = PortalWebUIView(portal) { bridge in }
 Name | Type | Description
 :------ | :------ | :------
 `_` | [Portal](./portal) | The [Portal](./portal) to show when in the WebView.
+`onBridgeAvailable` | (CAPBridgeProtocol) -> Void | A callback to access the Capacitor bridge to inject any necessary plugins.
