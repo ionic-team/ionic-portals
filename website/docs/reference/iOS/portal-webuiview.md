@@ -17,7 +17,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            PortalUIWebView(self.portal)
+            PortalUIWebView(self.portal) { (bridge: CAPBridgeProtocol) in 
+              // Use the bridge here to get access to injected plugins you may
+              // need to communicate between native and the application.
+            }
         }
     }
 }
@@ -33,7 +36,7 @@ See our [getting started guide](../../getting-started/iOS#using-the-portalwebvie
  
 ```swift
 let portal: Portal = somePortal
-let portalWebUIView: PortalWebUIView = PortalWebUIView(portal)
+let portalWebUIView: PortalWebUIView = PortalWebUIView(portal) { bridge in }
 ``` 
 
 #### Parameters

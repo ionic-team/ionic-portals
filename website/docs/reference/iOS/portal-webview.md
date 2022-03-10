@@ -14,12 +14,11 @@ If you need to programmtically create a view, you can override the root view in 
 import UIKit
 import IonicPortals
 
-class MyViewController: AppParticipantViewController {
-    override func viewDidLoad() {
+class MyViewController: UIViewController {
+    override func loadView() {
         let portal = try! PortalManager.getPortal("MyPortal")        
-        let portalWebView = PortalWebView(frame: view.frame, portal: portal)
+        let portalWebView = PortalWebView(portal: portal)
         self.view = portalWebView
-        super.viewDidLoad()
     }
 }
 ```

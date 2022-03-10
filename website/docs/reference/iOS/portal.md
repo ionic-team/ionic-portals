@@ -16,8 +16,9 @@ Even though there are no Objective-C code samples, the Ionic Portals library can
 #### Usage 
 
 ```swift
-let name: String = "Hello World"
-let portal = Portal(self.name, self.startDir)
+let name = "Hello World"
+let startDir = "portals/hello-world"
+let portal = Portal(name, startDir)
 ``` 
 
 #### Parameters
