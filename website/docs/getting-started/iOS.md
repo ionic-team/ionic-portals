@@ -58,11 +58,9 @@ For SwiftUI, use the [PortalWebUIView](../reference/ios/portal-webuiview) struct
 
 ```swift title=ViewController.swift
 class ViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+    override func loadView() {
         let portal = try! PortalManager.getPortal("MY_FIRST_PORTAL")
-        let portalWebView = PortalWebView(frame: view.frame, portal: portal)
+        let portalWebView = PortalWebView(portal: portal)
         self.view = portalWebView
         // Do any additional setup after loading the view.
     }
@@ -78,7 +76,10 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            PortalUIWebView(self.portal)
+            PortalUIWebView(self.portal) { (bridge: CAPBridgeProtocol) in 
+              // Use the bridge here to get access to inject any plugins you may
+              // need to communicate between native and the application.
+            }
         }
     }
 }

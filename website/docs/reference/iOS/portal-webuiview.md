@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             PortalUIWebView(self.portal) { (bridge: CAPBridgeProtocol) in 
-              // Use the bridge here to get access to injected plugins you may
+              // Use the bridge here to get access to inject any plugins you may
               // need to communicate between native and the application.
             }
         }
