@@ -14,12 +14,11 @@ If you need to programmtically create a view, you can override the root view in 
 import UIKit
 import IonicPortals
 
-class MyViewController: AppParticipantViewController {
-    override func viewDidLoad() {
+class MyViewController: UIViewController {
+    override func loadView() {
         let portal = try! PortalManager.getPortal("MyPortal")        
-        let portalWebView = PortalWebView(frame: view.frame, portal: portal)
+        let portalWebView = PortalWebView(portal: portal)
         self.view = portalWebView
-        super.viewDidLoad()
     }
 }
 ```
@@ -39,12 +38,11 @@ Even though there are no Objective-C code samples, the Ionic Portals library can
 ```swift
 let view: UIView = someView
 let portal: Portal = somePortal
-let portalWebView: PortalWebView = PortalWebView(frame: view.frame, portal: portal)
+let portalWebView: PortalWebView = PortalWebView(portal: portal)
 ``` 
 
 #### Parameters
 
 Name | Type | Description
 :------ | :------ | :------
-`frame` | [CGRect](https://developer.apple.com/documentation/coregraphics/cgrect) | The bounding [CGRect](https://developer.apple.com/documentation/coregraphics/cgrect) to contain the [Portal](./portal). 
 `portal` | [Portal](./portal) | The [Portal](./portal) to show when in the WebView.

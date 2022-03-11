@@ -127,10 +127,10 @@ To subscribe to the topic, call `PortalsPlugin.subcribe()` after loading the Por
 <TabItem value="swift">
 
 ```swift
-PortalsPlugin.subscribe("login", { result in
+PortalsPlugin.subscribe("login") { result in
     let auth = result
     // Rest of the native app...
-})
+}
 ```
 
 </TabItem>

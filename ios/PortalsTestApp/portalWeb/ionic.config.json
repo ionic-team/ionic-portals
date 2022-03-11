@@ -1,7 +1,0 @@
-{
-  "name": "io.ionic.portals.ecommercewebapp",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react"
-}

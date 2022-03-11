@@ -9,7 +9,7 @@ An example of how to create a [Portal](./portal) using the [PortalBuilder](./por
 
 ```swift
 let portal: Portal = PortalBuilder("myPortal", { portal in /* ... */ })
-    .setInitialContext(["myVariableFromAndroid": 42])
+    .setInitialContext(["myVariableFromiOS": 42])
     .setStartDir("web_app")
     .create()
 ```

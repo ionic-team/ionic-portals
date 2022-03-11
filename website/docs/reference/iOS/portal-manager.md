@@ -7,7 +7,7 @@ The [PortalManager](./portal-manager) object is used to create a and manage mult
 
 ```swift
 PortalManager.newPortal("my_portal")
-    .setInitialContext(["myVariableFromAndroid": 42])
+    .setInitialContext(["myVariableFromiOS": 42])
     .setStartDir("web_app")
     .create()
 ```
