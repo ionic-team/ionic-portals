@@ -313,7 +313,11 @@ The native code from the plugin needs to be made available to each native projec
 >
 <TabItem value="ios">
 
-Fill me in
+In your project `Podfile`, define the path to the to the plugin's Podspec file.
+```ruby 
+pod CapacitorPluginName, :path => '../../webapp/node_modules/@custom-capacitor/plugin'
+```
+Make sure that the directory path is the root of where the CapacitorPluginName.podspec file is. This is typically the source root of the plugin project, not in the platform specific subfolder.
 
 </TabItem>
 <TabItem value="android">
@@ -352,7 +356,7 @@ If successful, you should now see a section in the Android Studio project browse
 >
 <TabItem value="ios">
 
-Fill me in
+Plugins are automatically registered on iOS.
 
 </TabItem>
 <TabItem value="android">
