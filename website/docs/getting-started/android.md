@@ -234,6 +234,41 @@ For example:
 </activity>
 ```
 
+## Preparing the Gradle Build File
+
+Some web assets can contain directories that start with special characters like an underscore, but by default Android will omit these from your built app. Override the default Android settings by adding the following snippet in the `defaultConfig` section of your module `build.gradle` file.
+
+```groovy
+aaptOptions {
+    // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+    // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+    ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+}
+```
+
+For example:
+
+```groovy
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.myawesomecompany"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+
+    ...
+}
+```
+
 ## Adding Web Code
 
 Now that your Portal is successfully registered, created, and linked, you need to add the web assets to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](../reference/android/portal-manager) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](../reference/android/portal-builder#setStartDir) function to set the web application's directory.
