@@ -315,7 +315,7 @@ The native code from the plugin needs to be made available to each native projec
 
 In your project `Podfile`, define the path to the folder containing the plugin's Podspec file.
 ```ruby 
-pod CapacitorPluginName, :path => '../../webapp/node_modules/@custom-capacitor/plugin'
+pod 'CapacitorPluginName', :path => '../../webapp/node_modules/@custom-capacitor/plugin'
 ```
 The path to the Podspec file is typically the source root of the plugin project, not in the platform specific subfolder.
 
