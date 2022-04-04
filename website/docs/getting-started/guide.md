@@ -32,6 +32,7 @@ values={[
 { label: 'Web', value: 'web', },
 ]}>
 <TabItem value="ios">
+
 :::info
 IonicPortals requires using Cocoapods 1.10 or greater.
 :::
