@@ -33,7 +33,7 @@ values={[
 ]}>
 <TabItem value="ios">
 
-:::info
+:::note
 IonicPortals requires using Cocoapods 1.10 or greater.
 :::
 
