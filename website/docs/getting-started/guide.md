@@ -33,6 +33,10 @@ values={[
 ]}>
 <TabItem value="ios">
 
+:::note
+IonicPortals requires using Cocoapods 1.10 or greater.
+:::
+
 To add Portals to your iOS project, put the following line to your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
