@@ -101,26 +101,33 @@ values={[
 <TabItem value="ios">
 
 ```swift title=AppDelegate.swift
-import SwiftUI
 import IonicPortals
+import IonicLiveUpdates
 
 @main
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        PortalManager.register("MY_API_KEY")
+        PortalsRegistrationManager.shared.register("MY_API_KEY")
 
         // Setup Live Update
-        let checkoutLiveUpdate = LiveUpdate(appId: "ebd6138b", channel: "production")
-
-        // setup portals (example)
-        let portal1 = PortalManager.newPortal("portal1")
-            .setLiveUpdateConfig(liveUpdateConfig: checkoutLiveUpdate)
-            .create()
-
-        PortalManager.addPortal(portal1)
+        try? LiveUpdateManager.shared.add(.checkout)
 
         return true
     }
+}
+
+extension LiveUpdate {
+    static let checkout = LiveUpdate(
+        appId: "ebd6138b",
+        channel: "production"
+    )
+}
+
+extension Portal {
+    static let checkout = Portal(
+        name: "checkout",
+        liveUpdateConfig: .checkout
+    )
 }
 ```
 
