@@ -28,26 +28,83 @@ The Initial Context mechanism allows you to pass data to your web application fr
 
 ### Setting Initial Context
 
+#### iOS
+
+Initial context can be set during initialization:
+
+<Tabs
+  defaultValue="swift"
+  values={[
+    { label: 'Swift', value: 'swift' },
+    { label: 'Objective-C', value: 'objc' },
+  ]}
+>
+
+
+<TabItem value="swift">
+
+```swift
+let portal = Portal(
+    name: "maps",
+    startDir: "web",
+    initialContext: ["ic_example": "hello world"]
+)
+```
+
+</TabItem>
+
+<TabItem value="objc">
+
+```objectivec
+IONPortal *portal = [[IONPortal alloc] initWithName:@"maps" startDir:@"web" initialContext:@{ @"ic_example": @"hello world" }];
+```
+
+</TabItem>
+
+</Tabs>
+
+Or after:
+
+<Tabs
+  defaultValue="swift"
+  values={[
+    { label: 'Swift', value: 'swift' },
+    { label: 'Objective-C', value: 'objc' },
+  ]}
+>
+
+
+<TabItem value="swift">
+
+```swift
+var portal = Portal(name: "maps", startDir: "web")
+portal.initialContext = ["ic_example": "hello world"]
+```
+
+</TabItem>
+
+<TabItem value="objc">
+
+```objectivec
+IONPortal *portal = [[IONPortal alloc] initWithName:@"maps" startDir:@"web" initialContext:nil];
+portal.initialContext = @{ @"ic_example": @"hello world" };
+```
+
+</TabItem>
+
+</Tabs>
+
+#### Android
+
 Initial context data can be set in two different ways. You may want to set it when building a new Portal using `PortalManager`.
 
 <Tabs
-    defaultValue="swift" 
+    defaultValue="kt" 
     values={[
-        { label: 'Swift', value: 'swift', },
         { label: 'Kotlin', value: 'kt', },
         { label: 'Java', value: 'java', },
     ]}
 >
-<TabItem value="swift">
-
-```swift
-PortalManager.newPortal("maps")
-    .setStartDir("web")
-    .setInitialContext(["ic_example": "hello world"])
-    .create()
-```
-
-</TabItem>
 
 <TabItem value="kt">
 
@@ -76,21 +133,12 @@ PortalManager.newPortal("maps")
 You can also set Initial Context data on a `Portal` object prior to the Portal loading.
 
 <Tabs
-    defaultValue="swift" 
+    defaultValue="kt" 
     values={[
-        { label: 'Swift', value: 'swift', },
         { label: 'Kotlin', value: 'kt', },
         { label: 'Java', value: 'java', },
     ]}
 >
-<TabItem value="swift">
-
-```swift
-let portal = try! PortalManager.getPortal("maps")
-portal.initialContext = ["ic_example": "hello world"]
-```
-
-</TabItem>
 
 <TabItem value="kt">
 
@@ -144,43 +192,147 @@ const portalSubscription = await Portals.subscribe(
 
 To listen for messages published from the web side of a Portal, define a subscriber in your native application.
 
+#### iOS
+
 <Tabs
-    defaultValue="swift" 
+    defaultValue="swift-combine" 
     values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
+        { label: 'Swift (Combine)', value: 'swift-combine' },
+        { label: 'Swift (async/await)', value: 'swift-async-await' },
+        { label: 'Swift (vanilla)', value: 'swift-vanilla', },
+        { label: 'Objective-C', value: 'objc' },
     ]}
 >
-<TabItem value="swift">
+
+<TabItem value="swift-combine">
 
 ```swift title="MyViewController.swift"
-override func viewDidLoad() {
-    let portal = try! PortalManager.getPortal("example")
-    
-    // ...
-    
-    // listen on the topic "dismiss" and define a function `dismiss` 
-    // to handle messages
-    self.subscriptionRef = PortalsPlugin.subscribe("dismiss", dismiss)
-    
-    super.viewDidLoad()
+class MyViewController: UIViewController {
+    var dismissCancellable: AnyCancellable? 
+
+    override func viewDidLoad() {
+        dismissCancellable = PortalsPubSub.publisher(for: "dismiss")
+            .data(as: String.self)
+            .filter { $0 == "cancel" || $0 == "success" }
+            .receive(on: DispatchQueue.main)
+            .sink { _ in self.dismiss(animated: true, completion: nil) }
+        
+        super.viewDidLoad()
+    }
 }
-    
-/**
- * An example function that dismisses the view when a dismiss
- * message is received
- */
-func dismiss(result: SubscriptionResult) {
-    if(result.data as! String == "cancel" || result.data as! String == "success") {
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
+```
+
+</TabItem>
+
+<TabItem value="swift-async-await">
+
+```swift title=MyViewController.swift
+class MyViewController: UIViewController {
+    var task: Task?
+
+    override func viewDidLoad() {
+        task = Task {
+            let _ = await PortalsPubSub.subscribe("dismiss")
+                .flatMap { $0.data as? String }
+                .filter { $0 == "cancel" || $0 == "success" }
+                .first
+
+            dismiss(animated: true, completion: nil)
         }
     }
 }
 ```
 
 </TabItem>
+
+<TabItem value="swift-vanilla">
+
+```swift title="MyViewController.swift"
+class MyViewController: UIViewController {
+    var subscriptionReference: Int? 
+
+    override func viewDidLoad() {
+        subscriptionReference = PortalsPubSub.subscribe("dismiss") { [weak self] result in 
+          guard 
+              let message = result.data as? String,
+              message == "cancel" || message == "sucess"
+          else { return }
+
+          self?.dismiss(animated: true, completion: nil)
+        }
+        
+        super.viewDidLoad()
+    }
+
+    deinit {
+        // Required to prevent closure to continue firing
+        PortalsPubSub.unsubscribe(from: "dismiss", subscriptionRef: subscriptionReference)
+    }
+}
+```
+
+There is also an overload that returns an `AnyCancellable` so that manually calling `PortalsPubSub.unsubscribe(from:subscriptionRef:)` is not needed:
+
+```swift title="MyViewController.swift"
+class MyViewController: UIViewController {
+    var dismissCancellable: AnyCancellable? 
+
+    override func viewDidLoad() {
+        dismissCancellable = PortalsPubSub.subscribe(to: "dismiss") { [weak self] result in 
+          guard 
+              let message = result.data as? String,
+              message == "cancel" || message == "sucess"
+          else { return }
+
+          self?.dismiss(animated: true, completion: nil)
+        }
+        
+        super.viewDidLoad()
+    }
+}
+```
+
+</TabItem>
+
+<TabItem value="objc">
+
+```objectivec title="MyViewController.m"
+@interface MyViewController ()
+@property NSInteger subRef;
+@end
+
+@implementation MyViewController
+
+- (void)viewDidLoad {
+    self.subRef = [IONPortalsPubSub subscribeToTopic:@"dismiss" callback:^(NSDictionary<NSString *,id> * _Nonnull result) {
+        NSString *message = result[@"data"];
+        if (message != nil && ([message isEqualToString:@"success"] || [message isEqualToString:@"cancel"])) {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }];
+
+    [super viewDidLoad];
+}
+
+- (void)dealloc {
+    [IONPortalsPubSub unsubscribeFromTopic:@"dismiss" subscriptionRef:self.subRef];
+}
+
+@end
+```
+
+</TabItem>
+
+</Tabs>
+
+#### Android
+
+<Tabs defaultValue="kt"
+      values={[
+        { label: 'Kotlin', value: 'kt', },
+        { label: 'Java', value: 'java', },
+      ]}
+>
 
 <TabItem value="kt">
 
@@ -247,7 +399,7 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
 
 </Tabs>
 
-#### Android: Subscribe Using Annotations
+**Subscribe Using Annotations**
 
 Android also provides a way to link subscribers defined as methods with annotations.
 
@@ -346,26 +498,46 @@ To send a message from your web application to iOS or Android, use the [Portals.
 Portals.publish({ topic: 'dismiss', data: 'success' })
 ```
 
-#### From iOS/Android to Web
+#### From iOS to Web
 
-To send messages from your native application to the web application, use the `PortalsPlugin.publish()` methods.
+To send messages from your native application to the web application, use the `PortalsPubSub.publish()` method.
 
 <Tabs
     defaultValue="swift" 
     values={[
         { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
+        { label: 'Objective-C', value: 'objc', },
     ]}
 >
 <TabItem value="swift">
 
 ```swift
-PortalsPlugin.publish("weather", "sunny")
+PortalsPubSub.publish("weather", message: "sunny")
 ```
 
 </TabItem>
 
+<TabItem value="objc">
+
+```objectivec
+[IONPortalsPubSub publishToTopic:@"weather", data:@"sunny"];
+```
+
+</TabItem>
+
+</Tabs>
+
+#### From Android to Web
+
+To send messages from your native application to the web application, use the `PortalsPlugin.publish()` methods.
+
+<Tabs
+    defaultValue="kt" 
+    values={[
+        { label: 'Kotlin', value: 'kt', },
+        { label: 'Java', value: 'java', },
+    ]}
+>
 <TabItem value="kt">
 
 ```kotlin

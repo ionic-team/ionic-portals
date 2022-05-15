@@ -27,13 +27,9 @@ You will need to include the folder in XCode (and not just simply copy the folde
 
 
 ```swift
-PortalManager.newPortal("myPortalWebApp").create()
-
+let portal = Portal(name: "myPortalWebApp")
 // or...using a different portalId and starting directory
-
-PortalManager.newPortal("help")
-    .setStartDir("myPortalWebApp")
-    .create()
+let helpPortal = Portal(name: "help", startDir: "myPortalWebApp")
 ```
 
 </TabItem>

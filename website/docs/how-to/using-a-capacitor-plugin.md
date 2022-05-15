@@ -38,17 +38,7 @@ pod 'CapacitorStorage', '~> 1.2.0'
 To avoid errors, make sure that the versions in your `Podfile` and `package.json` match!
 :::
 
-After installing the dependency, inject the Plugin into the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
-
-```swift
-override func viewDidLoad() {
-    // Inject the plugin into the native bridge
-    apiPlugin = bridge?.plugin(withName: "MyPlugin") as? MyPlugin
-    
-    // now call super which will start the initial load
-    super.viewDidLoad()
-}
-```
+After installing the dependency, Capacitor Plugins are automatically registered on initialization of the Capacitor runtime.
 
 ### Published Plugins
 
