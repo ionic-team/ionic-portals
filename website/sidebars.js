@@ -67,7 +67,7 @@ module.exports = {
             "reference/iOS/portal-builder",
             "reference/iOS/portal-manager",
             "reference/iOS/portal-webview",
-            "reference/iOS/portal-webuiview",
+            "reference/iOS/portal-view",
             "reference/iOS/portals-plugin",
           ],
         },

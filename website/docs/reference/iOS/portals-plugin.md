@@ -1,6 +1,6 @@
 ---
-title: PortalsPlugin
-sidebar_label: PortalsPlugin
+title: PortalsPubSub
+sidebar_label: PortalsPubSub
 ---
 
 The [PortalsPlugin](./portals-plugin) class is a special Capacitor Plugin within the Portals library that allows for bi-directional communication between iOS code and Web code. It is loaded with every Portal automatically and does not need to be added like other plugins.
@@ -16,14 +16,12 @@ public struct SubscriptionResult {
     public var topic: String
     public var data: Any
     public var subscriptionRef: Int
-
-    func toMap() -> [String: Any]
 }
 ```
 
 ## Methods
 
-### publish
+### `publish(_:message:)`
 
 Send a message to the web application.
 
@@ -31,11 +29,11 @@ Send a message to the web application.
 
 ```swift
 // String message
-PortalsPlugin.publish("topic", "message content")
+PortalsPubSub.publish("topic", message: "message content")
 
 // Array message
 let items = ["cheese", "bacon", "eggs"]
-PortalsPlugin.publish("cart", items)
+PortalsPlugin.publish("cart", message: items)
 ```
 
 #### Parameters
@@ -43,24 +41,31 @@ PortalsPlugin.publish("cart", items)
 Name | Type | Description
 :------ | :------ | :------
 `topic` | `String` | The topic associated with the message. [Subscribers](./portals-plugin#subscribe) of this topic will receive the message
-`data` | `Any` | A message to send. **Note**: this is transmitted as JSON through the Capacitor Bridge and should be a compatible type: map, array, string, boolean, integer, etc.
+`message` | `JSValue?` | A message to send. **Note**: this is transmitted as JSON through the Capacitor Bridge and should be a compatible type: `String`, `Bool`, `Int`, `nil`, an `Array` containing any of those types, or a `Dictionary` keyed by `String` and values being any of the other compatible types (including itself).
 
-### subscribe
+### `subscribe(_:_:)`
 
-Subscribe to receive messages from the web application.
+Subscribe to receive messages from the web application. Callers using this method must call the [unsubscribe](./portals-plugin#unsubscribe) method directly to prevent the callback being called indefinitely.
 
 #### Usage
 
 ```swift
 // Subscribe to the "dismiss" topic and check for
 // a specific string to act on
-PortalsPlugin.subscribe("dismiss", { result in
-    if(result.data as! String == "cancel" || result.data as! String == "success") {
-        DispatchQueue.main.async {
-            self.dismiss(animated: true, completion: nil)
-        }
+PortalsPubSub.subscribe("dismiss") { result in
+    guard let data = result.data as? String,
+        data == "cancel" || data == "success"
+    else { return }
+
+    DispatchQueue.main.async {
+        PortalsPubSub.unsubscribe(
+          from: "dismiss", 
+          subscriptionRef: result.subscriptionRef
+        )
+
+        self.dismiss(animated: true, completion: nil)
     }
-})
+}
 ```
 
 #### Parameters
@@ -68,7 +73,14 @@ PortalsPlugin.subscribe("dismiss", { result in
 Name | Type | Description
 :------ | :------ | :------
 `topic` | `String` | The topic to subscribe to
-`subscriptionRef` | [SubscriptionResult](./portals-plugin#subscriptionresult) -> () | A function to receive and handle the message
+`callback` | [`SubscriptionResult`](./portals-plugin#subscriptionresult)` -> ()` | A function to receive and handle the message
+
+**Returns:** <span class="return-code">Int</span>
+
+### `subscribe(to:_:)`
+
+
+
 
 ### unsubscribe
 

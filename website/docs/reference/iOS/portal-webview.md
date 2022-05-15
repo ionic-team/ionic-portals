@@ -1,14 +1,25 @@
 ---
-title: PortalWebView
-sidebar_label: Portal WebView
+title: PortalUIView
+sidebar_label: Portal UIView
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [PortalWebView](./portal-webview) class is an iOS [UIView](https://developer.apple.com/documentation/uikit/uiview) that you can use to easily build a `View` via Storyboard for a [Portal](./portal). While you can show a [Portal](./portal) to a user using the [PortalWebView](./portal-webview) class directly, it is recommended to use this via Storyboard.
+The [PortalUIView](./portal-uiview) class is an iOS [UIView](https://developer.apple.com/documentation/uikit/uiview) used to render a [Portal](./portal) to a user.
 
-If you need to programmtically create a view, you can override the root view in an overriden `UIView.viewDidLoad` function as shown below.
+If you intend to render a Portal using the full dimensions of a `UIViewController`, you can set it as the view by overriding `loadView`:
+
+
+<Tabs
+  defaultValue="swift"
+  values={[
+    { label: "Swift", value: "swift" },
+    { label: "Objective-C", value: "objc" }
+  ]}
+>
+
+<TabItem value="swift">
 
 ```swift title=MyViewController.swift
 import UIKit
@@ -16,12 +27,31 @@ import IonicPortals
 
 class MyViewController: UIViewController {
     override func loadView() {
-        let portal = try! PortalManager.getPortal("MyPortal")        
+        let portal = Portal(name: "MyPortal")
         let portalWebView = PortalWebView(portal: portal)
         self.view = portalWebView
     }
 }
 ```
+
+</TabItem>
+
+<TabItem value="objc">
+
+```objectivec title=MyViewController.m
+@import IonicPortals;
+
+@implementation MyViewController
+- (void)loadView {
+    IONPortal *portal = [[IONPortal alloc] initWithName:@"webapp" startDir:nil initialContext:nil];
+    self.view = [[IONPortalUIView alloc] initWithPortal:portal];
+}
+@end
+``` 
+
+</TabItem>
+
+</Tabs>
 
 See our [getting started guide](../../getting-started/iOS#using-the-portalwebview) for more information on this approach.
 
@@ -35,11 +65,33 @@ Even though there are no Objective-C code samples, the Ionic Portals library can
 
 #### Usage 
  
+<Tabs
+  defaultValue="swift"
+  values={[
+    { label: "Swift", value: "swift" },
+    { label: "Objective-C", value: "objc" }
+  ]}
+>
+
+<TabItem value="swift">
+
 ```swift
-let view: UIView = someView
-let portal: Portal = somePortal
-let portalWebView: PortalWebView = PortalWebView(portal: portal)
+let portalView = PortalUIView(portal: Portal(name: "webapp"))
 ``` 
+
+</TabItem>
+
+<TabItem value="objc">
+
+```objectivec
+IONPortal *portal = [[IONPortal alloc] initWithName:@"webapp" startDir:nil initialContext:nil];
+IONPortalUIView *portalView = [[IONPortalUIView alloc] initWithPortal: portal];
+``` 
+
+</TabItem>
+
+</Tabs>
+    
 
 #### Parameters
 
