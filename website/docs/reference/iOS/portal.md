@@ -48,7 +48,7 @@ IONPortal *portal = [[IONPortal alloc] initWithName:name startDir:startDir initi
 
 Name | Type | Description
 :------ | :------ | :------ 
-`name` | `String` | The name of the [Portal](./portal) to be referenced via the [PortalManager](./) or the [PortalWebView](./)
+`name` | `String` | The name of the [Portal](./portal). 
 `startDir` (optional) | `String?` | The start directory of the portal web app. If this value is not set, the startDir property will default to the name of the portal passed in the constructor. Defaults to `nil`.
 `initialContext` | `JSObject` | Any initial data to be provided to the web app on launch. Defaults to `[:]`.
 `liveUpdateConfig` (optional) | `LiveUpdate?` | The [LiveUpdate](../../reference-live-updates/iOS/live-update) configuration to associate with the [Portal](./portal). Defaults to `nil`.

@@ -101,12 +101,12 @@ NSDictionary *order = @{
 
 Name | Type | Description
 :------ | :------ | :------
-`topic` | `String` | The topic associated with the message. [Subscribers](./portals-plugin#subscribe) of this topic will receive the message
+`topic` | `String` | The topic associated with the message. [Subscribers](./portals-subscribe#subscribe__) of this topic will receive the message
 `message` | `JSValue?` | A message to send. **Note**: this is transmitted as JSON through the Capacitor Bridge and should be a compatible type: `String`, `Bool`, `Int`, `nil`, an `Array` containing any of those types, or a `Dictionary` keyed by `String` and values being any of the other compatible types (including itself).
 
 ### `subscribe(_:_:)`
 
-Subscribe to receive messages from the web application. Callers using this method must call the [unsubscribe](./portals-plugin#unsubscribe) method directly to prevent the callback being invoked indefinitely.
+Subscribe to receive messages from the web application. Callers using this method must call the [unsubscribe](./portals-pubsub#unsubscribefromsubscriptionref) method directly to prevent the callback being invoked indefinitely.
 
 #### Usage
 
@@ -170,7 +170,7 @@ PortalsPubSub.subscribe("dismiss") { result in
 Name | Type | Description
 :------ | :------ | :------
 `topic` | `String` | The topic to subscribe to
-`callback` | [`SubscriptionResult`](./portals-plugin#subscriptionresult)` -> ()` | A function to receive and handle the message
+`callback` | [`SubscriptionResult`](./portals-pubsub#subscriptionresult)` -> ()` | A function to receive and handle the message
 
 **Returns:** <span class="return-code">Int</span>
 

@@ -111,7 +111,7 @@ By default, `IONPortal` will use the `name` provided in the initializer if `star
 
 ## Using PortalView and PortalUIView
 
-After you initialize a `Portal`, you create a [PortalView](../reference/ios/portal-view) (for SwiftUI) or [PortalUIView](../reference/ios/portal-ui-view) (for UIKit) by passing in the `Portal`.
+After you initialize a `Portal`, you create a [PortalView](../reference/ios/portal-view) (for SwiftUI) or [PortalUIView](../reference/ios/portal-uiview) (for UIKit) by passing in the `Portal`.
 
 <Tabs 
     defaultValue="uikit-swift" 

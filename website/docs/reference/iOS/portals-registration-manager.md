@@ -6,7 +6,7 @@ sidebar_label: PortalsRegistrationManager
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [PortalsRegistrationManager](./portal-manager) object is used to manage the registration lifecycle of Ionic Portals. 
+The [PortalsRegistrationManager](./portals-registration-manager) object is used to manage the registration lifecycle of Ionic Portals. 
 
 <Tabs
   defaultValue="swift"
