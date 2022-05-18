@@ -127,7 +127,8 @@ The following example performs a sync when an app resumes as long as six hours h
 override func viewDidLoad() {
   // If it has been more than 6 hours since last update check, sync now.
   if let lastUpdate = LiveUpdateManager.shared.lastSync(for: "appId"), 
-      let hoursSinceLastUpdate = Calendar.current.dateComponents([.hour], from: lastUpdate, to: Date()).hour,
+      let hoursSinceLastUpdate = Calendar.current
+          .dateComponents([.hour], from: lastUpdate, to: Date()).hour,
       hours > 6 {
 
         LiveUpdateManager.shared.sync(appId: "appId")

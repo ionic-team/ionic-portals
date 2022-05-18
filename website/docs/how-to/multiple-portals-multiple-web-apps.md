@@ -12,7 +12,7 @@ In some cases, it makes sense to have different teams handle different portals i
 
 ### iOS
 
-Setting up multiple Portals is as easy as declaring another Portal in the PortalManager. No further code is neccessary and each Portal will function independently.
+Setting up multiple Portals is as easy as initializing another Portal. 
 
 <Tabs 
     defaultValue="swift" 

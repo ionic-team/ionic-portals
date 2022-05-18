@@ -3,9 +3,6 @@ title: PortalView
 sidebar_label: Portal View
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 The [PortalView](./portal-view) struct is an iOS [UIViewControllerRepresentable](https://developer.apple.com/documentation/swiftui/uiviewcontrollerrepresentable) that you can use to easily add a [Portal](./portal) with SwiftUI.
 
 In this example, we're creating a [Portal](./portal) instance, then we pass the portal to [PortalView](./portal-view) to render it:
@@ -32,9 +29,9 @@ struct ContentView: View {
 
 See our [getting started guide](../../getting-started/iOS#using-the-portalwebview) for more information on this approach.
 
-### Constructors
+## Initializers
 
-### constructor
+### `init(portal:)`
 
 #### Usage 
  

@@ -207,6 +207,9 @@ To listen for messages published from the web side of a Portal, define a subscri
 <TabItem value="swift-combine">
 
 ```swift title="MyViewController.swift"
+import UIKit
+import IonicPortals
+
 class MyViewController: UIViewController {
     var dismissCancellable: AnyCancellable? 
 
@@ -222,11 +225,41 @@ class MyViewController: UIViewController {
 }
 ```
 
+```swift title=ContentView.swift
+import SwiftUI
+import IonicPortals
+
+struct CartView: View {
+    @State private var shouldDisplayCheckout = false
+
+    var body: some View {
+        VStack {
+            // Cart contents
+            Button("Checkout") {
+                shouldDisplayCheckout = true
+            }
+        }
+        .sheet(isPresented: $shouldDisplayCheckout) {
+            PortalView(portal "checkout")
+        }
+        .onReceive(
+            PortalsPubSub.publisher(for: "dismiss")
+                .data(as: String.self)
+                .filter { $0 == "cancel" || $0 == "success" }
+        ) { _ in 
+            shouldDisplayCheckout = false
+        }
+    }
+```
+
 </TabItem>
 
 <TabItem value="swift-async-await">
 
 ```swift title=MyViewController.swift
+import UIKit
+import IonicPortals
+
 class MyViewController: UIViewController {
     var task: Task?
 
@@ -240,6 +273,39 @@ class MyViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         }
     }
+    
+    deinit {
+        task?.cancel()
+    }
+}
+```
+
+```swift title=CartView.swift
+import SwiftUI
+import IonicPortals
+
+struct CartView: View {
+    @State private var shouldShowModal = false
+
+    var body: some View {
+        VStack {
+            Button("Checkout") {
+                shouldShowModal = true
+            } 
+        }
+        .sheet(isPresented: $shouldShowModal) {
+            PortalView(portal: "checkout")
+        }
+        .task {
+            let eventStream = PortalsPubSub.subscribe(to: "dismiss")
+                .compactMap { $0.data as? String }
+
+            for await event in eventStream
+            where event == "cancel" || event == "success" {
+                shouldDisplayCheckout = false
+            }
+        }
+    }
 }
 ```
 
@@ -248,18 +314,21 @@ class MyViewController: UIViewController {
 <TabItem value="swift-vanilla">
 
 ```swift title="MyViewController.swift"
+import UIKit
+
 class MyViewController: UIViewController {
     var subscriptionReference: Int? 
 
     override func viewDidLoad() {
-        subscriptionReference = PortalsPubSub.subscribe("dismiss") { [weak self] result in 
-          guard 
-              let message = result.data as? String,
-              message == "cancel" || message == "sucess"
-          else { return }
+        subscriptionReference = PortalsPubSub
+            .subscribe("dismiss") { [weak self] result in 
+                guard 
+                    let message = result.data as? String,
+                    message == "cancel" || message == "sucess"
+                else { return }
 
-          self?.dismiss(animated: true, completion: nil)
-        }
+                self?.dismiss(animated: true, completion: nil)
+            }
         
         super.viewDidLoad()
     }
@@ -274,18 +343,21 @@ class MyViewController: UIViewController {
 There is also an overload that returns an `AnyCancellable` so that manually calling `PortalsPubSub.unsubscribe(from:subscriptionRef:)` is not needed:
 
 ```swift title="MyViewController.swift"
+import UIKit
+import Combine // import only needed for AnyCancellable visibility
 class MyViewController: UIViewController {
     var dismissCancellable: AnyCancellable? 
 
     override func viewDidLoad() {
-        dismissCancellable = PortalsPubSub.subscribe(to: "dismiss") { [weak self] result in 
-          guard 
-              let message = result.data as? String,
-              message == "cancel" || message == "sucess"
-          else { return }
+        dismissCancellable = PortalsPubSub
+            .subscribe(to: "dismiss") { [weak self] result in 
+                guard 
+                    let message = result.data as? String,
+                    message == "cancel" || message == "sucess"
+                else { return }
 
-          self?.dismiss(animated: true, completion: nil)
-        }
+                self?.dismiss(animated: true, completion: nil)
+            }
         
         super.viewDidLoad()
     }
@@ -512,7 +584,7 @@ To send messages from your native application to the web application, use the `P
 <TabItem value="swift">
 
 ```swift
-PortalsPubSub.publish("weather", message: "sunny")
+PortalsPubSub.publish("sunny" to: "weather")
 ```
 
 </TabItem>
@@ -520,7 +592,7 @@ PortalsPubSub.publish("weather", message: "sunny")
 <TabItem value="objc">
 
 ```objectivec
-[IONPortalsPubSub publishToTopic:@"weather", data:@"sunny"];
+[IONPortalsPubSub publishMessage:@"sunny" toTopic:@"weather"];
 ```
 
 </TabItem>

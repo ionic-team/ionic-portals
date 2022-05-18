@@ -15,9 +15,9 @@ When showing a Portal after a user has logged in, there are a few different ways
 - Using the `PortalsPlugin` to publish a message to the web app with the current auth tokens.
 - Using a custom plugin to send data back and forth from native and web.
 
-### Using PortalBuilder.setInitialContext()
+### Setting the Initial Context
 
-The easiest way to set the Portal's auth tokens is to use the `setInitialContext` function. Using this function will allow you to pass data that can be read almost immediately in the Portal.
+The easiest way to set the Portal's auth tokens is to set the initial context of the portal. The initial context will allow you to pass data that can be read almost immediately in the Portal.
 
 <Tabs 
     defaultValue="swift" 
@@ -31,13 +31,13 @@ The easiest way to set the Portal's auth tokens is to use the `setInitialContext
 <TabItem value="swift">
 
 ```swift {5}
-PortalManager.newPortal("user_page")
-    .setStartDir("web")
-    .setInitialContext([
+let userPage = Portal(
+    name: "user_page",
+    initialContext: [
         "route": "/user",
         "auth": /* Auth Data */
-    ])
-    .create()
+    ]
+)
 ```
 
 </TabItem>
@@ -127,8 +127,8 @@ To subscribe to the topic, call `PortalsPlugin.subcribe()` after loading the Por
 <TabItem value="swift">
 
 ```swift
-PortalsPlugin.subscribe("login") { result in
-    let auth = result
+let cancellable = PortalsPubSub.subscribe(to: "login") { result in
+    let auth = result.data
     // Rest of the native app...
 }
 ```

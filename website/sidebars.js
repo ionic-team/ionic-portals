@@ -63,12 +63,12 @@ module.exports = {
           label: "iOS API",
           collapsed: true,
           items: [
+            "reference/iOS/portals-registration-manager",
             "reference/iOS/portal",
-            "reference/iOS/portal-builder",
-            "reference/iOS/portal-manager",
-            "reference/iOS/portal-webview",
+            "reference/iOS/portal-uiview",
             "reference/iOS/portal-view",
-            "reference/iOS/portals-plugin",
+            "reference/iOS/portals-pubsub",
+            "reference/iOS/portals-publisher"
           ],
         },
         {

@@ -27,7 +27,7 @@ import IonicPortals
 
 class MyViewController: UIViewController {
     override func loadView() {
-        let portal = Portal(name: "MyPortal")
+        let portal = Portal(name: "webapp")
         let portalWebView = PortalWebView(portal: portal)
         self.view = portalWebView
     }
@@ -55,13 +55,9 @@ class MyViewController: UIViewController {
 
 See our [getting started guide](../../getting-started/iOS#using-the-portalwebview) for more information on this approach.
 
-:::info
-Even though there are no Objective-C code samples, the Ionic Portals library can be used with apps written in Objective-C.
-:::
+## Initializers
 
-## Constructors
-
-### constructor
+### `init(portal:)`
 
 #### Usage 
  

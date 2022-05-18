@@ -3,15 +3,14 @@ title: Portal
 sidebar_label: Portal
 ---
 
-The [Portal](./portal) class is the main entry point for your application. It contains the data to be passed into the web context. It is not advised to use this class directly. [PortalBuilder](./portal-builder) or [PortalManager](./) should be used instead to construct a [Portal](./portal) instance.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-:::info
-Even though there are no Objective-C code samples, the Ionic Portals library can be used with apps written in Objective-C.
-:::
+The [Portal](./portal) struct contains the data to initialize and configure your web context. 
 
-## Constructors
+## Initializers
 
-### constructor
+### `init(name:startDir:initialContex:liveUpdateConfig:)`
 
 #### Usage 
 
@@ -54,7 +53,17 @@ Name | Type | Description
 `initialContext` | `JSObject` | Any initial data to be provided to the web app on launch. Defaults to `[:]`.
 `liveUpdateConfig` (optional) | `LiveUpdate?` | The [LiveUpdate](../reference-live-updates/iOS/live-update.md) configuration to associate with the [Portal](./portal). Defaults to `nil`.
 
-**Returns:** <span class="return-code">[*Portal*](./portal)</span>
+### ExpressibleByStringLiteral `init(stringLiteral:)`
+
+This is meant as a convenience for simple usages of a [`Portal`](./portal) where no initial context is needed and the `startDir` and `name` are the same.
+
+#### Usage
+
+```swift
+let portal: Portal = "webapp"
+// or directly passed to a PortalUIView
+let portalView = PortalUIView(portal: "webapp")
+```
 
 ## Properties
 
@@ -72,3 +81,7 @@ The start directory of the portal web app. If this value is not set, the startDi
 
 A `Dictionary` containing key/pair values or a `String` that will be converted to a JavaScript object in the webview on initialization.
 
+### liveUpdateConfig
+__optional__
+
+A `LiveUpdate` struct containing the AppFlow `appId` and `channel` to sync updates from.

@@ -65,7 +65,6 @@ struct PortalsApp: App {
 
 </Tabs>
 
-
 :::caution
 Avoid committing your Portals key to source code repositories where it may be publicly visible!
 :::
@@ -90,7 +89,7 @@ let portal = Portal(name: "webapp")
 let portal: Portal = "webapp"
 ```
 
-By default, a `Portal` will use the `name` property as the directory to load web content from (relative to the root of `Bundle.main`. You can specify another location if needed:
+By default, a `Portal` will use the `name` property as the directory to load web content from (relative to the root of `Bundle.main`). You can specify another location if needed:
 ```swift
 let portal = Portal(name: "webapp", startDir: "portals/webapp")
 ```
