@@ -101,7 +101,7 @@ NSDictionary *order = @{
 
 Name | Type | Description
 :------ | :------ | :------
-`topic` | `String` | The topic associated with the message. [Subscribers](./portals-subscribe#subscribe__) of this topic will receive the message
+`topic` | `String` | The topic associated with the message. [Subscribers](./portals-pubsub#subscribe__) of this topic will receive the message
 `message` | `JSValue?` | A message to send. **Note**: this is transmitted as JSON through the Capacitor Bridge and should be a compatible type: `String`, `Bool`, `Int`, `nil`, an `Array` containing any of those types, or a `Dictionary` keyed by `String` and values being any of the other compatible types (including itself).
 
 ### `subscribe(_:_:)`
@@ -214,13 +214,13 @@ func unsubscribe() {
 Name | Type | Description
 :------ | :------ | :------
 `topic` | `String` | The topic to subscribe to
-`callback` | [`SubscriptionResult`](./portals-plugin#subscriptionresult)` -> ()` | A function to receive and handle the message
+`callback` | [`SubscriptionResult`](./portals-pubsub#subscriptionresult)` -> ()` | A function to receive and handle the message
 
 **Returns:** <span class="return-code">AnyCancellable</span>
 
 ### `publisher(for:)`
 
-Returns a `PortalsPubSub.Publisher` that emits [`SubscriptionResult`](./portals-plugin#subscriptionresult) to downstream subscribers.
+Returns a `PortalsPubSub.Publisher` that emits [`SubscriptionResult`](./portals-pubsub#subscriptionresult) to downstream subscribers.
 
 #### Usage
 
