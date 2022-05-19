@@ -383,7 +383,6 @@ Name | Optional | Type | Description
 :------ | :------ | :------
 `appId` | false | String | The ID of the app registered with Live Updates
 `snapshotId` | false | String |  The snapshot ID of the current Live Update object
-`callback` | true | [IExtractCallback](./i-extract-callback) | A callback to handle the response from the extract request
 
 ### `getApps()`
 Get the map of all registered apps using Live Updates.
