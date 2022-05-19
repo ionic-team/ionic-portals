@@ -107,10 +107,6 @@ module.exports = {
           items: [
             "reference-live-updates/iOS/live-update-manager",
             "reference-live-updates/iOS/live-update",
-            "reference-live-updates/iOS/i-sync-callback",
-            "reference-live-updates/iOS/i-check-callback",
-            "reference-live-updates/iOS/i-download-callback",
-            "reference-live-updates/iOS/i-extract-callback",
             {
               type: "category",
               label: "iOS Data Classes",

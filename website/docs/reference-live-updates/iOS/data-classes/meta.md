@@ -3,11 +3,9 @@ title: Meta
 sidebar_label: "Meta"
 ---
 
-*These classes are used for the LiveUpdate API from Appflow and not intended to be modified*
+*These data types are used for the LiveUpdate API from Appflow and not intended to be modified*
 
-## Meta Class
-
-The Meta class is used to provide misc details about the data download. In an Objective-C context, this class is named `IONMetaResponse`.
+The Meta class is used to provide misc details about the data download. 
 
 ### Parameters
 

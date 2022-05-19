@@ -1,13 +1,11 @@
 ---
-title: Error
-sidebar_label: "Error"
+title: LiveUpdateError
+sidebar_label: "LiveUpdateError"
 ---
 
-*These classes are used for the LiveUpdate API from Appflow and not intended to be modified*
+*These data types are used for the LiveUpdate API from Appflow and not intended to be modified*
 
-## Error Class
-
-The Error class is used to provide errors about the live update download instance. In an Objective-C context, this class is named `IONLiveUpdateError`.
+The Error class is used to provide errors about the live update download instance.
 
 ### Parameters
 
@@ -17,4 +15,4 @@ Name | Type | Description
 `message` | String | The API response message
 `type` | String | The API response type
 `details` | [[Details]?](./details) | An array of error details
-`event_id` | String | The event ID of the thrown error from the API
+`eventId` | String | The event ID of the thrown error from the API
