@@ -192,6 +192,9 @@ In an effort to make the `PortalsPlugin` more focused on simply exposing native 
 let subscriptionRef = PortalsPlugin.subscribe("topic") { result in 
     // do something with result
 }
+
+PortalsPlugin.publish("topic", "data")
+PortalsPlugin.unsubscribe("topic", subscriptionRef)
 ```
 
 **After**
@@ -200,6 +203,9 @@ let subscriptionRef = PortalsPlugin.subscribe("topic") { result in
 let subscriptionRef = PortalsPubSub.subscribe("topic") { result in
     // do something with result
 }
+
+PortalsPubSub.publish("data", to: "topic")
+PortalsPubSub.unsubscribe(from: "topic", subscriptionRef: subscriptionRef)
 ```
 
 ### Improvements and API Changes to PubSub Interface
