@@ -3,11 +3,9 @@ title: IonData
 sidebar_label: "IonData"
 ---
 
-*These classes are used for the LiveUpdate API from Appflow and not intended to be modified*
+*These data types are used for the LiveUpdate API from Appflow and not intended to be modified*
 
-## IonData Class
-
-The IonData class is used to provide details in the SuccessResponse data class.
+The IonData struct is used to provide details in the SuccessResponse data class.
 
 ### Parameters
 

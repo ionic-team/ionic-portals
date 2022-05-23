@@ -16,6 +16,7 @@ module.exports = {
     "portal-communication",
     "choosing-a-communication",
     "live-updates",
+    "upgrade-guides",
     {
       type: "category",
       label: "Getting Started",
@@ -63,12 +64,12 @@ module.exports = {
           label: "iOS API",
           collapsed: true,
           items: [
+            "reference/iOS/portals-registration-manager",
             "reference/iOS/portal",
-            "reference/iOS/portal-builder",
-            "reference/iOS/portal-manager",
-            "reference/iOS/portal-webview",
-            "reference/iOS/portal-webuiview",
-            "reference/iOS/portals-plugin",
+            "reference/iOS/portal-uiview",
+            "reference/iOS/portal-view",
+            "reference/iOS/portals-pubsub",
+            "reference/iOS/portals-publisher"
           ],
         },
         {
@@ -107,10 +108,6 @@ module.exports = {
           items: [
             "reference-live-updates/iOS/live-update-manager",
             "reference-live-updates/iOS/live-update",
-            "reference-live-updates/iOS/i-sync-callback",
-            "reference-live-updates/iOS/i-check-callback",
-            "reference-live-updates/iOS/i-download-callback",
-            "reference-live-updates/iOS/i-extract-callback",
             {
               type: "category",
               label: "iOS Data Classes",
