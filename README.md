@@ -41,10 +41,10 @@ Portals is free to use in non-production environments. Businesses with more than
 
 ### Is Portals Open Source?
 
-See our [license](https://github.com/ionic-team/ionic-portals/blob/main/LICENSE.md).
+See the [license](https://github.com/ionic-team/ionic-portals/blob/main/LICENSE.md).
 
 ### How is Portals Related to Capacitor and Ionic?
 
 Ionic Portals is a solution that lets you add web-based experiences to your native mobile apps. Portals uses [Capacitor](https://capacitorjs.com) as a bridge between the native code and the web code to allow for cross-communication between the two layers. Because Portals uses Capacitor under the hood, you are able to use any existing [Capacitor Plugins](https://capacitorjs.com/docs/plugins) and even most [Cordova Plugins](https://capacitorjs.com/docs/plugins/cordova) while continuing to use your existing native workflow.
 
-[Ionic Framework](https://ionicframework.com/) is the open-source mobile app development framework that makes it easy to build top quality native and progressive web apps with web technologies. Your web experiences can be developed with Ionic, but it is not necessary to use Portals.
+[Ionic Framework](https://ionicframework.com/) is the open source mobile app development framework that makes it easy to build top quality native and progressive web apps with web technologies. You can develop your web experiences with Ionic, but it's not necessary to use Portals.
