@@ -24,33 +24,20 @@ The following examples show how an active Portal could be reloaded after a Live 
 >
 <TabItem value="swift">
 
-```swift
-// Placed in an iOS View Controller
-override fun viewDidLoad() {
-  // Get the current portal webview
-  let portalWebView = MyViewController.getPortalWebview()
+```swift title="ViewController.swift"
+override func viewDidLoad() {
+    LiveUpdateManager.shared.sync(appId: self.appId) { result in 
+        switch result {
+        case .error(let error):
+            // handle error
+            print("Sync failed with error: \(error)")
+        case .success:
+            self.portalView.reload() 
+        }
+      }
 
-  LiveUpdateManager.checkForUpdate(appId, channel) { checkResponse in
-    // code will only be called if there is an update available
-    LiveUpdateManager.sync(callbacks: MyLiveUpdateCallbacks())
-  }
-
-  super.viewDidLoad()
+    super.viewDidLoad()
 }
-
-// ...
-
-private class MyLiveUpdateCallbacks: ISyncCallback {
-  private let portalWebView: PortalWebView
-
-  init(_ portalWebView: PortalWebView) { self.portalWebView = portalWebView }
-  func onAppComplete() { print("App Complete!") }
-  func onSyncComplete() {
-    print("Sync complete! Reloading Portal")
-    portalWebView.reload()
-  }
-}
-
 ```
 
 </TabItem>

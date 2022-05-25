@@ -16,6 +16,7 @@ module.exports = {
     "portal-communication",
     "choosing-a-communication",
     "live-updates",
+    "upgrade-guides",
     {
       type: "category",
       label: "Getting Started",
@@ -32,13 +33,14 @@ module.exports = {
       label: "How To",
       collapsed: false,
       items: [
+        "how-to/get-a-product-key",
         "how-to/pull-in-web-bundle",
         "how-to/using-the-portals-plugin",
         "how-to/using-a-capacitor-plugin",
         "how-to/define-api-in-typescript",
         "how-to/multiple-portals-single-web-app",
         "how-to/multiple-portals-multiple-web-apps",
-        "how-to/get-a-product-key",
+        "how-to/advanced-configuration",
         "how-to/sync-with-live-updates",
         "how-to/reloading-with-live-updates",
       ],
@@ -62,12 +64,12 @@ module.exports = {
           label: "iOS API",
           collapsed: true,
           items: [
+            "reference/iOS/portals-registration-manager",
             "reference/iOS/portal",
-            "reference/iOS/portal-builder",
-            "reference/iOS/portal-manager",
-            "reference/iOS/portal-webview",
-            "reference/iOS/portal-webuiview",
-            "reference/iOS/portals-plugin",
+            "reference/iOS/portal-uiview",
+            "reference/iOS/portal-view",
+            "reference/iOS/portals-pubsub",
+            "reference/iOS/portals-publisher"
           ],
         },
         {
@@ -106,10 +108,6 @@ module.exports = {
           items: [
             "reference-live-updates/iOS/live-update-manager",
             "reference-live-updates/iOS/live-update",
-            "reference-live-updates/iOS/i-sync-callback",
-            "reference-live-updates/iOS/i-check-callback",
-            "reference-live-updates/iOS/i-download-callback",
-            "reference-live-updates/iOS/i-extract-callback",
             {
               type: "category",
               label: "iOS Data Classes",

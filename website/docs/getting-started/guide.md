@@ -114,13 +114,12 @@ values={[
 <TabItem value="ios">
 
 ```swift title=AppDelegate.swift
-import SwiftUI
 import IonicPortals
 
 @main
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        PortalManager.register("MY_API_KEY")
+        PortalsRegistrationManager.shared.register("MY_API_KEY")
         // setup portals...
         return true
     }

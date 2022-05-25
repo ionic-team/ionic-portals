@@ -47,7 +47,7 @@ First, you'll need to [install the proper dependencies](../getting-started/guide
 ```swift title=EchoPlugin.swift
 import Capacitor
 
-@objc(ECHO_PLUGIN)
+@objc(MYYEchoPlugin)
 public class EchoPlugin: CAPPlugin {
   @objc func echo(_ call: CAPPluginCall) {
     let value = call.getString("value");
@@ -57,7 +57,7 @@ public class EchoPlugin: CAPPlugin {
 ```
 
 :::info
-In iOS, if you require Objective-C compatibility, you'll also need a file called `EchoPlugin.m` to create Objective-C bindings with helper functions that Capacitor provides. Below is an example of `EchoPlugin` Objective-C bindings.
+You'll also need a file called `EchoPlugin.m` to create Objective-C bindings through helper macros that Capacitor provides. Below is an example of `EchoPlugin` Objective-C bindings.
 
 ```c title=EchoPlugin.m
 #import <Capacitor/Capacitor.h>
@@ -150,18 +150,7 @@ PortalManager.newPortal("echo_portal")
 
 ### iOS
 
-After a Portal has loaded, you will need to inject the Plugin to the Portal's [bridge](https://capacitorjs.com/blog/how-capacitor-works#native-bridge). You can do this in the [viewDidLoad](https://developer.apple.com/documentation/uikit/uiviewcontroller/1621495-viewdidload) function.
-
-```swift
-override func viewDidLoad() {
-    // Inject the plugin into the native bridge
-    apiPlugin = bridge?.plugin(withName: "EchoPlugin") as? EchoPlugin
-    
-    // now call super which will start the initial load
-    super.viewDidLoad()
-    
-}
-```
+After a Portal has loaded, your custom plugin will be automatically registered on initialization of the Capacitor runtime.
 
 ## Calling Your Plugin Code via the Web
 

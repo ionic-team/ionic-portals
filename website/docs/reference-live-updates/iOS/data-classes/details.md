@@ -3,11 +3,9 @@ title: Details
 sidebar_label: "Details"
 ---
 
-*These classes are used for the LiveUpdate API from Appflow and not intended to be modified*
+*These data types are used for the LiveUpdate API from Appflow and not intended to be modified*
 
-## Details Class
-
-The Details class is used to provide error details about the live update download instance. In Objective-C contexts, it is named `IONLiveUpdateDetails`
+The Details struct is used to provide error details about the live update download instance.
 
 ### Parameters
 
