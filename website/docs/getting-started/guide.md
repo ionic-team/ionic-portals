@@ -33,6 +33,8 @@ values={[
 ]}>
 <TabItem value="ios">
 
+### Cocoapods
+
 :::note
 IonicPortals requires using Cocoapods 1.10 or greater.
 :::
@@ -45,7 +47,13 @@ To add Portals to your iOS project, put the following line to your `Podfile`:
 
 And then run `pod install`.
 
+### Swift Package Manager
+
+Add https://github.com/ionic-team/ionic-portals-ios in the Xcode "Swift Package Dependencies" tab in the project configuration. The suggested version range
+is "Up to Next Minor Version" to prevent auto-updating to a breaking version before Ionic Portals iOS reaches version 1.0
+
 </TabItem>
+
 <TabItem value="android">
 
 To add Portals to your Android project, add the dependency to your `build.gradle` files
@@ -84,7 +92,7 @@ allprojects {
 
 <TabItem value="web">
 
-To add Portals to your web project(s), install it via NPM:
+To add Portals to your web project, install it via NPM:
 
 <CodeBlock className="language-bash">
 {`
@@ -97,13 +105,9 @@ npm install @ionic/portals@${getPortalsVersion()}
 
 </Tabs>
 
-:::info
-It is important to keep the version of Portals in sync between all the platforms.
-:::
-
 ## Configure
 
-After installing the dependency you need to register your copy of Ionic Portals at runtime. This will work both offline and in production. You'll need to call [PortalManager.register(myApiKey)](../reference/android/portal-manager#register) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.
+After installing the dependency you need to register your copy of Ionic Portals at runtime. This works both offline and in production. You'll need to call [PortalManager.register(myApiKey)](../reference/android/portal-manager#register) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.
 
 <Tabs
 defaultValue="ios"
@@ -145,6 +149,6 @@ class MyApplication : Application() {
 </TabItem>
 </Tabs>
 
-:::caution
-Avoid committing your Portals key to source code repositories where it may be publicly visible!
+:::warning
+Avoid committing your Portals key to source code repositories where it may be publicly visible
 :::
