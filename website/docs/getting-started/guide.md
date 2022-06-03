@@ -6,7 +6,7 @@ sidebar_label: Getting Started Guide
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
+import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getiOSMinVersion, getAndroidMinSdk } from '@site/src/util';
 
 ## Signup
 
@@ -152,3 +152,24 @@ class MyApplication : Application() {
 :::warning
 Avoid committing your Portals key to source code repositories where it may be publicly visible
 :::
+
+## Supported Platform Versions 
+
+<table>
+  <tr>
+    <th>Platform</th>
+    <th>Latest Portals Version</th>
+    <th>Minimum Supported Platform Version</th>
+  </tr>
+  <tr>
+    <td>iOS</td>
+    <td>{getPortalsVersionIos()}</td>
+    <td>iOS {getiOSMinVersion()}</td>
+  </tr>
+  <tr>
+    <td>Android</td>
+    <td>{getPortalsVersionAndroid()}</td>
+    <td>Android SDK {getAndroidMinSdk()}</td>
+  </tr>
+</table>
+
