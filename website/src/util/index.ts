@@ -20,3 +20,14 @@ export const getPortalsVersionAndroid = () => {
     const { siteConfig } = useDocusaurusContext();
     return siteConfig.customFields.portalsVersionAndroid;
 }
+
+export const getiOSMinVersion = () => {
+    const { siteConfig } = useDocusaurusContext();
+    return siteConfig.customFields.iosMinVersion;
+}
+
+export const getAndroidMinSdk = () => {
+    const { siteConfig } = useDocusaurusContext();
+    return siteConfig.customFields.androidMinSdk;
+}
+

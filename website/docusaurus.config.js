@@ -67,5 +67,7 @@ module.exports = {
     portalsVersionIos: lernaConfig.iosVersion,
     portalsVersionAndroid: lernaConfig.androidVersion,
     capacitorVersion: lernaConfig.capacitorVersion,
+    iosMinVersion: lernaConfig.iosMinVersion,
+    androidMinSdk: lernaConfig.androidMinSdk
   }
 };
