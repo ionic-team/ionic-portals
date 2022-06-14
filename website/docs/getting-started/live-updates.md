@@ -61,7 +61,7 @@ To add Live Updates to your Portals Android project, add the dependency to your 
 // ----------------------------------------------
 dependencies {
     implementation 'io.ionic:portals:${getPortalsVersionAndroid()}'
-    implementation 'io.ionic:liveupdates:0.0.5'
+    implementation 'io.ionic:liveupdates:0.0.7'
 }`.trim()
 }
 </CodeBlock>
