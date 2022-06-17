@@ -17,6 +17,7 @@ module.exports = {
     "choosing-a-communication",
     "live-updates",
     "upgrade-guides",
+    "known-issues",
     {
       type: "category",
       label: "Getting Started",
