@@ -8,22 +8,31 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 
+<head>
+  <title>How to Use Capacitor Plugins: Core & Others | Ionic</title>
+  <meta
+    name="description"
+    content="Learn how to use Capacitor Core Plugins as well as those made by the community. These allow portals to use native functionality with minimal configuration."
+  />
+</head>
+
 Ionic Portals uses Capacitor under the hood, meaning that you can use [Capacitor Plugins](https://capacitorjs.com/docs/plugins) in your Portals. This means you can take advantage of our suite of [Capacitor Core Plugins](https://capacitorjs.com/docs/apis) in your Portals, as well as any plugins made by the community. These plugins allow Portals to use native functionality with minimal configuration by the native developer or the web developer.
 
 ## Core Plugins
 
 Capacitor [Core Plugins](https://capacitorjs.com/docs/apis) are plugins built by the Capacitor team and provided for you to use conveniently through public repositories.
 
-<Tabs 
-    defaultValue="ios" 
-    values={[
-        { label: 'iOS', value: 'ios', },
-        { label: 'Android', value: 'android', },
-    ]}
->
-<TabItem value="ios">
+<Tabs
+defaultValue="ios"
+values={[
+{ label: 'iOS', value: 'ios', },
+{ label: 'Android', value: 'android', },
+]}
+
+> <TabItem value="ios">
 
 ### iOS Native Usage
+
 In order to use a Capacitor Core Plugin, you need to install the plugin as a dependency in your `Podfile`.
 
 <CodeBlock className="language-ruby" title="Podfile">
@@ -132,6 +141,7 @@ The Toast API provides a notification pop up for displaying important informatio
 <TabItem value="android">
 
 ### Android Native Usage
+
 In order to use a Capacitor Core Plugin, you need to install the plugin as a dependency in your `build.gradle` file.
 
 <CodeBlock className="language-groovy" title="build.gradle">
@@ -150,14 +160,14 @@ To avoid errors, make sure that the versions in your `build.gradle` and `package
 
 Next, include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="kt">
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}
+
+> <TabItem value="kt">
 
 ```kotlin
 var builder: PortalBuilder = someValue
@@ -265,11 +275,11 @@ The Text Zoom API provides the ability to change Web View text size for visual a
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
 
-
 </TabItem>
 </Tabs>
 
 ### Web Usage
+
 Web Developers need to install the web dependencies of the plugins from `npm`. The packages are listed under the `@capacitor` scope. To install a plugin, run `npm i @capacitor/<plugin_name>` from the root of your web project.
 
 :::warning
@@ -294,19 +304,21 @@ npm i @capacitor-community/stripe
 
 The native code from the plugin needs to be made available to each native project using Portals.
 
-<Tabs 
-    defaultValue="ios" 
-    values={[
-        { label: 'iOS', value: 'ios', },
-        { label: 'Android', value: 'android', },
-    ]}
->
-<TabItem value="ios">
+<Tabs
+defaultValue="ios"
+values={[
+{ label: 'iOS', value: 'ios', },
+{ label: 'Android', value: 'android', },
+]}
+
+> <TabItem value="ios">
 
 In your project `Podfile`, define the path to the folder containing the plugin's Podspec file.
-```ruby 
+
+```ruby
 pod 'CapacitorPluginName', :path => '../../webapp/node_modules/@custom-capacitor/plugin'
 ```
+
 The path to the Podspec file is typically the source root of the plugin project, not in the platform specific subfolder.
 
 </TabItem>
@@ -337,14 +349,14 @@ If successful, you should now see a section in the Android Studio project browse
 
 ### Register the Plugin
 
-<Tabs 
-    defaultValue="ios" 
-    values={[
-        { label: 'iOS', value: 'ios', },
-        { label: 'Android', value: 'android', },
-    ]}
->
-<TabItem value="ios">
+<Tabs
+defaultValue="ios"
+values={[
+{ label: 'iOS', value: 'ios', },
+{ label: 'Android', value: 'android', },
+]}
+
+> <TabItem value="ios">
 
 Plugins are automatically registered on iOS.
 
@@ -353,14 +365,14 @@ Plugins are automatically registered on iOS.
 
 Register the plugin with a portal to use it.
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="kt">
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}
+
+> <TabItem value="kt">
 
 ```kotlin
 class MyApplication : Application() {
@@ -381,17 +393,20 @@ class MyApplication : Application() {
 
 ```java
 public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        PortalManager.register("MY_API_KEY");
 
-        String portalId = "MY_FIRST_PORTAL";
-        PortalManager.newPortal(portalId)
-                     .addPlugin(MyCapacitorPlugin.class)
-                     .create();
-    }
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    PortalManager.register("MY_API_KEY");
+
+    String portalId = "MY_FIRST_PORTAL";
+    PortalManager
+      .newPortal(portalId)
+      .addPlugin(MyCapacitorPlugin.class)
+      .create();
+  }
 }
+
 ```
 
 </TabItem>
