@@ -27,9 +27,7 @@ defaultValue="ios"
 values={[
 { label: 'iOS', value: 'ios', },
 { label: 'Android', value: 'android', },
-]}
-
-> <TabItem value="ios">
+]}> <TabItem value="ios">
 
 ### iOS Native Usage
 
