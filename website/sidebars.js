@@ -26,6 +26,7 @@ module.exports = {
         "getting-started/guide",
         "getting-started/iOS",
         "getting-started/android",
+        "getting-started/react-native",
         "getting-started/live-updates",
       ],
     },
