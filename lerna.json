@@ -18,8 +18,10 @@
   },
   "version": "0.5.0",
   "iosVersion": "0.6.1",
-  "androidVersion": "0.5.1",
+  "androidVersion": "0.6.0",
+  "rnVersion": "0.0.4",
   "capacitorVersion": "3.4.1",
   "iosMinVersion": "13.0",
-  "androidMinSdk": "21"
+  "androidMinSdk": "21",
+  "rnMinVersion": "0.63.4"
 }

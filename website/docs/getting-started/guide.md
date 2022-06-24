@@ -6,7 +6,7 @@ sidebar_label: Getting Started Guide
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getiOSMinVersion, getAndroidMinSdk } from '@site/src/util';
+import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
 
 ## Signup
 
@@ -30,6 +30,7 @@ values={[
 { label: 'iOS', value: 'ios', },
 { label: 'Android', value: 'android', },
 { label: 'Web', value: 'web', },
+{ label: 'React Native', value: 'react-native' }
 ]}>
 <TabItem value="ios">
 
@@ -95,10 +96,17 @@ allprojects {
 To add Portals to your web project, install it via NPM:
 
 <CodeBlock className="language-bash">
-{`
-npm install @ionic/portals@${getPortalsVersion()}
-`.trim()
-}
+{`npm install @ionic/portals@${getPortalsVersion()}`}
+</CodeBlock>
+
+</TabItem>
+
+<TabItem value="react-native">
+
+To add Portals to your React Native project, install it via NPM:
+
+<CodeBlock className="language-bash">
+{`npm install @ionic/portals-react-native@${getPortalsVersionRN()}`}
 </CodeBlock>
 
 </TabItem>
@@ -114,6 +122,7 @@ defaultValue="ios"
 values={[
 { label: 'iOS', value: 'ios', },
 { label: 'Android', value: 'android', },
+{ label: 'React Native', value: 'react-native' }
 ]}>
 <TabItem value="ios">
 
@@ -147,6 +156,15 @@ class MyApplication : Application() {
 ```
 
 </TabItem>
+<TabItem value="react-native">
+
+```javascript title=App.tsx
+import { register } from '@ionic/portals-react-native';
+
+register('MY_API_KEY');
+```
+
+</TabItem>
 </Tabs>
 
 :::warning
@@ -170,6 +188,11 @@ Avoid committing your Portals key to source code repositories where it may be pu
     <td>Android</td>
     <td>{getPortalsVersionAndroid()}</td>
     <td>Android SDK {getAndroidMinSdk()}</td>
+  </tr>
+  <tr>
+    <td>React Native</td>
+    <td>{getPortalsVersionRN()}</td>
+    <td>React Native {getRnMinVersion()}</td>
   </tr>
 </table>
 
