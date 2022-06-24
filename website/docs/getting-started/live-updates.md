@@ -6,7 +6,7 @@ sidebar_label: Live Updates
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
+import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN } from '@site/src/util';
 
 Getting started with Live Updates in your Portals app.
 
@@ -37,10 +37,11 @@ defaultValue="ios"
 values={[
 { label: 'iOS', value: 'ios', },
 { label: 'Android', value: 'android', },
+{ label: 'React Native', value: 'react-native' }
 ]}>
 <TabItem value="ios">
 
-Live Updates is already added to your iOS project if you have the depdency for Portals in your `Podfile`:
+Live Updates is already added to your iOS project if you have the dependency for Portals in your `Podfile`:
 
 <CodeBlock className="language-ruby" title="Podfile">
 {`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
@@ -86,6 +87,16 @@ allprojects {
 
 </TabItem>
 
+<TabItem value="react-native">
+
+Live Updates is already added to your React Native project if you have the dependency for Portals in your `package.json`:
+
+<CodeBlock className="language-bash">
+{`npm install @ionic/portals-react-native@${getPortalsVersionRN()}`}
+</CodeBlock>
+
+</TabItem>
+
 </Tabs>
 
 ## Configure
@@ -97,6 +108,7 @@ defaultValue="ios"
 values={[
 { label: 'iOS', value: 'ios', },
 { label: 'Android', value: 'android', },
+{ label: 'React Native', value: 'react-native', }
 ]}>
 <TabItem value="ios">
 
@@ -149,6 +161,24 @@ class MyApplication : Application() {
             .create()
     }}
 }
+```
+
+</TabItem>
+<TabItem value="react-native">
+
+```javascript title=App.tsx
+import { addPortal } from '@ionic/portals-react-native';
+
+const portal = {
+  name: 'checkout',
+  liveUpdate: {
+    appId: 'ebd6138b', 
+    channel: 'production',
+    syncOnAdd: true // pass false if you do not want a sync to immediately occur
+  }
+};
+
+addPortal(portal);
 ```
 
 </TabItem>
