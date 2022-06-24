@@ -152,6 +152,21 @@ PortalManager.newPortal("echo_portal")
 
 After a Portal has loaded, your custom plugin will be automatically registered on initialization of the Capacitor runtime.
 
+### React Native
+
+You will need to add the classpath to your custom plugin for Android:
+
+```javascript
+import { addPortal } from '@ionic/portals-react-native';
+
+const echoPortal = {
+  name: 'echoPortal',
+  androidPlugins: ['com.myapplication.echo.EchoPlugin']
+};
+
+addPortal(echoPortal);
+```
+
 ## Calling Your Plugin Code via the Web
 
 Once the Plugin has been defined, implemented, and initialized in the native code, you will need to register the Plugin on the web. To do this, you can use the `Capacitor.registerPlugin()` function. After calling this function, Capacitor will handle communication across native and web code.
