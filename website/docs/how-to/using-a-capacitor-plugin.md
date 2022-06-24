@@ -19,6 +19,7 @@ Capacitor [Core Plugins](https://capacitorjs.com/docs/apis) are plugins built by
     values={[
         { label: 'iOS', value: 'ios', },
         { label: 'Android', value: 'android', },
+        { label: 'React Native', value: 'react-native', }
     ]}
 >
 <TabItem value="ios">
@@ -264,6 +265,25 @@ The Text Zoom API provides the ability to change Web View text size for visual a
 **com.capacitorjs.toast**
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
+
+
+</TabItem>
+<TabItem value="react-native">
+
+### React Native Usage
+
+Follow the instructions for both Android and iOS in your native applications. When creating your portal, you will need to specify the android classpath for the plugin class you intend to use:
+
+```javascript
+import { addPortal } from '@ionic/portals-react-native';
+
+const cameraPortal = {
+  name: 'camera',
+  androidPlugins: ['com.capacitorjs.plugins.camera.CameraPlugin']
+};
+
+addPortal(cameraPortal);
+```
 
 
 </TabItem>
