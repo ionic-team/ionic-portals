@@ -15,6 +15,7 @@ In order to use web applications in your native applications, you'll need to pro
     values={[
         { label: 'iOS', value: 'ios', },
         { label: 'Android', value: 'android', },
+        { label: 'React Native', value: 'react-native' }
     ]}
 >
 <TabItem value="ios">
@@ -72,6 +73,24 @@ PortalManager.newPortal("MY_PORTAL_ID")
 </TabItem>
 
 </Tabs>
+
+</TabItem>
+<TabItem value="react-native">
+
+Follow the instructions for both Android and iOS in your native applications. You should make the start directories the same between both platforms to avoid issues rendering a Portal.
+
+```javascript
+import { addPortal } from '@ionic/portals-react-native';
+
+const help = {
+  name: 'myPortalWebApp'
+};
+// or...using a different portalId and starting directory
+const help = {
+  name: 'help',
+  startDir: 'myPortalWebApp'
+};
+```
 
 </TabItem>
 </Tabs>
