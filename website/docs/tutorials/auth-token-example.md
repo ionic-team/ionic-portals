@@ -25,6 +25,7 @@ The easiest way to set the Portal's auth tokens is to set the initial context of
         { label: 'Swift', value: 'swift', },
         { label: 'Kotlin', value: 'kt', },
         { label: 'Java', value: 'java', },
+        { label: 'React Native', value: 'react-native' },
     ]}
 >
 
@@ -66,6 +67,25 @@ PortalManager.newPortal("user_page")
         new AbstractMap.SimpleEntry<String, @NotNull Object>("auth", /* Auth Data */)
     ))
     .create();
+```
+
+</TabItem>
+
+<TabItem value="react-native">
+
+```javascript
+import { addPortal } from '@ionic/portals-react-native';
+
+const userPage = {
+  name: 'user_page',
+  startDir: 'web',
+  initialContext: {
+    route: '/user',
+    auth: /* Auth Data */
+  }
+};
+
+addPortal(userPage);
 ```
 
 </TabItem>
@@ -121,6 +141,7 @@ To subscribe to the topic, call `PortalsPlugin.subcribe()` after loading the Por
         { label: 'Swift', value: 'swift', },
         { label: 'Kotlin', value: 'kt', },
         { label: 'Java', value: 'java', },
+        { label: 'React Native', value: 'react-native' },
     ]}
 >
 
@@ -152,6 +173,19 @@ PortalsPlugin.subscribe("login") { result ->
 PortalsPlugin.subscribe("login", (@NotNull Object result) -> {
     Object auth = result;
     // Rest of the native app...
+});
+```
+
+</TabItem>
+
+<TabItem value="react-native">
+
+```javascript
+import { subscribe } from '@ionic/portals-react-native';
+
+const subscriptionRef = await subscribe('login', message => {
+  const auth = message.data;
+  // Rest of the React Native app...
 });
 ```
 
