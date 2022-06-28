@@ -8,6 +8,14 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 
+<head>
+  <title>How to Use Capacitor Plugins: Core & Others | Ionic</title>
+  <meta
+    name="description"
+    content="Learn how to use Capacitor Core Plugins as well as those made by the community. These allow portals to use native functionality with minimal configuration."
+  />
+</head>
+
 Ionic Portals uses Capacitor under the hood, meaning that you can use [Capacitor Plugins](https://capacitorjs.com/docs/plugins) in your Portals. This means you can take advantage of our suite of [Capacitor Core Plugins](https://capacitorjs.com/docs/apis) in your Portals, as well as any plugins made by the community. These plugins allow Portals to use native functionality with minimal configuration by the native developer or the web developer.
 
 ## Core Plugins
