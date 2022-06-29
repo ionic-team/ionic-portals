@@ -160,6 +160,33 @@ mapsPortal.setInitialContext(Map.of("ic_example", "hello world"));
 
 </Tabs>
 
+#### React Native
+
+You can provide initial context when registering a Portal:
+```javascript
+import { addPortal } from '@ionic/portals-react-native'; 
+
+const portal = {
+  name: 'maps',
+  startDir: 'web',
+  initialContext: {
+    ic_example: 'hello world'
+  }
+}
+
+addPortal(portal)
+```
+
+You can also override any initial context when rendering a Portal:
+```javascript
+import { PortalView } from '@ionic/portals-react-native';
+
+<PortalView
+  name='maps',
+  initialContext={{ic_example: 'goodbye'}}
+/>
+```
+
 ### Using Initial Context
 
 To access the initial context from the `PortalsPlugin` class in your web application, import Portals and use the [Portals.getInitialContext()](../reference/web/portals-plugin#getinitialcontext) function.
@@ -558,6 +585,29 @@ public void dismiss(String result) {
 
 </Tabs>
 
+#### React Native
+
+Subscribe to messages from the web:
+```javascript
+import { subscribe } from '@ionic/portals-react-native';
+
+let subscriptionReference = await subscribe('topic', message => {
+  // Here you have access to:
+  // message.data - Any data sent from the web
+  // message.subscriptionRef - The subscription reference used to manage the lifecycle of the subscription
+  // message.topic - The topic the message was published on
+})
+```
+
+When you no longer need to receive events, unsubscribe:
+```javascript
+import { unsubscribe } from '@ionic/portals-react-native';
+
+unsubscribe('channel:topic', subscriptionReference)
+```
+
+You must unsubscribe to avoid any potential memory issues.
+
 ### Publishing Messages
 
 Publish messages to send data through a Portal to registered Subscribers.
@@ -627,6 +677,17 @@ PortalsPlugin.publish("weather", "sunny");
 </TabItem>
 
 </Tabs>
+
+
+#### From React Native to Web
+
+To send messages from your React Native app to the web, use the `publish` method:
+
+```javascript
+import { publish } from '@ionic/portals-react-native';
+
+publish('weather', 'sunny')
+```
 
 ## Examples
 
