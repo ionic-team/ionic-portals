@@ -80,7 +80,34 @@ int main(int argc, char *argv[])
 ```
 
 ### Podfile
-Because many of the Ionic Portals dependencies are comprised of Swift code and have custom module maps, you will need to add `use_frameworks!` to your iOS Podfile and remove `use_flipper!()`
+
+There are two methods you may use to ensure Portals can integrate into your React Native application: a custom `pre_install` hook or adding `use_frameworks!` to your Podfile. Only one of these approaches is needed to ensure that Capacitor is compiled as a dynamic framework.
+
+#### pre_install
+
+Using the `pre_install` hook allows you to keep all the other React Native dependencies as static frameworks:
+```ruby
+# These frameworks are required to be dynamic. 
+dynamic_frameworks = ['Capacitor', 'CapacitorCordova']
+
+pre_install do |installer|
+  installer.pod_targets.each do |pod|
+    if dynamic_frameworks.include?(pod.name)
+      def pod.static_framework?
+        false
+      end
+      def pod.build_type
+        Pod::BuildType.dynamic_framework
+      end
+    end
+  end
+end
+```
+
+#### use_frameworks
+
+Alternative to the `pre_install` hook, you can add `use_frameworks!` to your Podfile application target. This forces all dependencies to be dynamic frameworks. Using this approach requires removing `use_flipper!()` from the Podfile.
+
 
 ## Communicating between React Native and Web
 One of the key features of Ionic Portals for React Native is facilitating communication between the web and React Native layers of your application.
