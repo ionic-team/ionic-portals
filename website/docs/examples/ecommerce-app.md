@@ -21,7 +21,7 @@ Web Screens
 - Help Page
 - User Details Page
 
-![Example banner](/img/ecommerce-storyboard.svg)
+![Example banner](/img/portals-diagram-swift.png)
 
 The source is [available on GitHub](https://github.com/ionic-team/portals-ecommerce-demo/) and includes the iOS, Android, and Web projects.
 

@@ -151,6 +151,7 @@ module.exports = {
       items: [
         "examples/ecommerce-app",
         "examples/ecommerce-app-live-updates",
+        "examples/ecommerce-react-native"
       ],
     },
     "plugin-overview",
