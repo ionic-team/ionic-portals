@@ -43,6 +43,7 @@ A function to validate the registration of the Ionic Portals instance with your 
 
 :::caution
 Avoid committing your Portals key to source code repositories where it may be publicly visible!
+On iOS, you can use an [`.xcconfig` file](https://nshipster.com/xcconfig/) to keep it out of a public repository.
 :::
 
 #### Usage

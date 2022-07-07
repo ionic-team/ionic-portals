@@ -201,6 +201,7 @@ A function to validate the registration of the Ionic Portals instance with your 
 
 :::caution
 Avoid committing your Portals key to source code repositories where it may be publicly visible!
+On Android, you can use the [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plugin) to keep it out of a public repository.
 :::
 
 #### Usage

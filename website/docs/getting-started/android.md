@@ -51,6 +51,7 @@ public class MyApplication extends Application {
 
 :::caution
 Avoid committing your Portals key to source code repositories where it may be publicly visible!
+On Android, you can use the [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plugin) to keep it out of a public repository.
 :::
 
 After creating a custom Application class, be sure to add the `android:name` attribute to your `application` tag in the `AndroidManifest.xml`.

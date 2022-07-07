@@ -168,7 +168,9 @@ register('MY_API_KEY');
 </Tabs>
 
 :::warning
-Avoid committing your Portals key to source code repositories where it may be publicly visible
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+On Android, you can use the [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plugin) to keep it out of a public repository.
+On iOS, you can use an [`.xcconfig` file](https://nshipster.com/xcconfig/) to keep it out of a public repository.
 :::
 
 ## Supported Platform Versions 
