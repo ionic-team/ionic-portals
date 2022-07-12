@@ -24,7 +24,11 @@ Your web application needs to be copied into your native application. On iOS, pu
 
 ![iOS Web Asset Directory](../../static/img/how-to/ios-web-asset-folder.png)
 
-You will need to include the folder in XCode (and not just simply copy the folder to the right directory).
+:::info
+You must ensure that you add your web application root folder as a folder reference and not as a group in Xcode. Otherwise, your directory structure will be ignored and the Portal will not render. If you have completed this step successfully, the folder icon in Xcode will be **blue**.
+
+![iOS Add folder as reference](../../static/img/how-to/ios-create-folder-references.png)
+:::
 
 
 ```swift
