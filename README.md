@@ -31,9 +31,13 @@ See our docs to [get started with Portals](https://ionic.io/docs/portals/getting
 
 ## Registration
 
-The Ionic Portals libraries for Android and iOS require a **free** license key to use. Once you have integrated Portals into your project, login to your ionic account to get a key. See our doc on [how to register for free and get your Portals license key](https://ionic.io/docs/portals/how-to/get-a-product-key) and refer to the [Android](https://ionic.io/docs/portals/getting-started/android) or [iOS](https://ionic.io/docs/portals/getting-started/iOS) getting started guides to see where to add your key.
+The Ionic Portals libraries for [Android](https://github.com/ionic-team/ionic-portals-android) and [iOS](https://github.com/ionic-team/ionic-portals-ios) require a **free** license key to use. Once you have integrated Portals into your project, login to your ionic account to get a key. See our doc on [how to register for free and get your Portals license key](https://ionic.io/docs/portals/how-to/get-a-product-key) and refer to the [Android](https://ionic.io/docs/portals/getting-started/android) or [iOS](https://ionic.io/docs/portals/getting-started/iOS) getting started guides to see where to add your key.
 
 ## FAQ
+
+### Where is the iOS and Android Code?
+
+This repo contains the documentation and web plugin code for Portals. The [Android](https://github.com/ionic-team/ionic-portals-android) and [iOS](https://github.com/ionic-team/ionic-portals-ios) native libraries are split into their own repos to more easily version and release for their respective platforms.
 
 ### What is the pricing for Portals use?
 
