@@ -4,8 +4,6 @@ sidebar_label: Overview
 slug: /
 ---
 
-import WistiaVideo from '@site/src/components/WistiaVideo';
-
 <head>
   <link rel="canonical" href="http://ionic.io/docs/portals" />
 </head>
@@ -14,7 +12,30 @@ Ionic Portals is a supercharged native WebView component for iOS and Android tha
 
 Portals is free to use in non-production environments. Businesses with more than USD $1 million in annual revenue are required to purchase a license from Ionic before using Portals in production. [Try it now](https://ionic.io/register-portals).
 
-<WistiaVideo videoId="7r1h9hvqnu" />
+<div
+  style={{
+    position: "relative",
+    paddingBottom: "56.25%",
+    height: 0,
+  }}
+>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/G9A9EI64Wig"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    style={{
+      position: "absolute",
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: "100%",
+    }}
+  ></iframe>
+</div>
 
 ## Why Ionic Portals?
 
@@ -40,7 +61,7 @@ Ionic Portals is built on the industry leading [Capacitor](https://capacitorjs.c
 
 - Set granular permissions that designate which parts of the native app your web teams can touch.
 
-- Choose from [pre-built native plugins](/docs/portals/how-to/using-a-capacitor-plugin) to unlock the full power of the native mobile device in your web-based experiences. 
+- Choose from [pre-built native plugins](/docs/portals/how-to/using-a-capacitor-plugin) to unlock the full power of the native mobile device in your web-based experiences.
 
 - Build and ship! 🚀
 
