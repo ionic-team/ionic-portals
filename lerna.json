@@ -17,7 +17,7 @@
     }
   },
   "version": "0.5.0",
-  "iosVersion": "0.6.1",
+  "iosVersion": "0.6.3",
   "androidVersion": "0.6.1",
   "rnVersion": "0.0.5",
   "capacitorVersion": "3.4.1",

@@ -10,7 +10,7 @@ Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide
 
 ## Registering with your Portals Key
 
-Before using Ionic Portals, you must register with your API key. A typical place to do so is in the `AppDelegate` `application(_:didFinishLaunchingWithOptions)` method. There, you can use the [PortalsRegistrationManager](../reference/ios/portals-registration-manager) to register:
+Before using Ionic Portals, you must register with your API key. A typical place to do so is in the `AppDelegate` `application(_:didFinishLaunchingWithOptions)` method. There, you can use the [PortalsRegistrationManager](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager) to register:
 
 <Tabs
   defaultValue="swift"
@@ -112,7 +112,7 @@ By default, `IONPortal` will use the `name` provided in the initializer if `star
 
 ## Using PortalView and PortalUIView
 
-After you initialize a `Portal`, you create a [PortalView](../reference/ios/portal-view) (for SwiftUI) or [PortalUIView](../reference/ios/portal-uiview) (for UIKit) by passing in the `Portal`.
+After you initialize a `Portal`, you create a [PortalView](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalview) (for SwiftUI) or [PortalUIView](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portaluiview) (for UIKit) by passing in the `Portal`.
 
 <Tabs 
     defaultValue="uikit-swift" 
