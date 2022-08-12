@@ -62,18 +62,23 @@ module.exports = {
       collapsed: true,
       items: [
         {
-          type: "category",
-          label: "iOS API",
-          collapsed: true,
-          items: [
-            "reference/iOS/portals-registration-manager",
-            "reference/iOS/portal",
-            "reference/iOS/portal-uiview",
-            "reference/iOS/portal-view",
-            "reference/iOS/portals-pubsub",
-            "reference/iOS/portals-publisher"
-          ],
+          type: 'link',
+          label: 'iOS API', // The link label
+          href: '/reference/iOS', // The external URL
         },
+        // {
+        //   type: "category",
+        //   label: "iOS API",
+        //   collapsed: true,
+        //   items: [
+        //     "reference/iOS/portals-registration-manager",
+        //     "reference/iOS/portal",
+        //     "reference/iOS/portal-uiview",
+        //     "reference/iOS/portal-view",
+        //     "reference/iOS/portals-pubsub",
+        //     "reference/iOS/portals-publisher"
+        //   ],
+        // },
         {
           type: "category",
           label: "Android API",

@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/docs/portals/:match*", "destination": "/:match*" }
+    {
+      "source": "/docs/portals/:match*",
+      "destination": "/:match*"
+    },
+    {
+      "source": "/docs/portals/reference/iOS",
+      "destination": "https://ionic-portals-ios.vercel.app/documentation/ionicportals"
+    }
   ]
 }
