@@ -64,21 +64,8 @@ module.exports = {
         {
           type: 'link',
           label: 'iOS API', // The link label
-          href: '/reference/iOS', // The external URL
+          href: 'https://ionic-portals-ios.vercel.app/documentation/ionicportals', // The external URL
         },
-        // {
-        //   type: "category",
-        //   label: "iOS API",
-        //   collapsed: true,
-        //   items: [
-        //     "reference/iOS/portals-registration-manager",
-        //     "reference/iOS/portal",
-        //     "reference/iOS/portal-uiview",
-        //     "reference/iOS/portal-view",
-        //     "reference/iOS/portals-pubsub",
-        //     "reference/iOS/portals-publisher"
-        //   ],
-        // },
         {
           type: "category",
           label: "Android API",
@@ -109,27 +96,9 @@ module.exports = {
       collapsed: true,
       items: [
         {
-          type: "category",
-          label: "iOS API",
-          collapsed: true,
-          items: [
-            "reference-live-updates/iOS/live-update-manager",
-            "reference-live-updates/iOS/live-update",
-            {
-              type: "category",
-              label: "iOS Data Classes",
-              collapsed: true,
-              items: [
-                "reference-live-updates/iOS/data-classes/channel",
-                "reference-live-updates/iOS/data-classes/details",
-                "reference-live-updates/iOS/data-classes/error",
-                "reference-live-updates/iOS/data-classes/ion-data",
-                "reference-live-updates/iOS/data-classes/ion-webapp",
-                "reference-live-updates/iOS/data-classes/meta",
-                "reference-live-updates/iOS/data-classes/snapshot",
-              ],
-            },
-          ],
+          type: 'link',
+          label: 'iOS API', // The link label
+          href: 'https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates', // The external URL
         },
         {
           type: "category",

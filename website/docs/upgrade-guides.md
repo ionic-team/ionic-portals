@@ -29,7 +29,7 @@ IonicPortals iOS version 0.6.0 is compatible with '@ionic/portals' version 0.5.x
 
 #### PortalManager -> PortalsRegistrationManager
 
-`PortalManager` has been removed. It's registration functionality has been replaced with [`PortalsRegistrationManager`](./reference/iOS/portals-registration-manager).
+`PortalManager` has been removed. It's registration functionality has been replaced with [`PortalsRegistrationManager`](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager).
 
 <Tabs
     defaultValue="swift"
@@ -169,7 +169,7 @@ Your situation may require something different, but version 0.6.0 gives you the 
 
 **initialContext**
 
-The `initialContext` property on [`Portal`](./reference/iOS/portal) has changed from `[String: Any]` -> `JSObject`. `JSObject` is a typealias from `Capacitor` for `[String: JSValue]`. `JSValue` is a protocol defined in `Capacitor` that the following types conform to:
+The `initialContext` property on [`Portal`](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal) has changed from `[String: Any]` -> `JSObject`. `JSObject` is a typealias from `Capacitor` for `[String: JSValue]`. `JSValue` is a protocol defined in `Capacitor` that the following types conform to:
 * `String`
 * `Bool`
 * `Int`

@@ -41,4 +41,3 @@ export const getRnMinVersion = () => {
     return siteConfig.customFields.rnMinVersion;
 }
 
-
