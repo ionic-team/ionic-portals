@@ -98,7 +98,7 @@ module.exports = {
         {
           type: 'link',
           label: 'iOS API', // The link label
-          href: 'https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates', // The external URL
+          href: 'https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates', // The external URL,
         },
         {
           type: "category",

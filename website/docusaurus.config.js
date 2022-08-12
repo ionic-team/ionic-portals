@@ -57,7 +57,10 @@ module.exports = {
         blog: false,
         pages: false,
         theme: {
-          customCss: ["prismjs/themes/prism-tomorrow.css"],
+          customCss: [
+            "prismjs/themes/prism-tomorrow.css",
+            require.resolve('./src/styles/custom.css'),
+          ],
         },
       },
     ],
