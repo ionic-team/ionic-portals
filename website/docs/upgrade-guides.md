@@ -6,6 +6,28 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## @ionic/portals-react-native 0.0.x -> 0.1.0
+
+The props on `PortalView` have changed from having individual props of `name` and `initialContext` to a single prop named `portal`.
+
+Before:
+
+```javascript
+<PortalView name="foo" initialContext={{ bar: 'baz' }} />
+```
+
+After:
+
+```javascript
+<PortalView portal={{
+    name: 'foo',
+    initialContext: {
+      bar: 'baz',
+    },
+  }}
+/>
+```
+
 ## IonicPortals iOS 0.6.0 -> 0.6.1
 
 IonicPortals iOS version 0.6.1 is compatible with '@ionic/portals' version 0.5.x
