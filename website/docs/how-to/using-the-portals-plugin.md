@@ -182,8 +182,12 @@ You can also override any initial context when rendering a Portal:
 import { PortalView } from '@ionic/portals-react-native';
 
 <PortalView
-  name='maps',
-  initialContext={{ic_example: 'goodbye'}}
+  portal={{
+    name: 'maps',
+    initialContext: {
+      ic_example: 'goodbye',
+    },
+  }}
 />
 ```
 
