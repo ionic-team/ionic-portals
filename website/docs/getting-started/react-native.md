@@ -39,11 +39,15 @@ Create a PortalView in your view hierarchy:
 import { PortalView } from '@ionic/portals-react-native';
 
 <PortalView 
-  // The name of the portal to be used in the view
+  portal={{
+    // The name of the portal to be used in the view
+    name: 'hello',
+    // Set any initial context you may want to override.
+    initialContext: {
+      greeting: 'Goodbye!',
+    },
+  }}
   name='hello' 
-
-  // Set any initial context you may want to override.
-  initialContext={{ greeting: 'Goodbye!' }}
 
   // Setting a size is required
   style={{ flex: 1, height: 300 }} 
