@@ -3,7 +3,7 @@
  */
 export interface PortalsPlugin {
   getInitialContext<T = unknown>(): Promise<InitialContext<T>>;
-  publish<TData>(message: PortalMessage<TData>): Promise<void>;
+  publish<TMessage extends PortalMessage>(message: TMessage): Promise<void>;
   subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription>;
   unsubscribe(options: PortalSubscription): Promise<void>;
 }
