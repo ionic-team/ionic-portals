@@ -37,4 +37,6 @@ export class PortalsAndroid implements PortalsPlugin {
   async getInitialContext<T>(): Promise<InitialContext<T>> {
     return getInitialContext<T>();
   }
+
+  isPortalsPlatform(): boolean { return true; }
 }

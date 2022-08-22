@@ -20,4 +20,6 @@ export class PortalsWeb extends WebPlugin implements PortalsPlugin {
   async getInitialContext<T>(): Promise<InitialContext<T>> {
     return getInitialContext<T>();
   }
+
+  isPortalsPlatform(): boolean { return false; }
 }

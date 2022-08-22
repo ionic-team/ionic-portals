@@ -31,4 +31,6 @@ export class PortalsIOS implements PortalsPlugin {
   async getInitialContext<T>() {
     return getInitialContext<T>();
   }
+
+  isPortalsPlatform(): boolean { return true; }
 }
