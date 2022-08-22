@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 
 ## @ionic/portals 0.0.x -> 0.6.0
 
-The method signature of `Portals.publish()` has been updated to allow type-safety for both the `topic` and `data` parameters of a `PortalMessage`.
+The method signature of `Portals.publish()` now allows generic typing over `PortalMessage` instead of restricting generic typing to the `data` parameter of `PortalMessage`. The `message` parameter must be of type `string` but can be predefined to prevent typos, invalid topic names, etc. 
 
 Before:
 
