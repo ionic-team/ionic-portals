@@ -21,4 +21,4 @@ Web Screens
 
 ![Example banner](/img/portals-diagram-reactnative.png)
 
-The source is [available on GitHub](https://github.com/ionic-team/cs-portals-react-native-ecommerce) and includes the React Native and Web projects.
+The source is [available on GitHub](https://github.com/ionic-team/cs-portals-ecommerce-react-native) and includes the React Native and Web projects.
