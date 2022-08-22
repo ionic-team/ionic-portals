@@ -6,6 +6,25 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## @ionic/portals 0.0.x -> 0.6.0
+
+The method signature of `Portals.publish()` has been updated to allow type-safety for both the `topic` and `data` parameters of a `PortalMessage`.
+
+Before:
+
+```typescript
+Portals.publish<string>({ topic: 'foo', data: 'bar' });
+```
+
+After:
+
+```typescript
+type ValidMessage = { topic: 'foo', data: string };
+
+// TypeScript will reject the following statement:
+Portals.publish<ValidMessage>({ topic: 'food', data: 'bar' });
+```
+
 ## @ionic/portals-react-native 0.0.x -> 0.1.0
 
 The props on `PortalView` have changed from having individual props of `name` and `initialContext` to a single prop named `portal`.

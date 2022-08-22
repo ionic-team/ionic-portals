@@ -9,12 +9,12 @@ The PortalsPlugin class is the main way to interface with a Portal instance. It 
 
 ### PortalsPlugin
 
-A type definining the `PortalsPlugin` API.
+A type defining the `PortalsPlugin` API.
 
 ```typescript
 interface PortalsPlugin {
   getInitialContext<T = unknown>(): Promise<InitialContext<T>>;
-  publish<TData>(message: PortalMessage<TData>): Promise<void>;
+  publish<TMessage extends PortalMessage>(message: TMessage): Promise<void>;
   subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription>;
   unsubscribe(options: PortalSubscription): Promise<void>;
 }
@@ -74,18 +74,17 @@ type SubscriptionCallback<T = unknown> = (result: { topic: string, data: T; }) =
 
 ### publish
 
-Publishes some data to a provided topic.
+Publishes some data to a provided topic. Type-safety supported through the optional `TMessage` generic type.
 
 #### Usage 
 
 ```typescript
-const message: PortalMessage = {
-    topic: 'dismiss',
-    data: 'cancel',
-}
+type Messages = 
+  | { topic: 'modal:dismiss', data: 'cancel' | 'failure' }
+  | { topic: 'modal:success', data: number };
 
 // Publishes "cancel" to the "dismiss" topic
-Portals.publish(message);
+Portals.publish<Messages>({ topic: 'modal:dismiss', data: 'cancel' });
 ```
 
 #### Parameters
