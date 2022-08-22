@@ -21,7 +21,7 @@ interface PortalsPlugin {
 ```
 ### InitialContext
 
-A type definining the `InitialContext` from the native application that you can pass into your web application.
+A type defining the `InitialContext` from the native application that you can pass into your web application.
 
 ```typescript
 interface InitialContext<T = unknown> {
@@ -80,8 +80,9 @@ Publishes some data to a provided topic. Type-safety supported through the optio
 
 ```typescript
 type Messages = 
-  | { topic: 'modal:dismiss', data: 'cancel' | 'failure' }
-  | { topic: 'modal:success', data: number };
+  | { topic: 'cart:checkout', data: Cart }
+  | { topic: 'modal:dismiss', data: 'cancel' | 'fail' | 'success' }
+  | { topic: 'profile:update', data: User };
 
 // Publishes "cancel" to the "dismiss" topic
 Portals.publish<Messages>({ topic: 'modal:dismiss', data: 'cancel' });
@@ -101,7 +102,7 @@ Subscribes to a topic and run a specified callback whenever a message is sent vi
 
 ```typescript
 const callback = (result: { topic: string, data: T; }) => { /* run callback code here on publish */ };
-const subscribtion = await Portals.subscribe({ topic }, callback);
+const subscription = await Portals.subscribe({ topic }, callback);
 ```
 
 #### Parameters
@@ -130,7 +131,7 @@ Name | Type | Description
 
 ### getInitialContext
 
-Gets the [IntialContext](./portals-plugin#initialcontext) of the Portal that was passed in from the native code.
+Gets the [InitialContext](./portals-plugin#initialcontext) of the Portal that was passed in from the native code.
 
 #### Usage 
 
