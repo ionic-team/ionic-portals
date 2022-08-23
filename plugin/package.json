@@ -8,11 +8,7 @@
   "types": "types/index.d.ts",
   "unpkg": "dist/plugin.js",
   "files": [
-    "android/src/main/",
-    "android/build.gradle",
     "dist/",
-    "ios/Plugin/",
-    "IonicPortals.podspec",
     "types"
   ],
   "author": "Ionic Team <hi@ionic.io> (https://ionic.io)",
@@ -64,13 +60,5 @@
   "swiftlint": "@ionic/swiftlint-config",
   "eslintConfig": {
     "extends": "@ionic/eslint-config/recommended"
-  },
-  "capacitor": {
-    "ios": {
-      "src": "ios"
-    },
-    "android": {
-      "src": "android"
-    }
   }
 }
