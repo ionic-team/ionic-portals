@@ -9,7 +9,7 @@ import {
   SubscribeOptions,
   SubscriptionCallback,
 } from './definitions';
-import { getInitialContext } from './shared';
+import { getInitialContext, isPortalsPlatform } from './shared';
 export class PortalsAndroid implements PortalsPlugin {
 
   async publish(message: PortalMessage): Promise<void> {
@@ -38,5 +38,7 @@ export class PortalsAndroid implements PortalsPlugin {
     return getInitialContext<T>();
   }
 
-  isPortalsPlatform(): boolean { return true; }
+  isPortalsPlatform(): boolean { 
+    return isPortalsPlatform();
+  }
 }

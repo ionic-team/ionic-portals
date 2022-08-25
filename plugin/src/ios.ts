@@ -2,7 +2,7 @@
 import { Plugins } from '@capacitor/core';
 
 import { PortalMessage, PortalsPlugin, PortalSubscription, SubscribeOptions, SubscriptionCallback } from './definitions';
-import { getInitialContext } from './shared';
+import { getInitialContext, isPortalsPlatform } from './shared';
 
 export class PortalsIOS implements PortalsPlugin {
 
@@ -32,5 +32,7 @@ export class PortalsIOS implements PortalsPlugin {
     return getInitialContext<T>();
   }
 
-  isPortalsPlatform(): boolean { return true; }
+  isPortalsPlatform(): boolean {
+    return isPortalsPlatform();
+  }
 }

@@ -8,7 +8,7 @@ import {
   SubscribeOptions,
   SubscriptionCallback,
 } from './definitions';
-import { getInitialContext } from './shared';
+import { getInitialContext, isPortalsPlatform } from './shared';
 
 export class PortalsWeb extends WebPlugin implements PortalsPlugin {
   async publish(_message: PortalMessage): Promise<void> { }
@@ -21,5 +21,7 @@ export class PortalsWeb extends WebPlugin implements PortalsPlugin {
     return getInitialContext<T>();
   }
 
-  isPortalsPlatform(): boolean { return false; }
+  isPortalsPlatform(): boolean { 
+    return isPortalsPlatform();
+  }
 }

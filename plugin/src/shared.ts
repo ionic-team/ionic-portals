@@ -11,3 +11,7 @@ export async function getInitialContext<T = unknown>(): Promise<InitialContext<T
     };
   }
 }
+
+export function isPortalsPlatform(): boolean {
+  return (window as any).isPortalsPlatform !== undefined
+}
