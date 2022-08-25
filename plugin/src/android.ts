@@ -2,14 +2,12 @@
 import { Plugins } from '@capacitor/core';
 
 import {
-  InitialContext,
   PortalMessage,
   PortalsPlugin,
   PortalSubscription,
   SubscribeOptions,
   SubscriptionCallback,
 } from './definitions';
-import { getInitialContext } from './shared';
 export class PortalsAndroid implements PortalsPlugin {
 
   async publish(message: PortalMessage): Promise<void> {
@@ -32,9 +30,5 @@ export class PortalsAndroid implements PortalsPlugin {
 
   async unsubscribe(options: PortalSubscription): Promise<void> {
     return Plugins.Portals.unsubscribeNative(options);
-  }
-
-  async getInitialContext<T>(): Promise<InitialContext<T>> {
-    return getInitialContext<T>();
   }
 }
