@@ -2,7 +2,6 @@
 import { Plugins } from '@capacitor/core';
 
 import { PortalMessage, PortalsPlugin, PortalSubscription, SubscribeOptions, SubscriptionCallback } from './definitions';
-import { getInitialContext } from './shared';
 
 export class PortalsIOS implements PortalsPlugin {
 
@@ -26,9 +25,5 @@ export class PortalsIOS implements PortalsPlugin {
 
   async unsubscribe(options: PortalSubscription): Promise<void> {
     return Plugins.Portals.unsubscribeNative(options);
-  }
-
-  getInitialContext<T>() {
-    return getInitialContext<T>();
   }
 }
