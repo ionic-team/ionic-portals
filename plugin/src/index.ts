@@ -8,16 +8,8 @@ const Portals = registerPlugin<PortalsPlugin>('Portals', {
   ios: () => import('./ios').then(m => new m.PortalsIOS())
 });
 
-export function getInitialContext<T = unknown>(): InitialContext<T> {
-  const context = (window as any).portalInitialContext as { name: string, value: T; };
-  if (!context) {
-    throw Error('No initial context found');
-  } else {
-    return {
-      name: context.name,
-      value: context.value
-    };
-  }
+export function getInitialContext<T = unknown>(): InitialContext<T> | undefined {
+  return (window as any).portalInitialContext as { name: string, value: T; };
 }
 
 export * from './definitions';
