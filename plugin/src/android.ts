@@ -34,7 +34,7 @@ export class PortalsAndroid implements PortalsPlugin {
     return Plugins.Portals.unsubscribeNative(options);
   }
 
-  async getInitialContext<T>(): Promise<InitialContext<T>> {
+  getInitialContext<T>(): InitialContext<T> {
     return getInitialContext<T>();
   }
 }

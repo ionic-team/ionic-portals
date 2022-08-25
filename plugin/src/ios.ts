@@ -28,7 +28,7 @@ export class PortalsIOS implements PortalsPlugin {
     return Plugins.Portals.unsubscribeNative(options);
   }
 
-  async getInitialContext<T>() {
+  getInitialContext<T>() {
     return getInitialContext<T>();
   }
 }

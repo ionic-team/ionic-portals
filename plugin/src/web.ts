@@ -17,7 +17,7 @@ export class PortalsWeb extends WebPlugin implements PortalsPlugin {
   async echo(options: { value: string; }): Promise<{ value: string; }> {
     return options;
   }
-  async getInitialContext<T>(): Promise<InitialContext<T>> {
+  getInitialContext<T>(): InitialContext<T> {
     return getInitialContext<T>();
   }
 }
