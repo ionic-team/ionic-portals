@@ -1,21 +1,4 @@
 {
-  "packages": [
-    "./plugin",
-    "./android/",
-    "./ios/"
-  ],
-  "command": {
-    "bootstrap": {
-      "hoist": true
-    },
-    "version": {
-      "allowBranch": "main",
-      "conventionalCommits": true,
-      "createRelease": "github",
-      "message": "Release %s",
-      "tagVersionPrefix": ""
-    }
-  },
   "version": "0.5.0",
   "iosVersion": "0.6.3",
   "androidVersion": "0.6.1",

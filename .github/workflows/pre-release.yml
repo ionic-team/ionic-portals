@@ -1,0 +1,34 @@
+name: Pre-Release
+
+on:
+  push:
+    branches:
+    - 'release/**'
+
+jobs:
+  increment-version:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 16.x
+    - name: Assign version to RELEASE_VERSION environment variable
+    - name: Bump npm package version
+      run: npm version $RELEASE_VERSION --no-git-tag-version
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      working-directory: plugin
+    - name: Generate changelog
+      run: npx conventional-changelog-cli -p conventionalcommits -i CHANGELOG.md -s -k plugin/package.json 
+    - name: Push version bump and changelog commit
+      uses: EndBug/add-and-commit@v9
+    - name: Generate .npmrc
+      run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - name: Validate Publish Flow
+      run: |
+        npm install
+        npm publish --dry-run
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      working-directory: plugin
