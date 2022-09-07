@@ -21,7 +21,7 @@ jobs:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       working-directory: plugin
     - name: Generate changelog
-      run: npx conventional-changelog-cli -p conventionalcommits -i CHANGELOG.md -s -k plugin/package.json 
+      run: npx -y conventional-changelog-cli -p conventionalcommits -i CHANGELOG.md -s -k plugin/package.json 
     - name: Push version bump and changelog commit
       uses: EndBug/add-and-commit@v9
     - name: Generate .npmrc
