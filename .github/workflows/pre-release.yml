@@ -14,13 +14,15 @@ jobs:
       with:
         node-version: 16.x
     - name: Assign version to RELEASE_VERSION environment variable
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/*/}" >> $GITHUB_ENV
     - name: Bump npm package version
-      run: npm version $RELEASE_VERSION --no-git-tag-version
+      run: npm version $RELEASE_VERSION --no-git-tag-version --allow-same-version
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       working-directory: plugin
-    - name: Generate changelog
-      run: npx conventional-changelog-cli -p conventionalcommits -i CHANGELOG.md -s -k plugin/package.json 
+    # Disabling this for now. It works locally? 🤷
+    # - name: Generate changelog
+    #   run: npx -y conventional-changelog-cli -p conventionalcommits -i CHANGELOG.md -s -k plugin/package.json 
     - name: Push version bump and changelog commit
       uses: EndBug/add-and-commit@v9
     - name: Generate .npmrc
