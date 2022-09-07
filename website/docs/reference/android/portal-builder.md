@@ -292,11 +292,10 @@ interface MyPortalInitialContext {
     num: number
 }
 
-Portals.getInitialContext<MyPortalInitialContext>().then(context => {
-    console.log(context.value.foo)    // "bar"
-    console.log(context.value.ionic)  // "portals"
-    console.log(context.value.num)    // 42
-})
+const context = getInitialContext<MyPortalInitialContext>();
+console.log(context?.value?.foo);    // "bar"
+console.log(context?.value?.ionic);  // "portals"
+console.log(context?.value?.num);    // 42
 ```
 
 #### Parameters

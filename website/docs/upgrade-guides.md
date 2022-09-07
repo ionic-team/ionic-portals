@@ -8,6 +8,8 @@ import TabItem from '@theme/TabItem';
 
 ## @ionic/portals 0.0.x -> 0.6.0
 
+### `Portals.publish()`
+
 The method signature of `Portals.publish()` now allows generic typing over `PortalMessage` instead of restricting generic typing to the `data` parameter of `PortalMessage`. The `message` parameter must be of type `string` but can be predefined to prevent typos, invalid topic names, etc. 
 
 Before:
@@ -24,6 +26,57 @@ type ValidMessage = { topic: 'foo', data: string };
 // TypeScript will reject the following statement:
 Portals.publish<ValidMessage>({ topic: 'food', data: 'bar' });
 ```
+
+### `Portals.getInitialContext()`
+
+`Portals.getInitialContext()` is no longer asynchronous and has been moved out of the `Portals` class.
+
+Before:
+
+```typescript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import Portals from '@ionic/portals';
+import { Capacitor } from '@capacitor/core';
+
+if (!Capacitor.isNativePlatform()) {
+  // do something
+  (window as any).portalInitialContext = {
+    value: { startingRoute: '/' },
+  };
+}
+
+Portals.getInitialContext<{ startingRoute: string }>().then((context) => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <App context={context.value} />
+    </React.StrictMode>,
+    document.getElementById('root'),
+  );
+});
+```
+
+After:
+
+```typescript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import Portals, { getInitialContext } from '@ionic/portals';
+import { Capacitor } from '@capacitor/core';
+
+const initialContext = getInitialContext<{ startingRoute: string }>;
+const startingRoute = initialContext?.value ?? { startingRoute: '/' }; 
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App context={startingRoute} />
+  </React.StrictMode>,
+  document.getElementById('root'),
+);
+```
+
 
 ## @ionic/portals-react-native 0.0.x -> 0.1.0
 
