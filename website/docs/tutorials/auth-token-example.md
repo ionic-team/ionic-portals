@@ -92,16 +92,14 @@ addPortal(userPage);
 
 </Tabs>
 
-Then, in the entry point to your web application, you can use `Portals.getInitialContext()` to read the data passed in and act on it.
+Then, in the entry point to your web application, you can use `getInitialContext()` to read the data passed in and act on it.
 
 ```typescript title=main.ts
-import Portals from '@ionic/portals';
+import { getInitialContext } from '@ionic/portals';
 
 type MyPortalContext = { route: string, auth: any };
-Portals.getInitialContext<MyPortalContext>().then(context => {
-    const auth = context.value.auth;
-    // rest of the web app...
-});
+const auth = getInitialContext<MyPortalContext>()?.value?.auth;
+// rest of the web app...
 ```
 
 ### Using a Custom Plugin

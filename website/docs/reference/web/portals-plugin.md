@@ -13,7 +13,6 @@ A type defining the `PortalsPlugin` API.
 
 ```typescript
 interface PortalsPlugin {
-  getInitialContext<T = unknown>(): Promise<InitialContext<T>>;
   publish<TMessage extends PortalMessage>(message: TMessage): Promise<void>;
   subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription>;
   unsubscribe(options: PortalSubscription): Promise<void>;
@@ -137,24 +136,26 @@ Gets the [InitialContext](./portals-plugin#initialcontext) of the Portal that wa
 
 ```typescript
 // Passed in value is { foo: 'bar' }
-Portals.getInitialContext<{ foo: string; }>().then(context => {
-    console.log(context.value.foo); // bar
-});
+import { getInitialContext } from '@ionic/portals';
+
+const context = getInitialContext<{ foo: string }>;
+console.log(context?.value?.foo); // bar
 ```
 
 A real world example might be navigating to a route in a single page application
 
 ```tsx
-// Passed in value is { startingRoute: '/help' }
-Portals.getInitialContext<{ startingRoute: string; }>().then(context => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App context={context.value}/> {/* context.value = { startingRoute: '/help' } */}
-    </React.StrictMode>,
-    document.getElementById('root')
-  );
-});
+import { getInitialContext } from '@ionic/portals';
+
+const context = getInitialContext<{ startingRoute: string }>()
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App context={context!.value}/> {/* context.value = { startingRoute: '/help' } */}
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 ```
 
-**Returns:** <span class="return-code">*Promise*</span> A promise containing the [InitialContext](./portals-plugin#initialcontext) value.
+**Returns:** <span class="return-code">*T | undefined*</span> The [InitialContext](./portals-plugin#initialcontext) value or `undefined` if it was not assigned.
 

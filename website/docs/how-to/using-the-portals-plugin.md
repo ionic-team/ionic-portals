@@ -193,13 +193,14 @@ import { PortalView } from '@ionic/portals-react-native';
 
 ### Using Initial Context
 
-To access the initial context from the `PortalsPlugin` class in your web application, import Portals and use the [Portals.getInitialContext()](../reference/web/portals-plugin#getinitialcontext) function.
+To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../reference/web/portals-plugin#getinitialcontext) function.
 
 ```typescript
-Portals.getInitialContext<{ ic_example: string; }>().then(context => {
-    // prints "hello world" in this example
-    console.log(context.value.ic_example)
-})
+import { getInitialContext } from '@ionic/portals';
+
+const initialContext = getInitialContext<{ ic_example: string }>()
+// prints "hello world" in this example
+console.log(initialContext?.value?.ic_example);
 ```
 
 Initial context is useful when using a Single Page Application (SPA) across multiple Portals in your application. The route to a specific section of the SPA can be passed in as initial context data. Your web application can then use it to load that section directly without need for a redirect. [Check out our how-to guide](./multiple-portals-single-web-app).
