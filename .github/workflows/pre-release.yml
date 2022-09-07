@@ -25,6 +25,7 @@ jobs:
       uses: EndBug/add-and-commit@v9
     - name: Generate .npmrc
       run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+      working-directory: plugin
     - name: Validate Publish Flow
       run: |
         npm install
