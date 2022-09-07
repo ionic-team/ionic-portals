@@ -14,6 +14,7 @@ jobs:
       with:
         node-version: 16.x
     - name: Assign version to RELEASE_VERSION environment variable
+      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/*/}" >> $GITHUB_ENV
     - name: Bump npm package version
       run: npm version $RELEASE_VERSION --no-git-tag-version
       env:
