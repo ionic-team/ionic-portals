@@ -1,3 +1,5 @@
+## 0.6.0 (2022-09-07)
+
 ## [0.5.0](https://github.com/ionic-team/ionic-portals/compare/0.4.2...0.5.0) (2022-02-16)
 
 **Note:** Version bump only for package root
