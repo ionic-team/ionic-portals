@@ -9,19 +9,19 @@ The PortalsPlugin class is the main way to interface with a Portal instance. It 
 
 ### PortalsPlugin
 
-A type definining the `PortalsPlugin` API.
+A type defining the `PortalsPlugin` API.
 
 ```typescript
 interface PortalsPlugin {
   getInitialContext<T = unknown>(): Promise<InitialContext<T>>;
-  publish<TData>(message: PortalMessage<TData>): Promise<void>;
+  publish<TMessage extends PortalMessage>(message: TMessage): Promise<void>;
   subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription>;
   unsubscribe(options: PortalSubscription): Promise<void>;
 }
 ```
 ### InitialContext
 
-A type definining the `InitialContext` from the native application that you can pass into your web application.
+A type defining the `InitialContext` from the native application that you can pass into your web application.
 
 ```typescript
 interface InitialContext<T = unknown> {
@@ -74,18 +74,18 @@ type SubscriptionCallback<T = unknown> = (result: { topic: string, data: T; }) =
 
 ### publish
 
-Publishes some data to a provided topic.
+Publishes some data to a provided topic. Type-safety supported through the optional `TMessage` generic type.
 
 #### Usage 
 
 ```typescript
-const message: PortalMessage = {
-    topic: 'dismiss',
-    data: 'cancel',
-}
+type Messages = 
+  | { topic: 'cart:checkout', data: Cart }
+  | { topic: 'modal:dismiss', data: 'cancel' | 'fail' | 'success' }
+  | { topic: 'profile:update', data: User };
 
 // Publishes "cancel" to the "dismiss" topic
-Portals.publish(message);
+Portals.publish<Messages>({ topic: 'modal:dismiss', data: 'cancel' });
 ```
 
 #### Parameters
@@ -102,7 +102,7 @@ Subscribes to a topic and run a specified callback whenever a message is sent vi
 
 ```typescript
 const callback = (result: { topic: string, data: T; }) => { /* run callback code here on publish */ };
-const subscribtion = await Portals.subscribe({ topic }, callback);
+const subscription = await Portals.subscribe({ topic }, callback);
 ```
 
 #### Parameters
@@ -131,7 +131,7 @@ Name | Type | Description
 
 ### getInitialContext
 
-Gets the [IntialContext](./portals-plugin#initialcontext) of the Portal that was passed in from the native code.
+Gets the [InitialContext](./portals-plugin#initialcontext) of the Portal that was passed in from the native code.
 
 #### Usage 
 

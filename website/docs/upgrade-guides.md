@@ -6,6 +6,25 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## @ionic/portals 0.0.x -> 0.6.0
+
+The method signature of `Portals.publish()` now allows generic typing over `PortalMessage` instead of restricting generic typing to the `data` parameter of `PortalMessage`. The `message` parameter must be of type `string` but can be predefined to prevent typos, invalid topic names, etc. 
+
+Before:
+
+```typescript
+Portals.publish<string>({ topic: 'foo', data: 'bar' });
+```
+
+After:
+
+```typescript
+type ValidMessage = { topic: 'foo', data: string };
+
+// TypeScript will reject the following statement:
+Portals.publish<ValidMessage>({ topic: 'food', data: 'bar' });
+```
+
 ## @ionic/portals-react-native 0.0.x -> 0.1.0
 
 The props on `PortalView` have changed from having individual props of `name` and `initialContext` to a single prop named `portal`.
