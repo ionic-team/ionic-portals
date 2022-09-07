@@ -1,4 +1,20 @@
-## 0.6.0 (2022-09-07)
+## [0.6.0](https://github.com/ionic-team/ionic-portals/compare/0.5.0...0.6.0) (2022-09-07)
+
+
+### ⚠ BREAKING CHANGES
+
+* This will break users currently using `Portals.getInitialContext`. It no longer returns a `Promise` and will return `undefined` if portalsInitialContext is not set on `window`.
+* Will affect typescript users who specified a type in `publish`
+
+### Features
+* **plugin**: Non async initial context (#169) ([7fb7eba](https://github.com/ionic-team/ionic-portals/commit/7fb7ebadb021fe063f15ad704c6d22eade0939c6)), closes [#169](https://github.com/ionic-team/ionic-portals/issues/169)
+* **plugin**: Make `publish` generic over Message and not Message data (#166) ([6af8120](https://github.com/ionic-team/ionic-portals/commit/6af8120e8664d351cbacfb33305d6abb66f05894)), closes [#166](https://github.com/ionic-team/ionic-portals/issues/166)
+
+### Bug Fixes
+
+* removed ref to native source in plugin package ([#168](https://github.com/ionic-team/ionic-portals/issues/168)) ([e507b17](https://github.com/ionic-team/ionic-portals/commit/e507b177a0b01eaa49363cc0ccf690d857bbe1e5))
+* **website:** docs meta ([c966acc](https://github.com/ionic-team/ionic-portals/commit/c966acc9cf425b522834f9aa9e7f280d777dba9e))
+
 
 ## [0.5.0](https://github.com/ionic-team/ionic-portals/compare/0.4.2...0.5.0) (2022-02-16)
 
