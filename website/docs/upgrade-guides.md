@@ -24,7 +24,7 @@ After:
 type ValidMessage = { topic: 'foo', data: string };
 
 // TypeScript will reject the following statement:
-Portals.publish<ValidMessage>({ topic: 'food', data: 'bar' });
+Portals.publish<ValidMessage>({ topic: 'food', data: 1 });
 ```
 
 ### `Portals.getInitialContext()`
