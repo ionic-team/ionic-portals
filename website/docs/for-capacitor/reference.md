@@ -34,7 +34,7 @@ Reload the webview
 ### syncOne(...)
 
 ```typescript
-syncOne(options: SyncOneOptions) => Promise<LiveUpdateResult>
+export const syncOne = async (options: SyncOneOptions): Promise<LiveUpdateResult>
 ```
 
 Sync One
@@ -51,17 +51,14 @@ Sync One
 ### syncAll(...)
 
 ```typescript
-syncAll(options: any, callback?: (result: SyncResult) => void) => Promise<void>
+export const syncAll = (callback: SyncCallback): void 
 ```
 
 Sync All
 
 | Param          | Type                                    |
 | -------------- | --------------------------------------- |
-| **`options`**  | <code>any</code>                        |
-| **`callback`** | <code>((result: <a href="#syncresult">SyncResult</a>) =&gt; void)</code> |
-
-**Returns:** `Promise<void>`
+| **`callback`** | <code><a href="#synccallback">SyncCallback</a></code> |
 
 --------------------
 
@@ -69,7 +66,7 @@ Sync All
 ### syncSome(...)
 
 ```typescript
-syncSome(options: SyncSomeOptions, callback?: (result: SyncResult) => void) => Promise<void>
+export const syncSome = (options: SyncSomeOptions, callback: SyncCallback): void
 ```
 
 Sync Some
@@ -77,9 +74,7 @@ Sync Some
 | Param          | Type                                                        |
 | -------------- | ----------------------------------------------------------- |
 | **`options`**  | <code><a href="#syncsomeoptions">SyncSomeOptions</a></code> |
-| **`callback`** | <code>((result: <a href="#syncresult">SyncResult</a>) =&gt; void)</code>                     |
-
-**Returns:** `Promise<void>`
+| **`callback`** | <code><a href="#synccallback">SyncCallback</a></code>                     |
 
 --------------------
 
@@ -119,6 +114,14 @@ Sync Some
 | ------------ | --------------- |
 | **`appIds`** | <code>[]string</code> |
 
+
+#### SyncCallback
+
+| Prop                 | Type                                                                         |
+| -------------------- | ---------------------------------------------------------------------------- |
+| **`onError`**        | <code>(error: <a href="#liveupdateerror">LiveUpdateError</a>) => void</code> |
+| **`onAppComplete`**  | <code>(liveUpdate: <a href="#liveupdate">LiveUpdate</a>) => void</code>      |
+| **`onSyncComplete`** | <code>() => void</code>
 
 ### Type Aliases
 
