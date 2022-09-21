@@ -21,7 +21,7 @@ sidebar_label: Reference
 ### reload()
 
 ```typescript
-reload() => Promise<void>
+export const reload = (): Promise<void>
 ```
 
 Reload the webview
