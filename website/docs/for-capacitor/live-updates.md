@@ -24,4 +24,4 @@ First let's add Live Updates to the main shell application. Modify the `capacito
 - **channel**: By default all releases happen in Appflow from the `production` channel but you can setup whatever channel you need here.
 - **autoUpdateMethod**: Options would be `none` or `background`. You would choose `none` if you want to call the update method on your own, but the most common choice here would be `background` where the updates happen automatically.
 
-After you have made these changes and done a build the application will begin pulling updates from Appflow using the IDs that you have provided.
+After you have made these changes and done a build the application will begin pulling updates from Appflow using the IDs that you have provided. See the [reference](reference) documentation for methods on performing live updates manually from your application code.
