@@ -21,7 +21,7 @@ module.exports = {
     {
       type: "category",
       label: "Getting Started",
-      collapsed: false,
+      collapsed: true,
       items: [
         "getting-started/guide",
         "getting-started/iOS",
@@ -33,7 +33,7 @@ module.exports = {
     {
       type: "category",
       label: "How To",
-      collapsed: false,
+      collapsed: true,
       items: [
         "how-to/get-a-product-key",
         "how-to/pull-in-web-bundle",
@@ -51,9 +51,18 @@ module.exports = {
       type: "category",
       label: "Tutorials",
       collapsed: true,
+      items: ["tutorials/auth-token-example", "tutorials/monorepo-example"],
+    },
+    {
+      type: "category",
+      label: "Portals for Capacitor",
+      collapsed: true,
       items: [
-        "tutorials/auth-token-example",
-        "tutorials/monorepo-example",
+        "for-capacitor/overview",
+        "for-capacitor/module-federation",
+        "for-capacitor/live-updates",
+        "for-capacitor/reference",
+        "for-capacitor/example",
       ],
     },
     {
@@ -62,9 +71,9 @@ module.exports = {
       collapsed: true,
       items: [
         {
-          type: 'link',
-          label: 'iOS API', // The link label
-          href: 'https://ionic-portals-ios.vercel.app/documentation/ionicportals', // The external URL
+          type: "link",
+          label: "iOS API", // The link label
+          href: "https://ionic-portals-ios.vercel.app/documentation/ionicportals", // The external URL
         },
         {
           type: "category",
@@ -84,9 +93,7 @@ module.exports = {
           type: "category",
           label: "Web API",
           collapsed: true,
-          items: [
-            "reference/web/portals-plugin"
-          ],
+          items: ["reference/web/portals-plugin"],
         },
       ],
     },
@@ -96,9 +103,9 @@ module.exports = {
       collapsed: true,
       items: [
         {
-          type: 'link',
-          label: 'iOS API', // The link label
-          href: 'https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates', // The external URL,
+          type: "link",
+          label: "iOS API", // The link label
+          href: "https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates", // The external URL,
         },
         {
           type: "category",
@@ -125,7 +132,7 @@ module.exports = {
       items: [
         "examples/ecommerce-app",
         "examples/ecommerce-app-live-updates",
-        "examples/ecommerce-react-native"
+        "examples/ecommerce-react-native",
       ],
     },
     "plugin-overview",
