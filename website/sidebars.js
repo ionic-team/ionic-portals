@@ -21,7 +21,7 @@ module.exports = {
     {
       type: "category",
       label: "Getting Started",
-      collapsed: false,
+      collapsed: true,
       items: [
         "getting-started/guide",
         "getting-started/iOS",
@@ -33,7 +33,7 @@ module.exports = {
     {
       type: "category",
       label: "How To",
-      collapsed: false,
+      collapsed: true,
       items: [
         "how-to/get-a-product-key",
         "how-to/pull-in-web-bundle",
