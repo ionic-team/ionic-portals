@@ -3,7 +3,7 @@ title: Live Updates
 sidebar_label: Live Updates
 ---
 
-The real power of Portals for Capacitor comes in with [Appflow LiveUpdates](https://ionic.io/docs/appflow/deploy/intro). So let's configure a few of the applications we are using. If you are using a mono-repo you will need to add some configuration to your base directory. You can read more about that in [Appflows docs](https://ionic.io/docs/appflow/cookbook/appflow-config)
+The real power of Portals for Capacitor comes in with [Appflow LiveUpdates](https://ionic.io/docs/appflow/deploy/intro). So let's configure a few of the applications we are using. If you are using a monorepo you will need to add some configuration to your base directory. You can read more about that in [Appflows docs](https://ionic.io/docs/appflow/cookbook/appflow-config)
 
 First lets add config for the main shell application. Modify the `capacitor.config.ts` file to add the following.
 
