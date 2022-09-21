@@ -5,7 +5,7 @@ sidebar_label: How to use with Module Federation
 
 The first thing you will need to do when implementing Portals for Capacitor is choose a web based micro frontend solution. The most common is [Module Federation](https://webpack.js.org/concepts/module-federation/).
 
-After you have chosen and setup module federation between your apps you will need to configure it for how to build for Capacitor. The easiest way to do this is to add an environment variable to your npm build script.
+After you have chosen and setup module federation between your apps you will need to configure it for Capacitor. One way to do this is to add an environment variable to your npm build script.
 
 In this case we are setting the variable `CAP_BUILD` to true. In the example below we are using `cross-env` to set the environment variable within our npm build script.
 
@@ -45,7 +45,7 @@ module.exports = {
 
 ## Capacitor Configuration
 
-The next step is to configure capacitor so that it knows where these files exist on the initial application build. You can see that there is configuration for the shell or main application and then config for the MFEs that are separate. the webDir paths are relative your the base directory of the shell application (where this configuration file lives). The names correspond to how you named the directories within the module federation config (`account`, `checkout`, `helpinfo`).
+The next step is to configure Capacitor so that it knows where these files exist on the initial application build. You can see that there is configuration for the shell or main application and then config for the MFEs that are separate. the webDir paths are relative your the base directory of the shell application (where this configuration file lives). The names correspond to how you named the directories within the module federation config (`account`, `checkout`, `helpinfo`).
 
 ```typescript
 const capacitorConfig: CapacitorConfig = {
@@ -79,4 +79,4 @@ const capacitorConfig: CapacitorConfig = {
 };
 ```
 
-After this configuration is complete you should be able to build the shell application and see everything tied together in your native emulator. Easiest way to do this is run `npx cap open ios` and then build in Xcode.
+After this configuration is complete you should be able to build the shell application and see everything tied together in your native emulator. To test in iOS run `npx cap open ios` and then build in Xcode.
