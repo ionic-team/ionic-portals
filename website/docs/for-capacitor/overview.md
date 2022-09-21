@@ -3,7 +3,9 @@ title: Overview
 sidebar_label: Overview
 ---
 
-## Why use micro-frontends
+Portals for Capacitor is a flavor of Portals that works within [Capacitor](https://capacitorjs.com/).
+
+## Why use micro frontends
 
 Traditional development of a monolithic frontend applications have required all developers to collaborate within a single codebase and also ship updates together using a release process. As an application grows over time and more teams are added this can slow the development of the overall system.
 
@@ -11,17 +13,17 @@ One way of alleviating this is to divide the larger monolith into smaller applic
 
 ## Purpose of Portals for Capacitor
 
-These tools work great for the web because web based micro-frontends developers can deploy real time. And each application lives on a different server or directory location so this separation is inherent to the web. But the same can not be said for mobile applications.
+Micro frontends work great for the web because developers can deploy in real time. Each application lives on a different server or directory location so this separation is inherent on the web, but the same can not be said for mobile applications.
 
 Mobile applications (Native or Hybrid) are monoliths by their very nature. They are built, packaged, and released through a single release pipeline straight to an app store or to a Mobile Device Management solution.
 
-What Portals for Capacitor adds is a way for these monoliths to be separated into micro-frontends. It is not a competitor to tools like Module Federation. Portals for Capacitor is complementary. Allowing organizations to break down Capacitor applications into web based Micro-Frontends(MFE). These applications can be developed in isolation and then released independently using AppFlow with over the air LiveUpdates.
+Portals for Capacitor complements existing micro frontend tools like Module Federation to break down mobile monoliths into a micro frontend architecture. These applications can be developed in isolation and then released independently using Appflow with over the air LiveUpdates.
 
 **Steps for implementing Portals for Capacitor**
 
 1. Setup Module Federation between your mobile applications. Ensure that it works in a browser.
 2. Configure the shell application to work in Capacitor. Ensure that it works in a mobile emulator.
-3. Setup AppFlow LiveUpdates so that you can publish updates to each application independently.
+3. Setup Appflow LiveUpdates so that you can publish updates to each application independently.
 
 ### Installation
 
