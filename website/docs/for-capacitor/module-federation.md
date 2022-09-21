@@ -3,9 +3,11 @@ title: How to use with Module Federation
 sidebar_label: How to use with Module Federation
 ---
 
-The first thing you will need to do is choose a web based micro frontend solution. The most common is Module Federation. After you have chosen and setup module federation between your apps you will need to configure it for how to build for Capacitor. The easiest way to do this is to add an environment variable to your npm build script.
+The first thing you will need to do when implementing Portals for Capacitor is choose a web based micro frontend solution. The most common is [Module Federation](https://webpack.js.org/concepts/module-federation/).
 
-In this case we are setting the variable CAP_BUILD to true.
+After you have chosen and setup module federation between your apps you will need to configure it for how to build for Capacitor. The easiest way to do this is to add an environment variable to your npm build script.
+
+In this case we are setting the variable `CAP_BUILD` to true. In the example below we are using `cross-env` to set the environment variable within our npm build script.
 
 ```javascript
 "scripts: {
