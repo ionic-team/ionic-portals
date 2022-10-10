@@ -2,11 +2,13 @@ name: CI
 
 on:
   push:
-    branches:
-      - '**'
+    paths:
+      - 'plugin/**'
+      - '.github/workflows/ci.yml'
   pull_request:
-    branches:
-      - '**'
+    paths:
+      - 'plugin/**'
+      - '.github/workflows/ci.yml'
 jobs:
   setup:
     runs-on: ubuntu-latest
