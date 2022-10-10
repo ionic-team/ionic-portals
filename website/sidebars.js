@@ -42,6 +42,7 @@ module.exports = {
         "how-to/define-api-in-typescript",
         "how-to/multiple-portals-single-web-app",
         "how-to/multiple-portals-multiple-web-apps",
+        "how-to/use-portals-in-an-ios-library",
         "how-to/advanced-configuration",
         "how-to/sync-with-live-updates",
         "how-to/reloading-with-live-updates",
