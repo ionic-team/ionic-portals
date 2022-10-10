@@ -1,6 +1,6 @@
 ---
 title: How to Use Portals in an iOS Library
-sidebar_label: Using Portals in an iOS Library
+sidebar_label: Use Portals in an iOS Library
 ---
 
 import Tabs from '@theme/Tabs';
