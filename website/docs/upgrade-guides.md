@@ -6,7 +6,7 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## @ionic/portals-react-native 0.0.x -> 0.2.0
+## @ionic/portals-react-native 0.1.x -> 0.2.0
 
 ### API Changes
 
