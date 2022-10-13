@@ -3,7 +3,7 @@ title: What Is A Portal?
 sidebar_label: What Is A Portal?
 ---
 
-A "Portal" is a mobile view for iOS and Android projects capable of displaying and running a web based application; similar to the system WebView. It uses [Capacitor](https://capacitorjs.com) as a bridge between the native code and the web code to allow for cross-communication between the two layers. Because Ionic Portals uses Capacitor under the hood, you are able to use any existing [Capacitor Plugins](https://capacitorjs.com/docs/plugins) and even most [Cordova Plugins](https://capacitorjs.com/docs/plugins/cordova) while continuing to use your existing native workflow.
+A "Portal" is a mobile view for iOS and Android projects capable of displaying and running a web based application; similar to the system WebView. It uses [Capacitor](https://capacitorjs.com) as a bridge between the native code and the web code to allow for cross-communication between the two layers. Because Ionic Portals uses Capacitor under the hood you are able to use any existing [Capacitor Plugins](https://capacitorjs.com/docs/plugins).
 
 ## How Does It Work?
 
