@@ -30,7 +30,7 @@ Deployments in Appflow will be downloaded as new Live Updates.
 
 ## Install
 
-The Live Updates SDK is publicly available on Maven Central, Cocoapods, and Carthage.
+The Live Updates SDK is publicly available via Maven Central, Cocoapods, and SPM.
 
 <Tabs
 defaultValue="ios"

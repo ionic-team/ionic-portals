@@ -22,7 +22,7 @@ You can always use this shareable link to signup for a Product Key: [ionic.io/re
 
 ## Install
 
-Ionic Portals is publicly available on Maven Central, Cocoapods, Carthage, and NPM.
+Ionic Portals is publicly available via Maven Central, Cocoapods, SPM, and NPM.
 
 <Tabs
 defaultValue="ios"
