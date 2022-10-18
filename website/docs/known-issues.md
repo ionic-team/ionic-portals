@@ -3,7 +3,12 @@ title: Known Issues
 sidebar_label: Known Issues
 ---
 
+## iOS Notifications
+
+All versions of IonicPortals on iOS prior to 0.6.5 contain a bug where Capacitor takes control as the `UNNotificationCenterDelegate`. Upgrading to 0.6.5 will resolve the issue.
+
 ## iOS Swift Package Manager Integration
+
 There are currently two separate, but similar issues when integrating IonicPortals as an SPM dependency. Both manifest themselves as Invalid Bundle errors from App Store Connect
 
 ### IonicPortals as a single target dependency
@@ -14,7 +19,7 @@ First, select the affected scheme in Xcode and click "Edit Scheme...":
 
 ![XCode scheme selector](../static/img/known-issues/spm-workarounds/01-scheme-edit.png)
 
-Next, expand the "Build" drop down and select "Post-actions" to run the script after your build has completed: 
+Next, expand the "Build" drop down and select "Post-actions" to run the script after your build has completed:
 
 ![Scheme editor with build drop down expanded and post-actions selected](../static/img/known-issues/spm-workarounds/02-post-actions-select.png)
 
@@ -27,6 +32,7 @@ In the Run Script Action editor, select the target whose build settings you need
 ![Run script action editor with build settings drop-down selected](../static/img/known-issues/spm-workarounds/04-build-settings-select.png)
 
 Finally, add the following script in the script editor:
+
 ```bash
 rm -rf "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Frameworks/Capacitor.framework/Frameworks"
 ```
@@ -35,10 +41,12 @@ rm -rf "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Frameworks/Capacitor.framework
 
 ### IonicPortals as a multi-target dependency
 
-When using IonicPortals as a multi-target dependency across Application and Framework targets, Xcode embeds `Capacitor.framework`, `Cordova.framework`, `IonicLiveUpdates.framework`, and `IonicPortals.framework` into your Framework targets as well. 
+When using IonicPortals as a multi-target dependency across Application and Framework targets, Xcode embeds `Capacitor.framework`, `Cordova.framework`, `IonicLiveUpdates.framework`, and `IonicPortals.framework` into your Framework targets as well.
 
 To avoid this altogether, you can migrate your Frameworks to be Swift Packages. However, if migrating framework targets to be Swift Packages isn't an option, then in addition to the steps outlined in [IonicPortals as a single target dependency](#ionicportals-as-a-single-target-dependency) add the following to the "Run Script Action" configured in that section:
+
 ```bash
 rm -rf "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Frameworks/YourFrameworkUsingPortals.framework/Frameworks"
 ```
+
 ![additional script entered into script editor](../static/img/known-issues/spm-workarounds/06-script-entry.png)
