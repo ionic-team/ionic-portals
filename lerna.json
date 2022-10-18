@@ -2,7 +2,7 @@
   "version": "0.5.0",
   "iosVersion": "0.6.5",
   "androidVersion": "0.6.2",
-  "rnVersion": "0.1.0",
+  "rnVersion": "0.2.0",
   "capacitorVersion": "3.4.1",
   "iosMinVersion": "13.0",
   "androidMinSdk": "21",
