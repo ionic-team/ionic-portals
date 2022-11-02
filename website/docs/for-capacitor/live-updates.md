@@ -46,7 +46,7 @@ Modify the `capacitor.config.ts` file to add a `liveUpdatesKey` field to the Por
       },
 ```
 
-The location specified is relative to the **shell** directory specified in the config. For example, in the [example](example) application we placed it in the `packages/shell` directory.
+The location specified is relative to the **shell** directory specified in the config. For example, in the [example](example) application we placed the `public.pem` key file in the `packages/shell` directory.
 
 :::note
 While the `liveUpdatesKey` is present in the config, Portals for Capacitor will assume that all Live Updates need to be validated against the provided public key. If this feature is not required, do not provide a key in the config.
