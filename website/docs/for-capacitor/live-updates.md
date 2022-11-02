@@ -28,7 +28,7 @@ After you have made these changes and done a build the application will begin pu
 
 ## Self-hosted Live Updates
 
-Portals for Capacitor supports [Self-hosted Live Updates](https://ionic.io/docs/appflow/deploy/setup/self-hosted)! For our customers with strict security requirements, Self-hosted Live Updates includes enhanced security features built on top of Appflow's already secure delivery mechanisms. Follow the instructions in the [Appflow Docs](https://ionic.io/docs/appflow/deploy/setup/self-hosted#code-signing-generate-live-update-signing-keys) to get started. However,  there is no need to install any additional plugins in your app.
+Portals for Capacitor supports [Self-hosted Live Updates](https://ionic.io/docs/appflow/deploy/setup/self-hosted)! For our customers with strict security requirements, Self-hosted Live Updates includes enhanced security features built on top of Appflow's already secure delivery mechanisms. Follow the instructions in the [Appflow Docs](https://ionic.io/docs/appflow/deploy/setup/self-hosted#code-signing-generate-live-update-signing-keys) to get started. However, there is no need to install any additional plugins in your app.
 
 Modify the `capacitor.config.ts` file to add a `liveUpdatesKey` field to the Portals application. This informs the Portals for Capacitor plugin where to find the public key used for Self-hosted Live Updates.
 
