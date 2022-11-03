@@ -18,6 +18,7 @@ module.exports = {
     "live-updates",
     "upgrade-guides",
     "known-issues",
+    "how-to/ios-all-in-one",
     {
       type: "category",
       label: "Getting Started",
@@ -93,7 +94,7 @@ module.exports = {
         {
           type: "link",
           label: "React Native API",
-          href: "https://react-native-ionic-portals.vercel.app"
+          href: "https://react-native-ionic-portals.vercel.app",
         },
         {
           type: "category",

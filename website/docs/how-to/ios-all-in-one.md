@@ -1,9 +1,13 @@
 ---
-title: How To Register for a Product Key
-sidebar_label: Register for a Product Key
+title: iOS Quick Start Walkthrough
+sidebar_label: iOS Quick Start Walkthrough
 ---
 
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
+
+# iOS Quick Start Walkthrough
+
+This is a walkthrough on how to get a single Portal + web application setup.
 
 ## Add configuration file
 
@@ -14,7 +18,7 @@ Get started by having a web application ready.
 Add `capacitor.config.json` file to the root of the project
 Mostly for configuring the webDir
 
-```json
+```json title=capacitor.config.json
 {
   "appId": "com.ionicframework.featured-products",
   "appName": "Featured Products",
@@ -46,8 +50,7 @@ Install the Ionic Cloud CLI (https://ionic.io/docs/appflow/cli/overview)
 Create a yaml configuration file in your native project. Besure to set this to ignore in your .gitignore
 https://ionic.io/docs/appflow/cli/overview#authentication
 
-```yaml
-# .ionic-cloud.yaml
+```yaml title=.ionic-cloud.yaml
 TOKEN: my-token
 ```
 
@@ -61,9 +64,9 @@ IonicPortals requires using Cocoapods 1.10 or greater.
 
 To add Portals to your iOS project, put the following line to your `Podfile`:
 
-<CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
-</CodeBlock>
+```ruby title=Podfile
+pod 'IonicPortals', '~> ${getPortalsVersionIos()}'
+```
 
 And then run `pod install`.
 
