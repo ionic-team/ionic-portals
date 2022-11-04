@@ -24,6 +24,7 @@
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.2.2",
     "file-loader": "^6.2.0",
+    "plugin-image-zoom": "github:flexanalytics/plugin-image-zoom",
     "prettier": "^2.3.2",
     "prism-react-renderer": "^1.2.1",
     "react": "^17.0.1",

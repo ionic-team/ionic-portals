@@ -29,17 +29,17 @@ Mostly for configuring the webDir
 ## Connect repo to Appflow
 
 Add to AppFlow
-![alt text](/img/appflow-step-one.png "Title")
+_![alt text](/img/appflow-step-one.png "Title")_
 
 Make first Build
 Choose production live update deployment
-![alt text](/img/appflow-step-two.png "Title")
+_![alt text](/img/appflow-step-two.png "Title")_
 
 ## Setup local dev environment
 
 Generate a token ( https://dashboard.ionicframework.com/settings/personal-access-tokens)
 Account -> Personal Settings -> Personal Access Tokens
-![alt text](/img/appflow-generate-token.png "Title")
+_![alt text](/img/appflow-generate-token.png "Title")_
 
 Install the Ionic Cloud CLI (https://ionic.io/docs/appflow/cli/overview)
 
