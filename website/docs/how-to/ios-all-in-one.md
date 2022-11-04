@@ -7,18 +7,15 @@ import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortal
 
 # iOS Quick Start Walkthrough
 
-This is a walkthrough on how to get a single Portal + web application setup.
+This is a walkthrough on how to get a single Portal + web application setup. To begin this walkthrough it will be assumed that you have already signed up for access to Portals and you have your Portals key ready.
 
-## Add configuration file
+First have your web application ready. We will add some configuration to it and then get it setup in Appflow.
 
-Assume you already have a Portals key.
+## 1. Create a capacitor config
 
-Get started by having a web application ready.
+Create a `capacitor.config.json` file to the root of your web project. We will not need to add Capacitor to the web project but this configuration file will help us configure some options for the Portals that is displaying this web application.
 
-Add `capacitor.config.json` file to the root of the project
-Mostly for configuring the webDir
-
-```json title=capacitor.config.json
+```json
 {
   "appId": "com.ionicframework.featured-products",
   "appName": "Featured Products",
@@ -26,26 +23,43 @@ Mostly for configuring the webDir
 }
 ```
 
-## Connect repo to Appflow
+These configuration values are required for web applications added to Appflow.
 
-Add to AppFlow
+- `appId`, a unique id that you provide to your web application
+- `appName`
+- `webDir`, the directory where your compiled web code will be placed
+
+:::note
+There are many options that you can provide to a Capacitor configuration file we will only need a few to get started.
+:::
+
+## 2. Add the web application to Appflow
+
+Now that we have the application source configured we will need to add it to Appflow. Appflow will be used for deploying the web application into the Portal. Initially this will be done during the Native App build process and then after the Native App has gone through the App Store release process it will be updated via LiveUpdates.
+
+#### Connect the repo
+
 _![alt text](/img/appflow-step-one.png "Title")_
 
-Make first Build
-Choose production live update deployment
+#### Build the connected application
+
 _![alt text](/img/appflow-step-two.png "Title")_
 
-## Setup local dev environment
+## 3. Setup local dev environment
 
 Generate a token ( https://dashboard.ionicframework.com/settings/personal-access-tokens)
-Account -> Personal Settings -> Personal Access Tokens
+
 _![alt text](/img/appflow-generate-token.png "Title")_
 
-Install the Ionic Cloud CLI (https://ionic.io/docs/appflow/cli/overview)
+#### Install the Ionic Cloud CLI
+
+(https://ionic.io/docs/appflow/cli/overview)
 
 ```bash
 (export IONIC_CLOUD_VERSION=0.7.0; curl -sL https://ionic.io/get-ionic-cloud-cli | bash)
 ```
+
+#### Create a cloud configuratoin file
 
 Create a yaml configuration file in your native project. Besure to set this to ignore in your .gitignore
 https://ionic.io/docs/appflow/cli/overview#authentication
@@ -54,7 +68,7 @@ https://ionic.io/docs/appflow/cli/overview#authentication
 TOKEN: my-token
 ```
 
-## Install Portals into your iOS Application
+## 4. Install Portals into your iOS Application
 
 Install the Cocoapod file
 
@@ -70,7 +84,7 @@ pod 'IonicPortals', '~> ${getPortalsVersionIos()}'
 
 And then run `pod install`.
 
-## Pull latest web application build from Appflow
+#### Pull latest web application build from Appflow
 
 Now let’s go to the iOS project in XCode.
 
@@ -97,7 +111,7 @@ unzip ${PORTAL_NAME}.zip -d \
 rm ${PORTAL_NAME}.zip
 ```
 
-## Configure our first Portal
+#### Configure our first Portal
 
 Add our first Portal
 https://ionic.io/docs/portals/getting-started/iOS
