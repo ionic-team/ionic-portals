@@ -3,6 +3,8 @@ title: iOS Quick Start Walkthrough
 sidebar_label: iOS Quick Start Walkthrough
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
 
 # iOS Quick Start Walkthrough
@@ -35,37 +37,79 @@ There are many options that you can provide to a Capacitor configuration file we
 
 ## 2. Add the web application to Appflow
 
-Now that we have the application source configured we will need to add it to Appflow. Appflow will be used for deploying the web application into the Portal. Initially this will be done during the Native App build process and then after the Native App has gone through the App Store release process it will be updated via LiveUpdates.
+Now that we have the application source configured we will need to add it to Appflow. Appflow will be used for deploying the web application into the Portal.
 
-#### Connect the repo
+During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air LiveUpdate.
 
-_![alt text](/img/appflow-step-one.png "Title")_
+### Connect the repo
 
-#### Build the connected application
+After logging into your [Appflow](https://dashboard.ionicframework.com/) account go to the Apps page.
 
-_![alt text](/img/appflow-step-two.png "Title")_
+In the upper right hand corner you will be able to select `Import existing app`.
+
+<em><img src={useBaseUrl("/img/start-by-adding-an-app.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/import-existing-app.webp")} width="50%"/></em>
+
+- Provide an `App Name`. Most likely using the same you provided in the `capacitor.config.json` file in the previous step.
+- `Capacitor`, as the mobile architecture
+- Choose your git host. In this example we have selected `Github`
+
+### Build the connected application
+
+After the application has been added to Appflow you will need to create your first build so that it is available to seed the Portal in the Native App.
+
+This can be done by hitting the `New Build` button on the 'Builds' page. Then you will choose a the most recent commit to create the build from.
+
+<em><img src={useBaseUrl("/img/create-a-new-build.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/create-a-new-build-selected.webp")} width="50%"/></em>
+
+When creating a new build there are a few values that we need to change on the initial build for the app.
+
+- `Target Platform` should be `JS`
+- `Build Stack` should just be the default which is the latest.
+- `Live update` should be turned on and `Channel` should be set to `production`
 
 ## 3. Setup local dev environment
 
-Generate a token ( https://dashboard.ionicframework.com/settings/personal-access-tokens)
+Now that we have the web application all setup in Appflow and built we need to get our local environment setup to be able to pull it from Appflow.
 
-_![alt text](/img/appflow-generate-token.png "Title")_
+The first step in setting up our local environment is [generating a personal access token](https://dashboard.ionicframework.com/settings/personal-access-tokens).
 
-#### Install the Ionic Cloud CLI
+This is done from `Personal Settings` in the `Personal Access Token` tab.
 
+<em style={{
+  textAlign: 'center',
+  display: 'block'
+}}>
+<img src={useBaseUrl("/img/personal-access-token.webp")} width="75%"/>
+</em>
+
+Click the `Generate new token` button. While creating the token it is a best practice to give it an optional expiration date but not required.
+
+:::note
+After the token is generated you will need to copy it to clipboard because it will be required for the next step. Usually the token follows the format of `ion_XXXXXXXXXXXXX`.
+:::
+
+### Create a cloud configuration file
+
+Now create a yaml configuration file in your native project. This file will be used to authenticate against Appflow for your cloud interactions. Usually you will place this file in your native applications source root. It will be referenced by a build script in your native application.
+
+```yaml title=.ionic-cloud.yaml
+TOKEN: ion_XXXXXXXXXXXXX
+```
+
+:::note
+Be sure to set this to ignore in your `.gitignore` [Learn more about the configuration file.](https://ionic.io/docs/appflow/cli/overview#authentication)
+
+:::
+
+### Install the Ionic Cloud CLI
+
+Install the Ionic Cloud CLI within your local dev environment. This CLI will allow us to interact with Appflow programmatically. So that we can pull the latest Build files during native builds.
 (https://ionic.io/docs/appflow/cli/overview)
 
 ```bash
 (export IONIC_CLOUD_VERSION=0.7.0; curl -sL https://ionic.io/get-ionic-cloud-cli | bash)
-```
-
-#### Create a cloud configuratoin file
-
-Create a yaml configuration file in your native project. Besure to set this to ignore in your .gitignore
-https://ionic.io/docs/appflow/cli/overview#authentication
-
-```yaml title=.ionic-cloud.yaml
-TOKEN: my-token
 ```
 
 ## 4. Install Portals into your iOS Application
@@ -84,7 +128,7 @@ pod 'IonicPortals', '~> ${getPortalsVersionIos()}'
 
 And then run `pod install`.
 
-#### Pull latest web application build from Appflow
+### Pull latest web application build from Appflow
 
 Now let’s go to the iOS project in XCode.
 
@@ -111,7 +155,7 @@ unzip ${PORTAL_NAME}.zip -d \
 rm ${PORTAL_NAME}.zip
 ```
 
-#### Configure our first Portal
+### Configure our first Portal
 
 Add our first Portal
 https://ionic.io/docs/portals/getting-started/iOS

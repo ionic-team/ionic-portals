@@ -42,6 +42,11 @@ module.exports = {
     },
     imageZoom: {
       selector: ".markdown em > img",
+      options: {
+        margin: 24,
+        background: "#eee",
+        scrollOffset: 0,
+      },
     },
   },
   plugins: [
