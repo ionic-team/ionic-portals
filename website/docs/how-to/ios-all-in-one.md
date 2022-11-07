@@ -80,7 +80,7 @@ This can be done by hitting the `New Build` button on the 'Builds' page. Then yo
 
 When creating a new build there are a few values that we need to change on the initial build for the app.
 
-- `Target Platform` should be `JS`
+- `Target Platform` should be `Web`
 - `Build Stack` should just be the default which is the latest.
 - `Live update` should be turned on and `Channel` should be set to `production`
 
@@ -174,9 +174,9 @@ IonicPortals requires using Cocoapods 1.10 or greater.
 
 To add Portals to your iOS project, put the following line to your `Podfile`:
 
-```ruby title=Podfile
-pod 'IonicPortals', '~> ${getPortalsVersionIos()}'
-```
+<CodeBlock className="language-ruby" title="Podfile">
+{`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
+</CodeBlock>
 
 And then run `pod install`.
 
