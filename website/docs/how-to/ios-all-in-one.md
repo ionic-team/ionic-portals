@@ -17,7 +17,7 @@ First have your web application ready. We will add some configuration to it and 
 
 Create a `capacitor.config.json` file to the root of your web project. We will not need to add Capacitor to the web project but this configuration file will help us configure some options for the Portals that is displaying this web application.
 
-```json
+```json showLineNumbers
 {
   "appId": "com.ionicframework.featured-products",
   "appName": "Featured Products",
