@@ -15,7 +15,7 @@ export class PortalsWeb extends WebPlugin implements PortalsPlugin {
     return {
       subscriptionRef: -0,
       topic: ""
-    }
+    };
   }
 
   async unsubscribe(_options: PortalSubscription): Promise<void> {}
