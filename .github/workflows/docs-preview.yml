@@ -1,0 +1,46 @@
+name: Deploy docs PR preview
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/docs-preview.yml
+      - website/**
+
+permissions:
+  contents: read
+  deployments: write
+  id-token: write
+
+env:
+  SLUG: portals-${{ github.event.number }}-${{ github.run_id }}
+
+defaults:
+  run:
+    working-directory: website
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: preview-${{ github.event.number }}
+      url: https://${{ env.SLUG }}.ionicpreview.com
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: npm
+          cache-dependency-path: website/package-lock.json
+      - name: Build
+        run: |
+          npm ci --legacy-peer-deps
+          npm run build
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::319312831725:role/github-docs
+          aws-region: us-east-1
+      - name: Deploy
+        run: |
+          aws s3 sync build/ s3://ionic-docs/preview/${{ env.SLUG }}/ --exclude '*.html' --cache-control max-age=31536000 --only-show-errors
+          aws s3 sync build/ s3://ionic-docs/preview/${{ env.SLUG }}/ --exclude '*' --include '*.html' --cache-control max-age=60 --only-show-errors
