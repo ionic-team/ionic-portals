@@ -4,7 +4,7 @@ sidebar_label: iOS Quick Start Walkthrough
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-
+import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
 
 # iOS Quick Start Walkthrough
@@ -164,7 +164,7 @@ There are a few variables that you will need to setup at the beginning of script
 - `CHANNEL` - Live update distribution channel.
 - `PORTAL_NAME` - Choose a name for the portal, no spaces.
 
-## 5. Install Portals into your iOS Application
+## 5. Setup Portals in your iOS App
 
 Install the Cocoapod file
 
@@ -179,16 +179,31 @@ To add Portals to your iOS project, put the following line to your `Podfile`:
 </CodeBlock>
 
 And then run `pod install`.
+After installation of Portals we can setup the Portals key. Then the application is ready to have its first Portal configured.
 
-### Configure our first Portal
+```swift {9} title=AppDelegate.swift
+import UIKit
+import IonicPortals
 
-Add our first Portal
-https://ionic.io/docs/portals/getting-started/iOS
-
-```swift title=AppDelegate.swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions
+  launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    PortalsRegistrationManager.shared.register(key: "MY_API_KEY")
+    PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
     return true
+  }
 }
 ```
+
+Now that the application has been configured all we need to do is add the Portal to a view. By default, a `Portal` will use the `name` property as the directory to load web content from (relative to the root of `Bundle.main`). You can also specify another directory for the content.
+
+```swift
+class ViewController: UIViewController {
+    override func loadView() {
+        self.view = PortalUIView(portal: "featured_products)
+    }
+}
+```
+
+Thats it! Portals is now setup in your application and you can add new Portals at any time.
