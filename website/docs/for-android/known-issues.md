@@ -17,19 +17,19 @@ Capacitor v3.5.1 has an issue where it has an embedded `Cordova.framework`. This
 
 First, select the affected scheme in Xcode and click "Edit Scheme...":
 
-![XCode scheme selector](../static/img/known-issues/spm-workarounds/01-scheme-edit.png)
+![XCode scheme selector](/img/known-issues/spm-workarounds/01-scheme-edit.png)
 
 Next, expand the "Build" drop down and select "Post-actions" to run the script after your build has completed:
 
-![Scheme editor with build drop down expanded and post-actions selected](../static/img/known-issues/spm-workarounds/02-post-actions-select.png)
+![Scheme editor with build drop down expanded and post-actions selected](/img/known-issues/spm-workarounds/02-post-actions-select.png)
 
 Then, click the "+" button and select "New Run Script Action":
 
-![Post-actions scheme editor with plus button selected and New Run Script Action highlighted](../static/img/known-issues/spm-workarounds/03-run-script-select.png)
+![Post-actions scheme editor with plus button selected and New Run Script Action highlighted](/img/known-issues/spm-workarounds/03-run-script-select.png)
 
 In the Run Script Action editor, select the target whose build settings you need to inherit:
 
-![Run script action editor with build settings drop-down selected](../static/img/known-issues/spm-workarounds/04-build-settings-select.png)
+![Run script action editor with build settings drop-down selected](/img/known-issues/spm-workarounds/04-build-settings-select.png)
 
 Finally, add the following script in the script editor:
 
@@ -37,7 +37,7 @@ Finally, add the following script in the script editor:
 rm -rf "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Frameworks/Capacitor.framework/Frameworks"
 ```
 
-![script entered into script editor](../static/img/known-issues/spm-workarounds/05-script-entry.png)
+![script entered into script editor](/img/known-issues/spm-workarounds/05-script-entry.png)
 
 ### IonicPortals as a multi-target dependency
 
@@ -49,4 +49,4 @@ To avoid this altogether, you can migrate your Frameworks to be Swift Packages. 
 rm -rf "${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/Frameworks/YourFrameworkUsingPortals.framework/Frameworks"
 ```
 
-![additional script entered into script editor](../static/img/known-issues/spm-workarounds/06-script-entry.png)
+![additional script entered into script editor](/img/known-issues/spm-workarounds/06-script-entry.png)
