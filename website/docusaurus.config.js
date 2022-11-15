@@ -1,6 +1,6 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 
-const lernaConfig = require('../lerna.json');
+const lernaConfig = require("../lerna.json");
 
 module.exports = {
   title: "Ionic Portals",
@@ -40,10 +40,19 @@ module.exports = {
         "ruby",
       ],
     },
+    imageZoom: {
+      selector: ".markdown em > img",
+      options: {
+        margin: 24,
+        background: "#eee",
+        scrollOffset: 0,
+      },
+    },
   },
   plugins: [
     "@ionic-internal/docusaurus-plugin-tag-manager",
     "docusaurus-plugin-sass",
+    "plugin-image-zoom",
   ],
   themes: ["@ionic-internal/docusaurus-theme"],
   presets: [
@@ -59,7 +68,7 @@ module.exports = {
         theme: {
           customCss: [
             "prismjs/themes/prism-tomorrow.css",
-            require.resolve('./src/styles/custom.css'),
+            require.resolve("./src/styles/custom.css"),
           ],
         },
       },
@@ -73,6 +82,6 @@ module.exports = {
     capacitorVersion: lernaConfig.capacitorVersion,
     iosMinVersion: lernaConfig.iosMinVersion,
     androidMinSdk: lernaConfig.androidMinSdk,
-    rnMinVersion: lernaConfig.rnMinVersion
-  }
+    rnMinVersion: lernaConfig.rnMinVersion,
+  },
 };

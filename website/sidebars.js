@@ -24,6 +24,7 @@ module.exports = {
       collapsed: true,
       items: [
         "getting-started/guide",
+        "getting-started/iOS-all-in-one",
         "getting-started/iOS",
         "getting-started/android",
         "getting-started/react-native",
@@ -93,7 +94,7 @@ module.exports = {
         {
           type: "link",
           label: "React Native API",
-          href: "https://react-native-ionic-portals.vercel.app"
+          href: "https://react-native-ionic-portals.vercel.app",
         },
         {
           type: "category",
