@@ -12,15 +12,14 @@ In some cases, it makes sense to have different teams handle different portals i
 
 ### iOS
 
-Setting up multiple Portals is as easy as initializing another Portal. 
+Setting up multiple Portals is as easy as initializing another Portal.
 
-<Tabs 
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Objective-C', value: 'objc', },
-    ]}
->
+<Tabs
+defaultValue="swift"
+values={[
+{ label: 'Swift', value: 'swift', },
+{ label: 'Objective-C', value: 'objc', },
+]}>
 <TabItem value="swift">
 
 ```swift
@@ -42,36 +41,6 @@ let shopping: Portal = "shopping"
 ```objectivec
 IONPortal *mapsPortal = [[IONPortal alloc] initWithName:@"maps" startDir:nil initialContext:nil];
 IONPortal *shoppingPortal = [[IONPortal alloc] initWithName:@"shopping" startDir:nil initialContext:nil];
-```
-
-</TabItem>
-
-</Tabs>
-
-### Android
-Setting up multiple Portals is as easy as declaring another Portal in the PortalManager. No further code is neccessary and each Portal will function independently.
-
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="kt">
-
-```kotlin
-PortalManager.newPortal("maps").create()
-PortalManager.newPortal("shopping").create()
-```
-
-</TabItem>
-
-<TabItem value="java">
-
-```java
-PortalManager.newPortal("maps").create();
-PortalManager.newPortal("shopping").create();
 ```
 
 </TabItem>

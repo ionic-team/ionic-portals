@@ -11,15 +11,15 @@ In some cases, it break down a large Single Page Application (SPA) into multiple
 ## Declaring Multiple Portals
 
 ### iOS
+
 Setting up multiple Portals is as simple as initializing them. Each Portal will function independently of one another and will be a separate instance of the SPA.
 
-<Tabs 
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Objective-C', value: 'objc' }
-    ]}
->
+<Tabs
+defaultValue="swift"
+values={[
+{ label: 'Swift', value: 'swift', },
+{ label: 'Objective-C', value: 'objc' }
+]}>
 <TabItem value="swift">
 
 ```swift
@@ -45,7 +45,7 @@ extension Portal {
         startDir: "web",
         initialContext: ["route": "/maps"]
     )
-    
+
     static let shopping = Portal(
         name: "shopping",
         startDir: "web",
@@ -74,64 +74,19 @@ IONPortal *shoppingPortal = [[IONPortal alloc] initWithName:@"maps" startDir:@"w
 
 </Tabs>
 
-### Android
-Setting up multiple Portals is as easy as declaring another Portal in the PortalManager. Each Portal will function independently of one another and will be a separate instance of the SPA.
-
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-
-<TabItem value="kt">
-
-```kotlin
-PortalManager.newPortal("maps")
-    .setStartDir("web")
-    .setInitialContext(mapOf("route" to "/maps"))
-    .create()
-
-PortalManager.newPortal("shopping")
-    .setStartDir("web")
-    .setInitialContext(mapOf("route" to "/shopping"))
-    .create()
-```
-
-</TabItem>
-
-<TabItem value="java">
-
-```java
-PortalManager.newPortal("maps")
-    .setStartDir("web")
-    .setInitialContext(Map.of("route", "/maps"))
-    .create();
-
-PortalManager.newPortal("shopping")
-    .setStartDir("web")
-    .setInitialContext(Map.of("route", "/shopping"))
-    .create();
-```
-
-</TabItem>
-
-</Tabs>
-
 The _"Maps & Geolocation"_ Portal will be an instance of the SPA in the `web` folder in the Assets directory with an _"initialContext"_ of the following.
 
 ```json
 {
-    "route": "/map"
+  "route": "/map"
 }
 ```
 
-Similarly, the "Shopping & Checkout" Portal will be a separate instance of the SPA in the  `web` folder in the Assets directory with an _"initialContext"_ of the following.
+Similarly, the "Shopping & Checkout" Portal will be a separate instance of the SPA in the `web` folder in the Assets directory with an _"initialContext"_ of the following.
 
 ```json
 {
-    "route": "/shopping"
+  "route": "/shopping"
 }
 ```
 

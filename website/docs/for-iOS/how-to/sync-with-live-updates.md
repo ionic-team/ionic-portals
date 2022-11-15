@@ -12,16 +12,6 @@ The sync operation checks Appflow for a new version of a web app used in a Porta
 
 A sync can be triggered by calling the `sync` function in the Live Update Manager.
 
-<Tabs
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="swift">
-
 ```swift
 // Sync all apps
 LiveUpdateManager.shared.sync()
@@ -34,74 +24,8 @@ LiveUpdateManager.shared.sync(
     isParallel: false,
     syncComplete: { print("Sync completed!") },
     appComplete: { _ in print("App update complete") }
-) 
+)
 ```
-
-</TabItem>
-
-<TabItem value="kt">
-
-```kotlin
-// Sync all configured apps
-LiveUpdateManager.sync(context)
-
-// Sync a specific app
-PortalManager.sync(context, "appId")
-
-// Sync specific apps
-PortalManager.sync(context, arrayOf("appId1", "appId2"))
-
-// Sync all configured apps and callback
-LiveUpdateManager.sync(context, callback = object : SyncCallback {
-    override fun onAppComplete(liveUpdate: LiveUpdate, failStep: FailStep?) {
-        if(failStep != null) {
-            Log.e("LiveUpdate","CALLBACK: Sync failed at step ${failStep.name} for app ${liveUpdate.appId}!")
-        } else {
-            Log.d("LiveUpdate","CALLBACK: Sync success for app ${liveUpdate.appId}!")
-        }
-    }
-
-    override fun onSyncComplete() {
-        Log.d("LiveUpdate","CALLBACK: Sync finished!")
-    }
-})
-```
-
-</TabItem>
-
-<TabItem value="java">
-
-```java
-// Sync all configured apps
-LiveUpdateManager.sync(context);
-
-// Sync a specific app
-PortalManager.sync(context, "appId");
-
-// Sync specific apps
-LiveUpdateManager.sync(this, new String[] {"appId1", "appId2"});
-
-// Sync a specific app and callback
-LiveUpdateManager.sync(this, "appId", new SyncCallback() {
-    @Override
-    public void onAppComplete(LiveUpdate liveUpdate, FailStep failStep) {
-        if(failStep != null) {
-            Log.e("LiveUpdate","CALLBACK: Sync failed at step " + failStep.name + " for app " + liveUpdate.appId + "!");
-        } else {
-            Log.d("LiveUpdate","CALLBACK: Sync success for app " + liveUpdate.appId + "!");
-        }
-    }
-
-    @Override
-    public void onSyncComplete() {
-        Log.d("LiveUpdate","CALLBACK: Sync finished!")
-    }
-});
-```
-
-</TabItem>
-
-</Tabs>
 
 ## When to Sync
 
@@ -113,20 +37,10 @@ Depending on the size of your web app assets, a sync operation could be expensiv
 
 The following example performs a sync when an app resumes as long as six hours has elapsed since the previous sync. This ensures a check is performed every time a user opens the app whether it is opened for the first time or opened from a minimized state.
 
-<Tabs
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="swift">
-
 ```swift title="ViewController.swift"
 override func viewDidLoad() {
   // If it has been more than 6 hours since last update check, sync now.
-  if let lastUpdate = LiveUpdateManager.shared.lastSync(for: "appId"), 
+  if let lastUpdate = LiveUpdateManager.shared.lastSync(for: "appId"),
       let hoursSinceLastUpdate = Calendar.current
           .dateComponents([.hour], from: lastUpdate, to: Date()).hour,
       hours > 6 {
@@ -135,47 +49,3 @@ override func viewDidLoad() {
   }
 }
 ```
-
-</TabItem>
-
-<TabItem value="kt">
-
-```kotlin
-// Placed in an Android Activity
-override fun onResume() {
-    super.onResume()
-
-    // If it has been more than 6 hours since last update check, sync now.
-    val lastUpdateTime = LiveUpdateManager.getLastSync(this)
-    val now = System.currentTimeMillis()
-    val sixHours = 6 * 60 * 60 * 1000
-
-    if(lastUpdateTime < (now - sixHours)) {
-        LiveUpdateManager.sync(this)
-    }
-}
-```
-
-</TabItem>
-
-<TabItem value="java">
-
-```java
-// Placed in an Android Activity
-@Override
-protected void onResume() {
-    super.onResume();
-
-    // If it has been more than 6 hours since last update check, sync now.
-    long lastUpdateTime = LiveUpdateManager.getLastSync(this);
-    long now = System.currentTimeMillis();
-    long sixHours = 6 * 60 * 60 * 1000;
-    if (lastUpdateTime < (now- sixHours)) {
-        LiveUpdateManager.sync(this);
-    }
-}
-```
-
-</TabItem>
-
-</Tabs>

@@ -50,8 +50,8 @@ module.exports = {
           label: "Tutorials",
           collapsed: true,
           items: [
-            "for-android/tutorials/auth-token-example",
-            "for-android/tutorials/monorepo-example",
+            "for-iOS/tutorials/auth-token-example",
+            "for-iOS/tutorials/monorepo-example",
           ],
         },
         {

@@ -3,9 +3,6 @@ title: Passing Auth Token from Native to Portal
 sidebar_label: Passing Auth Token from Native to Portal
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 A common scenario that a developer might run into is having a web experience tailored for the current logged in user. Another scenario might be having a log-in screen be a Portal so it can easily be designed and updated across Android and iOS. In both of these scenarios, a developer would need to account for handling auth tokens between native and web code. Below are a few examples of how to solve these problems.
 
 ## Passing From Native to Web
