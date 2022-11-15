@@ -15,7 +15,7 @@ First have your web application ready. We will add some configuration to it and 
 
 ## 1. Create a capacitor config
 
-Create a `capacitor.config.json` file to the root of your web project. We will not need to add Capacitor to the web project but this configuration file will help us configure some options for the Portals that is displaying this web application.
+Create a `capacitor.config.json` file to the root of your web project. We will not need to add Capacitor to the web project but this configuration file will help us configure some options for the Portals that are displaying this web application.
 
 ```json showLineNumbers
 {
@@ -208,7 +208,7 @@ Now that the application has been configured all we need to do is add the Portal
 ```swift
 class ViewController: UIViewController {
     override func loadView() {
-        self.view = PortalUIView(portal: "featured_products)
+        self.view = PortalUIView(portal: "featured_products")
     }
 }
 ```
