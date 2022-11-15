@@ -18,13 +18,13 @@ module.exports = {
     "live-updates",
     "upgrade-guides",
     "known-issues",
-    "how-to/ios-all-in-one",
     {
       type: "category",
       label: "Getting Started",
       collapsed: true,
       items: [
         "getting-started/guide",
+        "getting-started/iOS-all-in-one",
         "getting-started/iOS",
         "getting-started/android",
         "getting-started/react-native",

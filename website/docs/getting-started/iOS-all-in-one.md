@@ -1,13 +1,13 @@
 ---
-title: iOS Quick Start Walkthrough
-sidebar_label: iOS Quick Start Walkthrough
+title: iOS Quick Start
+sidebar_label: iOS Quick Start
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
 
-# iOS Quick Start Walkthrough
+# iOS Quick Start
 
 This is a walkthrough on how to get a single Portal + web application setup. To begin this walkthrough it will be assumed that you have already signed up for access to Portals and you have your Portals key ready.
 
@@ -86,6 +86,8 @@ When creating a new build there are a few values that we need to change on the i
 
 ## 3. Setup local dev environment
 
+### Create a Personal Access Token
+
 Now that we have the web application all setup in Appflow and built we need to get our local environment setup to be able to pull it from Appflow.
 
 The first step in setting up our local environment is [generating a personal access token](https://dashboard.ionicframework.com/settings/personal-access-tokens).
@@ -127,7 +129,7 @@ Install the Ionic Cloud CLI within your local dev environment. This CLI will all
 (export IONIC_CLOUD_VERSION=0.7.0; curl -sL https://ionic.io/get-ionic-cloud-cli | bash)
 ```
 
-## 4. Create web application download script
+### Create web application download script
 
 The last step in setting up the local environment is adding a script to the project in XCode so that it will download the latest web application build from Appflow every time the iOS application is built.
 
@@ -164,9 +166,9 @@ There are a few variables that you will need to setup at the beginning of script
 - `CHANNEL` - Live update distribution channel.
 - `PORTAL_NAME` - Choose a name for the portal, no spaces.
 
-## 5. Setup Portals in your iOS App
+## 4. Setup Portals in your iOS App
 
-Install the Cocoapod file
+### Install the Cocoapod file
 
 :::note
 IonicPortals requires using Cocoapods 1.10 or greater.
@@ -179,7 +181,10 @@ To add Portals to your iOS project, put the following line to your `Podfile`:
 </CodeBlock>
 
 And then run `pod install`.
-After installation of Portals we can setup the Portals key. Then the application is ready to have its first Portal configured.
+
+### Add the Portals key
+
+After installation of Portals we can setup the Portals key. Then the application is ready to have its first Portal configured. A typical place to do so is in the `AppDelegate` `application(_:didFinishLaunchingWithOptions)` method. There, you can use the [PortalsRegistrationManager](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager) to register:
 
 ```swift {9} title=AppDelegate.swift
 import UIKit
@@ -196,6 +201,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
+### Create the first Portal
+
 Now that the application has been configured all we need to do is add the Portal to a view. By default, a `Portal` will use the `name` property as the directory to load web content from (relative to the root of `Bundle.main`). You can also specify another directory for the content.
 
 ```swift
@@ -206,4 +213,4 @@ class ViewController: UIViewController {
 }
 ```
 
-Thats it! Portals is now setup in your application and you can add new Portals at any time.
+Thats it! Portals is now setup in your application and you can add new Portals at any time. Next step would be to setup LiveUpdates within your application.
