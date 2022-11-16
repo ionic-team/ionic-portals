@@ -15,33 +15,11 @@ Consider that a user may be in the middle of doing work inside the Portal as new
 The following examples show how an active Portal could be reloaded after a Live Update has finished downloading.
 
 <Tabs
-    defaultValue="swift"
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="swift">
-
-```swift title="ViewController.swift"
-override func viewDidLoad() {
-    LiveUpdateManager.shared.sync(appId: self.appId) { result in 
-        switch result {
-        case .error(let error):
-            // handle error
-            print("Sync failed with error: \(error)")
-        case .success:
-            self.portalView.reload() 
-        }
-      }
-
-    super.viewDidLoad()
-}
-```
-
-</TabItem>
-
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin

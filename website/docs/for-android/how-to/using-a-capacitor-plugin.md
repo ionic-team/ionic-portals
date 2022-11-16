@@ -22,125 +22,8 @@ Ionic Portals uses Capacitor under the hood, meaning that you can use [Capacitor
 
 Capacitor [Core Plugins](https://capacitorjs.com/docs/apis) are plugins built by the Capacitor team and provided for you to use conveniently through public repositories.
 
-<Tabs 
-    defaultValue="ios" 
-    values={[
-        { label: 'iOS', value: 'ios', },
-        { label: 'Android', value: 'android', },
-        { label: 'React Native', value: 'react-native', }
-    ]}
->
-<TabItem value="ios">
-
-### iOS Native Usage
-In order to use a Capacitor Core Plugin, you need to install the plugin as a dependency in your `Podfile`.
-
-<CodeBlock className="language-ruby" title="Podfile">
-{
-`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'
-pod 'CapacitorStorage', '~> 1.2.0'
-`.trim()
-}
-</CodeBlock>
-
-:::caution
-To avoid errors, make sure that the versions in your `Podfile` and `package.json` match!
-:::
-
-After installing the dependency, Capacitor Plugins are automatically registered on initialization of the Capacitor runtime.
-
-### Published Plugins
-
-In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example, the `@capacitor/storage` plugin on npm is named `CapacitorStorage` on CocoaPods. The following Plugins are available in CocoaPods.
-
-**CapacitorActionSheet**
-
-The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
-
-**CapacitorAppLauncher**
-
-The AppLauncher API allows to open other apps
-
-**CapacitorBrowser**
-
-The Browser API provides the capability to open an in-app browser and subscribe to browser events.
-
-**CapacitorCamera**
-
-The Camera API provides the capability to take a photo with the camera or to choose photos from the photo album.
-
-**CapacitorClipboard**
-
-The Clipboard API enables copy and pasting to/from the system clipboard.
-
-**CapacitorDevice**
-
-The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
-
-**CapacitorDialog**
-
-The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts.
-
-**CapacitorFilesystem**
-
-The Filesystem API provides a NodeJS-like API for working with files on the device.
-
-**CapacitorGeolocation**
-
-The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
-
-**CapacitorHaptics**
-
-The Haptics API provides physical feedback to the user through touch or vibration.
-
-**CapacitorKeyboard**
-
-The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
-
-**CapacitorLocalNotifications**
-
-The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
-
-**CapacitorNetwork**
-
-The Network API provides network and connectivity information.
-
-**CapacitorPushNotifications**
-
-The Push Notifications API provides access to native push notifications.
-
-**CapacitorScreenReader**
-
-The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides simple text-to-speech capabilities for visual accessibility.
-
-**CapacitorShare**
-
-The Share API provides methods for sharing content to any sharing-enabled apps that the user may have installed.
-
-**CapacitorSplashScreen**
-
-The Splash Screen API provides methods for showing or hiding a Splash image.
-
-**CapacitorStatusBar**
-
-The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
-
-**CapacitorStorage**
-
-The Storage API provides a simple key/value persistent store for lightweight data.
-
-**CapacitorTextZoom**
-
-The Text Zoom API provides the ability to change Web View text size for visual accessibility.
-
-**CapacitorToast**
-
-The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
-
-</TabItem>
-<TabItem value="android">
-
 ### Android Native Usage
+
 In order to use a Capacitor Core Plugin, you need to install the plugin as a dependency in your `build.gradle` file.
 
 <CodeBlock className="language-groovy" title="build.gradle">
@@ -159,13 +42,12 @@ To avoid errors, make sure that the versions in your `build.gradle` and `package
 
 Next, include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -274,30 +156,8 @@ The Text Zoom API provides the ability to change Web View text size for visual a
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
 
-
-</TabItem>
-<TabItem value="react-native">
-
-### React Native Usage
-
-Follow the instructions for both Android and iOS in your native applications. When creating your portal, you will need to specify the android classpath for the plugin class you intend to use:
-
-```javascript
-import { addPortal } from '@ionic/portals-react-native';
-
-const cameraPortal = {
-  name: 'camera',
-  androidPlugins: ['com.capacitorjs.plugins.camera.CameraPlugin']
-};
-
-addPortal(cameraPortal);
-```
-
-
-</TabItem>
-</Tabs>
-
 ### Web Usage
+
 Web Developers need to install the web dependencies of the plugins from `npm`. The packages are listed under the `@capacitor` scope. To install a plugin, run `npm i @capacitor/<plugin_name>` from the root of your web project.
 
 :::warning
@@ -322,24 +182,6 @@ npm i @capacitor-community/stripe
 
 The native code from the plugin needs to be made available to each native project using Portals.
 
-<Tabs 
-    defaultValue="ios" 
-    values={[
-        { label: 'iOS', value: 'ios', },
-        { label: 'Android', value: 'android', },
-    ]}
->
-<TabItem value="ios">
-
-In your project `Podfile`, define the path to the folder containing the plugin's Podspec file.
-```ruby 
-pod 'CapacitorPluginName', :path => '../../webapp/node_modules/@custom-capacitor/plugin'
-```
-The path to the Podspec file is typically the source root of the plugin project, not in the platform specific subfolder.
-
-</TabItem>
-<TabItem value="android">
-
 In your project `settings.gradle` file, define a path to the plugin android native project code.
 
 ```groovy
@@ -360,34 +202,16 @@ dependencies {
 
 If successful, you should now see a section in the Android Studio project browser for your plugin, be able to browse its source code, and reference classes in the plugin within your native application source code.
 
-</TabItem>
-</Tabs>
-
 ### Register the Plugin
-
-<Tabs 
-    defaultValue="ios" 
-    values={[
-        { label: 'iOS', value: 'ios', },
-        { label: 'Android', value: 'android', },
-    ]}
->
-<TabItem value="ios">
-
-Plugins are automatically registered on iOS.
-
-</TabItem>
-<TabItem value="android">
 
 Register the plugin with a portal to use it.
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -421,9 +245,6 @@ public class MyApplication extends Application {
     }
 }
 ```
-
-</TabItem>
-</Tabs>
 
 </TabItem>
 </Tabs>

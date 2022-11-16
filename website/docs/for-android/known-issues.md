@@ -3,14 +3,6 @@ title: Known Issues
 sidebar_label: Known Issues
 ---
 
-## iOS Notifications
-
-All versions of IonicPortals on iOS prior to 0.6.5 contain a bug where Capacitor takes control as the `UNNotificationCenterDelegate`. Upgrading to 0.6.5 will resolve the issue.
-
-## iOS Swift Package Manager Integration
-
-There are currently two separate, but similar issues when integrating IonicPortals as an SPM dependency. Both manifest themselves as Invalid Bundle errors from App Store Connect
-
 ### IonicPortals as a single target dependency
 
 Capacitor v3.5.1 has an issue where it has an embedded `Cordova.framework`. This causes uploading to App Store Connect to fail with error codes `ITMS-90205` and `ITMS-90206`. The workaround is to delete the embedded framework as part of your build process:

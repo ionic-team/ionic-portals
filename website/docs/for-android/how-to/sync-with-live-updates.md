@@ -13,32 +13,11 @@ The sync operation checks Appflow for a new version of a web app used in a Porta
 A sync can be triggered by calling the `sync` function in the Live Update Manager.
 
 <Tabs
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="swift">
-
-```swift
-// Sync all apps
-LiveUpdateManager.shared.sync()
-
-// Sync a specific app
-LiveUpdateManager.shared.sync(appId: "appId")
-
-// Sync all apps not in parallel and with a callback
-LiveUpdateManager.shared.sync(
-    isParallel: false,
-    syncComplete: { print("Sync completed!") },
-    appComplete: { _ in print("App update complete") }
-) 
-```
-
-</TabItem>
-
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -114,19 +93,17 @@ Depending on the size of your web app assets, a sync operation could be expensiv
 The following example performs a sync when an app resumes as long as six hours has elapsed since the previous sync. This ensures a check is performed every time a user opens the app whether it is opened for the first time or opened from a minimized state.
 
 <Tabs
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="swift">
 
 ```swift title="ViewController.swift"
 override func viewDidLoad() {
   // If it has been more than 6 hours since last update check, sync now.
-  if let lastUpdate = LiveUpdateManager.shared.lastSync(for: "appId"), 
+  if let lastUpdate = LiveUpdateManager.shared.lastSync(for: "appId"),
       let hoursSinceLastUpdate = Calendar.current
           .dateComponents([.hour], from: lastUpdate, to: Date()).hour,
       hours > 6 {

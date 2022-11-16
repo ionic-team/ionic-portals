@@ -10,81 +10,14 @@ In some cases, it break down a large Single Page Application (SPA) into multiple
 
 ## Declaring Multiple Portals
 
-### iOS
-Setting up multiple Portals is as simple as initializing them. Each Portal will function independently of one another and will be a separate instance of the SPA.
-
-<Tabs 
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Objective-C', value: 'objc' }
-    ]}
->
-<TabItem value="swift">
-
-```swift
-let mapsPortal = Portal(
-    name: "maps",
-    startDir: "web",
-    initialContext: ["route": "/maps"]
-)
-
-let shoppingPortal = Portal(
-    name: "shopping",
-    startDir: "web",
-    initialContext: ["route": "/shopping"]
-)
-```
-
-If you find yourself needing these Portals in multiple locations in your application, you may find it convenient to extend `Portal`:
-
-```swift title=Portal+SPAPortals.swift
-extension Portal {
-    static let maps = Portal(
-        name: "maps",
-        startDir: "web",
-        initialContext: ["route": "/maps"]
-    )
-    
-    static let shopping = Portal(
-        name: "shopping",
-        startDir: "web",
-        initialContext: ["route": "/shopping"]
-    )
-}
-```
-
-Then you can use them throughout your application:
-
-```swift
-PortalUIView(portal: .maps)
-PortalUIView(portal: .shopping)
-```
-
-</TabItem>
-
-<TabItem value="objc">
-
-```objectivec
-IONPortal *mapsPortal = [[IONPortal alloc] initWithName:@"maps" startDir:@"web" initialContext:@{ @"route": @"/map" }];
-IONPortal *shoppingPortal = [[IONPortal alloc] initWithName:@"maps" startDir:@"web" initialContext:@{ @"route": @"map" }];
-```
-
-</TabItem>
-
-</Tabs>
-
-### Android
 Setting up multiple Portals is as easy as declaring another Portal in the PortalManager. Each Portal will function independently of one another and will be a separate instance of the SPA.
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -123,15 +56,15 @@ The _"Maps & Geolocation"_ Portal will be an instance of the SPA in the `web` fo
 
 ```json
 {
-    "route": "/map"
+  "route": "/map"
 }
 ```
 
-Similarly, the "Shopping & Checkout" Portal will be a separate instance of the SPA in the  `web` folder in the Assets directory with an _"initialContext"_ of the following.
+Similarly, the "Shopping & Checkout" Portal will be a separate instance of the SPA in the `web` folder in the Assets directory with an _"initialContext"_ of the following.
 
 ```json
 {
-    "route": "/shopping"
+  "route": "/shopping"
 }
 ```
 
