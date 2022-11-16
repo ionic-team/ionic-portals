@@ -12,21 +12,24 @@ module.exports = {
   sidebar: [
     "overview",
     "what-is-a-portal",
+    "portal-communication",
+    "choosing-a-communication",
     "live-updates",
+    "get-a-product-key",
+    "portals-plugin",
     {
       type: "category",
       label: "iOS",
       collapsed: true,
       items: [
-        "for-iOS/choosing-a-communication",
         "for-iOS/all-in-one",
         "for-iOS/getting-started",
-        "for-iOS/live-updates-getting-started",
         "for-iOS/guide",
-        "for-iOS/known-issues",
+        "for-iOS/live-updates-getting-started",
         "for-iOS/live-updates",
         "for-iOS/plugin-overview",
         "for-iOS/upgrade-guides",
+        "for-iOS/known-issues",
         {
           type: "category",
           label: "How To",
@@ -34,7 +37,6 @@ module.exports = {
           items: [
             "for-iOS/how-to/advanced-configuration",
             "for-iOS/how-to/define-api-in-typescript",
-            "for-iOS/how-to/get-a-product-key",
             "for-iOS/how-to/multiple-portals-multiple-web-apps",
             "for-iOS/how-to/multiple-portals-single-web-app",
             "for-iOS/how-to/pull-in-web-bundle",
@@ -88,13 +90,12 @@ module.exports = {
       collapsed: true,
       items: [
         "for-android/getting-started",
-        "for-android/live-updates-getting-started",
-        "for-android/choosing-a-communication",
         "for-android/guide",
-        "for-android/known-issues",
+        "for-android/live-updates-getting-started",
         "for-android/live-updates",
         "for-android/plugin-overview",
         "for-android/upgrade-guides",
+        "for-android/known-issues",
         {
           type: "category",
           label: "How To",
@@ -102,7 +103,6 @@ module.exports = {
           items: [
             "for-android/how-to/advanced-configuration",
             "for-android/how-to/define-api-in-typescript",
-            "for-android/how-to/get-a-product-key",
             "for-android/how-to/multiple-portals-multiple-web-apps",
             "for-android/how-to/multiple-portals-single-web-app",
             "for-android/how-to/pull-in-web-bundle",
@@ -175,20 +175,18 @@ module.exports = {
       collapsed: true,
       items: [
         "for-react-native/getting-started",
-        "for-react-native/live-updates-getting-started",
-        "for-react-native/choosing-a-communication",
         "for-react-native/guide",
-        "for-react-native/known-issues",
+        "for-react-native/live-updates-getting-started",
         "for-react-native/live-updates",
         "for-react-native/plugin-overview",
         "for-react-native/upgrade-guides",
+        "for-react-native/known-issues",
         {
           type: "category",
           label: "How To",
           collapsed: true,
           items: [
             "for-react-native/how-to/define-api-in-typescript",
-            "for-react-native/how-to/get-a-product-key",
             "for-react-native/how-to/pull-in-web-bundle",
             "for-react-native/how-to/using-a-capacitor-plugin",
             "for-react-native/how-to/using-the-portals-plugin",

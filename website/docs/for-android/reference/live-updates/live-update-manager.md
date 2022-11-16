@@ -11,18 +11,19 @@ The [LiveUpdateManager](./live-update-manager) is used to manage instances of we
 ## Methods
 
 ### getLastSync
+
 _static_
 
 Check when an app was last synced. If no appId is passed in, returns the oldest sync time from all registered apps.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -41,26 +42,27 @@ Long lastSync = LiveUpdateManager.getLastSync(context);
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`context` | false | Context | An Android context
-`appId` | true | String | The ID of the app registered with Live Updates
+| Name      | Optional | Type    | Description                                    |
+| :-------- | :------- | :------ | ---------------------------------------------- |
+| `context` | false    | Context | An Android context                             |
+| `appId`   | true     | String  | The ID of the app registered with Live Updates |
 
-**Returns:** <span class="return-code">*Long*</span>
+**Returns:** <span class="return-code">_Long_</span>
 
 ### sync
+
 _static_
 
 Checks a single app with live updates to see if any new builds are available. If they are, attempt to download, unzip, and update the saved data to reference the latest build.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -119,27 +121,28 @@ LiveUpdateManager.sync(context, new String[] {"appId1", "appId2"} ,true, new Syn
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`context` | false | Context | An Android context
-`appId` | true | String | The ID of the app registered with Live Updates
-`appIds` | true | Array of Strings | An array of app IDs of apps registered with Live Updates
-`async` | true | Boolean | If true, multiple apps registered with Live Updates will sync in paralell. If false, Live Update sync operations will run one app at a time. Default is true
-`callback` | true | [SyncCallback](./sync-callback) | A callback to notify on each app sync complete and when entire sync is complete
+| Name       | Optional | Type                            | Description                                                                                                                                                  |
+| :--------- | :------- | :------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `context`  | false    | Context                         | An Android context                                                                                                                                           |
+| `appId`    | true     | String                          | The ID of the app registered with Live Updates                                                                                                               |
+| `appIds`   | true     | Array of Strings                | An array of app IDs of apps registered with Live Updates                                                                                                     |
+| `async`    | true     | Boolean                         | If true, multiple apps registered with Live Updates will sync in paralell. If false, Live Update sync operations will run one app at a time. Default is true |
+| `callback` | true     | [SyncCallback](./sync-callback) | A callback to notify on each app sync complete and when entire sync is complete                                                                              |
 
 ### cancelSync
+
 _static_
 
 Attempts to cancel a running sync job. If no app ID is provided it will attempt to cancel all running sync jobs.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -166,24 +169,25 @@ LiveUpdateManager.cancelSync("appId");
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`context` | false | Context | An Android context
-`appId` | true | String | The ID of the app registered with Live Updates
+| Name      | Optional | Type    | Description                                    |
+| :-------- | :------- | :------ | ---------------------------------------------- |
+| `context` | false    | Context | An Android context                             |
+| `appId`   | true     | String  | The ID of the app registered with Live Updates |
 
 ### getLatestAppDirectory
+
 _static_
 
 Get the latest directory for the updated app resources, if available. If the app has not been updated through Live Updates, null will be returned.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -202,26 +206,27 @@ LiveUpdateManager.getLatestAppDirectory(context, "appId");
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`context` | Context | An Android context
-`appId` | String | The ID of the app registered with Live Updates
+| Name      | Type    | Description                                    |
+| :-------- | :------ | :--------------------------------------------- |
+| `context` | Context | An Android context                             |
+| `appId`   | String  | The ID of the app registered with Live Updates |
 
 **Returns:** <span class="return-code">File?</span>
 
 ### initialize
+
 _static_
 
 Initializes the file directory and shared preferences used to save update data.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -240,23 +245,24 @@ LiveUpdateManager.initialize(context);
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`context` | Context | An Android context
+| Name      | Type    | Description        |
+| :-------- | :------ | :----------------- |
+| `context` | Context | An Android context |
 
 ### reset
+
 _static_
 
 Clears the live updates directory and saved update data. Provided for maintenance/troubleshooting purposes.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -283,24 +289,25 @@ LiveUpdateManager.reset(context, true);
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`context` | false | Context | An Android context
-`retainCache` | true | Boolean | If true, will persist downloaded web asset files through reset. Default is false
+| Name          | Optional | Type    | Description                                                                      |
+| :------------ | :------- | :------ | -------------------------------------------------------------------------------- |
+| `context`     | false    | Context | An Android context                                                               |
+| `retainCache` | true     | Boolean | If true, will persist downloaded web asset files through reset. Default is false |
 
 ### addLiveUpdateInstance
+
 _static_
 
 Adds an app to the LiveUpdateManager.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -321,24 +328,25 @@ LiveUpdateManager.addLiveUpdateInstance(context, liveUpdateConfig);
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`context` | Context | An Android context
-`liveUpdate` | [LiveUpdate](./live-update) | An instance of an app to register with Live Updates
+| Name         | Type                        | Description                                         |
+| :----------- | :-------------------------- | :-------------------------------------------------- |
+| `context`    | Context                     | An Android context                                  |
+| `liveUpdate` | [LiveUpdate](./live-update) | An instance of an app to register with Live Updates |
 
 ### cleanStaleVersions
+
 _static_
 
 Clean stale versions of an app updated with Live Updates. Stale versions are any app snapshot files built for previous versions of the app binary and not currently used by any app channel.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -365,24 +373,25 @@ LiveUpdateManager.cleanStaleVersions(context, "appId");
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`context` | Context | An Android context
-`appId` | String | The ID of the app registered with Live Updates
+| Name      | Type    | Description                                    |
+| :-------- | :------ | :--------------------------------------------- |
+| `context` | Context | An Android context                             |
+| `appId`   | String  | The ID of the app registered with Live Updates |
 
 ### cleanVersions
+
 _static_
 
 Clean up unused/old app versions. If an app ID is provided the clean up will be restricted to that app.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -409,24 +418,25 @@ LiveUpdateManager.cleanVersions(context, "appId");
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`context` | false | Context | An Android context
-`appId` | true | String | The ID of the app registered with Live Updates
+| Name      | Optional | Type    | Description                                    |
+| :-------- | :------- | :------ | ---------------------------------------------- |
+| `context` | false    | Context | An Android context                             |
+| `appId`   | true     | String  | The ID of the app registered with Live Updates |
 
 ### checkForUpdate
+
 _static_
 
 Check for an update for an app. If optional callback is provided, will run async.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -467,25 +477,26 @@ LiveUpdateManager.checkForUpdate(context, "appId", checkResponse -> {
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`context` | false | Context | An Android context
-`appId` | false | String | The ID of the app registered with Live Updates
-`callback` | true | [CheckCallback](./check-callback) | A callback to handle the response from the update check request
+| Name       | Optional | Type                              | Description                                                     |
+| :--------- | :------- | :-------------------------------- | --------------------------------------------------------------- |
+| `context`  | false    | Context                           | An Android context                                              |
+| `appId`    | false    | String                            | The ID of the app registered with Live Updates                  |
+| `callback` | true     | [CheckCallback](./check-callback) | A callback to handle the response from the update check request |
 
 ### downloadUpdate
+
 _static_
 
 Download an update for an app. If optional callback is provided, will run async.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -526,26 +537,27 @@ LiveUpdateManager.downloadUpdate(getContext(), "appId", "snapshotId", downloadRe
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`context` | false | Context | An Android context
-`appId` | false | String | The ID of the app registered with Live Updates
-`snapshotId` | false | String | The ID of an app snapshot to download
-`callback` | true | [DownloadCallback](./download-callback) | A callback to handle the response from the download request
+| Name         | Optional | Type                                    | Description                                                 |
+| :----------- | :------- | :-------------------------------------- | ----------------------------------------------------------- |
+| `context`    | false    | Context                                 | An Android context                                          |
+| `appId`      | false    | String                                  | The ID of the app registered with Live Updates              |
+| `snapshotId` | false    | String                                  | The ID of an app snapshot to download                       |
+| `callback`   | true     | [DownloadCallback](./download-callback) | A callback to handle the response from the download request |
 
 ### extractUpdate
+
 _static_
 
 Extract an update for an app. If optional callback is provided, will run async.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -585,25 +597,26 @@ LiveUpdateManager.extractUpdate(getContext(), zipFile, extractedFile -> {
 
 #### Parameters
 
-Name | Optional | Type | Description
-:------ | :------ | :------
-`appId` | false | String | The ID of the app registered with Live Updates
-`zipFile` | false | File | The zip file of the app snapshot to extract
-`callback` | true | [ExtractCallback](./extract-callback) | A callback to handle the response from the extract request
+| Name       | Optional | Type                                  | Description                                                |
+| :--------- | :------- | :------------------------------------ | ---------------------------------------------------------- |
+| `appId`    | false    | String                                | The ID of the app registered with Live Updates             |
+| `zipFile`  | false    | File                                  | The zip file of the app snapshot to extract                |
+| `callback` | true     | [ExtractCallback](./extract-callback) | A callback to handle the response from the extract request |
 
 ### applyUpdate
+
 _static_
 
 Apply a downloaded and extracted Live Update snapshot to the app as the latest path.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -622,26 +635,27 @@ LiveUpdateManager.applyUpdate(context, "appId", "snapshotId", "buildId");
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`context` | Context | An Android context
-`appId` | String | The ID of the app registered with Live Updates
-`snapshotId` | String | The ID of an app snapshot to apply
-`buildId` | String | The ID of the build to apply
+| Name         | Type    | Description                                    |
+| :----------- | :------ | :--------------------------------------------- |
+| `context`    | Context | An Android context                             |
+| `appId`      | String  | The ID of the app registered with Live Updates |
+| `snapshotId` | String  | The ID of an app snapshot to apply             |
+| `buildId`    | String  | The ID of the build to apply                   |
 
 ### getApps
+
 _static_
 
 Get the map of all registered apps using Live Updates.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -658,4 +672,4 @@ Map<String, LiveUpdate> apps = LiveUpdateManager.getApps();
 </TabItem>
 </Tabs>
 
-**Returns:** <span class="return-code">Map<String, [*LiveUpdate*](./live-update)></span>
+**Returns:** <span class="return-code">Map<String, [_LiveUpdate_](./live-update)></span>

@@ -11,18 +11,19 @@ The Check Callback interface is used to provide completion behavior when using t
 ## Methods
 
 ### onComplete
+
 _static_
 
 Called when the [LiveUpdateManager.checkForUpdate()](./live-update-manager#checkforupdate) method has finished.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -49,6 +50,6 @@ LiveUpdateManager.checkForUpdate(context, "appId", checkResponse -> {
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`response` |[CheckResponse](./check-response) | Check response model containing result data if successful or error information if failed.
+| Name       | Type                              | Description                                                                               |
+| :--------- | :-------------------------------- | :---------------------------------------------------------------------------------------- |
+| `response` | [CheckResponse](./check-response) | Check response model containing result data if successful or error information if failed. |

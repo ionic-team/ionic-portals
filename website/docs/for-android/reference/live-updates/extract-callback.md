@@ -11,18 +11,19 @@ The Extract Callback interface is used to provide completion behavior when using
 ## Methods
 
 ### onComplete
+
 _static_
 
 Called when the [LiveUpdateManager.extractUpdate()](./live-update-manager#extractupdate) method has finished.
 
 #### Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -49,6 +50,6 @@ LiveUpdateManager.extractUpdate(getContext(), zipFile, extractedFile -> {
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`file` | File | File object pointing to the path of the extracted files.
+| Name   | Type | Description                                              |
+| :----- | :--- | :------------------------------------------------------- |
+| `file` | File | File object pointing to the path of the extracted files. |

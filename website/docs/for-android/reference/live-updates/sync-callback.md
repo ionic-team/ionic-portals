@@ -9,13 +9,13 @@ import TabItem from '@theme/TabItem';
 The Sync Callback interface is used to provide completion behavior when using the asynchronous [LiveUpdateManager.sync()](./live-update-manager#sync) method.
 
 ## Usage
+
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -63,18 +63,20 @@ LiveUpdateManager.sync(context, new String[] {"appId1", "appId2"} ,true, new Syn
 ## Methods
 
 ### onAppComplete
+
 _static_
 
 Called when the [LiveUpdateManager.sync()](./live-update-manager#sync) method has finished syncing each app in the sync process.
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`liveUpdate` | [LiveUpdate](./live-update) | Information about the app synced.
-`failStep` | FailStep | Contains information about the step the sync failed on if an error occurred when syncing an app.
+| Name         | Type                        | Description                                                                                      |
+| :----------- | :-------------------------- | :----------------------------------------------------------------------------------------------- |
+| `liveUpdate` | [LiveUpdate](./live-update) | Information about the app synced.                                                                |
+| `failStep`   | FailStep                    | Contains information about the step the sync failed on if an error occurred when syncing an app. |
 
 ### onSyncComplete
+
 _static_
 
 Called once when the [LiveUpdateManager.sync()](./live-update-manager#sync) method has finished syncing all apps.

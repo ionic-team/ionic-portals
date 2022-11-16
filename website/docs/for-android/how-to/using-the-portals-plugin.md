@@ -12,7 +12,7 @@ The `PortalsPlugin` provides useful features to aid in communication between you
 
 ### Android and iOS
 
-Follow the [Getting Started Guide](../getting-started/guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
+Follow the [Getting Started Guide](../guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
 
 ### Web
 
@@ -90,7 +90,7 @@ mapsPortal.setInitialContext(Map.of("ic_example", "hello world"));
 
 ### Using Initial Context
 
-To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../reference/web/portals-plugin#getinitialcontext) function.
+To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../../portals-plugin#getinitialcontext) function.
 
 ```typescript
 import { getInitialContext } from "@ionic/portals";
@@ -306,7 +306,7 @@ Publish messages to send data through a Portal to registered Subscribers.
 
 #### From Web to iOS/Android
 
-To send a message from your web application to iOS or Android, use the [Portals.publish()](../reference/web/portals-plugin#publish) function.
+To send a message from your web application to iOS or Android, use the [Portals.publish()](../../portals-plugin#publish) function.
 
 ```typescript
 Portals.publish({ topic: "dismiss", data: "success" });
@@ -342,4 +342,4 @@ PortalsPlugin.publish("weather", "sunny");
 
 ## Examples
 
-The `PortalsPlugin` is used in the [E-Commerce App](./examples/ecommerce-app) demo.
+The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce-app) demo.

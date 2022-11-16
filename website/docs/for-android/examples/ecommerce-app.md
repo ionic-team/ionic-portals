@@ -37,10 +37,10 @@ The shopping cart web application is displayed in a Portal set inside of a [Dial
 
 ### Help Portal
 
-For the Help page we used a Portal by adding a [PortalView](../reference/android/portal-view) directly to the view layout for the containing Fragment. To disguise the momentary flicker while the Portal loaded the web application for the Help page, we experimented with overriding the `PortalFragment` class and made [FadePortalFragment](https://github.com/ionic-team/portals-ecommerce-demo/blob/main/android/PortalsEcommerce/app/src/main/java/io/ionic/demo/ecommerce/portals/FadePortalFragment.java). This adds a gentle fade as the Portal loads.
+For the Help page we used a Portal by adding a [PortalView](../reference/api/portal-view) directly to the view layout for the containing Fragment. To disguise the momentary flicker while the Portal loaded the web application for the Help page, we experimented with overriding the `PortalFragment` class and made [FadePortalFragment](https://github.com/ionic-team/portals-ecommerce-demo/blob/main/android/PortalsEcommerce/app/src/main/java/io/ionic/demo/ecommerce/portals/FadePortalFragment.java). This adds a gentle fade as the Portal loads.
 
 :::tip
-Custom classes extending `PortalFragment` can be used directly in XML layouts if specified when created using the `PortalManager`. See the [PortalBuilder.setPortalFragmentType()](../reference/android/portal-builder#setportalfragmenttype) method for more information.
+Custom classes extending `PortalFragment` can be used directly in XML layouts if specified when created using the `PortalManager`. See the [PortalBuilder.setPortalFragmentType()](../reference/api/portal-builder#setportalfragmenttype) method for more information.
 :::
 
 ### User Details Portal

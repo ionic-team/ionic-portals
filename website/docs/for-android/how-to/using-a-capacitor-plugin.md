@@ -40,7 +40,7 @@ dependencies {
 To avoid errors, make sure that the versions in your `build.gradle` and `package.json` match!
 :::
 
-Next, include it via the [PortalBuilder.setPlugins()](../reference/android/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/android/portal-builder#addplugin) functions.
+Next, include it via the [PortalBuilder.setPlugins()](../reference/api/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/api/portal-builder#addplugin) functions.
 
 <Tabs
 defaultValue="kt"

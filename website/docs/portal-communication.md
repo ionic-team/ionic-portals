@@ -9,19 +9,19 @@ Ionic Portals provides multiple ways to communicate between the web and native p
 
 The Ionic Portals library comes packaged with a plugin called the `PortalsPlugin` that provides a way to communicate between the web and native parts of your application in a publish-subscribe fashion. This method provides a way to pass data or control elements of the native UI without needing to write a custom Capacitor plugin.
 
-See our guide on [How To Use The PortalsPlugin](./how-to/using-the-portals-plugin).
+See our guide on [How To Use The PortalsPlugin](./).
 
 ## Capacitor Core Plugins
 
 Ionic Portals uses [Capacitor](https://capacitorjs.com) as the bridge between your web and native application. One of the main benefits of this is that you can use Capacitor Plugins in applications using Portals. All of the [Core Capacitor Plugins](https://capacitorjs.com/docs/apis) are available out of the box via NPM for the web application and as native dependencies from Maven Central and Cocoapods.
 
-See our guide on [How To Use a Capacitor Plugin](./how-to/using-a-capacitor-plugin).
+See our guide on [How To Use a Capacitor Plugin](./).
 
 ## Custom Plugins
 
 Using the Capacitor Plugin system you can develop a custom interface for the communication through Portals inside your native application and provide your web application a Typescript interface to use that plugin as you would any Capacitor Plugin.
 
-See our guide on [How To Define a Portal API](./how-to/define-api-in-typescript).
+See our guide on [How To Define a Portal API](./).
 
 ## Which Should I Choose?
 

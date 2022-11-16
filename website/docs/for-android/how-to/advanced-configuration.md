@@ -36,14 +36,12 @@ Portals for Android allows you to provide a programmatically defined Capacitor C
 
 ### Android
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin

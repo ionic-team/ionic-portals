@@ -10,17 +10,15 @@ Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide
 
 ## Creating a Custom Application Class
 
-In Android, you will have to register your Portals instance and start creating Portals via the [PortalManager](../reference/android/portal-manager). To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals.
+In Android, you will have to register your Portals instance and start creating Portals via the [PortalManager](./reference/api/portal-manager). To do this, a custom [Application](https://developer.android.com/reference/api/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals.
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
-
 
 ```kotlin title=MyApplication.kt
 class MyApplication : Application() {
@@ -44,7 +42,7 @@ public class MyApplication extends Application {
         // setup portals
     }
 }
-``` 
+```
 
 </TabItem>
 </Tabs>
@@ -71,20 +69,19 @@ After creating a custom Application class, be sure to add the `android:name` att
         /* other manifest code here */
         /* ... */
     </application>
-</manifest>  
+</manifest>
 ```
 
 ## Creating a Portal via PortalManager
 
-After registering via the [PortalManager.register()](../reference/android/portal-manager#register) function, you can create Portals. Use the [PortalManager](../reference/android/portal-manager) to quickly create a [Portal](../reference/android/portal) and link it to an XML layout.
+After registering via the [PortalManager.register()](./reference/api/portal-manager#register) function, you can create Portals. Use the [PortalManager](./reference/api/portal-manager) to quickly create a [Portal](./reference/api/portal) and link it to an XML layout.
 
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -113,12 +110,12 @@ public class MyApplication extends Application {
         PortalManager.newPortal(portalId).create();
     }
 }
-``` 
+```
 
 </TabItem>
 </Tabs>
 
-Now, the [Portal](../reference/android/portal) is successfully created and managed by the [PortalManager](../reference/android/portal-manager).
+Now, the [Portal](./reference/api/portal) is successfully created and managed by the [PortalManager](./reference/api/portal-manager).
 
 ## Linking the Portal in a Layout File
 
@@ -137,7 +134,7 @@ The `strings.xml` resources file can be used to ensure the Portal ids match up, 
 
 ## Using a Portal in Code
 
-Another way to use Portals in Android is to inflate a [PortalFragment](../reference/android/portal-fragment) with a Portal into a view. This method may be preferred if using a Portal in a [ViewPager](https://developer.android.com/training/animation/screen-slide-2) or a more dynamic UI structure. The following trivial example shows how to inflate a [PortalFragment](../reference/android/portal-fragment) into an existing FrameLayout.
+Another way to use Portals in Android is to inflate a [PortalFragment](./reference/api/portal-fragment) with a Portal into a view. This method may be preferred if using a Portal in a [ViewPager](https://developer.android.com/training/animation/screen-slide-2) or a more dynamic UI structure. The following trivial example shows how to inflate a [PortalFragment](./reference/api/portal-fragment) into an existing FrameLayout.
 
 ```xml title=fragment_container.xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -157,12 +154,11 @@ Another way to use Portals in Android is to inflate a [PortalFragment](../refere
 ```
 
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -289,6 +285,6 @@ android {
 
 ## Adding Web Code
 
-Now that your Portal is successfully registered, created, and linked, you need to add the web assets to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](../reference/android/portal-manager) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](../reference/android/portal-builder#setStartDir) function to set the web application's directory.
+Now that your Portal is successfully registered, created, and linked, you need to add the web assets to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](./reference/api/portal-manager) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](./reference/api/portal-builder#setStartDir) function to set the web application's directory.
 
-For more information on how to setup your web bundle, see our how-to guide on [how to pull in a web bundle](../how-to/pull-in-web-bundle).
+For more information on how to setup your web bundle, see our how-to guide on [how to pull in a web bundle](./how-to/pull-in-web-bundle).

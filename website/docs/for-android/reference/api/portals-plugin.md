@@ -19,7 +19,7 @@ class SubscriptionResult(
     val topic: String,
     val data: Any,
     val subscriptionRef: Int
-    
+
     fun toJSObject(): JSObject
 }
 ```
@@ -30,15 +30,14 @@ class SubscriptionResult(
 
 Send a message to the web application.
 
-#### Usage 
+#### Usage
 
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -75,10 +74,10 @@ PortalsPlugin.publish("cart", items);
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`topic` | `String` | The topic associated with the message. [Subscribers](./portals-plugin#subscribe) of this topic will receive the message
-`data` | `Any` | A message to send. **Note**: this is added into a JSONObject to send through the Capacitor Bridge and should be a compatible type: JSONObject, JSONArray, String, Boolean, Integer, Long, Double, or null
+| Name    | Type     | Description                                                                                                                                                                                               |
+| :------ | :------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `topic` | `String` | The topic associated with the message. [Subscribers](./portals-plugin#subscribe) of this topic will receive the message                                                                                   |
+| `data`  | `Any`    | A message to send. **Note**: this is added into a JSONObject to send through the Capacitor Bridge and should be a compatible type: JSONObject, JSONArray, String, Boolean, Integer, Long, Double, or null |
 
 ### subscribe
 
@@ -87,12 +86,11 @@ Subscribe to receive messages from the web application.
 #### Usage
 
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -121,17 +119,17 @@ PortalsPlugin.subscribe("dismiss", (result -> {
 
     return Unit.INSTANCE;
 }));
-``` 
+```
 
 </TabItem>
 </Tabs>
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`topic` | `String` | The topic to subscribe to
-`data` | [SubscriptionResult](./portals-plugin#subscriptionresult) -> Unit | A function to receive and handle the message
+| Name    | Type                                                              | Description                                  |
+| :------ | :---------------------------------------------------------------- | :------------------------------------------- |
+| `topic` | `String`                                                          | The topic to subscribe to                    |
+| `data`  | [SubscriptionResult](./portals-plugin#subscriptionresult) -> Unit | A function to receive and handle the message |
 
 ### unsubscribe
 
@@ -140,12 +138,11 @@ Unsubscribe from messages sent to a certain topic from the web application.
 #### Usage
 
 <Tabs
-    defaultValue="kt"
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="kt">
 
 ```kotlin
@@ -189,7 +186,7 @@ PortalsPlugin.unsubscribe("dismiss", subscription);
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`topic` | `String` | The topic to unsubscribe from
-`subscriptionRef` | `Int` | A reference to the subscription
+| Name              | Type     | Description                     |
+| :---------------- | :------- | :------------------------------ |
+| `topic`           | `String` | The topic to unsubscribe from   |
+| `subscriptionRef` | `Int`    | A reference to the subscription |

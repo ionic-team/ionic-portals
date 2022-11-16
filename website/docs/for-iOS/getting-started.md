@@ -13,13 +13,11 @@ Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide
 Before using Ionic Portals, you must register with your API key. A typical place to do so is in the `AppDelegate` `application(_:didFinishLaunchingWithOptions)` method. There, you can use the [PortalsRegistrationManager](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager) to register:
 
 <Tabs
-  defaultValue="swift"
-  values={[
-    { label: "Swift", value: "swift" },
-    { label: "Objective-C", value: "objc" }
-  ]}
->
-
+defaultValue="swift"
+values={[
+{ label: "Swift", value: "swift" },
+{ label: "Objective-C", value: "objc" }
+]}>
 <TabItem value="swift">
 
 ```swift title=AppDelegate.swift
@@ -71,26 +69,29 @@ On iOS, you can use an [`.xcconfig` file](https://nshipster.com/xcconfig/) to ke
 :::
 
 ## Creating a Portal
+
 <Tabs
-  defaultValue="swift"
-  values={[
-    { label: "Swift", value: "swift" },
-    { label: "Objective-C", value: "objc" }
-  ]}
->
+defaultValue="swift"
+values={[
+{ label: "Swift", value: "swift" },
+{ label: "Objective-C", value: "objc" }
+]}>
 <TabItem value="swift">
 
 Create a `Portal` via it's initializer:
+
 ```swift
 let portal = Portal(name: "webapp")
 ```
 
 `Portal` also conforms to `ExpressibleByStringLiteral`:
+
 ```swift
 let portal: Portal = "webapp"
 ```
 
 By default, a `Portal` will use the `name` property as the directory to load web content from (relative to the root of `Bundle.main`). You can specify another location if needed:
+
 ```swift
 let portal = Portal(name: "webapp", startDir: "portals/webapp")
 ```
@@ -114,14 +115,13 @@ By default, `IONPortal` will use the `name` provided in the initializer if `star
 
 After you initialize a `Portal`, you create a [PortalView](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalview) (for SwiftUI) or [PortalUIView](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portaluiview) (for UIKit) by passing in the `Portal`.
 
-<Tabs 
-    defaultValue="uikit-swift" 
-    values={[
-        { label: 'UIKit (Swift)', value: 'uikit-swift', },
-        { label: 'UIKit (Objective-C)', value: 'uikit-objc' },
-        { label: 'SwiftUI', value: 'swiftui', }
-    ]}
->
+<Tabs
+defaultValue="uikit-swift"
+values={[
+{ label: 'UIKit (Swift)', value: 'uikit-swift', },
+{ label: 'UIKit (Objective-C)', value: 'uikit-objc' },
+{ label: 'SwiftUI', value: 'swiftui', }
+]}>
 <TabItem value="uikit-swift">
 
 ```swift title="Portal Initializer"
@@ -176,4 +176,4 @@ struct ContentView: View {
 
 ## Adding Web Code
 
-Now that your Portal is successfully created and added to the view, you need to add the web assets to your application. In iOS, the web folder needs to be copied and added to the XCode project. After the folder is added, you can update its contents with fresh builds of the web application. For more information on how to set up your web bundle, see our how-to guide on [how to pull in a web bundle](../how-to/pull-in-web-bundle).
+Now that your Portal is successfully created and added to the view, you need to add the web assets to your application. In iOS, the web folder needs to be copied and added to the XCode project. After the folder is added, you can update its contents with fresh builds of the web application. For more information on how to set up your web bundle, see our how-to guide on [how to pull in a web bundle](./how-to/pull-in-web-bundle).

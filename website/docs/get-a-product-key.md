@@ -15,7 +15,11 @@ Your key will now be available. Clicking the copy button will copy the entire ke
 
 ![Portals Key](/img/how-to/obtain-registration-key-2.png)
 
-From here, continue in the [Getting Started Guide](../getting-started/guide) on configuring the key in your Portals application.
+From here, continue on to configuring the key in your Portals application.
+
+- [Getting Started Guide iOS](./for-iOS/guide)
+- [Getting Started Guide Android](./for-android/guide)
+- [Getting Started Guide React Native](./for-react-native/guide)
 
 :::note
 You only need to register for a product key once for each organization you belong to. You can return to the Portals Key section of the Ionic Dashboard to retrieve your key again at a later date.

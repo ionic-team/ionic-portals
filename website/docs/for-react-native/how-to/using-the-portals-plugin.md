@@ -12,7 +12,7 @@ The `PortalsPlugin` provides useful features to aid in communication between you
 
 ### Android and iOS
 
-Follow the [Getting Started Guide](../getting-started/guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
+Follow the [Getting Started Guide](../guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
 
 ### Web
 
@@ -61,7 +61,7 @@ import { PortalView } from "@ionic/portals-react-native";
 
 ### Using Initial Context
 
-To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../reference/web/portals-plugin#getinitialcontext) function.
+To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../../portals-plugin#getinitialcontext) function.
 
 ```typescript
 import { getInitialContext } from "@ionic/portals";
@@ -71,7 +71,7 @@ const initialContext = getInitialContext<{ ic_example: string }>();
 console.log(initialContext?.value?.ic_example);
 ```
 
-Initial context is useful when using a Single Page Application (SPA) across multiple Portals in your application. The route to a specific section of the SPA can be passed in as initial context data. Your web application can then use it to load that section directly without need for a redirect. [Check out our how-to guide](./multiple-portals-single-web-app).
+Initial context is useful when using a Single Page Application (SPA) across multiple Portals in your application. The route to a specific section of the SPA can be passed in as initial context data. Your web application can then use it to load that section directly without need for a redirect.
 
 ## Communicating via Pub/Sub
 
@@ -122,7 +122,7 @@ Publish messages to send data through a Portal to registered Subscribers.
 
 #### From Web to React Native
 
-To send a message from your web application to iOS or Android, use the [Portals.publish()](../reference/web/portals-plugin#publish) function.
+To send a message from your web application to iOS or Android, use the [Portals.publish()](../../portals-plugin#publish) function.
 
 ```typescript
 Portals.publish({ topic: "dismiss", data: "success" });
@@ -140,4 +140,4 @@ publish("weather", "sunny");
 
 ## Examples
 
-The `PortalsPlugin` is used in the [E-Commerce App](./examples/ecommerce-app) demo.
+The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce-react-native) demo.
