@@ -11,13 +11,13 @@
 module.exports = {
   sidebar: [
     "overview",
+    "what-is-a-portal",
     "live-updates",
     {
       type: "category",
       label: "iOS",
       collapsed: true,
       items: [
-        "for-iOS/what-is-a-portal",
         "for-iOS/choosing-a-communication",
         "for-iOS/all-in-one",
         "for-iOS/getting-started",
@@ -89,7 +89,6 @@ module.exports = {
       items: [
         "for-android/getting-started",
         "for-android/live-updates-getting-started",
-        "for-android/what-is-a-portal",
         "for-android/choosing-a-communication",
         "for-android/guide",
         "for-android/known-issues",
@@ -177,7 +176,6 @@ module.exports = {
       items: [
         "for-react-native/getting-started",
         "for-react-native/live-updates-getting-started",
-        "for-react-native/what-is-a-portal",
         "for-react-native/choosing-a-communication",
         "for-react-native/guide",
         "for-react-native/known-issues",
@@ -221,7 +219,7 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Capacitor",
+      label: "Portals for Capacitor",
       collapsed: true,
       items: [
         "for-capacitor/overview",
