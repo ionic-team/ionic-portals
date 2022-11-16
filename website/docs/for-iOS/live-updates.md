@@ -1,6 +1,6 @@
 ---
-title: Getting Started with Live Updates
-sidebar_label: Live Updates
+title: Adding Live Updates
+sidebar_label: Adding Live Updates
 ---
 
 import Tabs from '@theme/Tabs';

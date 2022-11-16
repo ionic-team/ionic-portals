@@ -20,7 +20,7 @@ Ionic Portals uses Capacitor under the hood, meaning that you can use [Capacitor
 
 ## Core Plugins
 
-Capacitor [Core Plugins](https://capacitorjs.com/docs/apis) are plugins built by the Capacitor team and provided for you to use conveniently through public repositories.
+Capacitor Core Plugins are plugins built by the Capacitor team and provided for you to use conveniently through public repositories.
 
 ### iOS Native Usage
 
@@ -44,87 +44,95 @@ After installing the dependency, Capacitor Plugins are automatically registered 
 
 In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example, the `@capacitor/storage` plugin on npm is named `CapacitorStorage` on CocoaPods. The following Plugins are available in CocoaPods.
 
-**CapacitorActionSheet**
+**[CapacitorActionSheet](https://capacitorjs.com/docs/apis/action-sheet)**
 
 The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
 
-**CapacitorAppLauncher**
+**[CappacitorApp](https://capacitorjs.com/docs/apis/app)**
+
+The App API handles high level App state and events. For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
+
+**[CapacitorAppLauncher](https://capacitorjs.com/docs/apis/app-launcher)**
 
 The AppLauncher API allows to open other apps
 
-**CapacitorBrowser**
+**[CapacitorBrowser](https://capacitorjs.com/docs/apis/browser)**
 
 The Browser API provides the capability to open an in-app browser and subscribe to browser events.
 
-**CapacitorCamera**
+**[CapacitorCamera](https://capacitorjs.com/docs/apis/camera)**
 
 The Camera API provides the capability to take a photo with the camera or to choose photos from the photo album.
 
-**CapacitorClipboard**
+**[CapacitorClipboard](https://capacitorjs.com/docs/apis/clipboard)**
 
 The Clipboard API enables copy and pasting to/from the system clipboard.
 
-**CapacitorDevice**
+**[CapacitorDevice](https://capacitorjs.com/docs/apis/device)**
 
 The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
 
-**CapacitorDialog**
+**[CapacitorDialog](https://capacitorjs.com/docs/apis/dialog)**
 
 The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts.
 
-**CapacitorFilesystem**
+**[CapacitorFilesystem](https://capacitorjs.com/docs/apis/filesystem)**
 
 The Filesystem API provides a NodeJS-like API for working with files on the device.
 
-**CapacitorGeolocation**
+**[CapacitorGeolocation](https://capacitorjs.com/docs/apis/geolocation)**
 
 The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
 
-**CapacitorHaptics**
+**[CapacitorHaptics](https://capacitorjs.com/docs/apis/haptics)**
 
 The Haptics API provides physical feedback to the user through touch or vibration.
 
-**CapacitorKeyboard**
+**[CapacitorKeyboard](https://capacitorjs.com/docs/apis/keyboard)**
 
 The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
 
-**CapacitorLocalNotifications**
+**[CapacitorLocalNotifications](https://capacitorjs.com/docs/apis/local-notifications)**
 
 The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
 
-**CapacitorNetwork**
+**[CapacitorMotion](https://capacitorjs.com/docs/apis/motion)**
+
+The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+
+**[CapacitorNetwork](https://capacitorjs.com/docs/apis/network)**
 
 The Network API provides network and connectivity information.
 
-**CapacitorPushNotifications**
+**[CapacitorPushNotifications](https://capacitorjs.com/docs/apis/push-notifications)**
 
 The Push Notifications API provides access to native push notifications.
 
-**CapacitorScreenReader**
+**[CapacitorScreenReader](https://capacitorjs.com/docs/apis/screen-reader)**
 
 The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides simple text-to-speech capabilities for visual accessibility.
 
-**CapacitorShare**
+**[CapacitorShare](https://capacitorjs.com/docs/apis/share)**
 
 The Share API provides methods for sharing content to any sharing-enabled apps that the user may have installed.
 
-**CapacitorSplashScreen**
+**[CapacitorSplashScreen](https://capacitorjs.com/docs/apis/splash-screen)**
 
 The Splash Screen API provides methods for showing or hiding a Splash image.
 
-**CapacitorStatusBar**
+**[CapacitorStatusBar](https://capacitorjs.com/docs/apis/status-bar)**
 
 The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
 
-**CapacitorStorage**
+**[CapacitorStorage](https://capacitorjs.com/docs/apis/storage)**
 
 The Storage API provides a simple key/value persistent store for lightweight data.
 
-**CapacitorTextZoom**
+**[CapacitorTextZoom](https://capacitorjs.com/docs/apis/text-zoom)**
 
 The Text Zoom API provides the ability to change Web View text size for visual accessibility.
 
-**CapacitorToast**
+**[CapacitorToast](https://capacitorjs.com/docs/apis/toast)**
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
 
@@ -142,7 +150,7 @@ For more information on how to use Capacitor Plugins in your web application, [c
 
 Any plugin built for Capacitor can be linked in to a project using Portals even if it is not available through public native repositories like the core plugins are.
 
-### Download the Plugin
+#### Download the Plugin
 
 Get the source code for the plugin and integrate it into your web app. If it is a Capacitor plugin, it is likely that it will be available through NPM.
 
@@ -150,7 +158,7 @@ Get the source code for the plugin and integrate it into your web app. If it is 
 npm i @capacitor-community/stripe
 ```
 
-### Link the Plugin Natively
+#### Link the Plugin Natively
 
 The native code from the plugin needs to be made available to each native project using Portals.
 
@@ -162,6 +170,6 @@ pod 'CapacitorPluginName', :path => '../../webapp/node_modules/@custom-capacitor
 
 The path to the Podspec file is typically the source root of the plugin project, not in the platform specific subfolder.
 
-### Register the Plugin
+#### Register the Plugin
 
 Plugins are automatically registered on iOS.

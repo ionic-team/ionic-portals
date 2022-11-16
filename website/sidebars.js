@@ -12,24 +12,16 @@ module.exports = {
   sidebar: [
     "overview",
     "what-is-a-portal",
-    "portal-communication",
-    "choosing-a-communication",
-    "live-updates",
-    "get-a-product-key",
-    "portals-plugin",
+    "what-are-live-updates",
+    "getting-started",
     {
       type: "category",
       label: "iOS",
       collapsed: true,
       items: [
-        "for-iOS/all-in-one",
-        "for-iOS/getting-started",
-        "for-iOS/guide",
-        "for-iOS/live-updates-getting-started",
+        "for-iOS/quick-start",
         "for-iOS/live-updates",
-        "for-iOS/plugin-overview",
-        "for-iOS/upgrade-guides",
-        "for-iOS/known-issues",
+        "for-iOS/getting-started",
         {
           type: "category",
           label: "How To",
@@ -82,6 +74,8 @@ module.exports = {
             },
           ],
         },
+        "for-iOS/upgrade-guides",
+        "for-iOS/known-issues",
       ],
     },
     {
@@ -91,11 +85,7 @@ module.exports = {
       items: [
         "for-android/getting-started",
         "for-android/guide",
-        "for-android/live-updates-getting-started",
         "for-android/live-updates",
-        "for-android/plugin-overview",
-        "for-android/upgrade-guides",
-        "for-android/known-issues",
         {
           type: "category",
           label: "How To",
@@ -167,6 +157,8 @@ module.exports = {
             },
           ],
         },
+        "for-android/upgrade-guides",
+        "for-android/known-issues",
       ],
     },
     {
@@ -176,11 +168,7 @@ module.exports = {
       items: [
         "for-react-native/getting-started",
         "for-react-native/guide",
-        "for-react-native/live-updates-getting-started",
         "for-react-native/live-updates",
-        "for-react-native/plugin-overview",
-        "for-react-native/upgrade-guides",
-        "for-react-native/known-issues",
         {
           type: "category",
           label: "How To",
@@ -213,8 +201,13 @@ module.exports = {
             },
           ],
         },
+        "for-react-native/upgrade-guides",
+        "for-react-native/known-issues",
       ],
     },
+    "portal-communication",
+    "choosing-a-communication",
+    "portals-plugin",
     {
       type: "category",
       label: "Portals for Capacitor",

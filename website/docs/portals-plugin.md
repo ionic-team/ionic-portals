@@ -1,6 +1,6 @@
 ---
-title: PortalsPlugin
-sidebar_label: PortalsPlugin
+title: Portal Web Plugin
+sidebar_label: Portal Web Plugin
 ---
 
 The PortalsPlugin class is the main way to interface with a Portal instance. It has methods to easily pass messages back and forth to the native side via a publish/subscribe interface, and ways to pass data to a web view before it initializes.
@@ -14,10 +14,14 @@ A type defining the `PortalsPlugin` API.
 ```typescript
 interface PortalsPlugin {
   publish<TMessage extends PortalMessage>(message: TMessage): Promise<void>;
-  subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription>;
+  subscribe<T = unknown>(
+    options: SubscribeOptions,
+    callback: SubscriptionCallback<T>
+  ): Promise<PortalSubscription>;
   unsubscribe(options: PortalSubscription): Promise<void>;
 }
 ```
+
 ### InitialContext
 
 A type defining the `InitialContext` from the native application that you can pass into your web application.
@@ -66,7 +70,10 @@ interface PortalSubscription {
 The type definition from the callback running [Portals.subscribe()](./portals-plugin#subscribe).
 
 ```typescript
-type SubscriptionCallback<T = unknown> = (result: { topic: string, data: T; }) => void;
+type SubscriptionCallback<T = unknown> = (result: {
+  topic: string;
+  data: T;
+}) => void;
 ```
 
 ## Methods
@@ -75,47 +82,49 @@ type SubscriptionCallback<T = unknown> = (result: { topic: string, data: T; }) =
 
 Publishes some data to a provided topic. Type-safety supported through the optional `TMessage` generic type.
 
-#### Usage 
+#### Usage
 
 ```typescript
-type Messages = 
-  | { topic: 'cart:checkout', data: Cart }
-  | { topic: 'modal:dismiss', data: 'cancel' | 'fail' | 'success' }
-  | { topic: 'profile:update', data: User };
+type Messages =
+  | { topic: "cart:checkout"; data: Cart }
+  | { topic: "modal:dismiss"; data: "cancel" | "fail" | "success" }
+  | { topic: "profile:update"; data: User };
 
 // Publishes "cancel" to the "dismiss" topic
-Portals.publish<Messages>({ topic: 'modal:dismiss', data: 'cancel' });
+Portals.publish<Messages>({ topic: "modal:dismiss", data: "cancel" });
 ```
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`message` | [PortalMessage](./portals-plugin#portalmessage) | The [PortalMessage](./portals-plugin#portalmessage) object to publish to the native code.
+| Name      | Type                                            | Description                                                                               |
+| :-------- | :---------------------------------------------- | :---------------------------------------------------------------------------------------- |
+| `message` | [PortalMessage](./portals-plugin#portalmessage) | The [PortalMessage](./portals-plugin#portalmessage) object to publish to the native code. |
 
 ### subscribe
 
 Subscribes to a topic and run a specified callback whenever a message is sent via `.publish()`.
 
-#### Usage 
+#### Usage
 
 ```typescript
-const callback = (result: { topic: string, data: T; }) => { /* run callback code here on publish */ };
+const callback = (result: { topic: string; data: T }) => {
+  /* run callback code here on publish */
+};
 const subscription = await Portals.subscribe({ topic }, callback);
 ```
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`options` | [SubscribeOptions](./portals-plugin#subscribeoptions) | The options to pass along to define the Portal subscription.
-`callback` | [SubscriptionCallback](./portals-plugin#subscriptioncallback) | The callback to trigger whenever a topic is published to.
+| Name       | Type                                                          | Description                                                  |
+| :--------- | :------------------------------------------------------------ | :----------------------------------------------------------- |
+| `options`  | [SubscribeOptions](./portals-plugin#subscribeoptions)         | The options to pass along to define the Portal subscription. |
+| `callback` | [SubscriptionCallback](./portals-plugin#subscriptioncallback) | The callback to trigger whenever a topic is published to.    |
 
 ### unsubscribe
 
 Unsubscribe to a topic that has previously been subscribed to.
 
-#### Usage 
+#### Usage
 
 ```typescript
 const subscription = someValue;
@@ -124,15 +133,15 @@ Portals.unsubscribe(subscription);
 
 #### Parameters
 
-Name | Type | Description
-:------ | :------ | :------
-`subscription` | [PortalSubscription](./portals-plugin#portalsubscription) | The portal subscription to unsubscribe from.
+| Name           | Type                                                      | Description                                  |
+| :------------- | :-------------------------------------------------------- | :------------------------------------------- |
+| `subscription` | [PortalSubscription](./portals-plugin#portalsubscription) | The portal subscription to unsubscribe from. |
 
 ### getInitialContext
 
 Gets the [InitialContext](./portals-plugin#initialcontext) of the Portal that was passed in from the native code.
 
-#### Usage 
+#### Usage
 
 ```typescript
 // Passed in value is { foo: 'bar' }
@@ -145,17 +154,17 @@ console.log(context?.value?.foo); // bar
 A real world example might be navigating to a route in a single page application
 
 ```tsx
-import { getInitialContext } from '@ionic/portals';
+import { getInitialContext } from "@ionic/portals";
 
-const context = getInitialContext<{ startingRoute: string }>()
+const context = getInitialContext<{ startingRoute: string }>();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App context={context!.value}/> {/* context.value = { startingRoute: '/help' } */}
+    <App context={context!.value} />{" "}
+    {/* context.value = { startingRoute: '/help' } */}
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 ```
 
-**Returns:** <span class="return-code">*T | undefined*</span> The [InitialContext](./portals-plugin#initialcontext) value or `undefined` if it was not assigned.
-
+**Returns:** <span class="return-code">_T | undefined_</span> The [InitialContext](./portals-plugin#initialcontext) value or `undefined` if it was not assigned.

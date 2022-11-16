@@ -213,4 +213,9 @@ class ViewController: UIViewController {
 }
 ```
 
+:::warning
+Avoid committing your Portals key to source code repositories where it may be publicly visible!
+On iOS, you can use an [`.xcconfig` file](https://nshipster.com/xcconfig/) to keep it out of a public repository.
+:::
+
 Thats it! Portals is now setup in your application and you can add new Portals at any time. Next step would be to setup LiveUpdates within your application.

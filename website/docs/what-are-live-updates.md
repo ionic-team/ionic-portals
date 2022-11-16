@@ -1,6 +1,6 @@
 ---
-title: Live Updates
-sidebar_label: Live Updates
+title: What are Live Updates?
+sidebar_label: What are Live Updates?
 ---
 
 Ionic Appflow's Live Update feature makes it easy to deploy app updates in real time without going through a traditional app store submission process for the vast majority of business logic, UI, and style changes.

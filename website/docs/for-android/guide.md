@@ -83,28 +83,3 @@ class MyApplication : Application() {
 Avoid committing your Portals key to source code repositories where it may be publicly visible!
 On Android, you can use the [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plugin) to keep it out of a public repository.
 :::
-
-## Supported Platform Versions
-
-<table>
-  <tr>
-    <th>Platform</th>
-    <th>Latest Portals Version</th>
-    <th>Minimum Supported Platform Version</th>
-  </tr>
-  <tr>
-    <td>iOS</td>
-    <td>{getPortalsVersionIos()}</td>
-    <td>iOS {getiOSMinVersion()}</td>
-  </tr>
-  <tr>
-    <td>Android</td>
-    <td>{getPortalsVersionAndroid()}</td>
-    <td>Android SDK {getAndroidMinSdk()}</td>
-  </tr>
-  <tr>
-    <td>React Native</td>
-    <td>{getPortalsVersionRN()}</td>
-    <td>React Native {getRnMinVersion()}</td>
-  </tr>
-</table>
