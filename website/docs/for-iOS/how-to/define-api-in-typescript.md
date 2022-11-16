@@ -30,7 +30,7 @@ If you are not using TypeScript, you can skip this step, but you'll need to take
 
 ## Implementing the API
 
-First, you'll need to [install the proper dependencies](../guide#install). You can now start building the plugin. In this example, the `EchoPlugin` will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
+First, you'll need to [install the proper dependencies](../quick-start). You can now start building the plugin. In this example, the `EchoPlugin` will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
 
 ```swift title=EchoPlugin.swift
 import Capacitor

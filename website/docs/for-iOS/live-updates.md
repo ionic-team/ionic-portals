@@ -11,7 +11,7 @@ import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortal
 Getting started with Live Updates in your Portals app.
 
 :::info
-To use the Live Updates SDK with Ionic Portals, check out the [Getting Started Guide](./guide) for Ionic Portals first.
+To use the Live Updates SDK with Ionic Portals, check out the [Getting Started Guide](./quick-start) for Ionic Portals first.
 :::
 
 ## Appflow

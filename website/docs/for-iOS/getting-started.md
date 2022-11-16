@@ -6,8 +6,6 @@ sidebar_label: Using Portals in iOS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide#install), you can start creating Portals for your application.
-
 ## Registering with your Portals Key
 
 Before using Ionic Portals, you must register with your API key. A typical place to do so is in the `AppDelegate` `application(_:didFinishLaunchingWithOptions)` method. There, you can use the [PortalsRegistrationManager](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager) to register:
