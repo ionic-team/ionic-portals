@@ -18,30 +18,27 @@ We strongly recommend using TypeScript to create a type defintion file which can
 
 ```typescript
 export interface EchoPlugin {
-   echo(options: { value: string }): Promise<{ value: string }>;
+  echo(options: { value: string }): Promise<{ value: string }>;
 }
 ```
 
 On the Android or iOS side, the `EchoPlugin` class will need to match this type signature.
 
-
 :::info
 If you are not using TypeScript, you can skip this step, but you'll need to take steps to make sure that the method signatures across Android and iOS match if you are using reusing Portals across multiple mobile applications.
 :::
 
-## Implementing the API 
+## Implementing the API
 
 First, you'll need to [install the proper dependencies](../getting-started/guide#install). You can now start building the plugin. In this example, the `EchoPlugin` will extend the base Capacitor `Plugin` class and implement the API that was defined in the previous step.
 
-<Tabs 
-    defaultValue="swift" 
-    values={[
-        { label: 'Swift', value: 'swift', },
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-
+<Tabs
+defaultValue="swift"
+values={[
+{ label: 'Swift', value: 'swift', },
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
 <TabItem value="swift">
 
 ```swift title=EchoPlugin.swift
@@ -67,6 +64,7 @@ CAP_PLUGIN(ECHO_PLUGIN, "EchoPlugin",
 )
 
 ```
+
 :::
 
 </TabItem>
@@ -117,51 +115,14 @@ public class EchoPlugin extends Plugin {
 
 After creating the Capacitor Plugin, add the Plugin to the Portal to use it.
 
-### Android
-
-When creating a [Portal](../reference/android/portal) via the [PortalManager](../reference/android/portal-manager), you'll need to call the [PortalManager.addPlugin()](../reference/android/portal-manager) function in order to add the Plugin to that Portal instance.
-
-<Tabs 
-    defaultValue="kt" 
-    values={[
-        { label: 'Kotlin', value: 'kt', },
-        { label: 'Java', value: 'java', },
-    ]}
->
-<TabItem value="kt">
-
-```kotlin
-PortalManager.newPortal("echo_portal")
-    .addPlugin(EchoPlugin::class.java)
-    .create()
-```
-
-</TabItem>
-<TabItem value="java">
-
-```java
-PortalManager.newPortal("echo_portal")
-    .addPlugin(EchoPlugin.class)
-    .create();
-```
-
-</TabItem>
-</Tabs>
-
-### iOS
-
-After a Portal has loaded, your custom plugin will be automatically registered on initialization of the Capacitor runtime.
-
-### React Native
-
 You will need to add the classpath to your custom plugin for Android:
 
 ```javascript
-import { addPortal } from '@ionic/portals-react-native';
+import { addPortal } from "@ionic/portals-react-native";
 
 const echoPortal = {
-  name: 'echoPortal',
-  androidPlugins: ['com.myapplication.echo.EchoPlugin']
+  name: "echoPortal",
+  androidPlugins: ["com.myapplication.echo.EchoPlugin"],
 };
 
 addPortal(echoPortal);
@@ -182,9 +143,9 @@ export default Plugin;
 Once the Plugin has been registered in the web code, you can use it anywhere in your codebase without needing to register it again in the web code.
 
 ```typescript
-import EchoPlugin from './echo-plugin'
+import EchoPlugin from "./echo-plugin";
 
-EchoPlugin.echo("Hello World!")
+EchoPlugin.echo("Hello World!");
 ```
 
 **Note**
