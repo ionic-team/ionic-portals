@@ -230,7 +230,7 @@ values={[
 class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
-        PortalManager.register("MY_API_KEY")
+        PortalManager.register("YOUR_PORTALS_KEY")
 
         val portalId = "MY_FIRST_PORTAL"
         PortalManager.newPortal(portalId)
@@ -248,7 +248,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PortalManager.register("MY_API_KEY");
+        PortalManager.register("YOUR_PORTALS_KEY");
 
         String portalId = "MY_FIRST_PORTAL";
         PortalManager.newPortal(portalId)

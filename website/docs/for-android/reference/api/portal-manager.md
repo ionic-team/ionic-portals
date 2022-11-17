@@ -218,14 +218,14 @@ values={[
 <TabItem value="kt">
 
 ```kotlin
-PortalManager.register("MY_API_KEY")
+PortalManager.register("YOUR_PORTALS_KEY")
 ```
 
 </TabItem>
 <TabItem value="java">
 
 ```java
-PortalManager.register("MY_API_KEY");
+PortalManager.register("YOUR_PORTALS_KEY");
 ```
 
 </TabItem>

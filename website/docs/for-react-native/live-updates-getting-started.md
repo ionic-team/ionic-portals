@@ -19,7 +19,7 @@ Make sure to [provide the initial web assets](https://ionic.io/docs/portals/how-
 
 ### Appflow
 
-Setup an app for your Portal in the Ionic Dashboard 
+Setup an app for your Portal in the Ionic Dashboard
 
 https://dashboard.ionicframework.com
 
@@ -35,11 +35,11 @@ Deployments in Appflow will be downloaded as new Live Updates.
 
 ## Using Live Updates in the Portals native library
 
-Add a LiveUpdate config where your Portal is created. The LiveUpdate object needs an appId that corresponds with an appId in Appflow, and the channel name to subscribe to for updates. 
+Add a LiveUpdate config where your Portal is created. The LiveUpdate object needs an appId that corresponds with an appId in Appflow, and the channel name to subscribe to for updates.
 
 ```kotlin
 // Register Portals
-PortalManager.register("MY_API_KEY")
+PortalManager.register("YOUR_PORTALS_KEY")
 
 // Example appId = ebd6138b, channel = "production"
 PortalManager.newPortal("portal1")
@@ -54,7 +54,6 @@ If you prefer to not perform an automatic sync when the app is initially loaded,
 ```kotlin
 .setLiveUpdateConfig(applicationContext, LiveUpdate("ebd6138b", "production"), false)
 ```
-
 
 ## Functionality
 

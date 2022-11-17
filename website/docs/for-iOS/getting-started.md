@@ -21,7 +21,7 @@ values={[
 ```swift title=AppDelegate.swift
 func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    PortalsRegistrationManager.shared.register(key: "MY_API_KEY")
+    PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
     return true
 }
 ```
@@ -35,7 +35,7 @@ import IonicPortals
 @main
 struct PortalsApp: App {
     init() {
-      PortalsRegistrationManager.shared.register(key: "MY_API_KEY")
+      PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
     }
 
     var body: some Scene {
@@ -52,7 +52,7 @@ struct PortalsApp: App {
 
 ```objectivec title=AppDelegate.m
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[IONPortalsRegistrationManager shared] registerWithKey:@"MY_API_KEY"];
+    [[IONPortalsRegistrationManager shared] registerWithKey:@"YOUR_PORTALS_KEY"];
     return YES;
 }
 ```

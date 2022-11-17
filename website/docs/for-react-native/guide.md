@@ -59,7 +59,7 @@ After installing the dependency you need to register your copy of Ionic Portals 
 ```javascript title=App.tsx
 import { register } from "@ionic/portals-react-native";
 
-register("MY_API_KEY");
+register("YOUR_PORTALS_KEY");
 ```
 
 :::warning

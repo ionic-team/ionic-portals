@@ -73,7 +73,7 @@ import io.ionic.portals.PortalManager
 class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
-        PortalManager.register("MY_API_KEY")
+        PortalManager.register("YOUR_PORTALS_KEY")
         // setup portals...
     }}
 }
