@@ -10,10 +10,6 @@ import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortal
 
 Getting started with Live Updates in your Portals app.
 
-:::info
-To use the Live Updates SDK with Ionic Portals, check out the [Getting Started Guide](./quick-start) for Ionic Portals first.
-:::
-
 ## Appflow
 
 Create an app for your Portal in the [Ionic Dashboard](https://dashboard.ionicframework.com). For more information, see our documentation on [using Appflow](https://ionic.io/docs/appflow/quickstart/connect).
@@ -28,50 +24,39 @@ To test Live Updates, create a new build of your app in Appflow and create a dep
 
 Deployments in Appflow will be downloaded as new Live Updates.
 
-## Install
-
-The Live Updates SDK is publicly available via Maven Central, Cocoapods, and SPM.
-
-Live Updates is already added to your iOS project if you have the dependency for Portals in your `Podfile`:
-
-<CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
-</CodeBlock>
-
-And then run `pod install`.
-
 ## Configure
 
 After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
 
-```swift title=AppDelegate.swift
+```swift {17,21-29} title=AppDelegate.swift
+import UIKit
 import IonicPortals
-import IonicLiveUpdates
 
 @main
-class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        PortalsRegistrationManager.shared.register("MY_API_KEY")
-
-        // Setup Live Update
-        try? LiveUpdateManager.shared.add(.checkout)
-
-        return true
-    }
-}
-
-extension LiveUpdate {
-    static let checkout = LiveUpdate(
-        appId: "ebd6138b",
-        channel: "production"
-    )
+class AppDelegate: UIResponder, UIApplicationDelegate {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions
+  launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    // Override point for customization after application launch.
+    PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
+    return true
+  }
 }
 
 extension Portal {
-    static let checkout = Portal(
-        name: "checkout",
-        liveUpdateConfig: .checkout
-    )
+  static let featured_products = Portal(
+    name: "featured_products",
+    liveUpdateConfig: .webapp
+  )
+}
+
+extension LiveUpdate {
+  private static let activeChannel = "production"
+
+  static let webapp = Self(
+    appId: "11a0971f",
+    channel: activeChannel,
+    syncOnAdd: false
+  )
 }
 ```
 

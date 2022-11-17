@@ -199,6 +199,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     return true
   }
 }
+
+extension Portal {
+  static let featured_products = Portal(
+    name: "featured_products",
+  )
+}
 ```
 
 ### Create the first Portal
@@ -207,9 +213,9 @@ Now that the application has been configured all we need to do is add the Portal
 
 ```swift
 class ViewController: UIViewController {
-    override func loadView() {
-        self.view = PortalUIView(portal: "featured_products")
-    }
+  override func loadView() {
+    self.view = PortalUIView(portal: .featured_products)
+  }
 }
 ```
 
