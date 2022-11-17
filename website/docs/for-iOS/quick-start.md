@@ -11,7 +11,11 @@ import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortal
 
 This is a walkthrough on how to get a single Portal + web application setup. To begin this walkthrough it will be assumed that you have already signed up for access to Portals and you have your Portals key ready.
 
-First have your web application ready. We will add some configuration to it and then get it setup in Appflow.
+First have your web application ready. We will add some configuration to it and then get it setup in Appflow. At the end of this walkthrough:
+
+- the web application will be setup in Appflow
+- each new Xcode iOS application build will pull the latest version of the web application from Appflow
+- the iOS application will have a Portal setup pointing to the web application files.
 
 ## 1. Create a capacitor config
 
@@ -32,12 +36,12 @@ These configuration values are required for web applications added to Appflow.
 - `webDir`, the directory where your compiled web code will be placed
 
 :::note
-There are many options that you can provide to a Capacitor configuration file we will only need a few to get started.
+There are many options that you can provide to a Capacitor configuration file we will only need a few to get started. These options are defined in the [config schema](https://capacitorjs.com/docs/config#schema).
 :::
 
 ## 2. Add the web application to Appflow
 
-Now that we have the application source configured we will need to add it to Appflow. Appflow will be used for deploying the web application into the Portal.
+Now that we have the application source configured we will need to add it to Appflow. Appflow can be used for deploying the web application into the Portal later using Live Updates.
 
 During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air Live update.
 
@@ -224,4 +228,8 @@ Avoid committing your Portals key to source code repositories where it may be pu
 On iOS, you can use an [`.xcconfig` file](https://nshipster.com/xcconfig/) to keep it out of a public repository.
 :::
 
-Thats it! Portals is now setup in your application and you can add new Portals at any time. Next step would be to setup LiveUpdates within your application.
+### Finished with setup
+
+Thats it! Portals is now setup in your application and you can add new Portals at any time. Now it is time to build the iOS app in Xcode and see it working in the emulator or on device. Now any time a new deployment is done to the `production` channel subsequent Xcode builds will pull in the latest version.
+
+Next step would be to setup Live Updates within your application.
