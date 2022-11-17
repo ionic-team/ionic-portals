@@ -214,10 +214,10 @@ module.exports = {
       collapsed: true,
       items: [
         "for-capacitor/overview",
-        "for-capacitor/example",
-        "for-capacitor/live-updates",
         "for-capacitor/module-federation",
+        "for-capacitor/live-updates",
         "for-capacitor/reference",
+        "for-capacitor/example",
       ],
     },
   ],
