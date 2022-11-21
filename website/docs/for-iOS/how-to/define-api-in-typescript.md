@@ -62,8 +62,6 @@ CAP_PLUGIN(ECHO_PLUGIN, "EchoPlugin",
 
 After creating the Capacitor Plugin, add the Plugin to the Portal to use it.
 
-### iOS
-
 After a Portal has loaded, your custom plugin will be automatically registered on initialization of the Capacitor runtime.
 
 ## Calling Your Plugin Code via the Web

@@ -10,7 +10,7 @@ The `PortalsPlugin` provides useful features to aid in communication between you
 
 ## Setup
 
-### Android and iOS
+### iOS
 
 Follow the [Getting Started Guide](../quick-start) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
 
@@ -27,8 +27,6 @@ npm install @ionic/portals
 The Initial Context mechanism allows you to pass data to your web application from native so that it is available for when the web application initially loads.
 
 ### Setting Initial Context
-
-#### iOS
 
 Initial context can be set during initialization:
 
@@ -115,8 +113,6 @@ const portalSubscription = await Portals.subscribe({ topic }, (result) => {
 ```
 
 To listen for messages published from the web side of a Portal, define a subscriber in your native application.
-
-#### iOS
 
 <Tabs
 defaultValue="swift-combine"
@@ -323,7 +319,7 @@ class MyViewController: UIViewController {
 
 Publish messages to send data through a Portal to registered Subscribers.
 
-#### From Web to iOS/Android
+#### From Web to iOS
 
 To send a message from your web application to iOS or Android, use the [Portals.publish()](../../portals-plugin#publish) function.
 

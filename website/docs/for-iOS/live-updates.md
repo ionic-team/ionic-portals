@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension Portal {
-  static let featured_products = Portal(
+  static let featuredProducts = Portal(
     name: "featured_products",
     liveUpdateConfig: .webapp
   )

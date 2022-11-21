@@ -10,8 +10,6 @@ In some cases, it makes sense to have different teams handle different portals i
 
 ## Declaring Multiple Portals
 
-### iOS
-
 Setting up multiple Portals is as easy as initializing another Portal.
 
 <Tabs

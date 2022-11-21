@@ -10,8 +10,6 @@ In some cases, it break down a large Single Page Application (SPA) into multiple
 
 ## Declaring Multiple Portals
 
-### iOS
-
 Setting up multiple Portals is as simple as initializing them. Each Portal will function independently of one another and will be a separate instance of the SPA.
 
 <Tabs

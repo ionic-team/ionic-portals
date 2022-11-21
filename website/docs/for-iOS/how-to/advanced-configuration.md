@@ -14,8 +14,6 @@ Portals instances can be further configured by providing a Capacitor Configurati
 
 Providing a [Capacitor Configuration](https://capacitorjs.com/docs/config) json file with your web assets will configure Capacitor with the provided settings.
 
-### iOS
-
 Provide a `capacitor.config.json` in the Portal start directory (where the web assets are located).
 
 :::note

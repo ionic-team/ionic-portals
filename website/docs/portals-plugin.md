@@ -160,7 +160,7 @@ const context = getInitialContext<{ startingRoute: string }>();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App context={context!.value} />{" "}
+    <App context={context!.value} />
     {/* context.value = { startingRoute: '/help' } */}
   </React.StrictMode>,
   document.getElementById("root")
