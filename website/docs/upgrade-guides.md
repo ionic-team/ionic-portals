@@ -41,7 +41,7 @@ The only necessary steps to use Portals version 0.7.0 should be to update depend
 
 #### Dependency Version Alignment
 
-IonicPortals for Android version 0.7.0 is compatible with the following dependency versions
+IonicPortals for Android version 0.7.0 is compatible with the following dependency versions. Update as needed:
 
 <CodeBlock className="language-groovy" title="build.gradle">
 {
