@@ -86,7 +86,7 @@ To resolve this, update any conflicting dependencies in your project. If you req
 
 ### InitialContext Update
 
-A default InitialContext is now always passed to the web content such that the Portal name will always be accessible.
+A default InitialContext is now always passed to the web content running in a Portal context such that the Portal name will always be accessible.
 
 Before:
 
