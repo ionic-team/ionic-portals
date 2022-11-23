@@ -5,6 +5,7 @@ sidebar_label: Upgrade Guides
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
 ## @ionic/portals 0.6.x -> 0.7.0
 
@@ -30,13 +31,9 @@ values={[
 ]}>
 <TabItem value="ios">
 
-#### Cocoapods
+#### Dependency Version Alignment
 
-?
-
-#### Swift Package Manager
-
-?
+The only necessary steps to use Portals version 0.7.0 should be to update dependencies. IonicPortals for iOS version 0.7.0 is compatible with Live Updates 0.2.2 and Official Capacitor Plugins over version 4.0.
 
 </TabItem>
 
@@ -53,7 +50,7 @@ dependencies {
     implementation 'io.ionic:portals:0.7.0'
     implementation 'io.ionic:liveupdates:0.2.0'
     implementation 'com.capacitorjs:core:4.5.0'
-    // Any Capacitor Core Plugins over version 4.0
+    // Any Official Capacitor Plugins over version 4.0
 }`.trim()
 }
 </CodeBlock>
@@ -86,6 +83,28 @@ To resolve this, update any conflicting dependencies in your project. If you req
 </TabItem>
 
 </Tabs>
+
+### InitialContext Update
+
+A default InitialContext is now always passed to the web content such that the Portal name will always be accessible.
+
+Before:
+
+```typescript
+export interface InitialContext<T> {
+  name: string,
+  value: T
+}
+```
+
+After:
+
+```typescript
+export interface InitialContext<T> {
+  name: string,
+  value: T | undefined
+}
+```
 
 ## @ionic/portals-react-native 0.1.x -> 0.2.0
 
