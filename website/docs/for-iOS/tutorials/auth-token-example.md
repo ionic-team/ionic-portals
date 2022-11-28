@@ -76,7 +76,7 @@ let cancellable = PortalsPubSub.subscribe(to: "login") { result in
 }
 ```
 
-For more information on how to use `PortalsPlugin`, [see our how to guide](../how-to/using-the-portals-plugin).
+For more information on how to communicate with a Portal web application, [see our how to guide](../how-to/using-the-portals-plugin).
 
 ### Using a Custom Plugin
 

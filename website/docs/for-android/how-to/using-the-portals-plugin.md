@@ -1,6 +1,6 @@
 ---
-title: How To Use The PortalsPlugin
-sidebar_label: Use the PortalsPlugin
+title: How to Communicate with a Portal Web Application
+sidebar_label: Communicate with a Portal Web Application
 ---
 
 import Tabs from '@theme/Tabs';
