@@ -6,6 +6,48 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## @ionic/portals 0.6.x -> 0.7.0
+
+IonicPortals iOS version 0.7.0 is compatible with '@ionic/portals' version 0.7.x
+
+:::caution
+Ionic Portals 0.7.0 is a notable update that upgrades the Capacitor dependency to version 4. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+First review the [Capacitor 4 Update Guide](https://capacitorjs.com/docs/updating/4-0) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
+
+### Updating Web Content
+
+Update the Portals Plugin in your web content to `0.7.0`. Then, follow the [Capacitor 4 Update Guide](https://capacitorjs.com/docs/updating/4-0#using-the-cli-to-migrate) CLI migration steps to update your web content that uses Capacitor.
+
+### Update Native Projects
+
+#### Dependency Version Alignment
+
+The only necessary steps to use Portals version 0.7.0 should be to update dependencies. IonicPortals for iOS version 0.7.0 is compatible with Live Updates 0.2.2 and Official Capacitor Plugins over version 4.0.
+
+### InitialContext Update
+
+A default InitialContext is now always passed to the web content running in a Portal context such that the Portal name will always be accessible.
+
+Before:
+
+```typescript
+export interface InitialContext<T> {
+  name: string;
+  value: T;
+}
+```
+
+After:
+
+```typescript
+export interface InitialContext<T> {
+  name: string;
+  value: T | undefined;
+}
+```
+
 ## @ionic/portals 0.0.x -> 0.6.0
 
 ### `Portals.publish()`
