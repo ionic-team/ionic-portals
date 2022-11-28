@@ -191,6 +191,12 @@ module.exports = {
         },
         {
           type: "category",
+          label: "Examples",
+          collapsed: true,
+          items: ["for-react-native/examples/ecommerce"],
+        },
+        {
+          type: "category",
           label: "Reference",
           collapsed: true,
           items: [
