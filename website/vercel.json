@@ -1,0 +1,79 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/live-updates",
+      "destination": "/what-are-live-updates"
+    },
+    {
+      "source": "/upgrade-guides",
+      "destination": "/for-ios/upgrade-guides"
+    },
+    {
+      "source": "/known-issues",
+      "destination": "/for-ios/known-issues"
+    },
+    {
+      "source": "/getting-started/guide",
+      "destination": "/getting-started"
+    },
+    {
+      "source": "/getting-started/iOS-all-in-one",
+      "destination": "/for-ios/quick-start"
+    },
+    {
+      "source": "/getting-started/iOS",
+      "destination": "/for-ios/quick-start"
+    },
+    {
+      "source": "/getting-started/android",
+      "destination": "/for-android/getting-started"
+    },
+    {
+      "source": "/getting-started/react-native",
+      "destination": "/for-react-native/getting-started"
+    },
+    {
+      "source": "/getting-started/live-updates",
+      "destination": "/portals/getting-started"
+    },
+    {
+      "source": "/tutorials/*",
+      "destination": "/for-ios/tutorials/*"
+    },
+    {
+      "source": "/how-to/*",
+      "destination": "/for-ios/how-to/*"
+    },
+    {
+      "source": "/reference/android/*",
+      "destination": "/for-android/reference/api/*"
+    },
+    {
+      "source": "/reference-live-updates/android/*",
+      "destination": "/for-android/reference/live-updates/*"
+    },
+    {
+      "source": "/examples/ecommerce-app",
+      "destination": "/for-ios/examples/ecommerce-app"
+    },
+    {
+      "source": "/reference/web/portals-plugin",
+      "destination": "/portals/portals-plugin"
+    },
+    {
+      "source": "/examples/ecommerce-react-native",
+      "destination": "/for-react-native/examples/ecommerce"
+    },
+    {
+      "source": "/plugin-overview",
+      "destination": "/for-ios/how-to/using-a-capacitor-plugin#published-plugins"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/docs/portals/:match*",
+      "destination": "/:match*"
+    }
+  ]
+}

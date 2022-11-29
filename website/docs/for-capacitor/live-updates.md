@@ -7,7 +7,7 @@ The real power of Portals for Capacitor comes in with [Appflow Live Updates](htt
 
 First let's add Live Updates to the main shell application. Modify the `capacitor.config.ts` file to add a `liveUpdateConfig` section to the Portals application.
 
-```typescript
+```typescript title=capacitor.config.ts
     Portals: {
       shell: {
         name: 'shell',
@@ -32,7 +32,7 @@ Portals for Capacitor supports [Self-hosted Live Updates](https://ionic.io/docs/
 
 Modify the `capacitor.config.ts` file to add a `liveUpdatesKey` field to the Portals application. This informs the Portals for Capacitor plugin where to find the public key used for Self-hosted Live Updates.
 
-```typescript
+```typescript title=capacitor.config.ts
     Portals: {
       liveUpdatesKey: "public.pem"
       shell: {

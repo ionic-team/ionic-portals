@@ -25,12 +25,23 @@ Portals for Capacitor complements existing micro frontend tools like Module Fede
 2. Configure the shell application to work in Capacitor. Ensure that it works in a mobile emulator.
 3. Setup Appflow live updates so that you can publish updates to each application independently.
 
-### Installation
+## Getting Started
 
-To get started with Portals for Capacitor the first thing you will need is Ionic Enterprise for you app. If you have not already setup Ionic Enterprise in your app, [follow the one-time setup steps](https://ionic.io/docs/premier-plugins/setup).
+To begin with Portals for Capacitor you will need to [signup for a key.](../getting-started)
 
-Next, install the plugin:
+Before we can install the plugin we need to create an `.npmrc` file in the shell project root. This is the main application. After the file is created we can install from the `@ionic-enterprise` registry. Note that the `authToken` value will need to be set to `YOUR_PORTALS_KEY` from the Appflow dashboard.
 
-```sh
+```bash {2} title=.npmrc
+@ionic-enterprise:registry=https://registry.ionicframework.com/
+//registry.ionicframework.com/:_authToken=YOUR_PORTALS_KEY
+```
+
+:::caution
+If you are using other plugins from the `@ionic-enterprise` registry in your Capacitor app then you will need to have your account provisiioned with access to Portals by contacting support.
+:::
+
+Next, install the plugin from command line:
+
+```bash
 npm install @ionic-enterprise/capacitor-portals
 ```
