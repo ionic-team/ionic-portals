@@ -10,7 +10,7 @@ Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide
 
 ## Creating a Custom Application Class
 
-In Android, you will have to register your Portals instance and start creating Portals via the [PortalManager](./reference/api/portal-manager). To do this, a custom [Application](https://developer.android.com/reference/api/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals.
+In Android, you will have to register your Portals instance and start creating Portals via the [PortalManager](./reference/api/portal-manager). To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals.
 
 <Tabs
 defaultValue="kt"

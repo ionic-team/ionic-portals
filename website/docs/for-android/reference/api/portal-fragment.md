@@ -6,9 +6,9 @@ sidebar_label: Portal Fragment
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-The [PortalFragment](./portal-fragment) class is an Android [Fragment](https://developer.android.com/reference/apix/fragment/app/Fragment) containing a [Portal](./portal) instance. You can use the class as is, or extend it to provide customizable loading functionality.
+The [PortalFragment](./portal-fragment) class is an Android [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment) containing a [Portal](./portal) instance. You can use the class as is, or extend it to provide customizable loading functionality.
 
-Because [PortalFragment](./portal-fragment) is an extended [Fragment](https://developer.android.com/reference/apix/fragment/app/Fragment) class, you can override the following [Fragment](https://developer.android.com/reference/apix/fragment/app/Fragment) functions:
+Because [PortalFragment](./portal-fragment) is an extended [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment) class, you can override the following [Fragment](https://developer.android.com/reference/androidx/fragment/app/Fragment) functions:
 
 - `onViewCreated`
 - `onDestroy`
