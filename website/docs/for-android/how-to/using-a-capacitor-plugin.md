@@ -170,7 +170,7 @@ For more information on how to use Capacitor Plugins in your web application, [c
 
 Any plugin built for Capacitor can be linked in to a project using Portals even if it is not available through public native repositories like the core plugins are.
 
-#### Download the Plugin
+### Download the Plugin
 
 Get the source code for the plugin and integrate it into your web app. If it is a Capacitor plugin, it is likely that it will be available through NPM.
 
@@ -178,7 +178,7 @@ Get the source code for the plugin and integrate it into your web app. If it is 
 npm i @capacitor-community/stripe
 ```
 
-#### Link the Plugin Natively
+### Link the Plugin Natively
 
 The native code from the plugin needs to be made available to each native project using Portals.
 
@@ -202,7 +202,7 @@ dependencies {
 
 If successful, you should now see a section in the Android Studio project browser for your plugin, be able to browse its source code, and reference classes in the plugin within your native application source code.
 
-#### Register the Plugin
+### Register the Plugin
 
 Register the plugin with a portal to use it.
 
