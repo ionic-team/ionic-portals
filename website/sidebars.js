@@ -14,6 +14,7 @@ module.exports = {
     "what-is-a-portal",
     "what-are-live-updates",
     "getting-started",
+    "choosing-a-communication",
     {
       type: "category",
       label: "iOS",
@@ -210,8 +211,6 @@ module.exports = {
         "for-react-native/known-issues",
       ],
     },
-    "portal-communication",
-    "choosing-a-communication",
     "portals-plugin",
     {
       type: "category",
