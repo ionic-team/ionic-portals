@@ -1,3 +1,11 @@
+## [0.7.0](https://github.com/ionic-team/ionic-portals/compare/0.6.0...0.7.0) (2022-11-22)
+
+
+### Features
+
+* capacitor 4 update ([#187](https://github.com/ionic-team/ionic-portals/issues/187)) ([29a2617](https://github.com/ionic-team/ionic-portals/commit/29a2617953039143d9f345808b52f35138e7230c))
+* Update InitialContext ([#184](https://github.com/ionic-team/ionic-portals/issues/184)) ([7a49a9d](https://github.com/ionic-team/ionic-portals/commit/7a49a9d728d30c562c87f1b6099219433df0bfc1))
+
 ## [0.6.0](https://github.com/ionic-team/ionic-portals/compare/0.5.0...0.6.0) (2022-09-07)
 
 
