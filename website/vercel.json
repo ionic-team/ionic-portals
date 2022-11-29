@@ -1,9 +1,0 @@
-{
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/docs/portals/:match*",
-      "destination": "/:match*"
-    }
-  ]
-}
