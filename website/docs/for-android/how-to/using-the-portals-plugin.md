@@ -10,7 +10,7 @@ The `PortalsPlugin` provides useful features to aid in communication between you
 
 ## Setup
 
-### Android and iOS
+### Android
 
 Follow the [Getting Started Guide](../guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
 
@@ -274,31 +274,6 @@ public void dismiss(String result) {
 </TabItem>
 
 </Tabs>
-
-#### React Native
-
-Subscribe to messages from the web:
-
-```javascript
-import { subscribe } from "@ionic/portals-react-native";
-
-let subscriptionReference = await subscribe("topic", (message) => {
-  // Here you have access to:
-  // message.data - Any data sent from the web
-  // message.subscriptionRef - The subscription reference used to manage the lifecycle of the subscription
-  // message.topic - The topic the message was published on
-});
-```
-
-When you no longer need to receive events, unsubscribe:
-
-```javascript
-import { unsubscribe } from "@ionic/portals-react-native";
-
-unsubscribe("channel:topic", subscriptionReference);
-```
-
-You must unsubscribe to avoid any potential memory issues.
 
 ### Publishing Messages
 
