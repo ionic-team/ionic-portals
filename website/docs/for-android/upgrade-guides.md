@@ -178,17 +178,3 @@ After:
   }}
 />
 ```
-
-## IonicPortals iOS 0.6.0 -> 0.6.1
-
-IonicPortals iOS version 0.6.1 is compatible with '@ionic/portals' version 0.5.x
-
-### Swift Package Manager Support
-
-Add https://github.com/ionic-team/ionic-portals-ios in the Xcode "Swift Package Dependencies" tab in the project configuration. The suggested version range
-is "Up to Next Minor Version" to prevent auto-updating to a breaking version before Ionic Portals iOS reaches version 1.0
-
-### iOS 13.0 Support
-
-The 0.5.x versions of Ionic Portals iOS required iOS 14.0. In this release we have included support for iOS 13.0 and up. To support iOS 13.0 in your app,
-you should update your target to support the OS.
