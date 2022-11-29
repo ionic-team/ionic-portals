@@ -158,7 +158,6 @@ module.exports = {
           ],
         },
         "for-android/upgrade-guides",
-        "for-android/known-issues",
       ],
     },
     {
