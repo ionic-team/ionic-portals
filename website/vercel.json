@@ -7,11 +7,11 @@
     },
     {
       "source": "/upgrade-guides",
-      "destination": "/for-iOS/upgrade-guides"
+      "destination": "/for-ios/upgrade-guides"
     },
     {
       "source": "/known-issues",
-      "destination": "/for-iOS/known-issues"
+      "destination": "/for-ios/known-issues"
     },
     {
       "source": "/getting-started/guide",
@@ -19,11 +19,11 @@
     },
     {
       "source": "/getting-started/iOS-all-in-one",
-      "destination": "/for-iOS/quick-start"
+      "destination": "/for-ios/quick-start"
     },
     {
       "source": "/getting-started/iOS",
-      "destination": "/for-iOS/quick-start"
+      "destination": "/for-ios/quick-start"
     },
     {
       "source": "/getting-started/android",
@@ -39,11 +39,11 @@
     },
     {
       "source": "/tutorials/*",
-      "destination": "/for-iOS/tutorials/*"
+      "destination": "/for-ios/tutorials/*"
     },
     {
       "source": "/how-to/*",
-      "destination": "/for-iOS/how-to/*"
+      "destination": "/for-ios/how-to/*"
     },
     {
       "source": "/reference/android/*",
@@ -55,7 +55,7 @@
     },
     {
       "source": "/examples/ecommerce-app",
-      "destination": "/for-iOS/examples/ecommerce-app"
+      "destination": "/for-ios/examples/ecommerce-app"
     },
     {
       "source": "/reference/web/portals-plugin",
@@ -67,7 +67,7 @@
     },
     {
       "source": "/plugin-overview",
-      "destination": "/for-iOS/how-to/using-a-capacitor-plugin#published-plugins"
+      "destination": "/for-ios/how-to/using-a-capacitor-plugin#published-plugins"
     }
   ],
   "rewrites": [
