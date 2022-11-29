@@ -47,7 +47,7 @@ const auth = getInitialContext<MyPortalContext>()?.value?.auth;
 
 ### Using a Custom Plugin
 
-Another solution you can do is to create a custom Plugin to handle passing data to and from native and web. This is the solution we used in [the example E-commerce Application](../examples/ecommerce-react-native) since it scales nicely and allows more than just authentication data be passed to and from the layers.
+Another solution you can do is to create a custom Plugin to handle passing data to and from native and web. This is the solution we used in [the example E-commerce Application](../examples/ecommerce) since it scales nicely and allows more than just authentication data be passed to and from the layers.
 
 For information on how to build your own Portal APIs, [see our how-to guide](../how-to/define-api-in-typescript).
 

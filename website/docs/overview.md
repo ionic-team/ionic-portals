@@ -56,7 +56,7 @@ Ionic Portals is built on the industry leading [Capacitor](https://capacitorjs.c
 
 - Drop the Portals iOS and Android libraries into your app.
 
-- Choose the web experiences you want to integrate with. Open a Portal within an [iOS](./for-iOS/getting-started),[Android](./for-android/getting-started), or [React Native](./for-react-native/getting-started) native app to embed/expose web app.
+- Choose the web experiences you want to integrate with. Open a Portal within an [iOS](./for-ios/getting-started),[Android](./for-android/getting-started), or [React Native](./for-react-native/getting-started) native app to embed/expose web app.
 
 - Set granular permissions that designate which parts of the native app your web teams can touch.
 
@@ -66,4 +66,4 @@ Ionic Portals is built on the industry leading [Capacitor](https://capacitorjs.c
 
 ## Reference Apps
 
-While implementing Ionic Portals, refer to various reference apps including an [E-commerce demo application](./for-iOS/examples/ecommerce-app) for Android and iOS that uses both native layouts and web-based portals. The Android application uses Fragments while the iOS application uses Storyboard/ViewController based views.
+While implementing Ionic Portals, refer to various reference apps including an [E-commerce demo application](./for-ios/examples/ecommerce-app) for Android and iOS that uses both native layouts and web-based portals. The Android application uses Fragments while the iOS application uses Storyboard/ViewController based views.

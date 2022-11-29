@@ -140,4 +140,4 @@ publish("weather", "sunny");
 
 ## Examples
 
-The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce-react-native) demo.
+The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce) demo.

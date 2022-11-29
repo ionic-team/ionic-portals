@@ -24,7 +24,7 @@ Later in these docs this key will be referred to as `YOUR_PORTALS_KEY`.
 
 From here, continue on to configuring the key in your Portals application.
 
-- [Getting Started Guide iOS](./for-iOS/quick-start)
+- [Getting Started Guide iOS](./for-ios/quick-start)
 - [Getting Started Guide Android](./for-android/guide)
 - [Getting Started Guide React Native](./for-react-native/guide)
 - [Portals for Capacitor](./for-capacitor/overview)
