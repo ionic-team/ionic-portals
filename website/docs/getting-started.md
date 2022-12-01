@@ -15,8 +15,8 @@ Head over to the [Ionic Dashboard](https://dashboard.ionicframework.com/portals)
 On the Ionic Portals screen, click the "Get access" button. You will be asked to fill out a short form:
 Your key will now be available. Clicking the copy button will copy the entire key to your clipboard:
 
-<em><img src={useBaseUrl("/img/portals-key-signup-screenshot.webp")} width="50%"/></em>
-<em><img src={useBaseUrl("/img/portals-key-screenshot.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/portals-key-signup-screenshot-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/portals-key-signup-screenshot.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/portals-key-screenshot-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/portals-key-screenshot.webp")} width="50%"/></em>
 
 :::tip
 Later in these docs this key will be referred to as `YOUR_PORTALS_KEY`.
