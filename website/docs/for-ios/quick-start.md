@@ -51,8 +51,8 @@ After logging into your [Appflow](https://dashboard.ionicframework.com/) account
 
 In the upper right hand corner you will be able to select `Import existing app`.
 
-<em><img src={useBaseUrl("/img/start-by-adding-an-app.webp")} width="50%"/></em>
-<em><img src={useBaseUrl("/img/import-existing-app.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/start-by-adding-an-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/start-by-adding-an-app.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/import-existing-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/import-existing-app.webp")} width="50%"/></em>
 
 - Provide an `App Name`. Most likely using the same you provided in the `capacitor.config.json` file in the previous step.
 - `Capacitor`, as the mobile architecture
@@ -66,7 +66,7 @@ After the app has been created you will want to go to the `Builds` page. This is
   textAlign: 'center',
   display: 'block'
 }}>
-<img src={useBaseUrl("/img/builds-screen.webp")} width="75%"/>
+<img src={useBaseUrl("/img/builds-screen-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/builds-screen.webp")} width="75%"/>
 </em>
 
 :::tip
@@ -79,8 +79,8 @@ After the application has been added to Appflow you will need to create your fir
 
 This can be done by hitting the `New Build` button on the 'Builds' page. Then you will choose a the most recent commit to create the build from.
 
-<em><img src={useBaseUrl("/img/create-a-new-build.webp")} width="50%"/></em>
-<em><img src={useBaseUrl("/img/create-a-new-build-selected.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/create-a-new-build-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/create-a-new-build.webp")} width="50%"/></em>
+<em><img src={useBaseUrl("/img/create-a-new-build-selected-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/create-a-new-build-selected.webp")} width="50%"/></em>
 
 When creating a new build there are a few values that we need to change on the initial build for the app.
 
@@ -102,7 +102,7 @@ This is done from `Personal Settings` in the `Personal Access Token` tab.
   textAlign: 'center',
   display: 'block'
 }}>
-<img src={useBaseUrl("/img/personal-access-token.webp")} width="75%"/>
+<img src={useBaseUrl("/img/personal-access-token-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/personal-access-token.webp")} width="75%"/>
 </em>
 
 Click the `Generate new token` button. While creating the token it is a best practice to give it an optional expiration date but not required.
@@ -142,7 +142,7 @@ Open Xcode and go to your Project settings. Add a new build phase of type `New R
   textAlign: 'center',
   display: 'block'
 }}>
-<img src={useBaseUrl("/img/xcode-run-script.webp")} width="75%"/>
+<img src={useBaseUrl("/img/xcode-run-script-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/xcode-run-script.webp")} width="75%"/>
 </em>
 
 The following bash code should be added to the build process.
