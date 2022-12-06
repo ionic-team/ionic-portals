@@ -6,6 +6,10 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## @ionic/portals-react-native 0.2.0 -> 0.3.0
+
+The iOS, Android, and web libraries have all been updated to depend on Capacitor 4. There are no React Native specific code changes needed to adopt these features. However, it will be necessary to follow the [iOS](../for-ios/upgrade-guides#ionicportals-06x---070) and [Android](../for-android/upgrade-guides#ionicportals-06x---070) upgrade guides to ensure a successful migration.
+
 ## @ionic/portals-react-native 0.1.x -> 0.2.0
 
 ### API Changes
