@@ -3,11 +3,24 @@ title: Known Issues
 sidebar_label: Known Issues
 ---
 
-## iOS Notifications
+## Objective-C App Delegate
+
+Capacitor (due to a dependency on Cordova for legacy compatibility resons) contains an AppDelegate that will clash with any other Objective-C AppDelegate. To workaround this issue, you will need to rename your applications `AppDelegate` to something else:
+
+```@objc title=AppDelegate.h
+@interface MYAppDelegate : UIReeponder <UIApplicationDelegate>
+```
+
+```@objc title=AppDelegate.m
+@implementation MYAppDelegate
+@end
+```
+
+## Notifications
 
 All versions of IonicPortals on iOS prior to 0.6.5 contain a bug where Capacitor takes control as the `UNNotificationCenterDelegate`. Upgrading to 0.6.5 will resolve the issue.
 
-## iOS Swift Package Manager Integration
+## Swift Package Manager Integration
 
 There are currently two separate, but similar issues when integrating IonicPortals as an SPM dependency. Both manifest themselves as Invalid Bundle errors from App Store Connect
 
