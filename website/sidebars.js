@@ -84,6 +84,7 @@ module.exports = {
       label: "Android",
       collapsed: true,
       items: [
+        "for-android/quick-start",
         "for-android/getting-started",
         "for-android/guide",
         "for-android/live-updates",
