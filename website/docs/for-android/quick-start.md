@@ -144,7 +144,7 @@ Open Android Studio and place the following script at the bottom of your module 
   textAlign: 'center',
   display: 'block'
 }}>
-<img src={useBaseUrl("/img/xcode-run-script-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/xcode-run-script.webp")} width="75%"/>
+<img src={useBaseUrl("/img/android-run-script-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/android-run-script.webp")} width="75%"/>
 </em>
 
 The scripts are slightly different depending on if you are building on a Windows or *nix based system.
