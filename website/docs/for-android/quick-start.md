@@ -157,9 +157,12 @@ values={[
 ]}>
 <TabItem value="nix">
 
-```kotlin title=build.gradle
+```groovy title=build.gradle
 
 // ...
+
+// Make the preBuild task depend on getLiveUpdate so it runs every build
+preBuild.dependsOn 'getLiveUpdate'
 
 tasks.register('getLiveUpdate') {
     doLast {
@@ -169,6 +172,7 @@ tasks.register('getLiveUpdate') {
 
         String assetPath = rootDir.getPath() + '/app/src/main/assets/' + portalName
         if (new File(assetPath).exists()) {
+            // If the web app already exists, replace with fresh download
             project.exec {
                 commandLine 'rm', '-rf', assetPath
             }
@@ -201,15 +205,18 @@ tasks.register('getLiveUpdate') {
 
 // ...
 
+// Make the preBuild task depend on getLiveUpdate so it runs every build
+preBuild.dependsOn 'getLiveUpdate'
+
 tasks.register('getLiveUpdate') {
     doLast {
         String appId = "0ee57266"
         String channel = "PRODUCTION"
         String portalName = "MY_FIRST_PORTAL"
 
-        // Windows Commands
         String assetPath = rootDir.getPath() + '\\app\\src\\main\\assets\\' + portalName
         if (new File(assetPath).exists()) {
+            // If the web app already exists, replace with fresh download
             project.exec {
                 commandLine 'cmd', '/c', 'rm', '-r', assetPath
             }
