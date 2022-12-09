@@ -150,7 +150,7 @@ Open Android Studio and place the following script at the bottom of your module 
 The scripts are slightly different depending on if you are building on a Windows or *nix based system.
 
 <Tabs
-defaultValue="kt"
+defaultValue="nix"
 values={[
 { label: 'MacOS/Linux', value: 'nix', },
 { label: 'Windows', value: 'win', },
