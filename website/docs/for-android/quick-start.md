@@ -115,7 +115,7 @@ After the token is generated you will need to copy it to clipboard because it wi
 
 ### Create a cloud configuration file
 
-Now create a yaml configuration file in your native project. This file will be used to authenticate against Appflow for your cloud interactions. Usually you will place this file in your native applications source root. It will be referenced by a build script in your native application.
+Now create a yaml configuration file in your native project. This file will be used to authenticate against Appflow for your cloud interactions. Place this file in the `app` directory for your project in the same location as your module level `build.gradle` file. It will be referenced by a build script in your native application.
 
 ```yaml title=.ionic-cloud.yaml
 TOKEN: ion_XXXXXXXXXXXXX
@@ -255,7 +255,7 @@ There are a few variables that you will need to setup at the beginning of script
 
 ### Install the Portals Dependency
 
-To add Portals to your Android project, add the dependency to your `build.gradle` files
+To add Portals to your Android project, add the dependency to your `build.gradle` file
 
 <CodeBlock className="language-groovy" title="build.gradle">
 {
