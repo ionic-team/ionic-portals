@@ -98,6 +98,7 @@ module.exports = {
             "for-android/how-to/define-api-in-typescript",
             "for-android/how-to/multiple-portals-single-web-app",
             "for-android/how-to/multiple-portals-multiple-web-apps",
+            "for-android/how-to/use-portals-in-an-android-library",
             "for-android/how-to/advanced-configuration",
             "for-android/how-to/sync-with-live-updates",
             "for-android/how-to/reloading-with-live-updates",
