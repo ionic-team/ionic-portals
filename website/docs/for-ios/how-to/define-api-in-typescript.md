@@ -152,7 +152,7 @@ export * from './definitions';
 One thing you'll notice is that we're not directly exposing the initialized PortalLoaded class itself outside of the module.
 We do this because we don't want the method triggered in any scenario other than when the page is loaded, so we guard that
 method behind a pure web implementation that calls into the plugin so the method is not called arbitrarily by anyone who imports
-the module.
+the module. If the web code was not needed, we would have just exported this plugin instance directly.
 
 :::
 
