@@ -12,10 +12,6 @@ One of the biggest benefits of including Ionic Portals in an application is the 
 However, to make the integration between a Portal and your native application more seamless, creating your own Plugins may be necessary.
 By creating a [Capacitor Plugin](https://capacitorjs.com/docs/plugins/creating-plugins), you can create your own API to communicate between web and native code.
 
-There are two types of plugins you can create: Instance and Singleton. If your plugin needs to participate in the business logic of your application domain, 
-then you should start with an instance plugin. An instance plugin will allow you to control the lifecycle and dependencies of your plugin. If your plugin
-merely provides a wrapper to device APIs (like the first-party plugins offered by the Ionic team), then a Singleton plugin should be fine.
-
 In this example, we will create a plugin that performs a fade-in animation when a Portal has finished loading.
 
 ## Creating the API Definition
