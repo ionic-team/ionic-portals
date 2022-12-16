@@ -38,7 +38,47 @@ pod 'CapacitorStorage', '~> 1.2.0'
 To avoid errors, make sure that the versions in your `Podfile` and `package.json` match!
 :::
 
-After installing the dependency, Capacitor Plugins are automatically registered on initialization of the Capacitor runtime.
+Next, choose your [PluginRegistrationMode](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal/pluginregistrationmode-swift.property).
+
+[Constructor](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal/init(name:startdir:index:bundle:initialcontext:pluginregistrationmode:liveupdatemanager:liveupdateconfig:)):
+
+```swift
+let portal = Portal(
+  name: "foo",
+  pluginRegistrationMode: .manual([.type(CameraPlugin.self)])
+)
+
+// or
+
+let portal = Portal(
+  name: "foo",
+  pluginRegistrationMode: .automatic
+)
+```
+
+[Portal.pluginRegistrationMode](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal/pluginregistrationmode-swift.property) property:
+
+```swift
+var portal = Portal(name: "foo")
+portal.pluginRegistrationMode = .manual([.type(CameraPlugin.self)])
+
+// or
+
+var portal = Portal(name: "foo")
+portal.pluginRegistrationMode = .automatic
+```
+
+[Portal.adding(_:)](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal/adding(_:)-72o29) methods:
+
+```swift
+let portal = Portal(name: "foo")
+  .adding(CameraPlugin.self)
+```
+
+
+The Portal constructor defaults the `pluginRegistrationMode` to `PluginRegistrationMode.automatic`.
+If you want all plugins to be automatically registered, then leaving the default should suffice. However if you have any plugins that inherit from `CAPInstancePlugin` (see [Defining your own Portal APIs](./define-api-in-typescript)) that need to be registered, all plugins will need to be manually registered.
+
 
 ### Published Plugins
 
