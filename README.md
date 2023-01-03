@@ -7,7 +7,7 @@
 </div>
 <br />
 <p align="center">
-  <a href="https://github.com/ionic-team/ionic-portals/actions?query=workflow%3ACI"><img src="https://img.shields.io/github/workflow/status/ionic-team/ionic-portals/CI?style=flat-square" /></a>
+  <a href="https://github.com/ionic-team/ionic-portals/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/ionic-team/ionic-portals/ci.yml?branch=main&style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@ionic/portals"><img src="https://img.shields.io/npm/dw/@ionic/portals?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@ionic/portals"><img src="https://img.shields.io/npm/l/@ionic/portals?style=flat-square" /></a>
 </p>
