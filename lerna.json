@@ -6,5 +6,6 @@
   "capacitorVersion": "4.5.0",
   "iosMinVersion": "13.0",
   "androidMinSdk": "22",
-  "rnMinVersion": "0.63.4"
+  "rnMinVersion": "0.63.4",
+  "androidLiveUpdatesVersion": "0.2.1"
 }

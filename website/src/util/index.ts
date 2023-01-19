@@ -41,3 +41,7 @@ export const getRnMinVersion = () => {
     return siteConfig.customFields.rnMinVersion;
 }
 
+export const getLiveUpdatesAndroidVersion = () => {
+    const { siteConfig } = useDocusaurusContext();
+    return siteConfig.customFields.androidLiveUpdatesVersion;
+}
