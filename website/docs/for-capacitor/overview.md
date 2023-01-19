@@ -45,3 +45,15 @@ Next, install the plugin from command line:
 ```bash
 npm install @ionic-enterprise/capacitor-portals
 ```
+
+### iOS
+
+In the generated Main.storyboard in your Capacitor project, update the subclass of the view controller from `CAPBridgeViewController` to `PortalsViewController`.
+
+### Android
+
+In the generated MainActivity in your Capacitor project, extend CapacitorPortalsBridgeActivity instead of the usual BridgeActivity.
+
+```java
+public class MainActivity extends CapacitorPortalsBridgeActivity {}`
+```
