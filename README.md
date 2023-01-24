@@ -18,7 +18,7 @@
 </p>
 <p align="center">
   <a href="https://ionic.io/docs/portals"><img src="https://img.shields.io/static/v1?label=docs&message=ionic.io/portals&color=blue&style=flat-square" /></a>
-  <a href="https://twitter.com/ionicframework"><img src="https://img.shields.io/twitter/follow/ionicframework" /></a>
+  <a href="https://twitter.com/ionicframework"><img src="https://img.shields.io/badge/follow-%40ionicframework-1DA1F2?logo=twitter" alt="Follow @ionicframework"></a>
 </p>
 
 ---
