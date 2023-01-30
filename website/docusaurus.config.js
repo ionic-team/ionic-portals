@@ -40,19 +40,22 @@ module.exports = {
         "ruby",
       ],
     },
-    imageZoom: {
+    zoom: {
       selector: ".markdown em > img",
-      options: {
-        margin: 24,
-        background: "#eee",
-        scrollOffset: 0,
+      background: {
+        light: "var(--token-background-color)",
+        dark: "var(--token-background-color)"
+      },
+      config: {
+        margin: 75,
+        scrollOffset: 20
       },
     },
   },
   plugins: [
     "@ionic-internal/docusaurus-plugin-tag-manager",
     "docusaurus-plugin-sass",
-    "plugin-image-zoom",
+    "docusaurus-plugin-image-zoom",
   ],
   themes: ["@ionic-internal/docusaurus-theme"],
   presets: [

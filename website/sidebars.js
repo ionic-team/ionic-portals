@@ -60,6 +60,15 @@ module.exports = {
         },
         {
           type: "category",
+          label: "Web Performance",
+          collapsed: true,
+          items: [
+            "for-ios/performance/overview",
+            "for-ios/performance/profiling"
+          ],
+        },
+        {
+          type: "category",
           label: "Reference",
           collapsed: true,
           items: [
