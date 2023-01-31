@@ -64,7 +64,8 @@ module.exports = {
           collapsed: true,
           items: [
             "for-ios/performance/overview",
-            "for-ios/performance/profiling"
+            "for-ios/performance/initial-load",
+            "for-ios/performance/profiling",
           ],
         },
         {
