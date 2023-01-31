@@ -16,7 +16,7 @@ Providing a [Capacitor Configuration](https://capacitorjs.com/docs/config) json 
 
 ### Android
 
-Individual Portals can be configured by providing a `capacitor.config.json` in the Portal web assets directory within the `assets` directory of your Android project.
+Individual Portals can be configured by providing a `capacitor.config.json` in the Portal web assets directory within the `assets` directory of your Android project. For example: if you have a Portal called "chat" you would place the config file in `assets/chat/capacitor.config.json`.
 
 :::note
 Each Portal may have its own config file.
