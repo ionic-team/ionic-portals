@@ -14,25 +14,25 @@ Portals instances can be further configured by providing a Capacitor Configurati
 
 Providing a [Capacitor Configuration](https://capacitorjs.com/docs/config) json file with your web assets will configure Capacitor with the provided settings.
 
-### iOS
+### Android
 
-Provide a `capacitor.config.json` in the Portal start directory (where the web assets are located).
+Individual Portals can be configured by providing a `capacitor.config.json` in the Portal web assets directory within the `assets` directory of your Android project.
 
 :::note
 Each Portal may have its own config file.
 :::
 
-### Android
+### Live Updates
 
-Provide a `capacitor.config.json` in the `assets` directory of your Android project.
-
-:::note
-This single config will apply to all instances of Portals in your project.
-:::
+Portals that use Live Updates can include a `capacitor.config.json` in the root of the build assets. It will be used by the Portal to configure Capacitor. This will take priority over a config file provided in the Portal assets provided in the application.
 
 ## Programmatic Configuration
 
 Portals for Android allows you to provide a programmatically defined Capacitor Configuration to customize the behavior of Capacitor in each instance of a Portal.
+
+:::note
+If you configure a Portal in Kotlin or Java in this way, it will override any `capacitor.config.json` file provided either by a Live Update or bundled in the `assets` directory.
+:::
 
 ### Android
 
