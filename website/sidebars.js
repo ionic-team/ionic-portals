@@ -63,9 +63,8 @@ module.exports = {
           label: "Web Performance",
           collapsed: true,
           items: [
-            "for-ios/performance/overview",
-            "for-ios/performance/initial-load",
             "for-ios/performance/profiling",
+            "for-ios/performance/web-vitals"
           ],
         },
         {
