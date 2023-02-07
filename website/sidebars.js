@@ -60,15 +60,6 @@ module.exports = {
         },
         {
           type: "category",
-          label: "Web Performance",
-          collapsed: true,
-          items: [
-            "for-ios/performance/profiling",
-            "for-ios/performance/web-vitals"
-          ],
-        },
-        {
-          type: "category",
           label: "Reference",
           collapsed: true,
           items: [
@@ -222,7 +213,37 @@ module.exports = {
         "for-react-native/known-issues",
       ],
     },
-    "portals-plugin",
+    {
+      type: "category",
+      label: "Web",
+      collapsed: true,
+      items: [
+        "for-web/portals-plugin",
+        {
+          type: "category",
+          label: "Performance",
+          collapsed: true,
+          items: [
+            "for-web/performance/overview",
+            {
+              type: "category",
+              label: "Android",
+              collapsed: true,
+              items: [],
+            },
+            {
+              type: "category",
+              label: "iOS",
+              collapsed: true,
+              items: [
+                "for-web/performance/ios/profiling",
+                "for-web/performance/ios/web-vitals",
+              ]
+            },
+          ],
+        },
+      ]
+    },
     {
       type: "category",
       label: "Portals for Capacitor",
