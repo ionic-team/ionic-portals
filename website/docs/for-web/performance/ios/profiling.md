@@ -106,7 +106,7 @@ Once the timeline is finished recording, you can zoom in and slice the parts of 
 
 ### Native Http Caveat
 
-Due to a limitation in Safari Dev Tools, if the web application uses CapacitorHttp you will not get any insight into how those requests may be impacting your application performance in the timeline tab. Starting in Capacitor **insert version here**, a total time for the network request will be logged out to the console. This is not an issue for Android developers debugging their web applications in Chrome.
+Due to a limitation in Safari Dev Tools, if the web application uses CapacitorHttp you will not get any insight into how those requests may be impacting your application performance in the timeline tab. Starting in Capacitor 4.6.3, a total time for the network request will be logged out to the console. This is not an issue for Android developers debugging their web applications in Chrome.
 
 ## Timeline Export
 
