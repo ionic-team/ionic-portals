@@ -229,7 +229,10 @@ module.exports = {
               type: "category",
               label: "Android",
               collapsed: true,
-              items: [],
+              items: [
+                "for-web/performance/android/profiling",
+                "for-web/performance/android/web-vitals",
+              ],
             },
             {
               type: "category",
