@@ -21,8 +21,8 @@ Next, navigate to "chrome://inspect" to view a list of target devices to inspect
 
 <em style={{ textAlign: 'center', display: 'block' }}>
   <img 
-    src={useBaseUrl('/img/profiling/android/thumb/profiling-open-02.webP')} 
-    data-zoom-src={useBaseUrl('/img/profiling/android/full/profiling-open-02.webP')}
+    src={useBaseUrl('/img/profiling/android/thumb/profiling-inspect-devices.webP')}
+    data-zoom-src={useBaseUrl('/img/profiling/android/full/profiling-inspect-devices.webP')}
     width="75%"
   />
 </em>
@@ -31,8 +31,8 @@ You may see more than one web application displayed in the menu for the applicat
 
 <em style={{ textAlign: 'center', display: 'block' }}>
   <img 
-    src={useBaseUrl('/img/profiling/android/thumb/profiling-inspect-devices.webP')} 
-    data-zoom-src={useBaseUrl('/img/profiling/android/full/profiling-inspect-devices.webP')}
+    src={useBaseUrl('/img/profiling/android/thumb/profiling-open-02.webP')}
+    data-zoom-src={useBaseUrl('/img/profiling/android/full/profiling-open-02.webP')}
     width="75%"
   />
 </em>
