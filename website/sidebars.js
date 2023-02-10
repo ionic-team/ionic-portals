@@ -215,37 +215,16 @@ module.exports = {
     },
     {
       type: "category",
+      className: "bottom-item",
       label: "Web",
       collapsed: true,
       items: [
+        "for-web/overview",
         "for-web/portals-plugin",
-        {
-          type: "category",
-          label: "Performance",
-          collapsed: true,
-          items: [
-            "for-web/performance/overview",
-            {
-              type: "category",
-              label: "Android",
-              collapsed: true,
-              items: [
-                "for-web/performance/android/profiling",
-                "for-web/performance/android/web-vitals",
-              ],
-            },
-            {
-              type: "category",
-              label: "iOS",
-              collapsed: true,
-              items: [
-                "for-web/performance/ios/profiling",
-                "for-web/performance/ios/web-vitals",
-              ]
-            },
-          ],
-        },
-      ]
+        "for-web/web-vitals",
+        "for-web/ios-profiling",
+        "for-web/android-profiling",
+      ],
     },
     {
       type: "category",
