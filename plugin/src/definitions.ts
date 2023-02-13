@@ -12,7 +12,10 @@ export interface PortalsPlugin {
  */
 export interface InitialContext<T = unknown> {
   name: string;
-  value: T | undefined;
+  value?: T;
+  assets?: {
+    [key: string]: string;
+  }
 }
 
 /**
