@@ -213,13 +213,28 @@ public class MyContainerFragment extends Fragment {
 
 ## Jetpack Compose
 
-Portals can be used with [Jetpack Compose](https://developer.android.com/jetpack/compose).
+Portals can be used with [Jetpack Compose](https://developer.android.com/jetpack/compose). Make sure that Activities containing Portals extend `AppCompatActivity()` so that the AppCompat Fragment APIs are available to them.
 
 ```kotlin
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MyThemeName {
+                Surface(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    loadPortal("myPortalName")
+                }
+            }
+        }
+    }
+}
+
 @Composable
 fun loadPortal(portalId: String) {
     AndroidView(factory = {
-        PortalView(it, "myPortalName")
+        PortalView(it, portalId)
     })
 }
 ```
