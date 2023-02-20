@@ -1,6 +1,6 @@
 ---
-title: Portals Configuration File
-sidebar_label: Portals Configuration File
+title: Static Portals Configuration File
+sidebar_label: Statically Configure Portals
 ---
 
 An additional configuration method is now included to support a JSON configuration file to configure Portals on application start. The JSON file must be named `portals.config.json` and be placed in the application root on iOS and `assets` root on Android.
@@ -84,14 +84,14 @@ At a minimum, when including a `portals.config.json` it must at least have the `
       "startDir": "portals/shopwebapp",
       "initialContext": {
         "startingRoute": "/help"
-      },
+      }
     },
     {
       "name": "checkout",
       "startDir": "portals/shopwebapp",
       "initialContext": {
         "startingRoute": "/checkout"
-      },
+      }
     },
     {
       "name": "featuredproducts",
