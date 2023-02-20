@@ -177,6 +177,7 @@ module.exports = {
           collapsed: true,
           items: [
             "for-react-native/how-to/pull-in-web-bundle",
+            "for-react-native/how-to/statically-define-portals",
             "for-react-native/how-to/using-the-portals-plugin",
             "for-react-native/how-to/using-a-capacitor-plugin",
             "for-react-native/how-to/define-api-in-typescript",
