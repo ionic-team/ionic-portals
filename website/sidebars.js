@@ -214,7 +214,19 @@ module.exports = {
         "for-react-native/known-issues",
       ],
     },
-    "portals-plugin",
+    {
+      type: "category",
+      className: "bottom-item",
+      label: "Web",
+      collapsed: true,
+      items: [
+        "for-web/overview",
+        "for-web/portals-plugin",
+        "for-web/web-vitals",
+        "for-web/ios-profiling",
+        "for-web/android-profiling",
+      ],
+    },
     {
       type: "category",
       label: "Portals for Capacitor",
