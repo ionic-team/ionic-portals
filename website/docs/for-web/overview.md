@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 # Overview
 
-Although most of the API surface area of Portals is Native most of the code written for Portals is within web experiences. So it is important to ensure that web developers understand what APIs are available to them and what considerations need to be taken when building web experiences for use in Portals.
+Although most of the API surface area of portals is Native, it is important to ensure that web developers understand what APIs are available to them and what considerations need to be taken when building web experiences for use in Portals.
 
 ## Portals Plugin
 
