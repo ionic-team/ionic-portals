@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/ionic-team/ionic-portals/compare/0.7.0...0.7.1) (2023-03-01)
+
+### Features
+
+* Add `assetMaps` key to initialContext ([#209](https://github.com/ionic-team/ionic-portals/pull/209)) ([665d1d0](https://github.com/ionic-team/ionic-portals/commit/665d1d092bbd91d7824d46d70e63843cf15cbbd5))
+
+
 ## [0.7.0](https://github.com/ionic-team/ionic-portals/compare/0.6.0...0.7.0) (2022-11-22)
 
 

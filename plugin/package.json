@@ -1,6 +1,6 @@
 {
   "name": "@ionic/portals",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "SDK Plugin for Ionic Portals",
   "homepage": "https://ionic.io/portals",
   "main": "dist/index.cjs.js",
