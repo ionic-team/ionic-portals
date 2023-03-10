@@ -85,10 +85,11 @@ unsubscribe(options: PortalSubscription) => any
 
 #### InitialContext
 
-| Prop        | Type                |
-| ----------- | ------------------- |
-| **`name`**  | <code>string</code> |
-| **`value`** | <code>T</code>      |
+| Prop         | Type                                    |
+| ------------ | --------------------------------------- |
+| **`name`**   | <code>string</code>                     |
+| **`value`**  | <code>T</code>                          |
+| **`assets`** | <code>{ [key: string]: string; }</code> |
 
 
 #### PortalMessage
