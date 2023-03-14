@@ -29,7 +29,10 @@ A type defining the `InitialContext` from the native application that you can pa
 ```typescript
 interface InitialContext<T = unknown> {
   name: string;
-  value: T;
+  value?: T;
+  assets?: {
+    [key: string]: string;
+  }
 }
 ```
 

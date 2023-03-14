@@ -34,6 +34,7 @@ module.exports = {
             "for-ios/how-to/define-api-in-typescript",
             "for-ios/how-to/multiple-portals-single-web-app",
             "for-ios/how-to/multiple-portals-multiple-web-apps",
+            "for-ios/how-to/sharing-assets",
             "for-ios/how-to/use-portals-in-an-ios-library",
             "for-ios/how-to/advanced-configuration",
             "for-ios/how-to/sync-with-live-updates",
@@ -99,6 +100,7 @@ module.exports = {
             "for-android/how-to/define-api-in-typescript",
             "for-android/how-to/multiple-portals-single-web-app",
             "for-android/how-to/multiple-portals-multiple-web-apps",
+            "for-android/how-to/sharing-assets",
             "for-android/how-to/use-portals-in-an-android-library",
             "for-android/how-to/advanced-configuration",
             "for-android/how-to/sync-with-live-updates",
@@ -222,6 +224,7 @@ module.exports = {
       items: [
         "for-web/overview",
         "for-web/portals-plugin",
+        "for-web/sharing-assets",
         "for-web/web-vitals",
         "for-web/ios-profiling",
         "for-web/android-profiling",
