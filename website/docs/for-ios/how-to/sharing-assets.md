@@ -35,7 +35,7 @@ extension AssetMap {
 }
 ```
 
-When this Portal loads, the shared asset information will be passed to the web content as part of the Portal's [InitialContext](./portals-plugin#initialcontext) object.
+When this Portal loads, the shared asset information will be passed to the web content as part of the Portal's [InitialContext](../../for-web/portals-plugin#initialcontext) object.
 
 ## Using Registered Assets
 
