@@ -3,6 +3,9 @@ title: Sharing Assets Between Portals
 sidebar_label: Sharing Assets
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Overview
 
 If you are devloping an application that contains multiple Portals, the Portals library supports the ability to share asset files between them. This is helpful to reduce the size of your overall app if those Portals use assets that are the same such as large media files or font files.
