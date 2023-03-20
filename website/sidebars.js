@@ -232,7 +232,7 @@ module.exports = {
     },
     {
       type: "category",
-      label: "Portals for Capacitor",
+      label: "Federated Capacitor",
       collapsed: true,
       items: [
         "for-capacitor/overview",

@@ -5,7 +5,7 @@ sidebar_label: How to use with Module Federation
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-The first thing you will need to do when implementing Portals for Capacitor is choose a web based micro frontend solution. The most common is [Module Federation](https://webpack.js.org/concepts/module-federation/).
+The first thing you will need to do when implementing Federated Capacitor is choose a web based micro frontend solution. The most common is [Module Federation](https://webpack.js.org/concepts/module-federation/).
 
 ## Local vs Mobile Configuration
 
@@ -47,7 +47,7 @@ module.exports = {
 }
 ```
 
-Now when you run `npm run build` it will generate a build that is built to work with Portals for Capacitor.
+Now when you run `npm run build` it will generate a build that is built to work with Federated Capacitor.
 
 ## Capacitor Configuration
 The next step is to configure Capacitor so that it knows where these files exist on the initial application build. You can see that there is configuration for the shell or main application and then config for the MFEs that are separate.
@@ -63,7 +63,7 @@ const capacitorConfig: CapacitorConfig = {
   webDir: "../shell/build",
   bundledWebRuntime: false,
   plugins: {
-    // Portals for Capacitor configuration
+    // Federated Capacitor configuration
     Portals: {
       shell: {
         name: "shell",
@@ -193,7 +193,7 @@ const capacitorConfig: CapacitorConfig = {
   appName: "Portals Web App",
   bundledWebRuntime: false,
   plugins: {
-    // Portals for Capacitor configuration
+    // Federated Capacitor configuration
     Portals: {
       shell: {
         name: "shell",
