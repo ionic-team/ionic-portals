@@ -131,18 +131,9 @@ module.exports = {
           collapsed: true,
           items: [
             {
-              type: "category",
-              label: "API",
-              collapsed: true,
-              items: [
-                "for-android/reference/api/portal",
-                "for-android/reference/api/portal-builder",
-                "for-android/reference/api/portal-fragment",
-                "for-android/reference/api/portal-manager",
-                "for-android/reference/api/portal-view",
-                "for-android/reference/api/portal-method",
-                "for-android/reference/api/portals-plugin",
-              ],
+              type: "link",
+              label: "API", // The link label
+              href: "https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/index.html", // The external URL
             },
             {
               type: "category",

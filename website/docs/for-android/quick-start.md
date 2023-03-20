@@ -273,7 +273,7 @@ dependencies {
 
 After installation of Portals we can setup the Portals key. Then the application is ready to have its first Portal configured. To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals. 
 
-You'll need to call [PortalManager.register(myApiKey)](./reference/api/portal-manager#register) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.
+You'll need to call [PortalManager.register(myApiKey)](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.
 
 <Tabs
 defaultValue="kt"
@@ -337,9 +337,9 @@ After creating a custom Application class, be sure to add the `android:name` att
 
 ### Create the first Portal
 
-After registering via the [PortalManager.register()](./reference/api/portal-manager#register) function, you can create Portals. This Quick Start guide shows how to use Portals directly in an XML layout, but there are also [other ways to do this](./getting-started#using-a-portal-in-code). 
+After registering via the [PortalManager.register()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) function, you can create Portals. This Quick Start guide shows how to use Portals directly in an XML layout, but there are also [other ways to do this](./getting-started#using-a-portal-in-code). 
 
-Use the [PortalManager](./reference/api/portal-manager) to quickly create a [Portal](./reference/api/portal) and link it to an XML layout.
+Use the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) to quickly create a [Portal](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal/index.html) and link it to an XML layout.
 
 <Tabs
 defaultValue="kt"
@@ -380,7 +380,7 @@ public class MyApplication extends Application {
 </TabItem>
 </Tabs>
 
-Now, the [Portal](./reference/api/portal) is successfully created and managed by the [PortalManager](./reference/api/portal-manager).
+Now, the [Portal](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal/index.html) is successfully created and managed by the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html).
 
 Add a PortalView to a layout XML file in your Application. Use the `portalId` attribute in the XML tag as shown below to link it to the Portal you created.
 

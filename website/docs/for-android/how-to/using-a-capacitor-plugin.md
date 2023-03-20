@@ -40,7 +40,7 @@ dependencies {
 To avoid errors, make sure that the versions in your `build.gradle` and `package.json` match!
 :::
 
-Next, include it via the [PortalBuilder.setPlugins()](../reference/api/portal-builder#setplugins) or [PortalBuilder.addPlugin()](../reference/api/portal-builder#addplugin) functions.
+Next, include it via the [PortalBuilder.setPlugins()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-builder/index.html#1068344084%2FFunctions%2F-149544105) or [PortalBuilder.addPlugin()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-builder/index.html#-1462066834%2FFunctions%2F-149544105) functions.
 
 <Tabs
 defaultValue="kt"

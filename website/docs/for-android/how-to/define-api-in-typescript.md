@@ -79,7 +79,7 @@ public class PortalLoadedPlugin extends Plugin {
 
 ## Using the PortalLoadedPlugin
 
-To use the `PortalLoadedPlugin` class, we need to create an instance of it and add it to the portal to be rendered. When creating a [Portal](../reference/api/portal) via the [PortalManager](../reference/api/portal-manager), call the [PortalManager.addPluginInstance()](../reference/api/portal-manager) function in order to add the Plugin to that Portal instance.
+To use the `PortalLoadedPlugin` class, we need to create an instance of it and add it to the portal to be rendered. When creating a [Portal](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal/index.html) via the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html), call the [addPluginInstance()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-builder/index.html#-1950926678%2FFunctions%2F-149544105) function in order to add the Plugin to that Portal instance.
 
 <Tabs
 defaultValue="kt"
