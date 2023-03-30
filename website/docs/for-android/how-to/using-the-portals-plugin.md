@@ -138,7 +138,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     // listen on the topic "dismiss" and act on the result data.
     // This is an example to dismiss a containing native DialogFragment.
-    PortalsPlugin.subscribe("dismiss") { result ->
+    dismissSubscription = PortalsPlugin.subscribe("dismiss") { result ->
         if (result.data == "cancel" || result.data == "success") {
             this.dismiss()
         }
@@ -168,7 +168,7 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
 
     // listen on the topic "dismiss" and act on the result data.
     // This is an example to dismiss a containing native DialogFragment.
-    PortalsPlugin.subscribe("dismiss", (subscriptionResult -> {
+    dismissSubscription = PortalsPlugin.subscribe("dismiss", (subscriptionResult -> {
         if(subscriptionResult.getData().equals("cancel")
             || subscriptionResult.getData().equals("success")) {
 
@@ -190,9 +190,49 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
 
 </Tabs>
 
+When finished with the Portal, call the `unsubscribe` function to clean up your subscription to avoid potential memory leaks.
+
+<Tabs defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
+<TabItem value="kt">
+
+```kotlin
+override fun onDestroy() {
+    // dismissSubscription is an integer value returned when
+    // calling PortalsPlugin.subscribe
+    PortalsPlugin.unsubscribe("dismiss", dismissSubscription)
+    super.onDestroy()
+}
+```
+
+</TabItem>
+
+<TabItem value="java">
+
+```java
+@Override
+public void onDestroy() {
+    // dismissSubscription is an integer value returned when
+    // calling PortalsPlugin.subscribe
+    PortalsPlugin.unsubscribe("dismiss", dismissSubscription);
+    super.onDestroy();
+}
+```
+
+</TabItem>
+
+</Tabs>
+
 **Subscribe Using Annotations**
 
-Android also provides a way to link subscribers defined as methods with annotations.
+Android also provides a way to link subscribers defined as functions with `@PortalMethod` annotations. An instance of the class containing the annotated functions can then be provided to the `PortalFragment` using the `linkMessageReceivers` function. See the example below for implementation details.
+
+:::note
+When using this method of adding subscribers, the Portals library will handle subscribing and unsubscribing automatically for you. Calling `PortalsPlugin.subscribe` and `PortalsPlugin.unsubscribe` is not required.
+:::
 
 <Tabs
 defaultValue="kt"
