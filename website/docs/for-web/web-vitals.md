@@ -41,12 +41,12 @@ Portals for React Native provides functions to register callbacks for First Cont
 ```typescript
 import { onFirstContentfulPaint, onFirstInputDelay, onTimeToFirstByte, registerWebVitals } from '@ionic/portals-react-native'
 
-// You can register each individually
+// You can register each individually by providing the Portal name and a callback.
 onFirstContentfulPaint('foo', duration => console.log('foo FCP:', duration));
 onFirstInputDelay('foo', duration => console.log('foo FID:', duration));
 onTimeToFirstByte('foo', duration => console.log('foo TTFB:', duration));
 
-// Or register all in a single call
+// Or register all in a single call by providing the portal name and callbacks for each of the metrics
 registerWebVitals(
   'foo',
   duration => console.log('foo FCP:', duration),
