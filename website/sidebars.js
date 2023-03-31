@@ -183,6 +183,8 @@ module.exports = {
             "for-react-native/how-to/using-the-portals-plugin",
             "for-react-native/how-to/using-a-capacitor-plugin",
             "for-react-native/how-to/define-api-in-typescript",
+            "for-react-native/how-to/sharing-assets",
+            "for-react-native/how-to/sync-with-live-updates"
           ],
         },
         {

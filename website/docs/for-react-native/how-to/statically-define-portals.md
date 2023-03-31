@@ -27,9 +27,8 @@ type PortalConfig = {
 type Portal = {
   // The name of the Portal to be referenced. Must be unique.
   name: string;
-  // The classpath of all Capacitor plugins used in Android
-  // (e.g. com.capacitorjs.plugins.camera.CameraPlugin).
-  androidPlugins?: []string;
+  // Any CapcitorPlugins to register with the Portal.
+  plugins?: []CapacitorPlugin;
   // The root directory of the web application relative to Bundle.main
   // on iOS and src/main/assets on Android. If omitted, `name` is used.
   startDir?: string;
@@ -61,6 +60,11 @@ type LiveUpdateConfig = {
   // provided by `@ionic/portals-react-native`.
   syncOnAdd: boolean;
 };
+
+type CapacitorPlugin = {
+  androidClassPath: string;
+  iosClassName: string;
+};
 ```
 
 At a minimum, when including a `portals.config.json` it must at least have the `portals` key defined with at least one valid `Portal` definition in the array. If you are using Live Updates, you must include a `LiveUpdate` configuration. If you are using Secure Live Updates, you must include the `liveUpdatesKey` in the configuration.
@@ -77,7 +81,12 @@ At a minimum, when including a `portals.config.json` it must at least have the `
       "initialContext": {
         "startingRoute": "/user"
       },
-      "androidPlugins": ["com.capacitorjs.plugins.camera.CameraPlugin"]
+      "plugins": [
+        {
+          "androidClassPath": "com.capacitorjs.plugins.camera.CameraPlugin",
+          "iosClassName": "CAPCameraPlugin"
+        }
+      ]
     },
     {
       "name": "help",

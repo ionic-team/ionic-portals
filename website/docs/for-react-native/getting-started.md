@@ -155,20 +155,23 @@ To see an example of Portals Pub/Sub in action that manages the lifecycle of a s
 
 ## Using Capacitor Plugins
 
-If you need to use any Capacitor plugins, the classpath of the Android plugins will have to be provided to the `Portal` `androidPlugins` property.
+If you need to use any Capacitor plugins, the classpath of the Android plugins and the Objective-C class name will have to be provided to the `Portal` `plugins` property.
 
 ```javascript
 const helloPortal = {
   name: "hello",
   startDir: "portals/hello",
-  androidPlugins: ["com.capacitorjs.plugins.camera.CameraPlugin"],
+  plugins: [
+    {
+      androidClassPath: "com.capacitorjs.plugins.camera.CameraPlugin",
+      iosClassName: "CAPCameraPlugin"
+    }
+  ],
   initialContext: {
     greeting: "Hello, world!",
   },
 };
 ```
-
-No configuration for iOS is needed since plugins are automatically registered when the Capacitor bridge initializes on iOS.
 
 ## Bundling Your Web Apps
 

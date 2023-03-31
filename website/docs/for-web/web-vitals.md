@@ -33,3 +33,24 @@ let portal = Portal(
 )
 
 ```
+
+## React Native
+
+Portals for React Native provides functions to register callbacks for First Contentful Paint (FCP), Time to First Byte (TTFB), and First Input Delay (FID). When running on iOS, TTFB and FID will never be called due to limitations of the platform.
+
+```typescript
+import { onFirstContentfulPaint, onFirstInputDelay, onTimeToFirstByte, registerWebVitals } from '@ionic/portals-react-native'
+
+// You can register each individually
+onFirstContentfulPaint('foo', duration => console.log('foo FCP:', duration));
+onFirstInputDelay('foo', duration => console.log('foo FID:', duration));
+onTimeToFirstByte('foo', duration => console.log('foo TTFB:', duration));
+
+// Or register all in a single call
+registerWebVitals(
+  'foo',
+  duration => console.log('foo FCP:', duration),
+  duration => console.log('foo FID:', duration),
+  duration => console.log('foo TTFB:', duration)
+);
+```
