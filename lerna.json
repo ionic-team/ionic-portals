@@ -1,11 +1,11 @@
 {
   "version": "0.7.0",
-  "iosVersion": "0.7.1",
-  "androidVersion": "0.7.0",
+  "iosVersion": "0.7.3",
+  "androidVersion": "0.7.5",
   "rnVersion": "0.3.0",
   "capacitorVersion": "4.5.0",
   "iosMinVersion": "13.0",
   "androidMinSdk": "22",
   "rnMinVersion": "0.63.4",
-  "androidLiveUpdatesVersion": "0.2.1"
+  "androidLiveUpdatesVersion": "0.4.0"
 }
