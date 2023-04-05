@@ -11,7 +11,7 @@ If you are devloping an application that contains multiple Portals, the Portals 
 
 Shared Assets should be placed inside both native platforms in an accessible location and registered in the Portals Library. This provides the Web content with a mechanism to get a path to the shared assets within the native platform bundle.
 
-Refer to the applicable documentation for [iOS](../for-ios/how-to/sharing-assets) or [Android](../for-android/how-to/sharing-assets) to learn how to register shared assets on each native platform.
+Refer to the applicable documentation for [iOS](../for-ios/how-to/sharing-assets), [Android](../for-android/how-to/sharing-assets), or [React Native](../for-react-native/how-to/sharing-assets.md) to learn how to register shared assets on each native platform.
 
 ## Using Registered Assets
 
