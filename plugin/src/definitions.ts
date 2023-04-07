@@ -1,10 +1,16 @@
 /**
  * A type definining the `PortalsPlugin` API.
  */
+import type { PluginListenerHandle } from '@capacitor/core';
+
 export interface PortalsPlugin {
-  publish<TMessage extends PortalMessage>(message: TMessage): Promise<void>;
-  subscribe<T = unknown>(options: SubscribeOptions, callback: SubscriptionCallback<T>): Promise<PortalSubscription>;
-  unsubscribe(options: PortalSubscription): Promise<void>;
+  publishNative<TMessage extends PortalMessage>(
+    message: TMessage,
+  ): Promise<void>;
+  addListener<T = unknown>(
+    eventName: string,
+    listenerFunc: SubscriptionCallback<T>,
+  ): Promise<PluginListenerHandle> & PluginListenerHandle;
 }
 
 /**
@@ -15,7 +21,7 @@ export interface InitialContext<T = unknown> {
   value?: T;
   assets?: {
     [key: string]: string;
-  }
+  };
 }
 
 /**
@@ -44,4 +50,7 @@ export interface PortalSubscription {
 /**
  * The type definition from the callback running Portals.subscribe()
  */
-export type SubscriptionCallback<T = unknown> = (result: { topic: string, data: T; }) => void;
+export type SubscriptionCallback<T = unknown> = (result: {
+  topic: string;
+  data: T;
+}) => void;
