@@ -20,7 +20,7 @@ The `PortalManager` and `LiveUpdateManager` are both [Singletons](https://en.wik
 :::note
 Since the Manager classes are singletons, care should be taken to avoid conflicts or unintended interactions between one or many Library modules using Portals, and also the parent Application. 
 
-For example, if a module adds a Portal called "MyPortal" and a different module tries to add a Portal with the same name, it will replace the first one. If multiple modules use Live Updates and one calls the general [LiveUpdateManager.sync()](../reference/live-updates/live-update-manager#sync) function, it will sync all registered apps across your project.
+For example, if a module adds a Portal called "MyPortal" and a different module tries to add a Portal with the same name, it will replace the first one. If multiple modules use Live Updates and one calls the general [LiveUpdateManager.sync()](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates/-live-update-manager/sync.html) function, it will sync all registered apps across your project.
 :::
 
 Create a module and place the desired Portals and Live Updates code inside:

@@ -66,13 +66,13 @@ module.exports = {
           items: [
             {
               type: "link",
-              label: "API", // The link label
-              href: "https://ionic-portals-ios.vercel.app/documentation/ionicportals", // The external URL
+              label: "API",
+              href: "https://ionic-portals-ios.vercel.app/documentation/ionicportals",
             },
             {
               type: "link",
-              label: "LiveUpdates API", // The link label
-              href: "https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates", // The external URL,
+              label: "LiveUpdates API",
+              href: "https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates",
             },
           ],
         },
@@ -132,24 +132,13 @@ module.exports = {
           items: [
             {
               type: "link",
-              label: "API", // The link label
-              href: "https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/index.html", // The external URL
+              label: "API",
+              href: "https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/index.html",
             },
             {
-              type: "category",
+              type: "link",
               label: "Live Updates API",
-              collapsed: true,
-              items: [
-                "for-android/reference/live-updates/live-update-manager",
-                "for-android/reference/live-updates/live-update",
-                "for-android/reference/live-updates/sync-callback",
-                "for-android/reference/live-updates/check-callback",
-                "for-android/reference/live-updates/download-callback",
-                "for-android/reference/live-updates/extract-callback",
-                "for-android/reference/live-updates/check-response",
-                "for-android/reference/live-updates/download-response",
-                "for-android/reference/live-updates/error-response",
-              ],
+              href: "https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates/index.html",
             },
           ],
         },
