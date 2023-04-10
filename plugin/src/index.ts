@@ -5,7 +5,6 @@ import type {
   InitialContext,
   PortalMessage,
   PortalsPlugin,
-  SubscribeOptions,
   SubscriptionCallback,
 } from './definitions';
 
@@ -25,10 +24,10 @@ export function getInitialContext<T = unknown>():
 }
 
 export function subscribe<T = unknown>(
-  options: SubscribeOptions,
+  topic: string,
   callback: SubscriptionCallback<T>,
 ): Promise<PluginListenerHandle> {
-  return Portals.addListener(options.topic, callback);
+  return Portals.addListener(topic, callback);
 }
 
 export function publish<TMessage extends PortalMessage>(

@@ -33,21 +33,6 @@ export interface PortalMessage<TData = any> {
 }
 
 /**
- * Subscription options that you pass into your function when running Portals.subscribe()
- */
-export interface SubscribeOptions {
-  topic: string;
-}
-
-/**
- * The subscription created when running Portals.subscribe()
- */
-export interface PortalSubscription {
-  subscriptionRef: number;
-  topic: string;
-}
-
-/**
  * The type definition from the callback running Portals.subscribe()
  */
 export type SubscriptionCallback<T = unknown> = (result: {
