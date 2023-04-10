@@ -115,14 +115,19 @@ public class EchoPlugin extends Plugin {
 
 After creating the Capacitor Plugin, add the Plugin to the Portal to use it.
 
-You will need to add the classpath to your custom plugin for Android:
+You will need to add the classpath to your custom plugin for Android and the Objective-C class name for iOS (the name provided in the @objc annotation in the example above):
 
 ```javascript
 import { addPortal } from "@ionic/portals-react-native";
 
 const echoPortal = {
   name: "echoPortal",
-  androidPlugins: ["com.myapplication.echo.EchoPlugin"],
+  plugins: [
+    {
+      androidClassPath: "com.myapplication.echo.EchoPlugin",
+      iosClassName: "MYYEchoPlugin"
+     }
+  ]
 };
 
 addPortal(echoPortal);
