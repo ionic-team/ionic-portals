@@ -27,33 +27,31 @@ Federated Capacitor complements existing micro frontend tools like Module Federa
 
 ## Getting Started
 
-To begin with Federated Capacitor you will need to [signup for a key.](../getting-started)
+:::caution
+Add docs about how to get a registry key?
+:::
 
-Before we can install the plugin we need to create an `.npmrc` file in the shell project root. This is the main application. After the file is created we can install from the `@ionic-enterprise` registry. Note that the `authToken` value will need to be set to `YOUR_PORTALS_KEY` from the Appflow dashboard.
+Before we can install the plugin we need to create an `.npmrc` file in the shell project root. This is the main application. After the file is created we can install from the `@ionic-enterprise` registry. Note that the `authToken` value will need to be set to the key provisioned for your application from the Appflow dashboard.
 
 ```bash {2} title=.npmrc
 @ionic-enterprise:registry=https://registry.ionicframework.com/
-//registry.ionicframework.com/:_authToken=YOUR_PORTALS_KEY
+//registry.ionicframework.com/:_authToken=YOUR_NPM_KEY
 ```
-
-:::caution
-If you are using other plugins from the `@ionic-enterprise` registry in your Capacitor app then you will need to have your account provisiioned with access to Portals by contacting support.
-:::
 
 Next, install the plugin from command line:
 
 ```bash
-npm install @ionic-enterprise/capacitor-portals
+npm install @ionic-enterprise/federated-capacitor
 ```
 
 ### iOS
 
-In the generated Main.storyboard in your Capacitor project, update the subclass of the view controller from `CAPBridgeViewController` to `PortalsViewController`.
+In the generated Main.storyboard in your Capacitor project, update the subclass of the view controller from `CAPBridgeViewController` to `FederatedCapacitorViewController`.
 
 ### Android
 
-In the generated MainActivity in your Capacitor project, extend CapacitorPortalsBridgeActivity instead of the usual BridgeActivity.
+In the generated MainActivity in your Capacitor project, extend FederatedCapacitorBridgeActivity instead of the usual BridgeActivity.
 
 ```java
-public class MainActivity extends CapacitorPortalsBridgeActivity {}`
+public class MainActivity extends FederatedCapacitorBridgeActivity {}`
 ```

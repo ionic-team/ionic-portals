@@ -58,13 +58,13 @@ The `webDir` paths are relative your the base directory of the shell application
 
 ```typescript title=capacitor.config.ts
 const capacitorConfig: CapacitorConfig = {
-  appId: "io.ionic.portals.ecommercewebapp",
-  appName: "Portals Web App",
+  appId: "io.ionic.fedcap.ecommercewebapp",
+  appName: "FederatedCapacitor Web App",
   webDir: "../shell/build",
   bundledWebRuntime: false,
   plugins: {
     // Federated Capacitor configuration
-    Portals: {
+    FederatedCapacitor: {
       shell: {
         name: "shell",
         webDir: "./build",
@@ -119,12 +119,12 @@ After the app has been created you will want to go to the `Builds` page. This is
 </em>
 
 :::tip
-Also in the top left corner of these screens you will see the Appflow App id. In this case it is `11a0971f`. This id will be used when we configure Portals in the Capacitor configuration.
+Also in the top left corner of these screens you will see the Appflow App id. In this case it is `11a0971f`. This id will be used when we configure FederatedCapacitor in the Capacitor configuration.
 :::
 
 #### 3. Build the connected application
 
-After the application has been added to Appflow you will need to create your first build so that it is available to seed the Portal in the Native App.
+After the application has been added to Appflow you will need to create your first build so that it is available to seed the Microfrontend in the Native App.
 
 This can be done by hitting the `New Build` button on the 'Builds' page. Then you will choose a the most recent commit to create the build from.
 
@@ -189,12 +189,12 @@ The `webDir` paths are an output directory for where you want your microfrontend
 
 ```typescript title=capacitor.config.ts
 const capacitorConfig: CapacitorConfig = {
-  appId: "io.ionic.portals.ecommercewebapp",
-  appName: "Portals Web App",
+  appId: "io.ionic.fedcap.ecommercewebapp",
+  appName: "FederatedCapacitor Web App",
   bundledWebRuntime: false,
   plugins: {
     // Federated Capacitor configuration
-    Portals: {
+    FederatedCapacitor: {
       shell: {
         name: "shell",
         webDir: "./build",
@@ -202,7 +202,7 @@ const capacitorConfig: CapacitorConfig = {
       apps: [
         {
           name: "account",
-          webDir: "portals/account",
+          webDir: "microfrontends/account",
           liveUpdateConfig: {
             appId: 'abcd1234',
             channel: 'production',
@@ -211,7 +211,7 @@ const capacitorConfig: CapacitorConfig = {
         },
         {
           name: "checkout",
-          webDir: "portals/checkout",
+          webDir: "microfrontends/checkout",
           liveUpdateConfig: {
             appId: 'efab5678',
             channel: 'production',
@@ -220,7 +220,7 @@ const capacitorConfig: CapacitorConfig = {
         },
         {
           name: "helpinfo",
-          webDir: "portals/helpinfo",
+          webDir: "microfrontends/helpinfo",
           liveUpdateConfig: {
             appId: 'cdef9012',
             channel: 'production',
@@ -233,7 +233,7 @@ const capacitorConfig: CapacitorConfig = {
 };
 ```
 
-#### 7. Run the SWAD command bundled with @ionic-enterprise/capacitor-portals
+#### 7. Run the SWAD command bundled with @ionic-enterprise/federated-capacitor
 
 From the root of your web application, run the following command: 
 ```bash
