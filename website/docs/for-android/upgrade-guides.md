@@ -6,6 +6,12 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Live Updates SDK 0.3.x -> 0.4.0
+
+A breaking change was introduced in the Live Updates SDK. The [SyncCallback](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates.network/-sync-callback/index.html) structure changed slightly to allow for more information to be returned about a sync.
+
+If you are calling [sync](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates/-live-update-manager/sync.html) and using the callback to act on the results, make sure to adapt the structure of your callback when upgrading to version `0.4.x` of the Live Updates SDK.
+
 ## @ionic/portals 0.6.x -> 0.7.0
 
 IonicPortals Android version 0.7.0 is compatible with '@ionic/portals' version 0.7.x

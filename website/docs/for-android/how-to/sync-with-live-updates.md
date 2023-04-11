@@ -10,7 +10,7 @@ The sync operation checks Appflow for a new version of a web app used in a Porta
 
 ## Triggering a Sync
 
-A sync can be triggered by calling the `sync` function in the Live Update Manager.
+A sync can be triggered by calling the [sync](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates/-live-update-manager/sync.html) function in the Live Update Manager.
 
 <Tabs
 defaultValue="kt"
@@ -32,12 +32,12 @@ PortalManager.sync(context, arrayOf("appId1", "appId2"))
 
 // Sync all configured apps and callback
 LiveUpdateManager.sync(context, callback = object : SyncCallback {
-    override fun onAppComplete(liveUpdate: LiveUpdate, failStep: FailStep?) {
-        if(failStep != null) {
-            Log.e("LiveUpdate","CALLBACK: Sync failed at step ${failStep.name} for app ${liveUpdate.appId}!")
-        } else {
-            Log.d("LiveUpdate","CALLBACK: Sync success for app ${liveUpdate.appId}!")
-        }
+    override fun onAppComplete(syncResult: SyncResult) {
+        Log.d("LiveUpdate","CALLBACK: Sync success for app ${syncResult.liveUpdate.appId}!")
+    }
+
+    override fun onAppComplete(failResult: FailResult) {
+        Log.e("LiveUpdate","CALLBACK: Sync failed at step ${failResult.failStep.name} for app ${failResult.liveUpdate.appId}!")
     }
 
     override fun onSyncComplete() {
@@ -63,17 +63,18 @@ LiveUpdateManager.sync(this, new String[] {"appId1", "appId2"});
 // Sync a specific app and callback
 LiveUpdateManager.sync(this, "appId", new SyncCallback() {
     @Override
-    public void onAppComplete(LiveUpdate liveUpdate, FailStep failStep) {
-        if(failStep != null) {
-            Log.e("LiveUpdate","CALLBACK: Sync failed at step " + failStep.name + " for app " + liveUpdate.appId + "!");
-        } else {
-            Log.d("LiveUpdate","CALLBACK: Sync success for app " + liveUpdate.appId + "!");
-        }
+    public void onAppComplete(@NonNull SyncResult syncResult) {
+        Log.d("LiveUpdate","CALLBACK: Sync success for app " + syncResult.getLiveUpdate().getAppId());
+    }
+
+    @Override
+    public void onAppComplete(@NonNull FailResult failResult) {
+        Log.d("LiveUpdate","CALLBACK: Sync failed at step " + failResult.getFailStep().name() + " for app " + failResult.getLiveUpdate().getAppId());
     }
 
     @Override
     public void onSyncComplete() {
-        Log.d("LiveUpdate","CALLBACK: Sync finished!")
+        Log.d("LiveUpdate","CALLBACK: Sync finished!");
     }
 });
 ```

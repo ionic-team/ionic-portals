@@ -86,5 +86,6 @@ module.exports = {
     iosMinVersion: lernaConfig.iosMinVersion,
     androidMinSdk: lernaConfig.androidMinSdk,
     rnMinVersion: lernaConfig.rnMinVersion,
+    androidLiveUpdatesVersion: lernaConfig.androidLiveUpdatesVersion,
   },
 };
