@@ -60,8 +60,6 @@ The `webDir` paths are relative your the base directory of the shell application
 const capacitorConfig: CapacitorConfig = {
   appId: "io.ionic.fedcap.ecommercewebapp",
   appName: "FederatedCapacitor Web App",
-  webDir: "../shell/build",
-  bundledWebRuntime: false,
   plugins: {
     // Federated Capacitor configuration
     FederatedCapacitor: {
@@ -191,7 +189,6 @@ The `webDir` paths are an output directory for where you want your microfrontend
 const capacitorConfig: CapacitorConfig = {
   appId: "io.ionic.fedcap.ecommercewebapp",
   appName: "FederatedCapacitor Web App",
-  bundledWebRuntime: false,
   plugins: {
     // Federated Capacitor configuration
     FederatedCapacitor: {

@@ -53,5 +53,5 @@ In the generated Main.storyboard in your Capacitor project, update the subclass 
 In the generated MainActivity in your Capacitor project, extend FederatedCapacitorBridgeActivity instead of the usual BridgeActivity.
 
 ```java
-public class MainActivity extends FederatedCapacitorBridgeActivity {}`
+public class MainActivity extends FederatedCapacitorBridgeActivity {}
 ```
