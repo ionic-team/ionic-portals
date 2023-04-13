@@ -54,18 +54,18 @@ The next step is to configure Capacitor so that it knows where these files exist
 
 ### Monorepo
 
-The `webDir` paths are relative your the base directory of the shell application (where this configuration file lives). The names correspond to how you named the directories within the module federation config (`account`, `checkout`, `helpinfo`).
+The `webDir` paths are relative your the base directory of the shell application (where this configuration file lives). The names correspond to how you named the directories within the module federation config (`account`, `checkout`, `helpinfo`). The shell application webDir is defined at the top-level as is customary for vanilla Capacitor applications
 
 ```typescript title=capacitor.config.ts
 const capacitorConfig: CapacitorConfig = {
   appId: "io.ionic.fedcap.ecommercewebapp",
   appName: "FederatedCapacitor Web App",
+  webDir: "./build",
   plugins: {
     // Federated Capacitor configuration
     FederatedCapacitor: {
       shell: {
         name: "shell",
-        webDir: "./build",
       },
       apps: [
         {
@@ -189,12 +189,12 @@ The `webDir` paths are an output directory for where you want your microfrontend
 const capacitorConfig: CapacitorConfig = {
   appId: "io.ionic.fedcap.ecommercewebapp",
   appName: "FederatedCapacitor Web App",
+  webDir: "./build",
   plugins: {
     // Federated Capacitor configuration
     FederatedCapacitor: {
       shell: {
         name: "shell",
-        webDir: "./build",
       },
       apps: [
         {

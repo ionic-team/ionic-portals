@@ -11,7 +11,6 @@ First let's add Live Updates to the main shell application. Modify the `capacito
     FederatedCapacitor: {
       shell: {
         name: 'shell',
-        webDir: './build',
         liveUpdateConfig: {
           appId: "YOUR_APP_ID_IN_APPFLOW",
           channel: "production",
@@ -37,7 +36,6 @@ Modify the `capacitor.config.ts` file to add a `liveUpdatesKey` field to the Fed
       liveUpdatesKey: "public.pem"
       shell: {
         name: 'shell',
-        webDir: './build',
         liveUpdateConfig: {
           appId: "YOUR_APP_ID_IN_APPFLOW",
           channel: "production",
