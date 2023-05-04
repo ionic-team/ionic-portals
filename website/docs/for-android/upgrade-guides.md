@@ -6,6 +6,50 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## IonicPortals Android 0.7.x -> 0.8.0
+
+### Breaking Changes
+
+#### PortalsPlugin
+
+PortalsPlugin has had it's Pub/Sub functionality separated from the plugin implementation into a class called `PortalsPubSub`. It includes
+a static `shared` singleton and it is the default `PortalsPubSub` instance used by both `PortalFragment` and `PortalsPlugin`. This change allows for providing a custom instance of `PortalsPubSub` to `PortalsPlugin` to limit visibility of events that are published to a given portal.
+Here are a few examples of how to migrate from the previous API to the new API:
+
+##### Subscribing
+
+```kotlin 
+// Before 0.8.0
+val subscriptionRef = PortalsPlugin.subscribe("eventName") { result -> 
+  // do something with the result
+}
+
+// After 0.8.0
+val subscriptionRef = PortalsPubSub.shared.subscribe("eventName") { result -> 
+  // do something with the result
+}
+```
+
+##### Publishing
+
+```kotlin
+// Before 0.8.0
+PortalsPlugin.publish("eventName", "data")
+
+// After 0.8.0
+PortalsPubSub.shared.publish("evenName", "data")
+```
+
+##### Unsubscribing
+
+```kotlin
+// Before 0.8.0
+PortalsPlugin.unsubscribe("eventName", subscriptionRef)
+
+// After 0.8.0
+PortalsPubSub.shared.unsubscribe("eventName", subscriptionRef)
+```
+
 ## Live Updates SDK 0.3.x -> 0.4.0
 
 A breaking change was introduced in the Live Updates SDK. The [SyncCallback](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates.network/-sync-callback/index.html) structure changed slightly to allow for more information to be returned about a sync.
