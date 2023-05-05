@@ -1,9 +1,9 @@
 ---
-title: Portal Web Plugin
-sidebar_label: Portal Web Plugin
+title: Portals Module
+sidebar_label: Portals Module
 ---
 
-The PortalsPlugin class is the main way to interface with a Portal instance. It has methods to easily pass messages back and forth to the native side via a publish/subscribe interface, and ways to pass data to a web view before it initializes.
+The `@ionic/portals` module is the main way to interface with a Portal instance. It has methods to easily pass messages back and forth to the native side via a publish/subscribe interface, and ways to pass data to a web view before it initializes.
 
 ## Types
 
@@ -113,7 +113,7 @@ const handle = await subscribe({ topic }, callback);
 | `options`  | [SubscribeOptions](./portals-plugin#subscribeoptions)         | The options to pass along to define the Portal subscription. |
 | `callback` | [SubscriptionCallback](./portals-plugin#subscriptioncallback) | The callback to trigger whenever a topic is published to.    |
 
-**Returns:** <span class="return-code">Promise<PluginListenerHandle></span> A listener handle that provides a `remove` method to unsubscribe from the event.
+**Returns:** <span class="return-code">Promise&lt;PluginListenerHandle&gt;</span> A listener handle that provides a `remove` method to unsubscribe from the event.
 
 ### getInitialContext
 
