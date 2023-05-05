@@ -9,8 +9,8 @@ A common scenario that a developer might run into is having a web experience tai
 
 When showing a Portal after a user has logged in, there are a few different ways to pass user auth tokens to a Portal.
 
-- Using the `PortalBuilder.setInitialContext()` function to set the initial state of the Portal.
-- Using the `PortalsPlugin` to publish a message to the web app with the current auth tokens.
+- Providing a value to the `initialContext` argument of the Portal initializer.
+- Using the `@ionic/portals` to publish a message to the web app with the current auth tokens.
 - Using a custom plugin to send data back and forth from native and web.
 
 ### Setting the Initial Context
@@ -47,12 +47,12 @@ For information on how to build your own Portal APIs, [see our how-to guide](../
 
 In some cases, login information changes in the web layer and you want to save the new auth credentials in the native layer. There are several ways of doing that similar to the previous methods.
 
-### Using the Built-in Portals Plugin Pub/Sub Functions
+### Using the Pub/Sub Functions in `@ionic/portals`
 
-One of the functions of the built-in `PortalsPlugin` is to publish/subscribe to events. In this example, you could create a `login` topic and call `PortalsPlugin.publish()` as shown below.
+One of the functions of the built-in portals module is to publish/subscribe to events. In this example, you could create a `login` topic and call `publish` as shown below.
 
 ```typescript {9}
-import Portals from "@ionic/portals";
+import { publish } from "@ionic/portals";
 
 const login = () => {
   // Login code...
@@ -61,16 +61,16 @@ const login = () => {
   const newTokens =
     /* Values from Login */
 
-    Portals.publish(topic, newTokens);
+  publish(topic, newTokens);
 };
 
 login();
 ```
 
-To subscribe to the topic, call `PortalsPlugin.subcribe()` after loading the Portal.
+To subscribe to the topic, call `subcribe` after loading the Portal.
 
 ```swift
-let cancellable = PortalsPubSub.subscribe(to: "login") { result in
+let cancellable = PortalsPubSub.shared.subscribe(to: "login") { result in
     let auth = result.data
     // Rest of the native app...
 }
