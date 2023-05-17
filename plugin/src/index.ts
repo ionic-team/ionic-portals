@@ -1,4 +1,4 @@
-import { registerPlugin } from '@capacitor/core';
+import { Capacitor, registerPlugin } from '@capacitor/core';
 import type { PluginListenerHandle } from '@capacitor/core';
 
 import type {
@@ -20,7 +20,12 @@ const Portals = registerPlugin<PortalsPlugin>('Portals', {
 export function getInitialContext<T = unknown>():
   | InitialContext<T>
   | undefined {
-  return (window as any).portalInitialContext;
+  if (Capacitor.getPlatform() === "android") {
+    //@ts-ignore
+    return JSON.parse(AndroidInitialContext.initialContext())
+  } else {
+    return (window as any).portalInitialContext;
+  }
 }
 
 export function subscribe<T = unknown>(
