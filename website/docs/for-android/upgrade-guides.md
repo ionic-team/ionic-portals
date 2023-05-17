@@ -6,7 +6,7 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## @ionic/portals 0.7.x -> 0.8.0
+## IonicPortals Android 0.7.x -> 0.8.0
 
 IonicPortals Android version 0.8.0 is compatible with '@ionic/portals' version 0.8.x
 
@@ -58,17 +58,11 @@ PortalsPlugin.unsubscribe("eventName", subscriptionRef)
 PortalsPubSub.shared.unsubscribe("eventName", subscriptionRef)
 ```
 
-### Updating Web Content
-
-Update the Portals Plugin in your web content to `0.8.0`. Then, follow the [Capacitor 5 Update Guide](https://capacitorjs.com/docs/updating/5-0#using-the-cli-to-migrate) CLI migration steps to update your web content that uses Capacitor.
-
-### Update Native Projects
-
-#### Android Studio Flamingo
+### Android Studio Flamingo
 
 We recommend updating your version of Android Studio to Flamingo (2022.2.1) or newer.
 
-#### Dependency Version Alignment
+### Dependency Version Alignment
 
 IonicPortals for Android version 0.8.0 is compatible with the following dependency versions. Update as needed:
 
@@ -84,11 +78,11 @@ dependencies {
 }
 </CodeBlock>
 
-#### Gradle Compatibility
+### Gradle Compatibility
 
 Make sure your Android project is using Gradle 8.0 or higher. If your project is using an older Gradle version, Android Studio may prompt you to use the [Android Gradle Plugin Upgrade Assistant](https://developer.android.com/studio/build/agp-upgrade-assistant) to update your project. You may use this tool.
 
-#### Java Version
+### Java Version
 
 Update your project `compileOptions` to use Java version 17
 
@@ -113,7 +107,7 @@ kotlinOptions {
 }
 </CodeBlock>
 
-#### CompileSdk and TargetSdk Versions
+### CompileSdk and TargetSdk Versions
 
 Projects should be updated to compile and target Android SDK version 33 or higher (Android 13).
 
