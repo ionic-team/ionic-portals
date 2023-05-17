@@ -6,6 +6,34 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## IonicPortals iOS 0.7.x -> 0.8.0
+
+IonicPortals iOS version 0.8.0 is compatible with '@ionic/portals' version 0.8.x.
+
+This release requires Xcode 14.1 or higher in accordance with [Apple's requirements](https://developer.apple.com/news/upcoming-requirements/?id=04252023a).
+
+:::caution
+IonicPortals 0.8.0 is a notable update that requires Capacitor 5.
+Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+### Breaking Changes
+
+#### Pub/Sub
+
+PortalsPubSub is now a class with a `shared` singleton available instead of an enum with static functions.
+This change allows for providing a custom instance of PortalsPubSub to PortalsPlugin to limit visibility of events that are published to a given portal.
+PortalsPlugin will default to using `PortalsPubSub.shared`.
+
+`PortalsPubSub.subscribe` no longer has an overload that returns an `Int` and `PortalsPubSub.unsubscribe` has been removed entirely.
+Unsubscribing will occur via an `AnyCancellable` returned by the `subscribe` methods whenever it's cancel method is called or on deinit.
+
+#### Plugin Registration
+
+There is no longer a `PluginRegistrationStrategy` on `Portal`.
+All plugins must be explicitly registered on the Portal.
+In certain cases, automatic registration can cause unexpected crashes in applications.
+
 ## @ionic/portals 0.6.x -> 0.7.0
 
 IonicPortals iOS version 0.7.0 is compatible with '@ionic/portals' version 0.7.x

@@ -57,7 +57,7 @@ In some cases, login information changes in the web layer and you want to save t
 
 ### Using the Built-in Portals Plugin Pub/Sub Functions
 
-One of the functions of the built-in `PortalsPlugin` is to publish/subscribe to events. In this example, you could create a `login` topic and call `PortalsPlugin.publish()` as shown below.
+One of the functions of the built-in portals module is to publish/subscribe to events. In this example, you could create a `login` topic and call `publish` as shown below.
 
 ```typescript {9}
 import Portals from "@ionic/portals";

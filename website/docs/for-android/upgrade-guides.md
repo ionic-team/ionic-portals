@@ -5,6 +5,112 @@ sidebar_label: Upgrade Guides
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+## IonicPortals Android 0.7.x -> 0.8.0
+
+IonicPortals Android version 0.8.0 is compatible with '@ionic/portals' version 0.8.x
+
+:::caution
+Ionic Portals 0.8.0 is a notable update that upgrades the Capacitor dependency to version 5. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+First review the [Capacitor 5 Update Guide](https://capacitorjs.com/docs/updating/5-0) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
+
+### Breaking Changes
+
+#### PortalsPlugin
+
+PortalsPlugin has had it's Pub/Sub functionality separated from the plugin implementation into a class called `PortalsPubSub`. It includes
+a static `shared` singleton and it is the default `PortalsPubSub` instance used by both `PortalFragment` and `PortalsPlugin`. This change allows for providing a custom instance of `PortalsPubSub` to `PortalsPlugin` to limit visibility of events that are published to a given portal.
+Here are a few examples of how to migrate from the previous API to the new API:
+
+##### Subscribing
+
+```kotlin 
+// Before 0.8.0
+val subscriptionRef = PortalsPlugin.subscribe("eventName") { result -> 
+  // do something with the result
+}
+
+// After 0.8.0
+val subscriptionRef = PortalsPubSub.shared.subscribe("eventName") { result -> 
+  // do something with the result
+}
+```
+
+##### Publishing
+
+```kotlin
+// Before 0.8.0
+PortalsPlugin.publish("eventName", "data")
+
+// After 0.8.0
+PortalsPubSub.shared.publish("evenName", "data")
+```
+
+##### Unsubscribing
+
+```kotlin
+// Before 0.8.0
+PortalsPlugin.unsubscribe("eventName", subscriptionRef)
+
+// After 0.8.0
+PortalsPubSub.shared.unsubscribe("eventName", subscriptionRef)
+```
+
+### Android Studio Flamingo
+
+We recommend updating your version of Android Studio to Flamingo (2022.2.1) or newer.
+
+### Dependency Version Alignment
+
+IonicPortals for Android version 0.8.0 is compatible with the following dependency versions. Update as needed:
+
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+dependencies {
+    implementation 'io.ionic:portals:0.8.0'
+    implementation 'io.ionic:liveupdates:0.4.1'
+    implementation 'com.capacitorjs:core:5.0.3'
+    // Any Official Capacitor Plugins over version 5.0
+}`.trim()
+}
+</CodeBlock>
+
+### Gradle Compatibility
+
+Make sure your Android project is using Gradle 8.0 or higher. If your project is using an older Gradle version, Android Studio may prompt you to use the [Android Gradle Plugin Upgrade Assistant](https://developer.android.com/studio/build/agp-upgrade-assistant) to update your project. You may use this tool.
+
+### Java Version
+
+Update your project `compileOptions` to use Java version 17
+
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+}`.trim()
+}
+</CodeBlock>
+
+Update the Kotlin JVM target if necessary
+
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+kotlinOptions {
+    jvmTarget = "17"
+}`.trim()
+}
+</CodeBlock>
+
+### CompileSdk and TargetSdk Versions
+
+Projects should be updated to compile and target Android SDK version 33 or higher (Android 13).
 
 ## Live Updates SDK 0.3.x -> 0.4.0
 

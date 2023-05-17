@@ -104,7 +104,28 @@ Initial context is useful when using a Single Page Application (SPA) across mult
 
 ## Communicating via Pub/Sub
 
-The Publish and Subscribe mechanism (pub/sub) built into the `PortalsPlugin` allows you to send data between your web and native applications through a Portal.
+The Publish and Subscribe mechanism (pub/sub) relies on two parts that work together: `PortalsPubSub` and `PortalsPlugin`.
+`PortalsPubSub` is the class that manages a message bush to subscribe and publish messages to, while `PortalsPlugin` is the Capacitor plugin that exposes the functionality
+of `PortalsPubSub` to a Portal web application. By default, `PortalsPlugin` uses `PortalsPubSub.shared` for communication, but a custom instance of `PortalsPubSub` can be
+created and passed to the `PortalsPlugin` initializer to enable isolating events from other Portals.
+
+In this example, `foo` and `bar` portals cannot see events published by the other and cannot listen for events published by the native application unless the events were
+published through the `PortalsPubSub` instance it was configured with:
+```kotlin
+val fooPubSub = PortalsPubSub()
+val barPubSub = PortalsPubSub()
+
+val fooPortal = PortalBuilder("foo")
+  .addPluginInstance(PortalsPlugin(fooPubSub))
+  .create()
+
+val barPortal = PortalBuilder("bar")
+  .addPluginInstance(PortalsPlugin(barPubSub))
+  .create()
+```
+
+If `fooPortal` and `barPortal` were configured without adding the custom `PortalsPlugin` instance, then they would both receive events through `PortalsPubSub.shared`.
+
 
 ### Defining Subscribers
 
@@ -113,7 +134,9 @@ Subscribers listen for messages sent to a certain topic. They can be defined in 
 To listen for a message published from the native side of a Portal, define a subscriber in your web application.
 
 ```typescript
-const portalSubscription = await Portals.subscribe({ topic }, (result) => {
+import { subscribe } from '@ionic/portals';
+
+const portalSubscription = await subscribe({ topic }, (result) => {
   console.log(JSON.stringify(result));
 });
 ```
@@ -138,7 +161,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
 
     // listen on the topic "dismiss" and act on the result data.
     // This is an example to dismiss a containing native DialogFragment.
-    dismissSubscription = PortalsPlugin.subscribe("dismiss") { result ->
+    dismissSubscription = PortalsPubSub.shared.subscribe("dismiss") { result ->
         if (result.data == "cancel" || result.data == "success") {
             this.dismiss()
         }
@@ -168,7 +191,7 @@ public void onCreate(@Nullable Bundle savedInstanceState) {
 
     // listen on the topic "dismiss" and act on the result data.
     // This is an example to dismiss a containing native DialogFragment.
-    dismissSubscription = PortalsPlugin.subscribe("dismiss", (subscriptionResult -> {
+    dismissSubscription = PortalsPubSub.getShared().subscribe("dismiss", (subscriptionResult -> {
         if(subscriptionResult.getData().equals("cancel")
             || subscriptionResult.getData().equals("success")) {
 
@@ -202,8 +225,8 @@ values={[
 ```kotlin
 override fun onDestroy() {
     // dismissSubscription is an integer value returned when
-    // calling PortalsPlugin.subscribe
-    PortalsPlugin.unsubscribe("dismiss", dismissSubscription)
+    // calling PortalsPubSub.shared.subscribe
+    PortalsPubSub.shared.unsubscribe("dismiss", dismissSubscription)
     super.onDestroy()
 }
 ```
@@ -216,8 +239,8 @@ override fun onDestroy() {
 @Override
 public void onDestroy() {
     // dismissSubscription is an integer value returned when
-    // calling PortalsPlugin.subscribe
-    PortalsPlugin.unsubscribe("dismiss", dismissSubscription);
+    // calling PortalsPubSub.subscribe
+    PortalsPubSub.getShared().unsubscribe("dismiss", dismissSubscription);
     super.onDestroy();
 }
 ```
@@ -231,7 +254,7 @@ public void onDestroy() {
 Android also provides a way to link subscribers defined as functions with `@PortalMethod` annotations. An instance of the class containing the annotated functions can then be provided to the `PortalFragment` using the `linkMessageReceivers` function. See the example below for implementation details.
 
 :::note
-When using this method of adding subscribers, the Portals library will handle subscribing and unsubscribing automatically for you. Calling `PortalsPlugin.subscribe` and `PortalsPlugin.unsubscribe` is not required.
+When using this method of adding subscribers, the Portals library will handle subscribing and unsubscribing automatically for you. Calling `PortalsPubSub.subscribe` and `PortalsPubSub.unsubscribe` is not required. If your portal has been configured with a custom `PortalsPubSub` instance, it must also be passed to the overload of `linkMessageReceivers` that accepts a `PortalsPubSub` argument.
 :::
 
 <Tabs
@@ -324,12 +347,14 @@ Publish messages to send data through a Portal to registered Subscribers.
 To send a message from your web application to iOS or Android, use the [Portals.publish()](../../for-web/portals-plugin#publish) function.
 
 ```typescript
-Portals.publish({ topic: "dismiss", data: "success" });
+import { publish } from '@ionic/portals';
+
+publish({ topic: "dismiss", data: "success" });
 ```
 
 #### From Android to Web
 
-To send messages from your native application to the web application, use the `PortalsPlugin.publish()` methods.
+To send messages from your native application to the web application, use the `PortalsPubSub.publish()` methods.
 
 <Tabs
 defaultValue="kt"
@@ -340,7 +365,7 @@ values={[
 <TabItem value="kt">
 
 ```kotlin
-PortalsPlugin.publish("weather", "sunny")
+PortalsPubSub.shared.publish("weather", "sunny")
 ```
 
 </TabItem>
@@ -348,7 +373,7 @@ PortalsPlugin.publish("weather", "sunny")
 <TabItem value="java">
 
 ```java
-PortalsPlugin.publish("weather", "sunny");
+PortalsPubSub.getShared().publish("weather", "sunny");
 ```
 
 </TabItem>

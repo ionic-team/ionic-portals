@@ -98,7 +98,29 @@ Initial context is useful when using a Single Page Application (SPA) across mult
 
 ## Communicating via Pub/Sub
 
-The Publish and Subscribe mechanism (pub/sub) built into the `PortalsPlugin` allows you to send data between your web and native applications through a Portal.
+The Publish and Subscribe mechanism (pub/sub) relies on two parts that work together: `PortalsPubSub` and `PortalsPlugin`.
+`PortalsPubSub` is the class that manages a message bush to subscribe and publish messages to, while `PortalsPlugin` is the Capacitor plugin that exposes the functionality
+of `PortalsPubSub` to a Portal web application. By default, `PortalsPlugin` uses `PortalsPubSub.shared` for communication, but a custom instance of `PortalsPubSub` can be
+created and passed to the `PortalsPlugin` initializer to enable isolating events from other Portals.
+
+In this example, `foo` and `bar` portals cannot see events published by the other and cannot listen for events published by the native application unless the events were
+published through the `PortalsPubSub` instance it was configured with:
+```swift
+extension PortalsPubSub {
+  static let foo = PortalsPubSub()
+  static let bar = PortalsPubSub()
+}
+
+extension Portal {
+  static let foo = Portal(name: "foo")
+    .adding(PortalsPlugin(pubsub: .foo))
+
+  static let bar = Portal(name: "bar")
+    .adding(PortalsPlugin(pubsub: .bar))
+}
+```
+
+If `foo` and `bar` portals were configured without adding the custom `PortalsPlugin` instance, then they would both receive events through `PortalsPubSub.shared`.
 
 ### Defining Subscribers
 
@@ -107,7 +129,9 @@ Subscribers listen for messages sent to a certain topic. They can be defined in 
 To listen for a message published from the native side of a Portal, define a subscriber in your web application.
 
 ```typescript
-const portalSubscription = await Portals.subscribe({ topic }, (result) => {
+import { subscribe } from '@ionic/portals';
+
+const portalSubscription = await subscribe({ topic: }, (result) => {
   console.log(JSON.stringify(result));
 });
 ```
@@ -132,7 +156,7 @@ class MyViewController: UIViewController {
     var dismissCancellable: AnyCancellable?
 
     override func viewDidLoad() {
-        dismissCancellable = PortalsPubSub.publisher(for: "dismiss")
+        dismissCancellable = PortalsPubSub.shared.publisher(for: "dismiss")
             .data(as: String.self)
             .filter { $0 == "cancel" || $0 == "success" }
             .receive(on: DispatchQueue.main)
@@ -158,10 +182,10 @@ struct CartView: View {
             }
         }
         .sheet(isPresented: $shouldDisplayCheckout) {
-            PortalView(portal "checkout")
+            PortalView(portal: "checkout")
         }
         .onReceive(
-            PortalsPubSub.publisher(for: "dismiss")
+            PortalsPubSub.shared.publisher(for: "dismiss")
                 .data(as: String.self)
                 .filter { $0 == "cancel" || $0 == "success" }
         ) { _ in
@@ -183,7 +207,7 @@ class MyViewController: UIViewController {
 
     override func viewDidLoad() {
         task = Task {
-            let _ = await PortalsPubSub.subscribe("dismiss")
+            let _ = await PortalsPubSub.shared.subscribe("dismiss")
                 .flatMap { $0.data as? String }
                 .filter { $0 == "cancel" || $0 == "success" }
                 .first
@@ -215,7 +239,7 @@ struct CartView: View {
             PortalView(portal: "checkout")
         }
         .task {
-            let eventStream = PortalsPubSub.subscribe(to: "dismiss")
+            let eventStream = PortalsPubSub.shared.subscribe(to: "dismiss")
                 .compactMap { $0.data as? String }
 
             for await event in eventStream
@@ -230,35 +254,6 @@ struct CartView: View {
 </TabItem>
 
 <TabItem value="swift-vanilla">
-
-```swift title="MyViewController.swift"
-import UIKit
-
-class MyViewController: UIViewController {
-    var subscriptionReference: Int?
-
-    override func viewDidLoad() {
-        subscriptionReference = PortalsPubSub
-            .subscribe("dismiss") { [weak self] result in
-                guard
-                    let message = result.data as? String,
-                    message == "cancel" || message == "sucess"
-                else { return }
-
-                self?.dismiss(animated: true, completion: nil)
-            }
-
-        super.viewDidLoad()
-    }
-
-    deinit {
-        // Required to prevent closure to continue firing
-        PortalsPubSub.unsubscribe(from: "dismiss", subscriptionRef: subscriptionReference)
-    }
-}
-```
-
-There is also an overload that returns an `AnyCancellable` so that manually calling `PortalsPubSub.unsubscribe(from:subscriptionRef:)` is not needed:
 
 ```swift title="MyViewController.swift"
 import UIKit
@@ -288,7 +283,7 @@ class MyViewController: UIViewController {
 
 ```objectivec title="MyViewController.m"
 @interface MyViewController ()
-@property NSInteger subRef;
+@property id subRef;
 @end
 
 @implementation MyViewController
@@ -303,11 +298,6 @@ class MyViewController: UIViewController {
 
     [super viewDidLoad];
 }
-
-- (void)dealloc {
-    [IONPortalsPubSub unsubscribeFromTopic:@"dismiss" subscriptionRef:self.subRef];
-}
-
 @end
 ```
 
@@ -324,7 +314,9 @@ Publish messages to send data through a Portal to registered Subscribers.
 To send a message from your web application to iOS or Android, use the [Portals.publish()](../../for-web/portals-plugin#publish) function.
 
 ```typescript
-Portals.publish({ topic: "dismiss", data: "success" });
+import { publish } from '@ionic/portals';
+
+publish({ topic: "dismiss", data: "success" });
 ```
 
 #### From iOS to Web
@@ -340,7 +332,7 @@ values={[
 <TabItem value="swift">
 
 ```swift
-PortalsPubSub.publish("sunny" to: "weather")
+PortalsPubSub.shared.publish("sunny" to: "weather")
 ```
 
 </TabItem>
