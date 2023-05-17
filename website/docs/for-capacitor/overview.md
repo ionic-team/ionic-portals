@@ -27,21 +27,13 @@ Federated Capacitor complements existing micro frontend tools like Module Federa
 
 ## Getting Started
 
-:::caution
-Add docs about how to get a registry key?
-:::
-
-Before we can install the plugin we need to create an `.npmrc` file in the shell project root. This is the main application. After the file is created we can install from the `@ionic-enterprise` registry. Note that the `authToken` value will need to be set to the key provisioned for your application from the Appflow dashboard.
-
-```bash {2} title=.npmrc
-@ionic-enterprise:registry=https://registry.ionicframework.com/
-//registry.ionicframework.com/:_authToken=YOUR_NPM_KEY
-```
+If you have not already setup Ionic Enterprise in your app, [follow the one-time setup steps](https://ionic.io/docs/supported-plugins/setup).
 
 Next, install the plugin from command line:
 
 ```bash
 npm install @ionic-enterprise/federated-capacitor
+npx cap sync
 ```
 
 ### iOS
