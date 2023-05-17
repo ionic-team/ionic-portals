@@ -6,7 +6,15 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## IonicPortals Android 0.7.x -> 0.8.0
+## @ionic/portals 0.7.x -> 0.8.0
+
+IonicPortals Android version 0.8.0 is compatible with '@ionic/portals' version 0.8.x
+
+:::caution
+Ionic Portals 0.8.0 is a notable update that upgrades the Capacitor dependency to version 5. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+First review the [Capacitor 5 Update Guide](https://capacitorjs.com/docs/updating/5-0) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
 
 ### Breaking Changes
 
@@ -49,6 +57,65 @@ PortalsPlugin.unsubscribe("eventName", subscriptionRef)
 // After 0.8.0
 PortalsPubSub.shared.unsubscribe("eventName", subscriptionRef)
 ```
+
+### Updating Web Content
+
+Update the Portals Plugin in your web content to `0.8.0`. Then, follow the [Capacitor 5 Update Guide](https://capacitorjs.com/docs/updating/5-0#using-the-cli-to-migrate) CLI migration steps to update your web content that uses Capacitor.
+
+### Update Native Projects
+
+#### Android Studio Flamingo
+
+We recommend updating your version of Android Studio to Flamingo (2022.2.1) or newer.
+
+#### Dependency Version Alignment
+
+IonicPortals for Android version 0.8.0 is compatible with the following dependency versions. Update as needed:
+
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+dependencies {
+    implementation 'io.ionic:portals:0.8.0'
+    implementation 'io.ionic:liveupdates:0.4.1'
+    implementation 'com.capacitorjs:core:5.0.3'
+    // Any Official Capacitor Plugins over version 5.0
+}`.trim()
+}
+</CodeBlock>
+
+#### Gradle Compatibility
+
+Make sure your Android project is using Gradle 8.0 or higher. If your project is using an older Gradle version, Android Studio may prompt you to use the [Android Gradle Plugin Upgrade Assistant](https://developer.android.com/studio/build/agp-upgrade-assistant) to update your project. You may use this tool.
+
+#### Java Version
+
+Update your project `compileOptions` to use Java version 17
+
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+}`.trim()
+}
+</CodeBlock>
+
+Update the Kotlin JVM target if necessary
+
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+kotlinOptions {
+    jvmTarget = "17"
+}`.trim()
+}
+</CodeBlock>
+
+#### CompileSdk and TargetSdk Versions
+
+Projects should be updated to compile and target Android SDK version 33 or higher (Android 13).
 
 ## Live Updates SDK 0.3.x -> 0.4.0
 
