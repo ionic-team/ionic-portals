@@ -5,6 +5,7 @@ sidebar_label: Upgrade Guides
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
 
 ## IonicPortals Android 0.7.x -> 0.8.0
 
