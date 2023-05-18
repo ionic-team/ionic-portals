@@ -27,33 +27,23 @@ Federated Capacitor complements existing micro frontend tools like Module Federa
 
 ## Getting Started
 
-To begin with Federated Capacitor you will need to [signup for a key.](../getting-started)
-
-Before we can install the plugin we need to create an `.npmrc` file in the shell project root. This is the main application. After the file is created we can install from the `@ionic-enterprise` registry. Note that the `authToken` value will need to be set to `YOUR_PORTALS_KEY` from the Appflow dashboard.
-
-```bash {2} title=.npmrc
-@ionic-enterprise:registry=https://registry.ionicframework.com/
-//registry.ionicframework.com/:_authToken=YOUR_PORTALS_KEY
-```
-
-:::caution
-If you are using other plugins from the `@ionic-enterprise` registry in your Capacitor app then you will need to have your account provisiioned with access to Portals by contacting support.
-:::
+If you have not already setup Ionic Enterprise in your app, [follow the one-time setup steps](https://ionic.io/docs/supported-plugins/setup).
 
 Next, install the plugin from command line:
 
 ```bash
-npm install @ionic-enterprise/capacitor-portals
+npm install @ionic-enterprise/federated-capacitor
+npx cap sync
 ```
 
 ### iOS
 
-In the generated Main.storyboard in your Capacitor project, update the subclass of the view controller from `CAPBridgeViewController` to `PortalsViewController`.
+In the generated Main.storyboard in your Capacitor project, update the subclass of the view controller from `CAPBridgeViewController` to `FederatedCapacitorViewController`.
 
 ### Android
 
-In the generated MainActivity in your Capacitor project, extend CapacitorPortalsBridgeActivity instead of the usual BridgeActivity.
+In the generated MainActivity in your Capacitor project, extend FederatedCapacitorBridgeActivity instead of the usual BridgeActivity.
 
 ```java
-public class MainActivity extends CapacitorPortalsBridgeActivity {}`
+public class MainActivity extends FederatedCapacitorBridgeActivity {}
 ```

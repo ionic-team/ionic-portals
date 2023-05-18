@@ -5,13 +5,12 @@ sidebar_label: Live Updates
 
 The real power of Federated Capacitor comes in with [Appflow Live Updates](https://ionic.io/docs/appflow/deploy/intro). So let's configure a few of the applications we are using. If you are using a monorepo you will need to add some configuration to your base directory. You can read more about that in [Appflows docs](https://ionic.io/docs/appflow/cookbook/appflow-config)
 
-First let's add Live Updates to the main shell application. Modify the `capacitor.config.ts` file to add a `liveUpdateConfig` section to the Portals application.
+First let's add Live Updates to the main shell application. Modify the `capacitor.config.ts` file to add a `liveUpdateConfig` section to the FederatedCapacitor application.
 
 ```typescript title=capacitor.config.ts
-    Portals: {
+    FederatedCapacitor: {
       shell: {
         name: 'shell',
-        webDir: './build',
         liveUpdateConfig: {
           appId: "YOUR_APP_ID_IN_APPFLOW",
           channel: "production",
@@ -30,14 +29,13 @@ After you have made these changes and done a build the application will begin pu
 
 Federated Capacitor supports [Self-hosted Live Updates](https://ionic.io/docs/appflow/deploy/setup/self-hosted)! For our customers with strict security requirements, Self-hosted Live Updates includes enhanced security features built on top of Appflow's already secure delivery mechanisms. Follow the instructions in the [Appflow Docs](https://ionic.io/docs/appflow/deploy/setup/self-hosted#code-signing-generate-live-update-signing-keys) to get started. However, there is no need to install any additional plugins in your app.
 
-Modify the `capacitor.config.ts` file to add a `liveUpdatesKey` field to the Portals application. This informs the Federated Capacitor plugin where to find the public key used for Self-hosted Live Updates.
+Modify the `capacitor.config.ts` file to add a `liveUpdatesKey` field to the FederatedCapacitor application. This informs the Federated Capacitor plugin where to find the public key used for Self-hosted Live Updates.
 
 ```typescript title=capacitor.config.ts
-    Portals: {
+    FederatedCapacitor: {
       liveUpdatesKey: "public.pem"
       shell: {
         name: 'shell',
-        webDir: './build',
         liveUpdateConfig: {
           appId: "YOUR_APP_ID_IN_APPFLOW",
           channel: "production",
