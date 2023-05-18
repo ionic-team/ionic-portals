@@ -1,26 +1,11 @@
 ---
-title: Portal Web Plugin
-sidebar_label: Portal Web Plugin
+title: Portals Module
+sidebar_label: Portals Module
 ---
 
-The PortalsPlugin class is the main way to interface with a Portal instance. It has methods to easily pass messages back and forth to the native side via a publish/subscribe interface, and ways to pass data to a web view before it initializes.
+The `@ionic/portals` module is the main way to interface with a Portal instance. It has methods to easily pass messages back and forth to the native side via a publish/subscribe interface, and ways to pass data to a web view before it initializes.
 
 ## Types
-
-### PortalsPlugin
-
-A type defining the `PortalsPlugin` API.
-
-```typescript
-interface PortalsPlugin {
-  publish<TMessage extends PortalMessage>(message: TMessage): Promise<void>;
-  subscribe<T = unknown>(
-    options: SubscribeOptions,
-    callback: SubscriptionCallback<T>
-  ): Promise<PortalSubscription>;
-  unsubscribe(options: PortalSubscription): Promise<void>;
-}
-```
 
 ### InitialContext
 
@@ -38,7 +23,7 @@ interface InitialContext<T = unknown> {
 
 ### PortalMessage
 
-A message that you can publish to a topic using [Portals.publish()](./portals-plugin#publish).
+A message that you can publish to a topic using [publish](./portals-plugin#publish).
 
 ```typescript
 interface PortalMessage<TData = any> {
@@ -49,7 +34,7 @@ interface PortalMessage<TData = any> {
 
 ### SubscribeOptions
 
-Subscription options that you pass into your function when running [Portals.subscribe()](./portals-plugin#subscribe).
+Subscription options that you pass into your function when running [subscribe](./portals-plugin#subscribe).
 
 ```typescript
 interface SubscribeOptions {
@@ -59,7 +44,7 @@ interface SubscribeOptions {
 
 ### PortalSubscription
 
-The subscription created when running [Portals.subscribe()](./portals-plugin#subscribe).
+The subscription created when running [subscribe](./portals-plugin#subscribe).
 
 ```typescript
 interface PortalSubscription {
@@ -70,7 +55,7 @@ interface PortalSubscription {
 
 ### SubscriptionCallback
 
-The type definition from the callback running [Portals.subscribe()](./portals-plugin#subscribe).
+The type definition from the callback running [subscribe](./portals-plugin#subscribe).
 
 ```typescript
 type SubscriptionCallback<T = unknown> = (result: {
@@ -88,13 +73,15 @@ Publishes some data to a provided topic. Type-safety supported through the optio
 #### Usage
 
 ```typescript
+import { publish } from '@ionic/portals';
+
 type Messages =
   | { topic: "cart:checkout"; data: Cart }
   | { topic: "modal:dismiss"; data: "cancel" | "fail" | "success" }
   | { topic: "profile:update"; data: User };
 
 // Publishes "cancel" to the "dismiss" topic
-Portals.publish<Messages>({ topic: "modal:dismiss", data: "cancel" });
+publish<Messages>({ topic: "modal:dismiss", data: "cancel" });
 ```
 
 #### Parameters
@@ -105,15 +92,18 @@ Portals.publish<Messages>({ topic: "modal:dismiss", data: "cancel" });
 
 ### subscribe
 
-Subscribes to a topic and run a specified callback whenever a message is sent via `.publish()`.
+Subscribes to a topic and run a specified callback whenever a message is sent via `publish`.
 
 #### Usage
 
 ```typescript
+import { subscribe } from '@ionic/portals';
+
 const callback = (result: { topic: string; data: T }) => {
   /* run callback code here on publish */
 };
-const subscription = await Portals.subscribe({ topic }, callback);
+const handle = await subscribe({ topic }, callback);
+// call handle.remove() to stop receiving events
 ```
 
 #### Parameters
@@ -123,22 +113,7 @@ const subscription = await Portals.subscribe({ topic }, callback);
 | `options`  | [SubscribeOptions](./portals-plugin#subscribeoptions)         | The options to pass along to define the Portal subscription. |
 | `callback` | [SubscriptionCallback](./portals-plugin#subscriptioncallback) | The callback to trigger whenever a topic is published to.    |
 
-### unsubscribe
-
-Unsubscribe to a topic that has previously been subscribed to.
-
-#### Usage
-
-```typescript
-const subscription = someValue;
-Portals.unsubscribe(subscription);
-```
-
-#### Parameters
-
-| Name           | Type                                                      | Description                                  |
-| :------------- | :-------------------------------------------------------- | :------------------------------------------- |
-| `subscription` | [PortalSubscription](./portals-plugin#portalsubscription) | The portal subscription to unsubscribe from. |
+**Returns:** <span class="return-code">Promise&lt;PluginListenerHandle&gt;</span> A listener handle that provides a `remove` method to unsubscribe from the event.
 
 ### getInitialContext
 

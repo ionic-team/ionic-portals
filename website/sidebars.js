@@ -210,6 +210,7 @@ module.exports = {
         "for-web/web-vitals",
         "for-web/ios-profiling",
         "for-web/android-profiling",
+        "for-web/upgrade-guides"
       ],
     },
     {
