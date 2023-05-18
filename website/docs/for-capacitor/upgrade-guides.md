@@ -52,3 +52,9 @@ const config: CapacitorConfig = {
 The most useful piece of information is whether or not the active application path for a
 microfrontend has changed, which can be used to determine whether or not a reload needs to
 occur.
+
+### MainActivity and UIViewController subclass name changes
+
+In your Android project, update `MainActivity` to extend `FederatedCapacitorBridgeActivity` instead of `PortalsBridgeActivity`
+In your iOS project, update the ViewController in Main.storyboard to subclass `FederatedCapacitorViewController` instead of `PortalsViewController`.
+
