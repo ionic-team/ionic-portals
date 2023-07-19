@@ -6,17 +6,19 @@ sidebar_label: Getting Started Guide
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
 
-## Signup for access
+## Using your Product Key
 
-To use Ionic Portals, you need to register for a product key. Getting a key is free and takes just a moment.
+To use Ionic Portals, you need to register for a product key.
 
-Head over to the [Ionic Dashboard](https://dashboard.ionicframework.com/portals). If you do not already have an Ionic account, sign up for one.
+Head over to the [Ionic Dashboard](https://dashboard.ionicframework.com/portals).
 
-On the Ionic Portals screen, click the "Get access" button. You will be asked to fill out a short form:
-Your key will now be available. Clicking the copy button will copy the entire key to your clipboard:
+Clicking the copy button will copy the entire key to your clipboard:
 
-<em><img src={useBaseUrl("/img/portals-key-signup-screenshot-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/portals-key-signup-screenshot.webp")} width="50%"/></em>
-<em><img src={useBaseUrl("/img/portals-key-screenshot-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/portals-key-screenshot.webp")} width="50%"/></em>
+<em style={{
+  textAlign: 'center',
+  display: 'block'
+}}>
+<img src={useBaseUrl("/img/portals-key-screenshot-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/portals-key-screenshot.webp")} width="75%"/></em>
 
 :::tip
 Later in these docs this key will be referred to as `YOUR_PORTALS_KEY`.
@@ -30,7 +32,7 @@ From here, continue on to configuring the key in your Portals application.
 - [Federated Capacitor](./for-capacitor/overview)
 
 :::note
-You only need to register for a product key once for each organization you belong to. You can return to the Portals Key section of the Ionic Dashboard to retrieve your key again at a later date.
+You only need to register for a product key once for each organization you belong to. You can return to the Portals Key section of the Ionic Dashboard to retrieve your key at any time.
 :::
 
 ## Supported Platform Versions
