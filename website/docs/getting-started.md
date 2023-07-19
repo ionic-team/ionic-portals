@@ -14,7 +14,11 @@ Head over to the [Ionic Dashboard](https://dashboard.ionicframework.com/portals)
 
 Clicking the copy button will copy the entire key to your clipboard:
 
-<em><img src={useBaseUrl("/img/portals-key-screenshot-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/portals-key-screenshot.webp")}/></em>
+<em style={{
+  textAlign: 'center',
+  display: 'block'
+}}>
+<img src={useBaseUrl("/img/portals-key-screenshot-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/portals-key-screenshot.webp")} width="75%"/></em>
 
 :::tip
 Later in these docs this key will be referred to as `YOUR_PORTALS_KEY`.
