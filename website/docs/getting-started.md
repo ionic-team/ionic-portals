@@ -8,7 +8,7 @@ import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortal
 
 ## Using your Product Key
 
-To use Ionic Portals, you need to a product key. If you don't have a product key please [contact sales](https://ionic.io/demo?source=portals) to run a pilot.
+To use Ionic Portals, you need to have a product key. If you don't have a product key please [contact sales](https://ionic.io/demo?source=portals) to run a pilot.
 
 Once you have been provided access to a key head over to the [Ionic Dashboard](https://dashboard.ionicframework.com/portals).
 
