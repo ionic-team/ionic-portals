@@ -10,8 +10,6 @@ slug: /
 
 Ionic Portals is a supercharged native WebView component for iOS and Android that lets you add web-based experiences to native mobile apps. It enables native and web teams to better collaborate and bring new and existing web experiences to mobile in a safe, controlled way.
 
-Portals is free to use in non-production environments. Businesses with more than USD $1 million in annual revenue are required to purchase a license from Ionic before using Portals in production. [Try it now](https://ionic.io/register-portals).
-
 <div
   style={{
     position: "relative",
