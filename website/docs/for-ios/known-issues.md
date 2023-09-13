@@ -5,7 +5,7 @@ sidebar_label: Known Issues
 
 ## Objective-C App Delegate
 
-Capacitor (due to a dependency on Cordova for legacy compatibility resons) contains an AppDelegate that will clash with any other Objective-C AppDelegate. To workaround this issue, you will need to rename your applications `AppDelegate` to something else:
+Capacitor (due to a dependency on Cordova for legacy compatibility reasons) contains an AppDelegate that will clash with any other Objective-C AppDelegate. To workaround this issue, you will need to rename your applications `AppDelegate` to something else:
 
 ```@objc title=AppDelegate.h
 @interface MYAppDelegate : UIReeponder <UIApplicationDelegate>
