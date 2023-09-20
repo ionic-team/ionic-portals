@@ -41,7 +41,7 @@ const portal = {
   },
 };
 
-addPortal(portal);
+await addPortal(portal);
 ```
 
 You can also override any initial context when rendering a Portal:
@@ -84,7 +84,7 @@ Subscribers listen for messages sent to a certain topic. They can be defined in 
 To listen for a message published from the native side of a Portal, define a subscriber in your web application.
 
 ```typescript
-const portalSubscription = await Portals.subscribe({ topic }, (result) => {
+const portalSubscription = await subscribe(topic, (result) => {
   console.log(JSON.stringify(result));
 });
 ```
@@ -98,10 +98,9 @@ Subscribe to messages from the web:
 ```javascript
 import { subscribe } from "@ionic/portals-react-native";
 
-let subscriptionReference = await subscribe("topic", (message) => {
+let emitterSubscription = subscribe("topic", (message) => {
   // Here you have access to:
   // message.data - Any data sent from the web
-  // message.subscriptionRef - The subscription reference used to manage the lifecycle of the subscription
   // message.topic - The topic the message was published on
 });
 ```
@@ -109,9 +108,7 @@ let subscriptionReference = await subscribe("topic", (message) => {
 When you no longer need to receive events, unsubscribe:
 
 ```javascript
-import { unsubscribe } from "@ionic/portals-react-native";
-
-unsubscribe("channel:topic", subscriptionReference);
+emitterSubscription.remove();
 ```
 
 You must unsubscribe to avoid any potential memory issues.
@@ -122,10 +119,11 @@ Publish messages to send data through a Portal to registered Subscribers.
 
 #### From Web to React Native
 
-To send a message from your web application to iOS or Android, use the [Portals.publish()](../../for-web/portals-plugin#publish) function.
+To send a message from your web application to iOS or Android, use the [publish](../../for-web/portals-plugin#publish) function.
 
 ```typescript
-Portals.publish({ topic: "dismiss", data: "success" });
+import { publish } from "@ionic/portals";
+publish({ topic: "dismiss", data: "success" });
 ```
 
 #### From React Native to Web
@@ -134,7 +132,6 @@ To send messages from your React Native app to the web, use the `publish` method
 
 ```javascript
 import { publish } from "@ionic/portals-react-native";
-
 publish("weather", "sunny");
 ```
 

@@ -39,7 +39,7 @@ const cameraPortal = {
   ]
 };
 
-addPortal(cameraPortal);
+await addPortal(cameraPortal);
 ```
 
 ### Published Plugins
