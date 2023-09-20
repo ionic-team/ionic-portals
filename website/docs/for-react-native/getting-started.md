@@ -13,7 +13,7 @@ Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide
 ```javascript
 import { register } from "@ionic/portals-react-native";
 
-register("YOUR_PORTAL_KEY_HERE");
+await register("YOUR_PORTAL_KEY_HERE");
 ```
 
 ## Creating a Portal and Rendering It
@@ -34,7 +34,7 @@ const helloPortal = {
   },
 };
 
-addPortal(helloPortal);
+await addPortal(helloPortal);
 ```
 
 Create a PortalView in your view hierarchy:
@@ -135,23 +135,18 @@ Subscribe to messages from the web:
 ```javascript
 import { subscribe } from "@ionic/portals-react-native";
 
-let subscriptionReference = await subscribe("topic", (message) => {
+// The subscribe function returns an EmitterSubscription that can be used to unsubscribe from events
+let emitterSubscription = subscribe("topic", (message) => {
   // Here you have access to:
   // message.data - Any data sent from the web
-  // message.subscriptionRef - The subscription reference used to manage the lifecycle of the subscription
   // message.topic - The topic the message was published on
 });
+
+// To unsubscribe
+emitterSubscription.remove();
 ```
 
-When you no longer need to receive events, unsubscribe:
-
-```javascript
-import { unsubscribe } from "@ionic/portals-react-native";
-
-unsubscribe("channel:topic", subscriptionReference);
-```
-
-To see an example of Portals Pub/Sub in action that manages the lifecycle of a subscription with the lifecycle of a React Native component, refer to the [`PubSubLabel`](https://github.com/ionic-team/react-native-ionic-portals/blob/af19df0d66059d85ab8dde493504368c3bf39127/example/App.tsx#L53) implementation in the example project of the `@ionic/portals-react-native` source repo.
+To see an example of Portals Pub/Sub in action that manages the lifecycle of a subscription with the lifecycle of a React Native component, refer to the [`PubSubLabel`](https://github.com/ionic-team/ionic-portals-react-native/blob/bbc42ccf364e7aef71519dedbc8ada38b0a45f75/example/App.tsx#L53df39127/example/App.tsx#L53) implementation in the example project of the `@ionic/portals-react-native` source repo.
 
 ## Using Capacitor Plugins
 

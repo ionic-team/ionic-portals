@@ -6,6 +6,20 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## @ionic/portals-react-native 0.4.0 -> 0.5.0
+
+`@ionic/protals-react-native` version 0.5.0 updates the underlying native IonicPortals libraries to ^0.8.0. This update includes breaking changes to the API. Please read the following carefully to ensure a smooth upgrade.
+
+### API Changes
+
+#### Breaking
+
+##### Pub/Sub
+
+The pub/sub functionality has been overhauled to lean on React Native's existing event system. To that end, the `subscribe`
+method been updated to return an `EmitterSubscription` and the `unsubscribe` method has been removed. To stop receiving events,
+call the `remove()` method on the `EmitterSubscription` returned from `subscribe`.
+
 ## @ionic/portals-react-native 0.3.0 -> 0.4.0
 
 ### API Changes
