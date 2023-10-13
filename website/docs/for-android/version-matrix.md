@@ -78,7 +78,7 @@ dependencies {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
-  implementation('com.capacitorjs:camera:') {
+  implementation('com.capacitorjs:camera:5.0.7') {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
