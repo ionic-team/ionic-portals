@@ -64,6 +64,7 @@ module.exports = {
           label: "Reference",
           collapsed: true,
           items: [
+            "version-matrix",
             {
               type: "link",
               label: "API",
