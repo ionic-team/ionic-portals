@@ -86,4 +86,6 @@ dependencies {
 }
 ```
 
-More information: https://docs.gradle.org/current/userguide/dependency_constraints.html
+For more information refer to the Gradle documentation pages:
+- https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
+- https://docs.gradle.org/current/userguide/dependency_constraints.html
