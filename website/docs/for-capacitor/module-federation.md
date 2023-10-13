@@ -9,7 +9,7 @@ The first thing you will need to do when implementing Federated Capacitor is cho
 
 ## Module federation Implementation
 
-The most common use case for module federation is sharing modules across web applications. This allows you to stitch together micro frontends from many different applications into your own. The caviat with this approach is that you become dependent on network access and latency. On web this isn't a problem but within mobile applications it can create a poor user experience.
+The most common use case for module federation is sharing modules across web applications. This allows you to stitch together micro frontends from many different applications into your own. The caveat with this approach is that you become dependent on network access and latency. On web this isn't a problem but within mobile applications it can create a poor user experience.
 
 <em><img height="509px" src={useBaseUrl("/img/module-federation-diagram.webp")} /></em>
 
