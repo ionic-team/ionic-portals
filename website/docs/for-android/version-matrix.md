@@ -50,10 +50,40 @@ By default, Gradle will use the version of Capacitor that the Portals SDK depend
 
 Reference: https://docs.gradle.org/current/userguide/dependency_resolution.html
 
-## Overriding Compiled Capacitor Versions in Gradle
+## Determining Capacitor Versions in Gradle
 
-Gradle allows you to override and use a specific version of Capacitor that Portals or a Capacitor Plugin dependency will use.
+Gradle allows you to use a specific version of Capacitor that Portals or a Capacitor Plugin dependency will use.
 
 :::warning
-Use the version compatibility matrix above when choosing a version of Capacitor to override to ensure the version will be compatible. If balancing a version between Portals and a Capacitor Plugin, reference the documentation or change log for the Plugin to make sure the Capacitor version chosen will be compatible.
+Use the version compatibility matrix above when choosing a version of Capacitor to ensure it will be compatible. When balancing a version between Portals and a Capacitor plugin, reference the documentation or change log for the plugin to make sure the Capacitor version will be compatible.
 :::
+
+The following example will use the version of the Capacitor dependency included via the Capacitor Camera plugin.
+
+```groovy
+dependencies {
+  implementation('io.ionic:portals:0.8.0') {
+    exclude group: 'com.capacitorjs', module: 'core'
+  }
+
+  implementation 'com.capacitorjs:camera:5.0.7'
+}
+```
+
+The following example will use the version of the Capacitor dependency specifified in the dependencies block. Neither of the Capacitor versions included with Portals or the Capacitor Camera plugin will be used.
+
+```groovy
+dependencies {
+  implementation('io.ionic:portals:0.8.0') {
+    exclude group: 'com.capacitorjs', module: 'core'
+  }
+
+  implementation('com.capacitorjs:camera:') {
+    exclude group: 'com.capacitorjs', module: 'core'
+  }
+
+  implementation 'com.capacitorjs:core:5.5.0'
+}
+```
+
+More information: https://docs.gradle.org/current/userguide/dependency_constraints.html
