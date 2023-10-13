@@ -7,7 +7,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The first thing you will need to do when implementing Federated Capacitor is choose a web based micro frontend solution. The most common is [Module Federation](https://webpack.js.org/concepts/module-federation/).
 
-## Module federation Implementation
+## Module Federation Implementation
 
 The most common use case for module federation is sharing modules across web applications. This allows you to stitch together micro frontends from many different applications into your own. The caveat with this approach is that you become dependent on network access and latency. On web this isn't a problem but within mobile applications it can create a poor user experience.
 
