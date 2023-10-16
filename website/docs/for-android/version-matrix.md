@@ -8,7 +8,7 @@ import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
 
-This guide is designed to help you align versions of the Native Android Portals SDK with the Portals Web Plugin and Capacitor.
+This guide is designed to help you align versions of the Native Android Portals SDK with the Portals Web Plugin and Capacitor. [Click here](./version-matrix#sdk_version_compatibility_matrix) to jump straight to the version compatibility matrix.
 
 ## Matching Dependency Versions
 
@@ -62,7 +62,7 @@ For more information refer to the Gradle documentation pages:
 - https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
 - https://docs.gradle.org/current/userguide/dependency_constraints.html
 
-# SDK Version Compatibility Matrix
+## SDK Version Compatibility Matrix
 
 | Android SDK | Web Plugin Version | Compiled Capacitor Version | Compatible Capacitor Versions |
 | :----:      | :----:             | :----:                     | :----:                        |
