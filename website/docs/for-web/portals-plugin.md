@@ -32,16 +32,6 @@ interface PortalMessage<TData = any> {
 }
 ```
 
-### SubscribeOptions
-
-Subscription options that you pass into your function when running [subscribe](./portals-plugin#subscribe).
-
-```typescript
-interface SubscribeOptions {
-  topic: string;
-}
-```
-
 ### PortalSubscription
 
 The subscription created when running [subscribe](./portals-plugin#subscribe).
@@ -99,10 +89,9 @@ Subscribes to a topic and run a specified callback whenever a message is sent vi
 ```typescript
 import { subscribe } from '@ionic/portals';
 
-const callback = (result: { topic: string; data: T }) => {
-  /* run callback code here on publish */
-};
-const handle = await subscribe({ topic }, callback);
+const handle = await subscribe(topic, (message) => {
+  console.log(message.topic, message.data);
+});
 // call handle.remove() to stop receiving events
 ```
 
@@ -110,7 +99,7 @@ const handle = await subscribe({ topic }, callback);
 
 | Name       | Type                                                          | Description                                                  |
 | :--------- | :------------------------------------------------------------ | :----------------------------------------------------------- |
-| `options`  | [SubscribeOptions](./portals-plugin#subscribeoptions)         | The options to pass along to define the Portal subscription. |
+| `topic`  | `string`             | The options to pass along to define the Portal subscription. |
 | `callback` | [SubscriptionCallback](./portals-plugin#subscriptioncallback) | The callback to trigger whenever a topic is published to.    |
 
 **Returns:** <span class="return-code">Promise&lt;PluginListenerHandle&gt;</span> A listener handle that provides a `remove` method to unsubscribe from the event.
