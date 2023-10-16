@@ -7,6 +7,20 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 The first thing you will need to do when implementing Federated Capacitor is choose a web based micro frontend solution. The most common is [Module Federation](https://webpack.js.org/concepts/module-federation/).
 
+## Module Federation Implementation
+
+The most common use case for module federation is sharing modules across web applications. This allows you to stitch together micro frontends from many different applications into your own. The caveat with this approach is that you become dependent on network access and latency. On web this isn't a problem but within mobile applications it can create a poor user experience.
+
+<em><img height="509px" src={useBaseUrl("/img/module-federation-diagram.webp")} /></em>
+
+We aim to solve this problem with Federated Capacitor. You are still using module federation to stitch together independent modules, but the modules are located physically on the mobile device. Updates are pushed to the device using AppFlow and Live Updates to update each of these modules independently.
+
+<em><img height="509px" src={useBaseUrl("/img/federated-capacitor-diagram.webp")} /></em>
+
+:::note
+Serving the files from the local device vs serving from a remote location creates a dramatically improved First Contentful Paint (FCP) and it also allows for an offline experience.
+:::
+
 ## Local vs Mobile Configuration
 
 After you have chosen and setup module federation between your apps you will need to configure it for Capacitor. One way to do this is to add an environment variable to your npm build script.
@@ -50,6 +64,7 @@ module.exports = {
 Now when you run `npm run build` it will generate a build that is built to work with Federated Capacitor.
 
 ## Capacitor Configuration
+
 The next step is to configure Capacitor so that it knows where these files exist on the initial application build. You can see that there is configuration for the shell or main application and then config for the MFEs that are separate.
 
 ### Monorepo
@@ -101,7 +116,7 @@ In the upper right hand corner you will be able to select `Import existing app`.
 <em><img src={useBaseUrl("/img/start-by-adding-an-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/start-by-adding-an-app.webp")} width="50%"/></em>
 <em><img src={useBaseUrl("/img/import-existing-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/import-existing-app.webp")} width="50%"/></em>
 
-- Provide an `App Name`. 
+- Provide an `App Name`.
 - `Capacitor`, as the mobile architecture
 - Choose your git host. In this example we have selected `Github`
 
@@ -156,7 +171,6 @@ Click the `Generate new token` button. While creating the token it is a best pra
 After the token is generated you will need to copy it to clipboard because it will be required for the next step. Usually the token follows the format of `ion_XXXXXXXXXXXXX`.
 :::
 
-
 #### 5. Install the Ionic Cloud CLI
 
 Install the Ionic Cloud CLI within your local dev environment. This CLI will allow us to interact with Appflow programmatically. So that we can pull the latest Build files during native builds.
@@ -201,27 +215,27 @@ const capacitorConfig: CapacitorConfig = {
           name: "account",
           webDir: "microfrontends/account",
           liveUpdateConfig: {
-            appId: 'abcd1234',
-            channel: 'production',
-            autoUpdateMethod: 'background',
+            appId: "abcd1234",
+            channel: "production",
+            autoUpdateMethod: "background",
           },
         },
         {
           name: "checkout",
           webDir: "microfrontends/checkout",
           liveUpdateConfig: {
-            appId: 'efab5678',
-            channel: 'production',
-            autoUpdateMethod: 'background',
+            appId: "efab5678",
+            channel: "production",
+            autoUpdateMethod: "background",
           },
         },
         {
           name: "helpinfo",
           webDir: "microfrontends/helpinfo",
           liveUpdateConfig: {
-            appId: 'cdef9012',
-            channel: 'production',
-            autoUpdateMethod: 'background',
+            appId: "cdef9012",
+            channel: "production",
+            autoUpdateMethod: "background",
           },
         },
       ],
@@ -232,18 +246,14 @@ const capacitorConfig: CapacitorConfig = {
 
 #### 7. Run the SWAD command bundled with @ionic-enterprise/federated-capacitor
 
-From the root of your web application, run the following command: 
+From the root of your web application, run the following command:
+
 ```bash
 npx ionic-swad
 ```
 
-If all previous steps were completed successfully, `ionic-swad` will pull the latest builds of the configured applications into their respective `webDir` locations. 
+If all previous steps were completed successfully, `ionic-swad` will pull the latest builds of the configured applications into their respective `webDir` locations.
 
 :::note
 In case you were wondering, 'SWAD' stands for Simple Web App Deployment
 :::
-
-
-
-
-
