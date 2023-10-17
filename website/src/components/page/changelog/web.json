@@ -1,0 +1,29 @@
+[
+  {
+    "repo": "ionic-team/ionic-portals",
+    "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix</strong>: Peer dep was not upgraded to cap 5 (<a href=\"https://github.com/ionic-team/ionic-portals/pull/228\">#228</a>)</li>\n</ul>\n",
+    "name": "0.8.1",
+    "published_at": "May 19 2023",
+    "tag_name": "0.8.1",
+    "type": "patch",
+    "version": "0.8.1"
+  },
+  {
+    "repo": "ionic-team/ionic-portals",
+    "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: BREAKING! Overhauls to pub/sub (<a href=\"https://github.com/ionic-team/ionic-portals/pull/222\">#222</a>)</li>\n<li><strong>chore</strong>: Update method for retrieving initial context on Android (<a href=\"https://github.com/ionic-team/ionic-portals/pull/226\">#226</a>)</li>\n</ul>\n",
+    "name": "0.8.0",
+    "published_at": "May 17 2023",
+    "tag_name": "0.8.0",
+    "type": "minor",
+    "version": "0.8.0"
+  },
+  {
+    "repo": "ionic-team/ionic-portals",
+    "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat(plugin)</strong>: Add <code>assetMaps</code> key to initialContext (<a href=\"https://github.com/ionic-team/ionic-portals/pull/209\">#209</a>)</li>\n</ul>\n",
+    "name": "0.7.1",
+    "published_at": "March 1 2023",
+    "tag_name": "0.7.1",
+    "type": "minor",
+    "version": "0.7.1"
+  }
+]

@@ -23,6 +23,7 @@ module.exports = {
         "for-ios/quick-start",
         "for-ios/live-updates",
         "for-ios/getting-started",
+        "for-ios/changelog",
         {
           type: "category",
           label: "How To",
@@ -89,6 +90,7 @@ module.exports = {
         "for-android/getting-started",
         "for-android/guide",
         "for-android/live-updates",
+        "for-android/changelog",
         {
           type: "category",
           label: "How To",
@@ -153,6 +155,7 @@ module.exports = {
         "for-react-native/getting-started",
         "for-react-native/guide",
         "for-react-native/live-updates",
+        "for-react-native/changelog",
         {
           type: "category",
           label: "How To",
@@ -164,7 +167,7 @@ module.exports = {
             "for-react-native/how-to/using-a-capacitor-plugin",
             "for-react-native/how-to/define-api-in-typescript",
             "for-react-native/how-to/sharing-assets",
-            "for-react-native/how-to/sync-with-live-updates"
+            "for-react-native/how-to/sync-with-live-updates",
           ],
         },
         {
@@ -210,7 +213,8 @@ module.exports = {
         "for-web/web-vitals",
         "for-web/ios-profiling",
         "for-web/android-profiling",
-        "for-web/upgrade-guides"
+        "for-web/upgrade-guides",
+        "for-web/changelog",
       ],
     },
     {
@@ -223,7 +227,7 @@ module.exports = {
         "for-capacitor/live-updates",
         "for-capacitor/reference",
         "for-capacitor/example",
-        "for-capacitor/upgrade-guides"
+        "for-capacitor/upgrade-guides",
       ],
     },
   ],

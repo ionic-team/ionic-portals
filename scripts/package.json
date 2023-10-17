@@ -1,0 +1,19 @@
+{
+  "name": "scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fetch": "^1.1.0",
+    "node-fetch": "^3.3.2",
+    "remark-html": "^16.0.1",
+    "remark-parse": "^11.0.0",
+    "semver": "^7.5.4",
+    "unified": "^11.0.3"
+  }
+}
