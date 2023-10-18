@@ -62,6 +62,8 @@ To add Portals to your web project, install it via NPM:
 {`npm install @ionic/portals@${getPortalsVersion()}`}
 </CodeBlock>
 
+If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix) page.
+
 ## Configure
 
 After installing the dependency you need to register your copy of Ionic Portals at runtime. This works both offline and in production. You'll need to call [PortalManager.register(myApiKey)](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.

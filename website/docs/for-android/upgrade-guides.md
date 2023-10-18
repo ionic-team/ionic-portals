@@ -7,6 +7,8 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
+If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix) page.
+
 ## IonicPortals Android 0.7.x -> 0.8.0
 
 IonicPortals Android version 0.8.0 is compatible with '@ionic/portals' version 0.8.x

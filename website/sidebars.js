@@ -130,6 +130,7 @@ module.exports = {
           label: "Reference",
           collapsed: true,
           items: [
+            "for-android/version-matrix",
             {
               type: "link",
               label: "API",
