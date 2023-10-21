@@ -1,4 +1,7 @@
 export type Release = {
+  pageUrl: string;
+  productTitle: string;
+  mdBody: string;
   body: string;
   name: string;
   published_at: string;

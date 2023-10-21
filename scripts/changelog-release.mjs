@@ -1,10 +1,12 @@
 /**
  * @typedef {import("./definitions").Release} Release
  * @typedef {import("./definitions").GithubRelease} GithubRelease
+ * @typedef {import("@slack/web-api").ChatPostMessageArguments} ChatPostMessageArguments
  * */
 import { promises as fs } from "fs";
 import { resolve, dirname } from "path";
 import { URL, fileURLToPath } from "url";
+import { WebClient } from "@slack/web-api";
 
 import semver from "semver";
 import fetch from "node-fetch";
@@ -14,36 +16,51 @@ import html from "remark-html";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const OUTPUT_PATH = resolve(
-  __dirname,
-  "../website/src/components/page/changelog/release-notes.json"
-);
-const processor = unified().use(markdown).use(html);
+
+const VERSION_FILE = resolve(__dirname, "../lerna.json");
+
+// This is a specific channel to share updates to.
+const SLACK_CONVERSATION_ID = "C061QQ33UEB";
+
 const repos = [
   {
+    productTitle: "Portals Web Plugin",
     repo: "ionic-team/ionic-portals",
     outputFile: "../website/src/components/page/changelog/web.json",
+    pageUrl: "https://ionic.io/docs/portals/for-web/changelog",
+    versionFileKey: "version",
   },
   {
+    productTitle: "Portals iOS",
     repo: "ionic-team/ionic-portals-ios",
     outputFile: "../website/src/components/page/changelog/ios.json",
+    pageUrl: "https://ionic.io/docs/portals/for-ios/changelog",
+    versionFileKey: "iosVersion",
   },
   {
+    productTitle: "Portals Android",
     repo: "ionic-team/ionic-portals-android",
     outputFile: "../website/src/components/page/changelog/android.json",
+    pageUrl: "https://ionic.io/docs/portals/for-android/changelog",
+    versionFileKey: "androidVersion",
   },
   {
+    productTitle: "Portals React Native",
     repo: "ionic-team/ionic-portals-react-native",
     outputFile: "../website/src/components/page/changelog/react-native.json",
+    pageUrl: "https://ionic.io/docs/portals/for-react-native/changelog",
+    versionFileKey: "rnVersion",
   },
 ];
+
+const processor = unified().use(markdown).use(html);
 
 /**
  *
  * @param {GithubRelease[]} releases
  * @returns {Release[]}
  */
-const formatReleases = (releases) => {
+function formatReleases(releases, repo, productTitle, pageUrl) {
   let previousRelease = {
     repo: "",
     version: "0.0.0",
@@ -68,11 +85,10 @@ const formatReleases = (releases) => {
       // Reverse the list so that the versions are in chronological order
       .reverse()
       .map((release) => {
-        const mdBody = cleanup(release.body);
+        const mdBody = cleanupMarkdown(release.body);
         const body = String(processor.processSync(mdBody));
         const published_at = formatDate(release.published_at);
         const version = semver.clean(release.tag_name);
-        const [, repo] = /.*\/repos\/(.*)\/releases\/.*/.exec(release.url);
 
         // if list has iterated onto a new repository set go back to a zero version
         if (previousRelease.repo !== repo) {
@@ -87,7 +103,10 @@ const formatReleases = (releases) => {
         };
 
         return {
+          productTitle,
+          pageUrl,
           repo,
+          mdBody,
           body,
           name,
           published_at,
@@ -100,18 +119,19 @@ const formatReleases = (releases) => {
         return -semver.compare(a.tag_name, b.tag_name);
       })
   );
-};
+}
 
 /**
  *
  * @param {string} markdown
  */
-function cleanup(markdown) {
+function cleanupMarkdown(markdown) {
   return (
     markdown
       // Change to smaller header
       .replace(/^## What's Changed/, "### What's Changed")
-      .replace(/^## New Contributors/, "### New Contributors")
+      // Remov the New Contributors line
+      .replace(/^## New Contributors/, "")
       // bold the change type at the beginning of a commit
       .replace(/\* (.\S+):/g, (_, type) => `* **${type}**:`)
       // remove the contributor from the commit line
@@ -127,6 +147,15 @@ function cleanup(markdown) {
   );
 }
 
+function markdownToSlackMarkdown(markdown) {
+  return markdown
+    .replace(/(?:\r\n)+/g, "\n")
+    .replace(/\*\*(\S+)\*\*/g, (all, one) => `*${one}*`)
+    .replace(/\[(\S+)\]\((\S+?)\)/g, (all, one, two) => `<${two}|${one}>`)
+    .replace(/\n\* /g, "\n- ")
+    .replace(/^#+ (\S+)/, (all, word) => `*${word}*`);
+}
+
 /**
  * Get the GitHub Releases from Ionic
  * -------------------------------------------------------------------------------
@@ -138,9 +167,9 @@ function cleanup(markdown) {
  * https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
  *
  * @param {string} repoPath
- * @return {Promise<any[]>}
+ * @return {Promise<GithubRelease[]>}
  */
-const fetchGithubReleases = async (repoPath) => {
+async function fetchGithubReleases(repoPath) {
   try {
     const request = await fetch(
       new URL(`repos/${repoPath}/releases`, "https://api.github.com"),
@@ -166,7 +195,7 @@ const fetchGithubReleases = async (repoPath) => {
   } catch (error) {
     return [];
   }
-};
+}
 
 // Takes the date in format 2019-04-26T18:24:09Z
 // and returns it as April 26 2019
@@ -185,16 +214,89 @@ function formatDate(datetime) {
   );
 }
 
-async function run() {
-  await Promise.all(
-    repos.map(async ({ repo, outputFile }) => {
-      const githubReleaseArray = await fetchGithubReleases(repo);
-      await fs.writeFile(
-        outputFile,
-        JSON.stringify(formatReleases(githubReleaseArray), null, 2)
-      );
+/**
+ *
+ * @param {Release[]} slackUpdateList
+ */
+async function postUpdatesToSlack(slackUpdateList) {
+  const token = process.env.SLACK_TOKEN;
+  const web = new WebClient(token);
+  const testResult = await web.auth.test({ token });
+
+  if (testResult.ok) {
+    console.log("sending to slack");
+  } else {
+    console.error(JSON.stringify(testResult, null, 2));
+  }
+
+  const slackBlocks = slackUpdateList.map(
+    ({ version, published_at, type, productTitle, mdBody, pageUrl }) => ({
+      type: "section",
+      text: {
+        type: "mrkdwn",
+        text:
+          `-------------------------------------\n` +
+          `*${productTitle} Release ${version}* (${type}) ${published_at}\n` +
+          `\n${markdownToSlackMarkdown(mdBody)}` +
+          `<${pageUrl}|more info here>`,
+      },
     })
   );
+  await web.chat.postMessage({
+    text: "This is text",
+    blocks: slackBlocks,
+    channel: SLACK_CONVERSATION_ID,
+  });
+}
+
+async function run() {
+  // Grab the current contents of the rollup version file so that we can modify it
+  // during the repo iteration
+  let rollupVersionContents = JSON.parse(await fs.readFile(VERSION_FILE));
+  let slackUpdateList = [];
+
+  await Promise.all(
+    repos.map(
+      async ({ repo, outputFile, versionFileKey, productTitle, pageUrl }) => {
+        // Keep a list of the previous release JSON for comparison
+        const previousDocReleaseArray = JSON.parse(
+          await fs.readFile(outputFile)
+        );
+
+        const githubReleaseArray = await fetchGithubReleases(repo);
+        const docReleaseArray = formatReleases(
+          githubReleaseArray,
+          repo,
+          productTitle,
+          pageUrl
+        );
+        await fs.writeFile(
+          outputFile,
+          JSON.stringify(docReleaseArray, null, 2)
+        );
+
+        // Set new version into the rollup version contents object
+        rollupVersionContents[versionFileKey] = docReleaseArray[0].version;
+
+        // Find all release updates that are new by comparing to the previous release JSON
+        slackUpdateList = [
+          ...slackUpdateList,
+          ...docReleaseArray.filter(({ version }) => {
+            return previousDocReleaseArray.find(({ prevVersion }) => {
+              return version === prevVersion;
+            });
+          }),
+        ];
+      }
+    )
+  );
+
+  await fs.writeFile(
+    VERSION_FILE,
+    JSON.stringify(rollupVersionContents, null, 2)
+  );
+
+  await postUpdatesToSlack(slackUpdateList);
 }
 
 run();

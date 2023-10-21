@@ -1,6 +1,9 @@
 [
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **fix(android)**: Fix android events not emitting ([#49](https://github.com/ionic-team/ionic-portals-react-native/pull/49))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix(android)</strong>: Fix android events not emitting (<a href=\"https://github.com/ionic-team/ionic-portals-react-native/pull/49\">#49</a>)</li>\n</ul>\n",
     "name": "0.5.1",
     "published_at": "October 2 2023",
@@ -9,7 +12,10 @@
     "version": "0.5.1"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **feat!**: Update to IonicPortals 0.8.0 ([#47](https://github.com/ionic-team/ionic-portals-react-native/pull/47))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat!</strong>: Update to IonicPortals 0.8.0 (<a href=\"https://github.com/ionic-team/ionic-portals-react-native/pull/47\">#47</a>)</li>\n</ul>\n",
     "name": "0.5.0",
     "published_at": "September 20 2023",
@@ -18,7 +24,10 @@
     "version": "0.5.0"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **fix(android)**: Remove config creation in the native android code. ([#45](https://github.com/ionic-team/react-native-ionic-portals/pull/45))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix(android)</strong>: Remove config creation in the native android code. (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/45\">#45</a>)</li>\n</ul>\n",
     "name": "0.4.1",
     "published_at": "September 15 2023",
@@ -27,7 +36,10 @@
     "version": "0.4.1"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **feat!**: BREAKING - Plugin Registration Unification ([#40](https://github.com/ionic-team/react-native-ionic-portals/pull/40))\r\n* **feat!**: Adds more information regarding a successful live update ([#39](https://github.com/ionic-team/react-native-ionic-portals/pull/39))\r\n* **feat**: Asset maps ([#41](https://github.com/ionic-team/react-native-ionic-portals/pull/41))\r\n* **feat**: Web vitals ([#42](https://github.com/ionic-team/react-native-ionic-portals/pull/42))\r\n\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat!</strong>: BREAKING - Plugin Registration Unification (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/40\">#40</a>)</li>\n<li><strong>feat!</strong>: Adds more information regarding a successful live update (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/39\">#39</a>)</li>\n<li><strong>feat</strong>: Asset maps (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/41\">#41</a>)</li>\n<li><strong>feat</strong>: Web vitals (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/42\">#42</a>)</li>\n</ul>\n",
     "name": "0.4.0",
     "published_at": "April 5 2023",
@@ -36,7 +48,10 @@
     "version": "0.4.0"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* Portals 0.7.0 update ([#35](https://github.com/ionic-team/react-native-ionic-portals/pull/35))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li>Portals 0.7.0 update (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/35\">#35</a>)</li>\n</ul>\n",
     "name": "0.3.0",
     "published_at": "December 5 2022",
@@ -45,7 +60,10 @@
     "version": "0.3.0"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **feat**: Secure live updates ([#31](https://github.com/ionic-team/react-native-ionic-portals/pull/31))\r\n* **feat**: Make `getPortal` accessible via the JS interface.  ([#32](https://github.com/ionic-team/react-native-ionic-portal/pull/32))\r\n\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: Secure live updates (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/31\">#31</a>)</li>\n<li><strong>feat</strong>: Make <code>getPortal</code> accessible via the JS interface.  (<a href=\"https://github.com/ionic-team/react-native-ionic-portal/pull/32\">#32</a>)</li>\n</ul>\n",
     "name": "0.2.0",
     "published_at": "October 18 2022",
@@ -54,7 +72,10 @@
     "version": "0.2.0"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **feat**: configurable entry point ([#23](https://github.com/ionic-team/react-native-ionic-portals/pull/23))\r\n* **breaking**: single portal prop ([#24](https://github.com/ionic-team/react-native-ionic-portals/pull/24))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: configurable entry point (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/23\">#23</a>)</li>\n<li><strong>breaking</strong>: single portal prop (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/24\">#24</a>)</li>\n</ul>\n",
     "name": "0.1.0",
     "published_at": "August 16 2022",
@@ -63,7 +84,10 @@
     "version": "0.1.0"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **fix(android)**: changed layout behavior to fix render issue ([#21](https://github.com/ionic-team/react-native-ionic-portals/pull/21))\r\n\r\n## New Contributors\r\n* @carlpoole made their first contribution in  ([#21](https://github.com/ionic-team/react-native-ionic-portals/pull/21))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix(android)</strong>: changed layout behavior to fix render issue (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/21\">#21</a>)</li>\n</ul>\n<h2>New Contributors</h2>\n<ul>\n<li>@carlpoole made their first contribution in  (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/21\">#21</a>)</li>\n</ul>\n",
     "name": "0.0.6",
     "published_at": "July 18 2022",
@@ -72,7 +96,10 @@
     "version": "0.0.6"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **fix(ios)**: initialContext not always set before name ([#17](https://github.com/ionic-team/react-native-ionic-portals/pull/17))\r\n* **chore(docs)**: Add `pre_install` hook instructions for Podfile ([#18](https://github.com/ionic-team/react-native-ionic-portals/pull/18))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix(ios)</strong>: initialContext not always set before name (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/17\">#17</a>)</li>\n<li><strong>chore(docs)</strong>: Add <code>pre_install</code> hook instructions for Podfile (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/18\">#18</a>)</li>\n</ul>\n",
     "name": "0.0.5",
     "published_at": "July 1 2022",
@@ -81,7 +108,10 @@
     "version": "0.0.5"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* **chore**: iOS portals 0.6.1 ([#13](https://github.com/ionic-team/react-native-ionic-portals/pull/13))\r\n* **feat**: Live updates ([#14](https://github.com/ionic-team/react-native-ionic-portals/pull/14))\r\n* **fix(android)**: initial context ([#15](https://github.com/ionic-team/react-native-ionic-portals/pull/15))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>chore</strong>: iOS portals 0.6.1 (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/13\">#13</a>)</li>\n<li><strong>feat</strong>: Live updates (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/14\">#14</a>)</li>\n<li><strong>fix(android)</strong>: initial context (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/15\">#15</a>)</li>\n</ul>\n",
     "name": "0.0.4",
     "published_at": "June 24 2022",
@@ -90,7 +120,10 @@
     "version": "0.0.4"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* Pub/Sub Fix (again) ([#11](https://github.com/ionic-team/react-native-ionic-portals/pull/11))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li>Pub/Sub Fix (again) (<a href=\"https://github.com/ionic-team/react-native-ionic-portals/pull/11\">#11</a>)</li>\n</ul>\n",
     "name": "0.0.3",
     "published_at": "June 2 2022",
@@ -99,7 +132,10 @@
     "version": "0.0.3"
   },
   {
+    "productTitle": "Portals React Native",
+    "pageUrl": "https://ionic.io/docs/portals/for-react-native/changelog",
     "repo": "ionic-team/ionic-portals-react-native",
+    "mdBody": "### What's Changed\r\n* Pub sub fixhttps://github.com/ionic-team/react-native-ionic-portals/pull/9\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li>Pub sub fixhttps://github.com/ionic-team/react-native-ionic-portals/pull/9</li>\n</ul>\n",
     "name": "0.0.2",
     "published_at": "June 1 2022",

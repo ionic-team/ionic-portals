@@ -1,6 +1,9 @@
 [
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat(android)**: Updates to use Capacitor 5.5.X ([#55](https://github.com/ionic-team/ionic-portals-android/pull/55))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat(android)</strong>: Updates to use Capacitor 5.5.X (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/55\">#55</a>)</li>\n</ul>\n",
     "name": "0.8.3",
     "published_at": "October 13 2023",
@@ -9,7 +12,10 @@
     "version": "0.8.3"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* Cap version update ([#50](https://github.com/ionic-team/ionic-portals-android/pull/50))\r\n* **feat**: added constructor for PortalView that takes a Portal directly ([#51](https://github.com/ionic-team/ionic-portals-android/pull/51))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li>Cap version update (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/50\">#50</a>)</li>\n<li><strong>feat</strong>: added constructor for PortalView that takes a Portal directly (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/51\">#51</a>)</li>\n</ul>\n",
     "name": "0.8.2",
     "published_at": "October 13 2023",
@@ -18,7 +24,10 @@
     "version": "0.8.2"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat**: remove portal ([#48](https://github.com/ionic-team/ionic-portals-android/pull/48))\r\n* **chore**: updated to use Capacitor 5.4.+ versions ([#49](https://github.com/ionic-team/ionic-portals-android/pull/49))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: remove portal (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/48\">#48</a>)</li>\n<li><strong>chore</strong>: updated to use Capacitor 5.4.+ versions (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/49\">#49</a>)</li>\n</ul>\n",
     "name": "0.8.1",
     "published_at": "October 13 2023",
@@ -27,7 +36,10 @@
     "version": "0.8.1"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat!**: BREAKING Overhauls to the pub/sub system ([#39](https://github.com/ionic-team/ionic-portals-android/pull/39))\r\n* **feat**: capacitor 5 updates ([#42](https://github.com/ionic-team/ionic-portals-android/pull/42))\r\n* **feat!**: BREAKING Make WebVitals a Plugin ([#45](https://github.com/ionic-team/ionic-portals-android/pull/45))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat!</strong>: BREAKING Overhauls to the pub/sub system (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/39\">#39</a>)</li>\n<li><strong>feat</strong>: capacitor 5 updates (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/42\">#42</a>)</li>\n<li><strong>feat!</strong>: BREAKING Make WebVitals a Plugin (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/45\">#45</a>)</li>\n</ul>\n",
     "name": "0.8.0",
     "published_at": "October 13 2023",
@@ -36,7 +48,10 @@
     "version": "0.8.0"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **chore**: update dependencies for Capacitor updates and Live Updates feat ([#38](https://github.com/ionic-team/ionic-portals-android/pull/38))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>chore</strong>: update dependencies for Capacitor updates and Live Updates feat (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/38\">#38</a>)</li>\n</ul>\n",
     "name": "0.7.5",
     "published_at": "October 13 2023",
@@ -45,7 +60,10 @@
     "version": "0.7.5"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat**: support configuration files on portal-by-portal basis and within live updates ([#35](https://github.com/ionic-team/ionic-portals-android/pull/35))\r\n* **feat**: asset sharing ([#34](https://github.com/ionic-team/ionic-portals-android/pull/34))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: support configuration files on portal-by-portal basis and within live updates (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/35\">#35</a>)</li>\n<li><strong>feat</strong>: asset sharing (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/34\">#34</a>)</li>\n</ul>\n",
     "name": "0.7.4",
     "published_at": "October 13 2023",
@@ -54,7 +72,10 @@
     "version": "0.7.4"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat**: Web Vitals support for FCP, FID, TTFB ([#28](https://github.com/ionic-team/ionic-portals-android/pull/28))\r\n* **feat**: added jetpack compose support for bridge availability callback ([#29](https://github.com/ionic-team/ionic-portals-android/pull/29))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: Web Vitals support for FCP, FID, TTFB (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/28\">#28</a>)</li>\n<li><strong>feat</strong>: added jetpack compose support for bridge availability callback (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/29\">#29</a>)</li>\n</ul>\n",
     "name": "0.7.3",
     "published_at": "October 13 2023",
@@ -63,7 +84,10 @@
     "version": "0.7.3"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat**: callback when bridge is created ([#26](https://github.com/ionic-team/ionic-portals-android/pull/26))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: callback when bridge is created (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/26\">#26</a>)</li>\n</ul>\n",
     "name": "0.7.2",
     "published_at": "October 13 2023",
@@ -72,7 +96,10 @@
     "version": "0.7.2"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **fix**: remove test class ([#23](https://github.com/ionic-team/ionic-portals-android/pull/23))\r\n* **feat**: plugin instance support ([#22](https://github.com/ionic-team/ionic-portals-android/pull/22))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix</strong>: remove test class (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/23\">#23</a>)</li>\n<li><strong>feat</strong>: plugin instance support (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/22\">#22</a>)</li>\n</ul>\n",
     "name": "0.7.1",
     "published_at": "October 13 2023",
@@ -81,7 +108,10 @@
     "version": "0.7.1"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat**: Always have an initialContext ([#19](https://github.com/ionic-team/ionic-portals-android/pull/19))\r\n* **feat**: update to cap4 and dependency updates ([#21](https://github.com/ionic-team/ionic-portals-android/pull/21))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat</strong>: Always have an initialContext (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/19\">#19</a>)</li>\n<li><strong>feat</strong>: update to cap4 and dependency updates (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/21\">#21</a>)</li>\n</ul>\n",
     "name": "0.7.0",
     "published_at": "October 13 2023",
@@ -90,7 +120,10 @@
     "version": "0.7.0"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **fix**: Allow data on SubscriptionResult to be nullable. ([#15](https://github.com/ionic-team/ionic-portals-android/pull/15))\r\n* **fix**: update Capacitor dependency with web asset load flash fix ([#16](https://github.com/ionic-team/ionic-portals-android/pull/16))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix</strong>: Allow data on SubscriptionResult to be nullable. (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/15\">#15</a>)</li>\n<li><strong>fix</strong>: update Capacitor dependency with web asset load flash fix (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/16\">#16</a>)</li>\n</ul>\n",
     "name": "0.6.4",
     "published_at": "October 13 2023",
@@ -99,7 +132,10 @@
     "version": "0.6.4"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **chore**: update dependency versions to capacitor 3.4.0 and liveupdates 0.1.1 ([#12](https://github.com/ionic-team/ionic-portals-android/pull/12))\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>chore</strong>: update dependency versions to capacitor 3.4.0 and liveupdates 0.1.1 (<a href=\"https://github.com/ionic-team/ionic-portals-android/pull/12\">#12</a>)</li>\n</ul>\n",
     "name": "0.6.3",
     "published_at": "October 13 2023",
@@ -108,7 +144,10 @@
     "version": "0.6.3"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **fix**: added webview destroy call to PortalFragmenthttps://github.com/ionic-team/ionic-portals-android/pull/9\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix</strong>: added webview destroy call to PortalFragmenthttps://github.com/ionic-team/ionic-portals-android/pull/9</li>\n</ul>\n",
     "name": "0.6.2",
     "published_at": "October 13 2023",
@@ -117,7 +156,10 @@
     "version": "0.6.2"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **fix**: fixed race condition when loading fragment with initialContexthttps://github.com/ionic-team/ionic-portals-android/pull/8\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix</strong>: fixed race condition when loading fragment with initialContexthttps://github.com/ionic-team/ionic-portals-android/pull/8</li>\n</ul>\n",
     "name": "0.6.1",
     "published_at": "October 13 2023",
@@ -126,7 +168,10 @@
     "version": "0.6.1"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **fix**: adds a default config to resolve focus issue for Portals appshttps://github.com/ionic-team/ionic-portals-android/pull/2\r\n* **feat**: allow an initialContext to be set on PortalFragmenthttps://github.com/ionic-team/ionic-portals-android/pull/5\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>fix</strong>: adds a default config to resolve focus issue for Portals appshttps://github.com/ionic-team/ionic-portals-android/pull/2</li>\n<li><strong>feat</strong>: allow an initialContext to be set on PortalFragmenthttps://github.com/ionic-team/ionic-portals-android/pull/5</li>\n</ul>\n",
     "name": "0.6.0",
     "published_at": "October 13 2023",
@@ -135,7 +180,10 @@
     "version": "0.6.0"
   },
   {
+    "productTitle": "Portals Android",
+    "pageUrl": "https://ionic.io/docs/portals/for-android/changelog",
     "repo": "ionic-team/ionic-portals-android",
+    "mdBody": "### What's Changed\r\n* **feat(android)**: basic jetpack compose supporthttps://github.com/ionic-team/ionic-portals-android/pull/1\r\n\r\n",
     "body": "<h3>What's Changed</h3>\n<ul>\n<li><strong>feat(android)</strong>: basic jetpack compose supporthttps://github.com/ionic-team/ionic-portals-android/pull/1</li>\n</ul>\n",
     "name": "0.5.1",
     "published_at": "October 13 2023",
