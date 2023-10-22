@@ -1,26 +1,22 @@
 /**
- * @typedef {import("./definitions").Release} Release
  * @typedef {import("./definitions").GithubRelease} GithubRelease
- * @typedef {import("@slack/web-api").ChatPostMessageArguments} ChatPostMessageArguments
+ * @typedef {import("./definitions").Release} Release
  * */
 import { promises as fs } from "fs";
 import { resolve, dirname } from "path";
 import { URL, fileURLToPath } from "url";
-import { WebClient } from "@slack/web-api";
 
 import semver from "semver";
 import fetch from "node-fetch";
 import { unified } from "unified";
 import markdown from "remark-parse";
 import html from "remark-html";
+import { postUpdatesToSlack } from "./send-to-slack.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const VERSION_FILE = resolve(__dirname, "../lerna.json");
-
-// This is a specific channel to share updates to.
-const SLACK_CONVERSATION_ID = "C061QQ33UEB";
 
 const repos = [
   {
@@ -128,32 +124,25 @@ function formatReleases(releases, repo, productTitle, pageUrl) {
 function cleanupMarkdown(markdown) {
   return (
     markdown
+      .replace(/(?:\r\n)+/g, "\n")
       // Change to smaller header
-      .replace(/^## What's Changed/, "### What's Changed")
-      // Remov the New Contributors line
-      .replace(/^## New Contributors/, "")
+      .replace(/## What's Changed\n/g, "### What's Changed\n")
+      // Remove the New Contributors line header
+      .replace(/## New Contributors\n(.*)/g, "")
+      // Remove new contributor lines
       // bold the change type at the beginning of a commit
-      .replace(/\* (.\S+):/g, (_, type) => `* **${type}**:`)
+      .replace(/\* (\S+):/g, (_, type) => `* **${type}**:`)
       // remove the contributor from the commit line
       .replace(/ by \@(\S+) in /g, "")
       // change the url to be a link
       .replace(
-        /https:\/\/github.com\/ionic-team\/.*\/pull\/(.\d+)/g,
+        /https:\/\/github.com\/ionic-team\/.*\/pull\/(\d+)/g,
         (link, commitTag) => {
           return ` ([#${commitTag}](${link}))`;
         }
       )
-      .replace(/\*\*Full Changelog\*\*\: (.\S+)/g, "")
+      .replace(/\*\*Full Changelog\*\*\: (\S+)/g, "")
   );
-}
-
-function markdownToSlackMarkdown(markdown) {
-  return markdown
-    .replace(/(?:\r\n)+/g, "\n")
-    .replace(/\*\*(\S+)\*\*/g, (all, one) => `*${one}*`)
-    .replace(/\[(\S+)\]\((\S+?)\)/g, (all, one, two) => `<${two}|${one}>`)
-    .replace(/\n\* /g, "\n- ")
-    .replace(/^#+ (\S+)/, (all, word) => `*${word}*`);
 }
 
 /**
@@ -214,41 +203,6 @@ function formatDate(datetime) {
   );
 }
 
-/**
- *
- * @param {Release[]} slackUpdateList
- */
-async function postUpdatesToSlack(slackUpdateList) {
-  const token = process.env.SLACK_TOKEN;
-  const web = new WebClient(token);
-  const testResult = await web.auth.test({ token });
-
-  if (testResult.ok) {
-    console.log("sending to slack");
-  } else {
-    console.error(JSON.stringify(testResult, null, 2));
-  }
-
-  const slackBlocks = slackUpdateList.map(
-    ({ version, published_at, type, productTitle, mdBody, pageUrl }) => ({
-      type: "section",
-      text: {
-        type: "mrkdwn",
-        text:
-          `-------------------------------------\n` +
-          `*${productTitle} Release ${version}* (${type}) ${published_at}\n` +
-          `\n${markdownToSlackMarkdown(mdBody)}` +
-          `<${pageUrl}|more info here>`,
-      },
-    })
-  );
-  await web.chat.postMessage({
-    text: "This is text",
-    blocks: slackBlocks,
-    channel: SLACK_CONVERSATION_ID,
-  });
-}
-
 async function run() {
   // Grab the current contents of the rollup version file so that we can modify it
   // during the repo iteration
@@ -287,6 +241,7 @@ async function run() {
             });
           }),
         ];
+        slackUpdateList.push(docReleaseArray[0]);
       }
     )
   );
@@ -296,7 +251,9 @@ async function run() {
     JSON.stringify(rollupVersionContents, null, 2)
   );
 
-  await postUpdatesToSlack(slackUpdateList);
+  if (slackUpdateList.length > 0) {
+    await postUpdatesToSlack(slackUpdateList);
+  }
 }
 
 run();

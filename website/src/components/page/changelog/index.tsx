@@ -88,9 +88,9 @@ https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating
               <div className={styles["release-header"]}>
                 <a
                   className={styles["header-link"]}
-                  href={`https://github.com/${repo}/releases/tag/${release.version}`}
+                  href={`#release-${release.version}`}
                 >
-                  <h2>
+                  <h2 id={`release-${release.version}`}>
                     <span className={styles["release-version"]}>
                       {release.version}
                     </span>
