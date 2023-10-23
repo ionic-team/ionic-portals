@@ -4,6 +4,7 @@ export type Release = {
   mdBody: string;
   body: string;
   name: string;
+  raw_published_at: string;
   published_at: string;
   tag_name: string;
   type: string;

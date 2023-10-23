@@ -23,8 +23,11 @@ export async function postUpdatesToSlack(slackUpdateList) {
     console.error(JSON.stringify(testResult, null, 2));
   }
 
-  const slackBlocks = slackUpdateList.map(
-    ({ version, published_at, type, productTitle, mdBody, pageUrl }) => ({
+  const slackBlocks = slackUpdateList
+    .sort((a, b) => {
+      return new Date(a.raw_published_at) - new Date(b.raw_published_at);
+    })
+    .map(({ version, published_at, type, productTitle, mdBody, pageUrl }) => ({
       type: "section",
       text: {
         type: "mrkdwn",
@@ -34,8 +37,8 @@ export async function postUpdatesToSlack(slackUpdateList) {
           `\n${markdownToSlackMarkdown(mdBody)}` +
           `<${pageUrl}#release-${version}|shareable link>`,
       },
-    })
-  );
+    }));
+
   await web.chat.postMessage({
     text: "This is text",
     blocks: slackBlocks,

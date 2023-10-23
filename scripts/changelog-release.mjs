@@ -105,6 +105,7 @@ function formatReleases(releases, repo, productTitle, pageUrl) {
           mdBody,
           body,
           name,
+          raw_published_at: release.published_at,
           published_at,
           tag_name,
           type,
@@ -241,7 +242,6 @@ async function run() {
             });
           }),
         ];
-        slackUpdateList.push(docReleaseArray[0]);
       }
     )
   );
