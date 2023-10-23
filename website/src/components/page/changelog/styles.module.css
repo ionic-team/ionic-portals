@@ -41,6 +41,9 @@
 
 .release-notes h2 {
   margin: 0;
+  /* These lines exist for correct positioning of anchor links */
+  padding-top: 55px;
+  margin-top: -55px;
 
   font-size: 32px;
 }
@@ -52,7 +55,6 @@
   font-size: 20px;
 }
 
-.release-notes h2,
 .release-notes h3 {
   padding-top: 0;
 }

@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@slack/web-api": "^6.9.0",
     "fetch": "^1.1.0",
     "node-fetch": "^3.3.2",
     "remark-html": "^16.0.1",
