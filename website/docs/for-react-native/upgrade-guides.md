@@ -6,9 +6,9 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## @ionic/portals-react-native 0.4.0 -> 0.5.0
+## Portals for React Native 0.4.0 → 0.5.0
 
-`@ionic/protals-react-native` version 0.5.0 updates the underlying native IonicPortals libraries to ^0.8.0. This update includes breaking changes to the API. Please read the following carefully to ensure a smooth upgrade.
+Portals for React Native version 0.5.0 updates the underlying native Portals libraries to ^0.8.0. This update includes breaking changes to the API. Please read the following carefully to ensure a smooth upgrade.
 
 ### API Changes
 
@@ -20,7 +20,7 @@ The pub/sub functionality has been overhauled to lean on React Native's existing
 method been updated to return an `EmitterSubscription` and the `unsubscribe` method has been removed. To stop receiving events,
 call the `remove()` method on the `EmitterSubscription` returned from `subscribe`.
 
-## @ionic/portals-react-native 0.3.0 -> 0.4.0
+## Portals for React Native 0.3.0 → 0.4.0
 
 ### API Changes
 
@@ -52,11 +52,11 @@ device to pull assets from. See [Sharing Assets](../for-react-native/how-to/shar
 It is now possible to measure a number of web vitals metrics from your
 portals in React Native. See [Web Vitals](../for-web/web-vitals#react-native) for more information.
 
-## @ionic/portals-react-native 0.2.0 -> 0.3.0
+## Portals for React Native 0.2.0 → 0.3.0
 
 The iOS, Android, and web libraries have all been updated to depend on Capacitor 4. There are no React Native specific code changes needed to adopt these features. However, it will be necessary to follow the [iOS](../for-ios/upgrade-guides#ionicportals-06x---070) and [Android](../for-android/upgrade-guides#ionicportals-06x---070) upgrade guides to ensure a successful migration.
 
-## @ionic/portals-react-native 0.1.x -> 0.2.0
+## Portals for React Native 0.1.x → 0.2.0
 
 ### API Changes
 
@@ -113,78 +113,7 @@ type LiveUpdate = {
 
 At a minimum, when including a `portals.config.json` it must at least have the `portals` key defined with at least one valid `Portal` definition in the array. If you are using Live Updates, you must include a `LiveUpdate` configuration. If you are using Secure Live Updates, you must include the `liveUpdatesKey` in the configuration.
 
-## @ionic/portals 0.0.x -> 0.6.0
-
-### `Portals.publish()`
-
-The method signature of `Portals.publish()` now allows generic typing over `PortalMessage` instead of restricting generic typing to the `data` parameter of `PortalMessage`. The `message` parameter must be of type `string` but can be predefined to prevent typos, invalid topic names, etc.
-
-Before:
-
-```typescript
-Portals.publish<string>({ topic: "foo", data: "bar" });
-```
-
-After:
-
-```typescript
-type ValidMessage = { topic: "foo"; data: string };
-
-// TypeScript will reject the following statement:
-Portals.publish<ValidMessage>({ topic: "food", data: 1 });
-```
-
-### `Portals.getInitialContext()`
-
-`Portals.getInitialContext()` is no longer asynchronous and has been moved out of the `Portals` class.
-
-Before:
-
-```typescript
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import Portals from "@ionic/portals";
-import { Capacitor } from "@capacitor/core";
-
-if (!Capacitor.isNativePlatform()) {
-  // do something
-  (window as any).portalInitialContext = {
-    value: { startingRoute: "/" },
-  };
-}
-
-Portals.getInitialContext<{ startingRoute: string }>().then((context) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App context={context.value} />
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
-});
-```
-
-After:
-
-```typescript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import Portals, { getInitialContext } from '@ionic/portals';
-import { Capacitor } from '@capacitor/core';
-
-const initialContext = getInitialContext<{ startingRoute: string }>;
-const startingRoute = initialContext?.value ?? { startingRoute: '/' };
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App context={startingRoute} />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
-```
-
-## @ionic/portals-react-native 0.0.x -> 0.1.0
+## Portals for React Native 0.0.x → 0.1.0
 
 The props on `PortalView` have changed from having individual props of `name` and `initialContext` to a single prop named `portal`.
 
