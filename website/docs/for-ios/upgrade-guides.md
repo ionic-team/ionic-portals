@@ -6,9 +6,9 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## IonicPortals iOS 0.7.x -> 0.8.0
+## Portals for iOS 0.7.x → 0.8.0
 
-IonicPortals iOS version 0.8.0 is compatible with '@ionic/portals' version 0.8.x.
+- Portals for iOS version `0.8.0` is compatible with Portals Web Plugin version `0.8.x`.
 
 This release requires Xcode 14.1 or higher in accordance with [Apple's requirements](https://developer.apple.com/news/upcoming-requirements/?id=04252023a).
 
@@ -16,6 +16,9 @@ This release requires Xcode 14.1 or higher in accordance with [Apple's requireme
 IonicPortals 0.8.0 is a notable update that requires Capacitor 5.
 Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
 :::
+
+First review the [Capacitor 5 Update Guide](https://capacitorjs.com/docs/updating/5-0) for an overview of necessary changes.
+Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
 
 ### Breaking Changes
 
@@ -34,12 +37,13 @@ There is no longer a `PluginRegistrationStrategy` on `Portal`.
 All plugins must be explicitly registered on the Portal.
 In certain cases, automatic registration can cause unexpected crashes in applications.
 
-## @ionic/portals 0.6.x -> 0.7.0
+## Portals for iOS 0.6.x → 0.7.0
 
-IonicPortals iOS version 0.7.0 is compatible with '@ionic/portals' version 0.7.x
+- Portals for iOS version `0.7.0` is compatible with Portals Web Plugin version `0.7.x`.
 
 :::caution
-Ionic Portals 0.7.0 is a notable update that upgrades the Capacitor dependency to version 4. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+Portals 0.7.0 is a notable update that requires Capacitor 4.
+Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
 :::
 
 First review the [Capacitor 4 Update Guide](https://capacitorjs.com/docs/updating/4-0) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
@@ -76,80 +80,9 @@ export interface InitialContext<T> {
 }
 ```
 
-## @ionic/portals 0.0.x -> 0.6.0
+## Portals for iOS 0.6.0 → 0.6.1
 
-### `Portals.publish()`
-
-The method signature of `Portals.publish()` now allows generic typing over `PortalMessage` instead of restricting generic typing to the `data` parameter of `PortalMessage`. The `message` parameter must be of type `string` but can be predefined to prevent typos, invalid topic names, etc.
-
-Before:
-
-```typescript
-Portals.publish<string>({ topic: "foo", data: "bar" });
-```
-
-After:
-
-```typescript
-type ValidMessage = { topic: "foo"; data: string };
-
-// TypeScript will reject the following statement:
-Portals.publish<ValidMessage>({ topic: "food", data: 1 });
-```
-
-### `Portals.getInitialContext()`
-
-`Portals.getInitialContext()` is no longer asynchronous and has been moved out of the `Portals` class.
-
-Before:
-
-```typescript
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import Portals from "@ionic/portals";
-import { Capacitor } from "@capacitor/core";
-
-if (!Capacitor.isNativePlatform()) {
-  // do something
-  (window as any).portalInitialContext = {
-    value: { startingRoute: "/" },
-  };
-}
-
-Portals.getInitialContext<{ startingRoute: string }>().then((context) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App context={context.value} />
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
-});
-```
-
-After:
-
-```typescript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import Portals, { getInitialContext } from '@ionic/portals';
-import { Capacitor } from '@capacitor/core';
-
-const initialContext = getInitialContext<{ startingRoute: string }>;
-const startingRoute = initialContext?.value ?? { startingRoute: '/' };
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App context={startingRoute} />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
-```
-
-## IonicPortals iOS 0.6.0 -> 0.6.1
-
-IonicPortals iOS version 0.6.1 is compatible with '@ionic/portals' version 0.5.x
+- Portals for iOS version `0.6.1` is compatible with Portals Web Plugin version `0.5.x`.
 
 ### Swift Package Manager Support
 
@@ -161,13 +94,13 @@ is "Up to Next Minor Version" to prevent auto-updating to a breaking version bef
 The 0.5.x versions of Ionic Portals iOS required iOS 14.0. In this release we have included support for iOS 13.0 and up. To support iOS 13.0 in your app,
 you should update your target to support the OS.
 
-## IonicPortals iOS 0.5.x -> 0.6.0
+## Portals for iOS 0.5.x → 0.6.0
 
-IonicPortals iOS version 0.6.0 is compatible with '@ionic/portals' version 0.5.x
+- Portals for iOS version `0.6.0` is compatible with Portals Web Plugin version `0.5.x`.
 
 ### PortalManager & PortalBuilder Removal
 
-#### PortalManager -> PortalsRegistrationManager
+#### PortalManager → PortalsRegistrationManager
 
 `PortalManager` has been removed. It's registration functionality has been replaced with [`PortalsRegistrationManager`](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager).
 
@@ -332,7 +265,7 @@ Portal now has conformance for `ExpressibleByStringLiteral` for simple use-cases
 let portalView = PortalUIView(portal: "checkout")
 ```
 
-### PortalWebView -> PortalUIView & PortalUIWebView -> PortalView
+### PortalWebView → PortalUIView & PortalUIWebView → PortalView
 
 The PortalWebView (the UIKit class) name has been changed to `PortalUIView`. `PortalUIWebView` (the SwiftUI struct) name as been changed to `PortalView`. All other functionality remains the same.
 

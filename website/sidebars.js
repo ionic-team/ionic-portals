@@ -205,7 +205,7 @@ module.exports = {
     {
       type: "category",
       className: "bottom-item",
-      label: "Web",
+      label: "Portals Web Plugin",
       collapsed: true,
       items: [
         "for-web/overview",

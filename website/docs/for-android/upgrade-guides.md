@@ -9,12 +9,12 @@ import CodeBlock from '@theme/CodeBlock';
 
 If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix) page.
 
-## IonicPortals Android 0.7.x -> 0.8.0
+## Portals for Android 0.7.x → 0.8.0
 
-IonicPortals Android version 0.8.0 is compatible with '@ionic/portals' version 0.8.x
+- Portals for Android version `0.8.0` is compatible with Portals Web Plugin version `0.8.x`.
 
 :::caution
-Ionic Portals 0.8.0 is a notable update that upgrades the Capacitor dependency to version 5. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+Portals 0.8.0 is a notable update that upgrades the Capacitor dependency to version 5. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
 :::
 
 First review the [Capacitor 5 Update Guide](https://capacitorjs.com/docs/updating/5-0) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
@@ -29,14 +29,14 @@ Here are a few examples of how to migrate from the previous API to the new API:
 
 ##### Subscribing
 
-```kotlin 
+```kotlin
 // Before 0.8.0
-val subscriptionRef = PortalsPlugin.subscribe("eventName") { result -> 
+val subscriptionRef = PortalsPlugin.subscribe("eventName") { result ->
   // do something with the result
 }
 
 // After 0.8.0
-val subscriptionRef = PortalsPubSub.shared.subscribe("eventName") { result -> 
+val subscriptionRef = PortalsPubSub.shared.subscribe("eventName") { result ->
   // do something with the result
 }
 ```
@@ -67,7 +67,7 @@ We recommend updating your version of Android Studio to Flamingo (2022.2.1) or n
 
 ### Dependency Version Alignment
 
-IonicPortals for Android version 0.8.0 is compatible with the following dependency versions. Update as needed:
+Portals for Android version 0.8.0 is compatible with the following dependency versions. Update as needed:
 
 <CodeBlock className="language-groovy" title="build.gradle">
 {
@@ -114,15 +114,15 @@ kotlinOptions {
 
 Projects should be updated to compile and target Android SDK version 33 or higher (Android 13).
 
-## Live Updates SDK 0.3.x -> 0.4.0
+## Live Updates SDK 0.3.x → 0.4.0
 
 A breaking change was introduced in the Live Updates SDK. The [SyncCallback](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates.network/-sync-callback/index.html) structure changed slightly to allow for more information to be returned about a sync.
 
 If you are calling [sync](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates/-live-update-manager/sync.html) and using the callback to act on the results, make sure to adapt the structure of your callback when upgrading to version `0.4.x` of the Live Updates SDK.
 
-## @ionic/portals 0.6.x -> 0.7.0
+## Portals for Android 0.6.x → 0.7.0
 
-IonicPortals Android version 0.7.0 is compatible with '@ionic/portals' version 0.7.x
+- Portals for Android version `0.7.0` is compatible with Portals Web Plugin version `0.7.x`.
 
 :::caution
 Ionic Portals 0.7.0 is a notable update that upgrades the Capacitor dependency to version 4. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
@@ -138,7 +138,7 @@ Update the Portals Plugin in your web content to `0.7.0`. Then, follow the [Capa
 
 #### Dependency Version Alignment
 
-IonicPortals for Android version 0.7.0 is compatible with the following dependency versions. Update as needed:
+Portals for Android version 0.7.0 is compatible with the following dependency versions. Update as needed:
 
 <CodeBlock className="language-groovy" title="build.gradle">
 {
@@ -197,98 +197,4 @@ export interface InitialContext<T> {
   name: string;
   value: T | undefined;
 }
-```
-
-## @ionic/portals 0.0.x -> 0.6.0
-
-### `Portals.publish()`
-
-The method signature of `Portals.publish()` now allows generic typing over `PortalMessage` instead of restricting generic typing to the `data` parameter of `PortalMessage`. The `message` parameter must be of type `string` but can be predefined to prevent typos, invalid topic names, etc.
-
-Before:
-
-```typescript
-Portals.publish<string>({ topic: "foo", data: "bar" });
-```
-
-After:
-
-```typescript
-type ValidMessage = { topic: "foo"; data: string };
-
-// TypeScript will reject the following statement:
-Portals.publish<ValidMessage>({ topic: "food", data: 1 });
-```
-
-### `Portals.getInitialContext()`
-
-`Portals.getInitialContext()` is no longer asynchronous and has been moved out of the `Portals` class.
-
-Before:
-
-```typescript
-import React from "react";
-import ReactDOM from "react-dom";
-import App from "./App";
-import Portals from "@ionic/portals";
-import { Capacitor } from "@capacitor/core";
-
-if (!Capacitor.isNativePlatform()) {
-  // do something
-  (window as any).portalInitialContext = {
-    value: { startingRoute: "/" },
-  };
-}
-
-Portals.getInitialContext<{ startingRoute: string }>().then((context) => {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App context={context.value} />
-    </React.StrictMode>,
-    document.getElementById("root")
-  );
-});
-```
-
-After:
-
-```typescript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import Portals, { getInitialContext } from '@ionic/portals';
-import { Capacitor } from '@capacitor/core';
-
-const initialContext = getInitialContext<{ startingRoute: string }>;
-const startingRoute = initialContext?.value ?? { startingRoute: '/' };
-
-ReactDOM.render(
-  <React.StrictMode>
-    <App context={startingRoute} />
-  </React.StrictMode>,
-  document.getElementById('root'),
-);
-```
-
-## @ionic/portals-react-native 0.0.x -> 0.1.0
-
-The props on `PortalView` have changed from having individual props of `name` and `initialContext` to a single prop named `portal`.
-
-Before:
-
-```javascript
-<PortalView name="foo" initialContext={{ bar: "baz" }} />
-```
-
-After:
-
-```javascript
-<PortalView
-  portal={{
-    name: "foo",
-    initialContext: {
-      bar: "baz",
-    },
-  }}
-/>
 ```

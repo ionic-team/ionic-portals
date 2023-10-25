@@ -6,13 +6,12 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## @ionic/portals 0.7.x -> 0.8.0
+## Portals Web Plugin 0.7.x → 0.8.0
 
-`@ionic/portals@0.8.0` is compatible with IonicPortals Android and iOS versions 0.8.x.
-
+- Portals Web Plugin `0.8.0` is compatible with Portals for Android and Portals for iOS versions `0.8.x`.
 
 :::caution
-@ionic/portals 0.8.0 is a notable update that requires Capacitor 5.
+Portals Web Plugin `0.8.0` is a notable update that requires Capacitor 5.
 Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
 :::
 
@@ -21,15 +20,20 @@ Some will not be relevant for Portals apps, but this will be a useful reference 
 
 ### Breaking Changes
 
-The `Portals` default export is no longer exposed. All methods are made available as individual module exports. 
-If you wish to still use a `Portals` namespace to call, simply `import * as Portals from '@ionic/portals';`
+The `Portals` default export is no longer exposed. All methods are made available as individual module exports.
+If you wish to still use a `Portals` namespace just import like the following.
+
+```ts
+import * as Portals from "@ionic/portals";
+```
 
 The `subscribe` function now returns a `Promise<PluginListenerHandle>` instead of a number representing a "subscription reference".
 `PluginListenerHandle` has a `remove` method that can be used for unsubscribing from events.
-Since `PluginListenerHandle` is able to manage unsubscribing from events, the `unsubscribe` function has been removed from the API. 
+Since `PluginListenerHandle` is able to manage unsubscribing from events, the `unsubscribe` function has been removed from the API.
 
+## Portals Web Plugin 0.6.x → 0.7.0
 
-## @ionic/portals 0.6.x -> 0.7.0
+- Portals Web Plugin `0.7.0` is compatible with Portals for Android and Portals for iOS versions `0.7.x`.
 
 :::caution
 Ionic Portals 0.7.0 is a notable update that upgrades the Capacitor dependency to version 4. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
@@ -45,7 +49,7 @@ Update the Portals Plugin in your web content to `0.7.0`. Then, follow the [Capa
 
 #### Dependency Version Alignment
 
-The only necessary steps to use Portals version 0.7.0 should be to update dependencies. IonicPortals for iOS version 0.7.0 is compatible with Live Updates 0.2.2 and Official Capacitor Plugins over version 4.0.
+The only necessary steps to use Portals version 0.7.0 should be to update dependencies. Portals for iOS version 0.7.0 is compatible with Live Updates 0.2.2 and Official Capacitor Plugins over version 4.0.
 
 ### InitialContext Update
 
@@ -69,7 +73,7 @@ export interface InitialContext<T> {
 }
 ```
 
-## @ionic/portals 0.0.x -> 0.6.0
+## Portals Web Plugin 0.0.x → 0.6.0
 
 ### `Portals.publish()`
 
@@ -139,4 +143,3 @@ ReactDOM.render(
   document.getElementById('root'),
 );
 ```
-
