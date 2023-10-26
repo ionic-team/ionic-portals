@@ -1,34 +1,7 @@
 import clsx from "clsx";
 import React from "react";
-import web from "./web.json";
-import ios from "./ios.json";
-import android from "./android.json";
-import reactNative from "./react-native.json";
 
 import styles from "./styles.module.css";
-
-const platforms = {
-  web: {
-    name: "Portals Web Plugin",
-    repo: "ionic-team/ionic-portals",
-    releases: web as Release[],
-  },
-  ios: {
-    name: "Portals for iOS",
-    repo: "ionic-team/ionic-portals-ios",
-    releases: ios,
-  },
-  android: {
-    name: "Portals for Android",
-    repo: "ionic-team/ionic-portals-android",
-    releases: android,
-  },
-  "react-native": {
-    name: "Portals for React Native",
-    repo: "ionic-team/ionic-portals-react-native",
-    releases: reactNative,
-  },
-};
 
 interface Release {
   body: string;
@@ -40,13 +13,11 @@ interface Release {
 }
 
 export default function ReleaseNotes(props: {
-  platform: keyof typeof platforms;
+  repo: string;
+  name: string;
+  releases: any[];
 }) {
-  let repo = platforms[props.platform].repo || "";
-  let name = platforms[props.platform].name || "";
-  let releases = platforms[props.platform].releases || [];
-
-  if (releases.length === 0) {
+  if (props.releases.length === 0) {
     console.warn(`Could not load release notes data. Make sure that you have a valid GITHUB_TOKEN.
 
 Create a personal access token by following the below guide:
@@ -58,7 +29,7 @@ https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating
     return [
       <p>
         Unable to load Releases. Please see all releases{" "}
-        <a href={`https://github.com/${repo}/releases`} target="_blank">
+        <a href={`https://github.com/${props.repo}/releases`} target="_blank">
           on GitHub
         </a>
         .
@@ -69,15 +40,15 @@ https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating
   return (
     <article>
       <p className={styles.intro}>
-        A complete release history for {name} is available{" "}
-        <a href={`https://github.com/${repo}/releases`} target="_blank">
+        A complete release history for {props.name} is available{" "}
+        <a href={`https://github.com/${props.repo}/releases`} target="_blank">
           on GitHub
         </a>
         . Documentation for recent releases can also be found below.
       </p>
 
       <div className={styles["release-notes"]}>
-        {releases.map((release: Release, index) => (
+        {props.releases.map((release: Release, index) => (
           <section
             className={clsx(
               styles["release-note"],
@@ -122,7 +93,7 @@ https://docs.github.com/en/enterprise-cloud@latest/authentication/authenticating
       </div>
       <blockquote>
         To see more releases, visit{" "}
-        <a href={`https://github.com/${repo}/releases/`} target="_blank">
+        <a href={`https://github.com/${props.repo}/releases/`} target="_blank">
           GitHub
         </a>
         .
