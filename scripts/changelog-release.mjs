@@ -126,7 +126,7 @@ function formatReleases(releases, repo, productTitle, pageUrl) {
 function cleanupMarkdown(markdown) {
   return (
     markdown
-      .replace(/(?:\r\n)+/g, "\n")
+      .replace(/\r\n/g, "\n")
       // Change to smaller header
       .replace(/## What's Changed\n/g, "### What's Changed\n")
       // Remove the New Contributors line header
