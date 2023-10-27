@@ -22,28 +22,28 @@ const repos = [
   {
     productTitle: "Portals Web Plugin",
     repo: "ionic-team/ionic-portals",
-    outputFile: "../website/src/components/page/changelog/web.json",
+    outputFile: "../website/docs/for-web/changelog.json",
     pageUrl: "https://ionic.io/docs/portals/for-web/changelog",
     versionFileKey: "version",
   },
   {
     productTitle: "Portals iOS",
     repo: "ionic-team/ionic-portals-ios",
-    outputFile: "../website/src/components/page/changelog/ios.json",
+    outputFile: "../website/docs/for-ios/changelog.json",
     pageUrl: "https://ionic.io/docs/portals/for-ios/changelog",
     versionFileKey: "iosVersion",
   },
   {
     productTitle: "Portals Android",
     repo: "ionic-team/ionic-portals-android",
-    outputFile: "../website/src/components/page/changelog/android.json",
+    outputFile: "../website/docs/for-android/changelog.json",
     pageUrl: "https://ionic.io/docs/portals/for-android/changelog",
     versionFileKey: "androidVersion",
   },
   {
     productTitle: "Portals React Native",
     repo: "ionic-team/ionic-portals-react-native",
-    outputFile: "../website/src/components/page/changelog/react-native.json",
+    outputFile: "../website/docs/for-react-native/changelog.json",
     pageUrl: "https://ionic.io/docs/portals/for-react-native/changelog",
     versionFileKey: "rnVersion",
   },
@@ -121,6 +121,7 @@ function formatReleases(releases, repo, productTitle, pageUrl) {
 /**
  *
  * @param {string} markdown
+ * @returns {string}
  */
 function cleanupMarkdown(markdown) {
   return (
@@ -215,7 +216,7 @@ async function run() {
       async ({ repo, outputFile, versionFileKey, productTitle, pageUrl }) => {
         // Keep a list of the previous release JSON for comparison
         const previousDocReleaseArray = JSON.parse(
-          await fs.readFile(outputFile)
+          await fs.readFile(resolve(__dirname, outputFile))
         );
 
         const githubReleaseArray = await fetchGithubReleases(repo);
