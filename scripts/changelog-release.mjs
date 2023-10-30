@@ -74,7 +74,11 @@ function formatReleases(releases, repo, productTitle, pageUrl) {
         if (release.url.includes("/ionic-team/ionic-portals-ios/")) {
           return semver.lt("0.5.1", release.tag_name);
         } else if (release.url.includes("/ionic-team/ionic-portals/")) {
-          return semver.lt("0.7.0", release.tag_name);
+          return semver.lt("0.6.0", release.tag_name);
+        } else if (
+          release.url.includes("/ionic-team/ionic-portals-react-native/")
+        ) {
+          return semver.lt("0.1.0", release.tag_name);
         }
         return true;
       })
