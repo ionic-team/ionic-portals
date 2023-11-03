@@ -380,6 +380,17 @@ PortalsPubSub.getShared().publish("weather", "sunny");
 
 </Tabs>
 
+### Data Types
+
+Data published through the `publish()` function should be a type compatible with objects in the [org.json](https://developer.android.com/reference/org/json/package-summary) package. Compatible types include:
+
+- String
+- Numbers (e.g: integer)
+- [JSONObject](https://developer.android.com/reference/org/json/JSONObject)
+- [JSONArray](https://developer.android.com/reference/org/json/JSONArray)
+
+The Capacitor [JSObject](https://github.com/ionic-team/capacitor/blob/main/android/capacitor/src/main/java/com/getcapacitor/JSObject.java) and [JSArray](https://github.com/ionic-team/capacitor/blob/main/android/capacitor/src/main/java/com/getcapacitor/JSArray.java) are also compatible.
+
 ## Examples
 
 The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce-app) demo.
