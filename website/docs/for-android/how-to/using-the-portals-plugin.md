@@ -382,7 +382,7 @@ PortalsPubSub.getShared().publish("weather", "sunny");
 
 ### Data Types
 
-Data published through the `publish()` function should be a type compatible with objects in the [org.json](https://developer.android.com/reference/org/json/package-summary) package. Compatible types include:
+Data published through the `publish()` function from native should be a type compatible with objects in the [org.json](https://developer.android.com/reference/org/json/package-summary) package. Compatible types include:
 
 - String
 - Numbers (e.g: integer)
