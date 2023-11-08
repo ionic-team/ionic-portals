@@ -204,7 +204,6 @@ module.exports = {
     },
     {
       type: "category",
-      className: "bottom-item",
       label: "Portals Web Plugin",
       collapsed: true,
       items: [
@@ -216,6 +215,22 @@ module.exports = {
         "for-web/android-profiling",
         "for-web/upgrade-guides",
         "for-web/changelog",
+      ],
+    },
+    {
+      type: "category",
+      className: "bottom-item",
+      label: "Portals CLI",
+      collapsed: true,
+      items: [
+        "cli/overview",
+        "cli/configuration",
+        {
+          type: "category",
+          label: "Command Reference",
+          collapsed: true,
+          items: ["cli/commands/poc", "cli/commands/sync"],
+        },
       ],
     },
     {
