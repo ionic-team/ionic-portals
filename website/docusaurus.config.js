@@ -16,11 +16,56 @@ module.exports = {
   projectName: "portals-docs",
   titleDelimiter: "-",
   themeConfig: {
+    logo: {
+      alt: "Portals Logo",
+      src: "img/logo-light.png",
+      srcDark: "img/logo-dark.png",
+      href: "/docs/portals",
+      height: 24,
+      width: 84,
+    },
     navbar: {
-      title: "Portals",
-      logo: {
-        alt: "Portals Logo",
-        src: "img/logo.svg",
+      items: [
+        {
+          type: "search",
+          position: "left",
+        },
+      ],
+    },
+    sidebar: {
+      productDropdown: {
+        title: "Portals Docs",
+        logo: {
+          width: 20,
+          height: 20,
+          alt: "Portals Logo",
+          src: "img/components/product-dropdown/logo.png",
+        },
+        textLinks: [
+          {
+            url: {
+              href: "https://forum.ionicframework.com/c/portals/31",
+              target: "_blank",
+              rel: "noopener nofollow",
+            },
+            label: "Forum",
+          },
+        ],
+        iconLinks: [
+          {
+            key: "github",
+            url: {
+              href: "https://github.com/ionic-team/ionic-portals",
+              target: "_blank",
+              rel: "noopener nofollow",
+            },
+          },
+        ],
+      },
+      backButton: {
+        url: {
+          href: "/docs",
+        },
       },
     },
     colorMode: {
@@ -44,35 +89,26 @@ module.exports = {
       selector: ".markdown em > img",
       background: {
         light: "var(--token-background-color)",
-        dark: "var(--token-background-color)"
+        dark: "var(--token-background-color)",
       },
       config: {
         margin: 75,
-        scrollOffset: 20
+        scrollOffset: 20,
       },
     },
   },
-  plugins: [
-    "@ionic-internal/docusaurus-plugin-tag-manager",
-    "docusaurus-plugin-sass",
-    "docusaurus-plugin-image-zoom",
-  ],
-  themes: ["@ionic-internal/docusaurus-theme"],
+  plugins: ["docusaurus-plugin-image-zoom"],
   presets: [
     [
-      "@docusaurus/preset-classic",
+      "@ionic-docs/preset-classic",
       {
         docs: {
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
         },
-        blog: false,
         pages: false,
         theme: {
-          customCss: [
-            "prismjs/themes/prism-tomorrow.css",
-            require.resolve("./src/styles/custom.css"),
-          ],
+          customCss: [require.resolve("./src/styles/custom.css")],
         },
       },
     ],
