@@ -66,7 +66,9 @@ If you need help configuring specific versions of Portals with Capacitor or Capa
 
 ## Configure
 
-After installing the dependency you need to register your copy of Ionic Portals at runtime. This works both offline and in production. You'll need to call [PortalManager.register(myApiKey)](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.
+After installing the dependency you need to register your copy of Ionic Portals at runtime. This works both offline and in production. You'll need to call [PortalManager.register(myApiKey)](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) before creating any Portals in your app. To get an API Key, refer to the [Sign Up](#signup) section.
+
+Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. We recommend placing this register call inside the `onCreate()` function of a custom `Application` class so that it is handled immediately when your app is launched, but you can place it anywhere as long as it is called before your app tries to load any Portals.
 
 ```kotlin title=MyApplication.kt
 import android.app.Application

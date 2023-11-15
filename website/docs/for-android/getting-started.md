@@ -10,7 +10,7 @@ Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide
 
 ## Creating a Custom Application Class
 
-In Android, you will have to register your Portals instance and start creating Portals via the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html). To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals.
+In Android, you will have to register your Portals instance via the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html). To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals. We recommend placing this register call inside the custom `Application` class so that it is handled immediately when your app is launched, but you can place it anywhere in an app as long as it is called before any Portals are loaded.
 
 <Tabs
 defaultValue="kt"
@@ -73,6 +73,8 @@ After creating a custom Application class, be sure to add the `android:name` att
 ```
 
 ## Creating a Portal via PortalManager
+
+The [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) provides convenience functions to handle the storing and retrieving of information about Portals used in your app. When using it, we recommend creating your portals in the custom `Application` class in the same place where Portals is registered so that all the required information for Portals to function is available immediately to the SDK every time the app is launched. If you prefer to have more granular control over the creation and storing of Portals data, and where it occurs in your app, we recommend creating Portals using the [PortalBuilder](./getting-started#creating-a-portal-via-portalbuilder).
 
 After registering via the [PortalManager.register()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) function, you can create Portals. Use the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) to quickly create a [Portal](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) and link it to an XML layout.
 
@@ -241,6 +243,82 @@ fun loadPortal(portalId: String) {
 
 :::note
 Jetpack Compose support is new. If you encounter any issues, please [open an issue](https://github.com/ionic-team/ionic-portals-android) in our repository.
+:::
+
+## Creating a Portal via PortalBuilder
+
+The [PortalBuilder](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-builder/index.html) provides a way to create Portal objects without relying on the `PortalManager` class convenience functions. This might be useful if you want to use Portals in a custom library, or need a more advanced way to have granular control around how Portals works with your applicaion lifecycle.
+
+Create a Portal in your app code using `PortalBuilder`:
+
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
+<TabItem value="kt">
+
+```kotlin
+val portal: Portal = PortalBuilder("myPortal")
+    .addPlugin(MyCapacitorPlugin::class.java)
+    .setPortalFragmentType(MyFadeInOutPortalFragment::class.java)
+    .setInitialContext(mapOf("myVariableFromAndroid" to 42))
+    .setStartDir("web_app")
+    .create()
+```
+
+</TabItem>
+<TabItem value="java">
+
+```java
+Portal portal = new PortalBuilder("myPortal")
+    .addPlugin(MyCapacitorPlugin.class)
+    .setPortalFragmentType(MyFadeInOutPortalFragment.class)
+    .setInitialContext(Map.of("myVariableFromAndroid", 42))
+    .setStartDir("web_app")
+    .create();
+```
+
+</TabItem>
+</Tabs>
+
+Once created, you may use your Portal object to create views:
+
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Kotlin', value: 'kt', },
+{ label: 'Java', value: 'java', },
+]}>
+<TabItem value="kt">
+
+```kotlin
+// Make a PortalFragment with your Portal
+val myPortalFragment = PortalFragment(portal)
+
+// Make a PortalView with your Portal
+val myPortalView = PortalView(context, portal)
+```
+
+</TabItem>
+<TabItem value="java">
+
+```java
+// Make a PortalFragment with your Portal
+PortalFragment myPortalFragment = new PortalFragment(portal);
+
+// Make a PortalView with your Portal
+PortalView myPortalView = new PortalView(context, portal);
+```
+
+</TabItem>
+</Tabs>
+
+Since the `PortalManager` is not used with these objects, make sure to retain them to be used in a way that suits your needs.
+
+:::warning
+Do not retain **view** objects outside of the Activity lifecycle.
 :::
 
 ## Preparing the Containing Activity
