@@ -318,7 +318,7 @@ PortalView myPortalView = new PortalView(context, portal);
 Since the `PortalManager` is not used with these objects, make sure to retain them to be used in a way that suits your needs.
 
 :::warning
-Do not retain **view** objects outside of the Activity lifecycle.
+Do not retain **view** objects such as `PortalView` or `PortalFragment` outside of the Activity lifecycle.
 :::
 
 ## Preparing the Containing Activity
