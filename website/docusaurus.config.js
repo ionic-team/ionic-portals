@@ -75,7 +75,8 @@ module.exports = {
       trackingID: 'GTM-TKMGCBC',
     },
     prism: {
-      theme: { plain: {}, styles: [] },
+      theme: require('prism-react-renderer/themes/github'),
+      darkTheme: require('prism-react-renderer/themes/dracula'),
       additionalLanguages: ['shell-session', 'kotlin', 'groovy', 'java', 'swift', 'ruby'],
     },
     zoom: {
