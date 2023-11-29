@@ -1,70 +1,70 @@
 /** @type {import('@docusaurus/types').DocusaurusConfig} */
 
-const lernaConfig = require("../lerna.json");
+const lernaConfig = require('../lerna.json');
 
 module.exports = {
-  title: "Ionic Portals",
-  tagline: "Portals tagline",
-  url: "https://ionic.io",
+  title: 'Ionic Portals',
+  tagline: 'Portals tagline',
+  url: 'https://ionic.io',
   trailingSlash: false,
-  baseUrl: "/docs/portals/",
+  baseUrl: '/docs/portals/',
   baseUrlIssueBanner: false,
-  onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
-  favicon: "img/logo.svg",
-  organizationName: "ionic-team",
-  projectName: "portals-docs",
-  titleDelimiter: "-",
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  favicon: 'img/logo.svg',
+  organizationName: 'ionic-team',
+  projectName: 'portals-docs',
+  titleDelimiter: '-',
   themeConfig: {
     logo: {
-      alt: "Portals Logo",
-      src: "img/logo-light.png",
-      srcDark: "img/logo-dark.png",
-      href: "/docs/portals",
+      alt: 'Portals Logo',
+      src: 'img/logo-light.png',
+      srcDark: 'img/logo-dark.png',
+      href: '/docs/portals',
       height: 24,
       width: 84,
     },
     navbar: {
       items: [
         {
-          type: "search",
-          position: "left",
+          type: 'search',
+          position: 'left',
         },
       ],
     },
     sidebar: {
       productDropdown: {
-        title: "Portals Docs",
+        title: 'Portals Docs',
         logo: {
           width: 20,
           height: 20,
-          alt: "Portals Logo",
-          src: "img/components/product-dropdown/logo.png",
+          alt: 'Portals Logo',
+          src: 'img/components/product-dropdown/logo.png',
         },
         textLinks: [
           {
             url: {
-              href: "https://forum.ionicframework.com/c/portals/31",
-              target: "_blank",
-              rel: "noopener nofollow",
+              href: 'https://forum.ionicframework.com/c/portals/31',
+              target: '_blank',
+              rel: 'noopener nofollow',
             },
-            label: "Forum",
+            label: 'Forum',
           },
         ],
         iconLinks: [
           {
-            key: "github",
+            key: 'github',
             url: {
-              href: "https://github.com/ionic-team/ionic-portals",
-              target: "_blank",
-              rel: "noopener nofollow",
+              href: 'https://github.com/ionic-team/ionic-portals',
+              target: '_blank',
+              rel: 'noopener nofollow',
             },
           },
         ],
       },
       backButton: {
         url: {
-          href: "/docs",
+          href: '/docs',
         },
       },
     },
@@ -72,24 +72,17 @@ module.exports = {
       respectPrefersColorScheme: true,
     },
     tagManager: {
-      trackingID: "GTM-TKMGCBC",
+      trackingID: 'GTM-TKMGCBC',
     },
     prism: {
       theme: { plain: {}, styles: [] },
-      additionalLanguages: [
-        "shell-session",
-        "kotlin",
-        "groovy",
-        "java",
-        "swift",
-        "ruby",
-      ],
+      additionalLanguages: ['shell-session', 'kotlin', 'groovy', 'java', 'swift', 'ruby'],
     },
     zoom: {
-      selector: ".markdown em > img",
+      selector: '.markdown em > img',
       background: {
-        light: "var(--token-background-color)",
-        dark: "var(--token-background-color)",
+        light: 'var(--token-background-color)',
+        dark: 'var(--token-background-color)',
       },
       config: {
         margin: 75,
@@ -97,18 +90,18 @@ module.exports = {
       },
     },
   },
-  plugins: ["docusaurus-plugin-image-zoom"],
+  plugins: ['docusaurus-plugin-image-zoom'],
   presets: [
     [
-      "@ionic-docs/preset-classic",
+      '@ionic-docs/preset-classic',
       {
         docs: {
-          routeBasePath: "/",
-          sidebarPath: require.resolve("./sidebars.js"),
+          routeBasePath: '/',
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         pages: false,
         theme: {
-          customCss: [require.resolve("./src/styles/custom.css")],
+          customCss: [require.resolve('./src/styles/custom.css')],
         },
       },
     ],
