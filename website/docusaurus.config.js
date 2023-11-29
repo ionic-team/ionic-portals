@@ -71,9 +71,6 @@ module.exports = {
     colorMode: {
       respectPrefersColorScheme: true,
     },
-    tagManager: {
-      trackingID: 'GTM-TKMGCBC',
-    },
     prism: {
       theme: require('prism-react-renderer/themes/github'),
       darkTheme: require('prism-react-renderer/themes/dracula'),
@@ -103,6 +100,9 @@ module.exports = {
         pages: false,
         theme: {
           customCss: [require.resolve('./src/styles/custom.css')],
+        },
+        googleTagManager: {
+          containerId: 'GTM-TKMGCBC',
         },
       },
     ],
