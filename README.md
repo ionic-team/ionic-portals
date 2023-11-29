@@ -41,7 +41,7 @@ This repo contains the documentation and web plugin code for Portals. The [Andro
 
 ### What is the pricing for Portals use?
 
-Portals is free to use in non-production environments. Businesses with more than USD $1 million in annual revenue are required to purchase a license from Ionic before using Portals in production.
+Businesses with more than USD $1 million in annual revenue are required to purchase a license from Ionic before using Portals in production.
 
 ### Is Portals Open Source?
 
