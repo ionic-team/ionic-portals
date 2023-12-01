@@ -12,10 +12,24 @@ Portals instances can be further configured by providing a Capacitor Configurati
 
 ## Capacitor Config File
 
-Providing a [Capacitor Configuration](https://capacitorjs.com/docs/config) json file with your web assets will configure Capacitor with the provided settings.
-
-Provide a `capacitor.config.json` in the Portal start directory (where the web assets are located).
+The easiest approach for configuring a Portal is to let the web application include a [Capacitor Configuration](https://capacitorjs.com/docs/config) 
+in the form of a `capacitor.config.json` in the root of its build folder. Portals will provide the Capacitor runtime with the configuration and
+no intervention is needed on the part of the native team.
 
 :::note
 Each Portal may have its own config file.
 :::
+
+## Programmatic Capacitor Configuration
+
+To programmatically configure Capacitor, use the `configuring` method on `Portal` to override any default Capacitor configuration:
+
+```swift
+let portal = Portal(name: "foo")
+  .configuring(\.loggingBehavior, .none)
+  .configuring(\.allowLinkPreviews, true)
+  .configuring(\.isWebDebuggable, false)
+```
+
+In the event the same value is configured both programmatically and via `capacitor.config.json`, the programmatic configuration takes precedence.
+
