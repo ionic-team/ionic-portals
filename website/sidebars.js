@@ -229,7 +229,7 @@ module.exports = {
           type: "category",
           label: "Command Reference",
           collapsed: true,
-          items: ["cli/commands/poc", "cli/commands/sync"],
+          items: ["cli/commands/poc", "cli/commands/sync", "cli/commands/serve-ios"],
         },
       ],
     },
