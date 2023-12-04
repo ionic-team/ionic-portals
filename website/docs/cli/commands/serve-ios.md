@@ -9,6 +9,13 @@ to go through the build process of a native application or even have access to i
 source code. The command allows web developers to run their web code from their local
 dev server and see the changes on the fly.
 
+:::note
+
+The serve command requires IonicPortals 0.9.0 or higher and requires that the portal
+has [`devModeEnabled`](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal/devmodeenabled) set to `true`.
+
+:::
+
 ### Usage
 ```bash
 portals serve ios [simulator | device] \
