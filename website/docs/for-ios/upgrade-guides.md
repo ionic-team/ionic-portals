@@ -6,6 +6,23 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Portals for iOS 0.8.0 → 0.9.0
+
+- Portals for iOS version `0.9.0` is compatible with Portals Web Plugin version `0.8.x`.
+
+### Capacitor Configuration API
+
+There is a new API available for configuring the Capacitor runtime. Most of the configuration options are the same as those available in the
+[Capacitor configuration file](https://capacitorjs.com/docs/config). For more details, see [Advanced Configuration](../how-to/advanced-configuration.md).
+
+### Dev Mode
+
+There is a new property [`devModeEnabled`](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal/devmodeenabled) on `Portal` 
+that controls whether or not the Portal will be in development mode for debug builds. This mode will allow the Portal to be replaced with
+content from a development server URL to be used in conjunction with the [`portals serve ios`](../cli/commands/serve-ios.md) CLI command.
+This mode is enabled by default and is only available in debug builds. Release modes will always use the content shipped with the application.
+To turn off development mode for a Portal, set `devModeEnabled` to `false` either in the Portal initializer or by setting the property directly.
+
 ## Portals for iOS 0.7.x → 0.8.0
 
 - Portals for iOS version `0.8.0` is compatible with Portals Web Plugin version `0.8.x`.
