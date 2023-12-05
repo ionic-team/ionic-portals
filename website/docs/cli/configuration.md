@@ -37,8 +37,7 @@ sync:
   - app-id: [PORTALS_APP_ID]
     channel: [CHANNEL]
     directory-name: [DIRECTORY_NAME]
-  - app-id: [PORTALS_APP_ID]
-    channel: [CHANNEL]
+  - file-path: [PATH_TO_DIST_FOLDER]
     directory-name: [DIRECTORY_NAME]
   # ... (add more apps if needed)
 
@@ -48,28 +47,34 @@ token: [PORTALS_AUTH_TOKEN]
 ### Configuration Options
 
 1. **`sync` (List of Apps)**
-
    - This is a list of apps that you want to synchronize. Each app is specified as a dictionary with the following attributes.
+     An app can be either a remote app or a local app. A remote app is an app that is hosted on Appflow.
+     A local app is an app that is hosted locally on your machine.
+     
+   - Remote Configuration Options
+      - **`app-id` (Required)**
+        - Type: String
+        - Description: The unique identifier for the Appflow application you want to sync.
 
-   - **`app-id` (Required)**
+      - **`channel` (Optional)**
+        - Type: String
+        - Default: `production`
+        - Description: The channel of the Appflow application to be synchronized.
 
-     - Type: String
-     - Description: The unique identifier for the Appflow application you want to sync.
+   - Local Configuration Options
+      - **`file-path` (Required)**
+        - Type: String
+        - Description: The path to the local build folder to be synchronized.
 
-   - **`channel` (Optional)**
+   - Common Configuration Options
+      - **`directory-name` (Optional)**
+        - Type: String
+        - Default: the `app-id` or the last path component of `file-path` will be used
+        - Description: The directory name where the synchronized app will be saved.
 
-     - Type: String
-     - Default: `production`
-     - Description: The channel of the Appflow application to be synchronized.
-
-   - **`directory-name` (Optional)**
-     - Type: String
-     - Default: the `app-id` will be used
-     - Description: The directory name where the synchronized app will be saved.
-
-2. **`token` (Required)**
+2. **`token` (Optional)**
    - Type: String
-   - Description: The authentication token required to access Portals and perform sync operations. This token should be kept secure, as it provides access to your Appflow deployments.
+   - Description: The authentication token required to access Portals and perform sync operations. This token should be kept secure, as it provides access to your Appflow deployments. This is required if you want to sync a remote app.
 
 ### Usage
 
@@ -90,11 +95,13 @@ token: [PORTALS_AUTH_TOKEN]
        directory-name: home
      - app-id: a81b2440
        directory-name: cart
+     - file-path: /Users/username/my-app/dist
+       directory-name: my-app
    ```
 
 2. **`token` Section**
 
-   - In the `token` section, provide your Appflow Personal Access Token.
+   - In the `token` section, provide your Appflow Personal Access Token if you have remote applications.
 
    Example:
 
