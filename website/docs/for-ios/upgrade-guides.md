@@ -13,7 +13,7 @@ import TabItem from '@theme/TabItem';
 ### Capacitor Configuration API
 
 There is a new API available for configuring the Capacitor runtime. Most of the configuration options are the same as those available in the
-[Capacitor configuration file](https://capacitorjs.com/docs/config). For more details, see [Advanced Configuration](../how-to/advanced-configuration.md).
+[Capacitor configuration file](https://capacitorjs.com/docs/config). For more details, see [Advanced Configuration](./how-to/advanced-configuration.md).
 
 ### Dev Mode
 
