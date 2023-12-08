@@ -1,12 +1,3 @@
-svg[class*="iconExternalLink_"] {
-  display: none;
-}
-
-code[class*="language-"],
-pre[class*="language-"] {
-  font-size: 0.8125em;
-}
-
 .bottom-item {
   border-bottom: 1px solid #e9edf3;
   padding-bottom: 1rem;
