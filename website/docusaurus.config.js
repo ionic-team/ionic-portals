@@ -2,6 +2,8 @@
 
 const lernaConfig = require('../lerna.json');
 
+const { themes } = require('prism-react-renderer')
+
 module.exports = {
   title: 'Ionic Portals',
   tagline: 'Portals tagline',
@@ -23,14 +25,6 @@ module.exports = {
       href: '/docs/portals',
       height: 24,
       width: 84,
-    },
-    navbar: {
-      items: [
-        {
-          type: 'search',
-          position: 'left',
-        },
-      ],
     },
     sidebar: {
       productDropdown: {
@@ -72,8 +66,8 @@ module.exports = {
       respectPrefersColorScheme: true,
     },
     prism: {
-      theme: require('prism-react-renderer/themes/github'),
-      darkTheme: require('prism-react-renderer/themes/dracula'),
+      theme: themes.github,
+      darkTheme: themes.dracula,
       additionalLanguages: ['shell-session', 'kotlin', 'groovy', 'java', 'swift', 'ruby'],
     },
     zoom: {
