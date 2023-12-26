@@ -22,7 +22,7 @@ portals serve ios [simulator | device] \
    --application /path/to/your/ios.app \
    --dev-server http://localhost:8100
 ```
-This command will present an interactive list of eligible destination since no specific device details were provided. When selected, the command will launch the iOS app to the selected device and will override all portals with the content served from the development server URL by default. If a capacitor.config.{json, ts, js} file is located in the current working directory, it will use that, otherwise it will fallback to any configuration potentially shipped in the application.
+This command will present an interactive list of eligible destination since no specific device details were provided. When selected, the command will launch the iOS app to the selected device and will override all portals with the content served from the development server URL by default. If a capacitor.config.&lcub;json, ts, js} file is located in the current working directory, it will use that, otherwise it will fallback to any configuration potentially shipped in the application.
 
 ### Examples
 
