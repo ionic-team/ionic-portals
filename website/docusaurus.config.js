@@ -68,7 +68,7 @@ module.exports = {
     prism: {
       theme: themes.github,
       darkTheme: themes.dracula,
-      additionalLanguages: ['shell-session', 'kotlin', 'groovy', 'java', 'swift', 'ruby'],
+      additionalLanguages: ['shell-session', 'kotlin', 'groovy', 'java', 'swift', 'ruby', 'json'],
     },
     zoom: {
       selector: '.markdown em > img',
