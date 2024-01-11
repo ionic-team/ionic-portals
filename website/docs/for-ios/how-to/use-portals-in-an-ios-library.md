@@ -19,7 +19,7 @@ values={[
 { label: 'Framework', value: 'framework', },
 { label: 'Package', value: 'package', },
 ]}>
-<Tab value="framework">
+<TabItem value="framework">
 
 In a framework, you need to explicitly initialize a bundle:
 
@@ -39,9 +39,9 @@ let portal = Portal(
 )
 ```
 
-</Tab>
+</TabItem>
 
-<Tab value="package">
+<TabItem value="package">
 
 In the Portal initializer, pass `Bundle.module` to the Portal initializer:
 
@@ -54,7 +54,7 @@ let portal = Portal(
 )
 ```
 
-</Tab>
+</TabItem>
 
 </Tabs>
 
