@@ -9,7 +9,7 @@ export interface PortalsPlugin {
   ): Promise<void>;
   addListener<T = unknown>(
     eventName: string,
-    listenerFunc: SubscriptionCallback<T>,
+    listenerFunc: (result: PortalMessage<T>) => void,
   ): Promise<PluginListenerHandle> & PluginListenerHandle;
 }
 
@@ -31,11 +31,3 @@ export interface PortalMessage<TData = any> {
   topic: string;
   data?: TData;
 }
-
-/**
- * The type definition from the callback running Portals.subscribe()
- */
-export type SubscriptionCallback<T = unknown> = (result: {
-  topic: string;
-  data: T;
-}) => void;
