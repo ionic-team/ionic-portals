@@ -40,7 +40,7 @@ for await result in Portal.sync(portals) {
 }
 ```
 
-There is also an extension of Array that allows for syncing an array of Portals:
+There is also an extension on Array that allows for syncing an array of Portals:
 ```swift
 let portals: [Portal] = [/* ... */]
 for await result in portals.sync() {
