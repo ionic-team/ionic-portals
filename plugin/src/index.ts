@@ -5,7 +5,6 @@ import type {
   InitialContext,
   PortalMessage,
   PortalsPlugin,
-  SubscriptionCallback,
 } from './definitions';
 
 const Portals = registerPlugin<PortalsPlugin>('Portals', {
@@ -20,9 +19,10 @@ const Portals = registerPlugin<PortalsPlugin>('Portals', {
 export function getInitialContext<T = unknown>():
   | InitialContext<T>
   | undefined {
-  if (Capacitor.getPlatform() === "android") {
+  if (Capacitor.getPlatform() === 'android') {
+    // eslint-disable-next-line
     //@ts-ignore
-    return JSON.parse(AndroidInitialContext.initialContext())
+    return JSON.parse(AndroidInitialContext.initialContext());
   } else {
     return (window as any).portalInitialContext;
   }
@@ -30,7 +30,7 @@ export function getInitialContext<T = unknown>():
 
 export function subscribe<T = unknown>(
   topic: string,
-  callback: SubscriptionCallback<T>,
+  callback: (result: PortalMessage<T>) => void,
 ): Promise<PluginListenerHandle> {
   return Portals.addListener(topic, callback);
 }
