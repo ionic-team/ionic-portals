@@ -9,6 +9,16 @@ import CodeBlock from '@theme/CodeBlock';
 
 If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix) page.
 
+## Portals for Android 0.8.3 → 0.8.4
+
+- Portals for Android version `0.8.4` is compatible with Portals Web Plugin version `0.9.x`.
+
+### Differential Live Update Support
+
+Portals for Android 0.8.4 introduces support for differential live updates by requiring version 0.5.0 of the Live Updates SDK as the minimum supported version. This feature allows for updating only the changed files in a web asset bundle and between each update, reducing the amount of data that needs to be transferred to the device. This feature is _enabled by default_.
+
+To opt-out, explicitly set the [`updateStrategy`](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates/-live-update/index.html#1386601516%2FProperties%2F685870619) property on the `LiveUpdate` configured for the Portal to [`ZIP`](https://ionic.io/docs/live-updates-sdk-android/live-updates/io.ionic.liveupdates/-strategy/index.html#-1559272545%2FClasslikes%2F685870619).
+
 ## Portals for Android 0.7.x → 0.8.0
 
 - Portals for Android version `0.8.0` is compatible with Portals Web Plugin version `0.8.x`.
