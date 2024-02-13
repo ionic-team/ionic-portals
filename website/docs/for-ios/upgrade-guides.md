@@ -6,6 +6,52 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Portals for iOS 0.9.x → 0.10.0
+
+- Portals for iOS version `0.10.0` is compatible with Portals Web Plugin versions `0.8.0` and up.
+
+### Differential Live Update Support
+
+Portals for iOS 0.10.0 introduces support for differential live updates by requiring `IonicLiveUpdates` 0.5.0 as the minimum supported version.
+This feature allows for updating only the changed files in a web asset bundle,
+reducing the amount of data that needs to be transferred to the device. This feature is _enabled by default_.
+To opt-out, explicitly set the [`strategy`](https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates/liveupdate/strategy-swift.property) property
+on the `LiveUpdate` configured for the Portal to [`Strategy.zip`](https://live-updates-sdk-ios.vercel.app/documentation/ionicliveupdates/liveupdate/strategy-swift.enum/zip).
+
+### Convenience Live Update API
+
+#### Individual Portal Sync
+`Portal` now has a [`sync`](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portal/sync()) method that allows for triggering a live update sync manually
+without needing to interact with the `LiveUpdate` or `LiveUpdateManager` instance directly.
+
+```swift
+let portal = Portal(/* ... */)
+let result = try await portal.sync()
+```
+
+`sync` will return a `LiveUpdateManager.SyncResult` or throw an error if the sync has failed. If the Portal is not configured to use live updates, `sync` will throw an error.
+
+#### Multiple Portal Sync
+If you need to sync multiple Portals, you can use the static `sync` method on `Portal`:
+```swift
+let portals: [Portal] = [/* ... */]
+for await result in Portal.sync(portals) {
+    // do something with result
+}
+```
+
+There is also an extension of Array that allows for syncing an array of Portals:
+```swift
+let portals: [Portal] = [/* ... */]
+for await result in portals.sync() {
+    // do something with result
+}
+```
+
+Each result is a `Result<LiveUpdateManager.SyncResult, any Error>` that can be handled as needed.
+All sync operations are performed in parallel and results are yielded as they complete. This AsyncSequence does not throw
+to avoid halting the entire operation if one sync fails.
+
 ## Portals for iOS 0.8.0 → 0.9.0
 
 - Portals for iOS version `0.9.0` is compatible with Portals Web Plugin version `0.8.x`.

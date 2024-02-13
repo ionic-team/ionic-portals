@@ -6,6 +6,19 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Portals Web Plugin 0.8.x → 0.9.0
+
+- Portals Web Plugin `0.9.0` is compatible with Portals for Android and Portals for iOS versions `0.8.0` and up.
+
+### Breaking Changes
+
+This release removed the `SubscriptionCallback` type. This should only affect TypeScript users who were using the type directly.
+If you were using the type directly, `SubscriptionCallback` should be replaced with the following, 
+replacing `T` with the concrete type of the message data:
+```typescript
+let callback: (result: PortalMessage<T>) => void;
+```
+
 ## Portals Web Plugin 0.7.x → 0.8.0
 
 - Portals Web Plugin `0.8.0` is compatible with Portals for Android and Portals for iOS versions `0.8.x`.
