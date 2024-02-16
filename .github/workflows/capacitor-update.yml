@@ -1,0 +1,13 @@
+name: Capacitor Updates
+
+on: 
+  repository_dispatch:
+    types: [capacitor_update]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Test Capacitor Update
+        run: 'echo "field: ${{ github.event.client_payload.capacitor_version }}"'
