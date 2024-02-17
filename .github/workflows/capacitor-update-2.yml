@@ -1,4 +1,4 @@
-name: Capacitor Updates
+name: Capacitor Updates 2
 
 on: repository_dispatch
 
