@@ -27,7 +27,7 @@ The following environment variables must be set in order for the `portals serve 
 ```bash
 portals serve android \
    --application /path/to/your/android-app.apk \
-   --dev-server http://localhost:8100
+   --dev-server http://10.0.2.2:8100
 ```
 This command will present an interactive list of eligible destinations since no specific device details were provided. When selected, the command will launch the Android app to the selected device and will override all portals with the content served from the development server URL by default. If a capacitor.config.&lcub;json, ts, js} file is located in the current working directory, it will use that, otherwise it will fallback to any configuration potentially shipped in the application.
 
