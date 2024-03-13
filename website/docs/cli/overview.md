@@ -37,9 +37,9 @@ curl -sL https://raw.githubusercontent.com/ionic-team/portals-cli-releases/main/
 
 For Windows users, manual installation is currently required. You can download the appropriate zip file for your architecture (arm64, i386, or x86_64) from the list provided and extract it to a directory on your system's `PATH` for convenient access.
 
-- [arm64](https://github.com/ionic-team/portals-cli-releases/releases/latest/downloads/portals_Windows_arm64.zip)
-- [i386](https://github.com/ionic-team/portals-cli-releases/releases/latest/downloads/portals_Windows_i386.zip)
-- [x86_64](https://github.com/ionic-team/portals-cli-releases/releases/latest/downloads/portals_Windows_x86_64.zip)
+- [arm64](https://github.com/ionic-team/portals-cli-releases/releases/latest/download/portals_Windows_arm64.zip)
+- [i386](https://github.com/ionic-team/portals-cli-releases/releases/latest/download/portals_Windows_i386.zip)
+- [x86_64](https://github.com/ionic-team/portals-cli-releases/releases/latest/download/portals_Windows_x86_64.zip)
 
 ### Linux Binaries
 
