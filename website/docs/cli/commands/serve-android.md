@@ -107,7 +107,9 @@ If you are testing with an http server you may encounter an issue displaying a c
 
 #### Emulator network troubleshooting
 
-If the local web server fails to load with errors like `net::ERR_CACHE_HIT` or `net::ERR_CONNECTION_REFUSED`, you may have network settings preventing the emulator/device from using Android’s loopback address. One way to confirm if this is your problem is to try loading your local web server from the emulator web browser. Double check that your local web server is actually running, then open Chrome in the emulator and go to the URL for your web app. If it loads, then the issue is related to your app specifically. If it does not load, then the emulator as a whole is having issues connecting to the web server on your local machine through the virtual network.
+If the local web server fails to load with errors like `net::ERR_CACHE_HIT` or `net::ERR_CONNECTION_REFUSED`, you may have network settings preventing the emulator/device from using Android’s loopback address. One way to confirm if this is your problem is to try loading your local web server from the emulator web browser.
+
+Double check that your local web server is actually running, then open Chrome in the emulator and go to the URL for your web app. If it loads, then the issue is related to your app specifically. If it does not load, then the emulator as a whole is having issues connecting to the web server on your local machine through the virtual network.
 
 :::note
 
