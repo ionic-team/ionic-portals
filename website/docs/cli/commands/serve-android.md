@@ -18,6 +18,10 @@ has [`devMode`](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.
 
 ### Requirements
 
+The serve command for Android depends on tools available with an installation of [Android Studio](https://developer.android.com/studio). Use of Android studio for development is not required for using the Portals CLI, but it is an easy way to install the Android SDK for you and the required tools.
+
+Android Studio also provides a helpful GUI for creating [Emulators](https://developer.android.com/studio/run/managing-avds) for testing your app, and for managing the installed version of the [Platform Tools and SDK](https://developer.android.com/studio/intro/update#sdk-manager).
+
 The following environment variables must be set in order for the `portals serve android` command to function correctly:
 
 - Set the `$ANDROID_HOME` variable to the path of the Android SDK installation directory.
