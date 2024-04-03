@@ -225,6 +225,7 @@ module.exports = {
       collapsed: true,
       items: [
         'for-super-capacitor/overview',
+        'for-super-capacitor/presentation-types',
         {
           type: 'category',
           label: 'Tutorials',

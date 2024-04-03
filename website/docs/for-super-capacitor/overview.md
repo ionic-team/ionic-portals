@@ -18,12 +18,12 @@ The options for configuring your portal when using [`presentPortal`](#presentpor
 ```typescript
 interface PortalOptions {
   name: string;
+  presentationType: 'push' | 'modal';
   startDir?: string;
   initialContext?: InitialContext;
   plugins?: CapacitorPlugin[];
   liveUpdateConfig?: LiveUpdateConfig;
-  type: 'push' | 'modal';
-  modalStyle?: 'fullscreen' | 'sheet';
+  modalStyle?: 'fullScreen' | 'pageSheet';
 }
 ```
 
@@ -64,8 +64,8 @@ presentPortal({ name: 'checkoutApp', startDir: 'portals/checkout', type: 'push' 
 
 #### Parameters
 
-| Name      | Type                            | Description                                                         |
-| --------- | ------------------------------- | ------------------------------------------------------------------- |
+| Name      | Type                              | Description                                                           |
+| --------- | --------------------------------- | --------------------------------------------------------------------- |
 | `options` | [`PortalOptions`](#portaloptions) | The [`PortalOptions`](#portaloptions) object to configure the portal. |
 
 ### dismissPortal
