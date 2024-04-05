@@ -15,9 +15,9 @@ This is a walkthrough on how to get a single Portal + web application setup. To 
 
 First have your web application ready. We will add some configuration to it and then get it setup in Appflow. At the end of this walkthrough:
 
-- the web application will be setup in Appflow
-- each new Android application build will pull the latest version of the web application from Appflow
-- the Android application will have a Portal setup pointing to the web application files.
+- The web application will be setup in Appflow.
+- Each new Android application build will pull the latest version of the web application from Appflow.
+- The Android application will have a Portal setup pointing to the web application files.
 
 ## 1. Create a capacitor config
 
@@ -33,9 +33,9 @@ Create a `capacitor.config.json` file to the root of your web project. We will n
 
 These configuration values are required for web applications added to Appflow.
 
-- `appId`, a unique id that you provide to your web application
-- `appName`
-- `webDir`, the directory where your compiled web code will be placed
+- `appId`: a unique id that you provide to your web application
+- `appName`: the name of your web application
+- `webDir`: the directory where your compiled web code will be placed
 
 :::note
 There are many options that you can provide to a Capacitor configuration file we will only need a few to get started. These options are defined in the [config schema](https://capacitorjs.com/docs/config#schema).
@@ -45,7 +45,7 @@ There are many options that you can provide to a Capacitor configuration file we
 
 Now that we have the application source configured we will need to add it to Appflow. Appflow can be used for deploying the web application into the Portal later using Live Updates.
 
-During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air Live update.
+During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air Live Update.
 
 ### Connect the repo
 
@@ -56,13 +56,13 @@ In the upper right hand corner you will be able to select `Import existing app`.
 <em><img src={useBaseUrl("/img/start-by-adding-an-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/start-by-adding-an-app.webp")} width="50%"/></em>
 <em><img src={useBaseUrl("/img/import-existing-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/import-existing-app.webp")} width="50%"/></em>
 
-- Provide an `App Name`. Most likely using the same you provided in the `capacitor.config.json` file in the previous step.
+- Provide an `App Name`. Most likely using the same you provided in the `capacitor.config.json` file in the previous step
 - `Capacitor`, as the mobile architecture
 - Choose your git host. In this example we have selected `Github`
 
 ### Web application builds
 
-After the app has been created you will want to go to the `Builds` page. This is where you will create new builds and see previous builds. Anytime you want to deploy a new version of the web application you will need to create a build from this screen or by using the Ionic Cloud CLI (which we will cover later).
+After the app has been created you will want to go to the `Builds` page. This is where you will create new builds and see previous builds. Anytime you want to deploy a new version of the web application you will need to create a build from this screen or by using the [Ionic Cloud CLI](https://ionic.io/docs/appflow/cli/overview).
 
 <em style={{
   textAlign: 'center',
@@ -92,11 +92,15 @@ When creating a new build there are a few values that we need to change on the i
 
 ## 3. Setup local dev environment
 
+### Install the Portals CLI
+
+Now that we have the web application all setup in Appflow and built we need to get our local environment set up to be able to pull it from Appflow.
+
+The first step in setting up our local environment is [installing the Portals CLI](../cli/overview.md) within your local dev environment. This CLI will allow us to interact with Appflow programmatically, so that we can pull the latest Build files when building the Native App. 
+
 ### Create a Personal Access Token
 
-Now that we have the web application all setup in Appflow and built we need to get our local environment setup to be able to pull it from Appflow.
-
-The first step in setting up our local environment is [generating a personal access token](https://dashboard.ionicframework.com/settings/personal-access-tokens).
+You will need to [generate a personal access token](https://dashboard.ionicframework.com/settings/personal-access-tokens) in order to pull down Build files using the Portals CLI.
 
 This is done from `Personal Settings` in the `Personal Access Token` tab.
 
@@ -113,31 +117,22 @@ Click the `Generate new token` button. While creating the token it is a best pra
 After the token is generated you will need to copy it to clipboard because it will be required for the next step. Usually the token follows the format of `ion_XXXXXXXXXXXXX`.
 :::
 
-### Create a cloud configuration file
+### Create a sync configuration file
 
-Now create a yaml configuration file in your native project. This file will be used to authenticate against Appflow for your cloud interactions. Place this file in the `app` directory for your project in the same location as your module level `build.gradle` file. It will be referenced by a build script in your native application.
+Now create a yaml configuration file in your native project. This file will be used to define the web application to download from Appflow, and where to place it, when running the `portals sync` command. Place this file in the `app` directory for your project in the same location as your module level `build.gradle` file. It will be referenced by a build script in your native application.
 
-```yaml title=.ionic-cloud.yaml
-TOKEN: ion_XXXXXXXXXXXXX
+
+```yaml title=".portals.yaml"
+sync:
+  - app-id: 11a0971f
+    channel: production
+    directory-name: src/main/assets/featured_products
+token: ion_XXXXXXXXXXXXX
 ```
 
-:::note
-Be sure to set this to ignore in your `.gitignore` [Learn more about the configuration file.](https://ionic.io/docs/appflow/cli/overview#authentication)
+### Sync Appflow at build time
 
-:::
-
-### Install the Ionic Cloud CLI
-
-Install the Ionic Cloud CLI within your local dev environment. This CLI will allow us to interact with Appflow programmatically. So that we can pull the latest Build files during native builds.
-(https://ionic.io/docs/appflow/cli/overview)
-
-```bash
-(export IONIC_CLOUD_VERSION=0.7.0; curl -sL https://ionic.io/get-ionic-cloud-cli | bash)
-```
-
-### Create web application download script
-
-The last step in setting up the local environment is adding a script to the project in Gradle so that it will download the latest web application build from Appflow every time the Android application is built.
+The last step in setting up the local environment is adding a script to the project in Gradle so that it will run the `portals sync` CLI command to download the latest web application build from Appflow every time the Android application is built.
 
 Open Android Studio and place the following script at the bottom of your module Gradle script.
 <em style={{
@@ -147,109 +142,19 @@ Open Android Studio and place the following script at the bottom of your module 
 <img src={useBaseUrl("/img/android-run-script-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/android-run-script.webp")} width="75%"/>
 </em>
 
-The scripts are slightly different depending on if you are building on a Windows or *nix based system.
 
-<Tabs
-defaultValue="nix"
-values={[
-{ label: 'MacOS/Linux', value: 'nix', },
-{ label: 'Windows', value: 'win', },
-]}>
-<TabItem value="nix">
+```groovy title="build.gradle"
+//Make the preBuild task depend on syncPortals so it runs every build
+preBuild.dependsOn 'syncPortals'
 
-```groovy title=build.gradle
-
-// ...
-
-// Make the preBuild task depend on getLiveUpdate so it runs every build
-preBuild.dependsOn 'getLiveUpdate'
-
-tasks.register('getLiveUpdate') {
+tasks.register('syncPortals') {
     doLast {
-        String appId = "0ee57266"
-        String channel = "PRODUCTION"
-        String portalName = "MY_FIRST_PORTAL"
-
-        String assetPath = rootDir.getPath() + '/app/src/main/assets/' + portalName
-        if (new File(assetPath).exists()) {
-            // If the web app already exists, replace with fresh download
-            project.exec {
-                commandLine 'rm', '-rf', assetPath
-            }
-            project.exec {
-                commandLine 'mkdir', '-p', assetPath
-            }
-        } else {
-            project.exec {
-                commandLine 'mkdir', '-p', assetPath
-            }
-        }
-
         project.exec {
-            commandLine 'ionic-cloud', 'live-update', 'download', '--config=.ionic-cloud.yaml', '--app-id', appId, '--channel-name', channel, '--zip-name', portalName + '.zip'
-        }
-        project.exec {
-            commandLine 'unzip', portalName + '.zip', '-d', assetPath
-        }
-        project.exec {
-            commandLine 'rm', portalName + '.zip'
+            commandLine 'portals', 'sync'
         }
     }
 }
 ```
-
-</TabItem>
-<TabItem value="win">
-
-```java title=build.gradle
-
-// ...
-
-// Make the preBuild task depend on getLiveUpdate so it runs every build
-preBuild.dependsOn 'getLiveUpdate'
-
-tasks.register('getLiveUpdate') {
-    doLast {
-        String appId = "0ee57266"
-        String channel = "PRODUCTION"
-        String portalName = "MY_FIRST_PORTAL"
-
-        String assetPath = rootDir.getPath() + '\\app\\src\\main\\assets\\' + portalName
-        if (new File(assetPath).exists()) {
-            // If the web app already exists, replace with fresh download
-            project.exec {
-                commandLine 'cmd', '/c', 'rm', '-r', assetPath
-            }
-            project.exec {
-                commandLine 'cmd', '/c', 'mkdir', assetPath
-            }
-        } else {
-            project.exec {
-                commandLine 'cmd', '/c', 'mkdir', assetPath
-            }
-        }
-
-        project.exec {
-            commandLine 'cmd', '/c', 'ionic-cloud', 'live-update', 'download', '--config=".ionic-cloud.yaml"', '--app-id', appId, '--channel-name', channel, '--zip-name', portalName + '.zip'
-        }
-        project.exec {
-            commandLine 'cmd', '/c', 'unzip', portalName + '.zip', '-d', assetPath
-        }
-        project.exec {
-            commandLine 'cmd', '/c', 'rm', portalName + '.zip'
-        }
-    }
-}
-```
-
-</TabItem>
-</Tabs>
-
-There are a few variables that you will need to setup at the beginning of script.
-
-- `APP_ID` - Web application id from Appflow
-- `CHANNEL` - Live update distribution channel.
-- `PORTAL_NAME` - Choose a name for the portal, no spaces.
 
 ## 4. Setup Portals in your Android App
 

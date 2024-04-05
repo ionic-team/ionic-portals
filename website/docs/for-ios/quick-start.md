@@ -45,7 +45,7 @@ There are many options that you can provide to a Capacitor configuration file we
 
 Now that we have the application source configured we will need to add it to Appflow. Appflow can be used for deploying the web application into the Portal later using Live Updates.
 
-During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air Live update.
+During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air Live Update.
 
 ### Connect the repo
 
@@ -123,10 +123,10 @@ Now create a yaml configuration file in your native project. This file will be u
 
 ```yaml title=".portals.yaml"
 sync:
-  - app-id: # your app-id
+  - app-id: 11a0971f
     channel: production
     directory-name: featured_products
-token: # your Personal Access Token
+token: ion_XXXXXXXXXXXXX
 ```
 
 ### Sync Appflow at build time
