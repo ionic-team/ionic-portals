@@ -2,14 +2,14 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Presentation Types
 
-The `presentationType` option within the `PortalOptions` interface allows you to specify how the microapp will be presented to users. This section of the documentation provides an example of the available presentation types.
+The `type` option within the `MicroappOptions` interface allows you to specify how the microapp will be presented to users. This section of the documentation provides an example of the available presentation types.
 
 ## Push
 
 ```typescript
-const portalOptions: PortalOptions = {
-  name: 'Portal Name';
-  presentationType: 'push';
+const microappOptions: MicroappOptions = {
+  name: 'Microapp Name';
+  type: 'push';
 }
 ```
 
@@ -27,9 +27,9 @@ const portalOptions: PortalOptions = {
 ### FullScreen
 
 ```typescript
-const portalOptions: PortalOptions = {
-  name: 'Portal Name';
-  presentationType: 'modal';
+const microappOptions: MicroappOptions = {
+  name: 'Microapp Name';
+  type: 'modal';
   modalStyle: 'fullScreen';
 }
 ```
@@ -46,9 +46,9 @@ const portalOptions: PortalOptions = {
 ### PageSheet
 
 ```typescript
-const portalOptions: PortalOptions = {
-  name: 'Portal Name';
-  presentationType: 'modal';
+const microappOptions: MicroappOptions = {
+  name: 'Microapp Name';
+  type: 'modal';
   modalStyle: 'pageSheet';
 }
 ```

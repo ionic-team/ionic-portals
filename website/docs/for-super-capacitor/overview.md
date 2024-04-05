@@ -11,25 +11,25 @@ npx cap sync
 
 ## Types
 
-### PortalOptions
+### MicroappOptions
 
-The options for configuring your portal when using [`presentPortal`](#presentportal).
+The options for configuring your microapp when using [`presentMicroapp`](#presentmicroapp).
 
 ```typescript
-interface PortalOptions {
+interface MicroappOptions {
   name: string;
-  presentationType: 'push' | 'modal';
+  type: 'push' | 'modal';
+  modalStyle?: 'fullScreen' | 'pageSheet';
   startDir?: string;
   initialContext?: InitialContext;
   plugins?: CapacitorPlugin[];
   liveUpdateConfig?: LiveUpdateConfig;
-  modalStyle?: 'fullScreen' | 'pageSheet';
 }
 ```
 
 ### CapacitorPlugin
 
-If you need to use any Capacitor plugins, the classpath of the Android plugins and the Objective-C class name will have to be provided to [`PortalOptions`](#portaloptions) in the `plugins` property.
+If you need to use any Capacitor plugins, the classpath of the Android plugins and the Objective-C class name will have to be provided to [`MicroappOptions`](#microappoptions) in the `plugins` property.
 
 ```typescript
 interface CapacitorPlugin {
@@ -45,39 +45,47 @@ interface CapacitorPlugin {
 
 ## Methods
 
-- [`presentPortal(options: PortalOptions)`](#presentportal)
-- [`dismissPortal()`](#dismissportal)
+- [`presentMicroapp(options: MicroappOptions)`](#presentmicroapp)
+- [`dismissMicroapp()`](#dismissmicroapp)
 
-### presentPortal
+### presentMicroapp
 
 ```typescript
-presentPortal(options: PortalOptions) => Promise<void>
+presentMicroapp(options: MicroappOptions) => Promise<void>
 ```
 
 #### Usage
 
 ```typescript
-import { presentPortal } from '@ionic-enterprise/super-capacitor/superapp';
+import { presentMicroapp } from '@ionic-enterprise/super-capacitor/superapp';
 
-presentPortal({ name: 'checkoutApp', startDir: 'portals/checkout', type: 'push' });
+presentMicroapp({
+  name: 'checkoutApp',
+  startDir: 'microapps/checkout',
+  type: 'push',
+});
 ```
+
+> **_NOTE:_** A Typescript module resolution Node16, NodeNext, or Bundler is required to recognize Super Capacitor's use of subpath exports.
 
 #### Parameters
 
-| Name      | Type                              | Description                                                           |
-| --------- | --------------------------------- | --------------------------------------------------------------------- |
-| `options` | [`PortalOptions`](#portaloptions) | The [`PortalOptions`](#portaloptions) object to configure the portal. |
+| Name      | Type                                  | Description                                                                 |
+| --------- | ------------------------------------- | --------------------------------------------------------------------------- |
+| `options` | [`MicroappOptions`](#microappoptions) | The [`MicroappOptions`](#microappoptions) object to configure the microapp. |
 
-### dismissPortal
+### dismissMicroapp
 
 ```typescript
-dismissPortal() => Promise<void>
+dismissMicroapp() => Promise<void>
 ```
 
 #### Usage
 
 ```typescript
-import { dismissPortal } from '@ionic-enterprise/super-capacitor/miniapp';
+import { dismissMicroapp } from '@ionic-enterprise/super-capacitor/microapp';
 
-dismissPortal();
+dismissMicroapp();
 ```
+
+> **_NOTE:_** A Typescript module resolution Node16, NodeNext, or Bundler is required to recognize Super Capacitor's use of subpath exports.

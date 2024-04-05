@@ -2,7 +2,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 
 # Embedding a Root Navigation Controller in Swift Using Storyboard
 
-By default, Capacitor apps are embedded in a `CAPBridgeViewController`. To utilize the "push" type for presenting portals, it is necessary to embed the app within a navigation controller.
+By default, Capacitor apps are embedded in a `CAPBridgeViewController`. To utilize the "push" type for presenting microapps, it is necessary to embed the app within a navigation controller.
 
 ## Step 1: Open the Main Storyboard
 
