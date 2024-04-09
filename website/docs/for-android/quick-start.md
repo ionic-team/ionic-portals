@@ -121,14 +121,34 @@ After the token is generated you will need to copy it to clipboard because it wi
 
 Now create a yaml configuration file in your native project. This file will be used to define the web application to download from Appflow, and where to place it, when running the `portals sync` command. Place this file in the `app` directory for your project in the same location as your module level `build.gradle` file. It will be referenced by a build script in your native application.
 
+The file will slightly differ depending on a Windows or *nix-based system.
 
-```yaml title=".portals.yaml"
-sync:
-  - app-id: 11a0971f
-    channel: production
-    directory-name: src/main/assets/featured_products
-token: ion_XXXXXXXXXXXXX
-```
+<Tabs>
+  <TabItem value="MacOS/Linux">
+
+    ```yaml title=".portals.yaml"
+    sync:
+      - app-id: 11a0971f
+        channel: production
+        directory-name: src/main/assets/featured_products
+    token: ion_XXXXXXXXXXXXX
+    ```
+
+  </TabItem>
+    <TabItem value="Windows">
+
+    ```yaml title=".portals.yaml"
+    sync:
+      - app-id: 11a0971f
+        channel: production
+        directory-name: src\\main\\assets\\featured_products
+    token: ion_XXXXXXXXXXXXX
+    ```
+
+  </TabItem>
+</Tabs>
+
+
 
 ### Sync Appflow at build time
 
