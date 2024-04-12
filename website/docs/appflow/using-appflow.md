@@ -71,7 +71,7 @@ The apps in the configuration file are uniquely identified using their Appflow a
 
 ### Customizing the dependency install command
 
-By default, Appflow will use either `npm ci` or `yarn --frozen-lockfile` if the relevent lockfile (either `package-lock.json` or `yarn.lock`) is present in the repository. Otherwise, Appflow will fall back to `npm install` or `yarn` respectively.
+By default, Appflow will use either `npm ci` or `yarn --frozen-lockfile` if the relevant lockfile (either `package-lock.json` or `yarn.lock`) is present in the repository. Otherwise, Appflow will fall back to `npm install` or `yarn` respectively.
 
 You can customize the command used by providing the `dependencyInstallCommand` property for your app. In the example below, we are installing project-level dependencies and `cd`-ing two directories up and installing the root-level dependencies. This workflow is particularly useful for monorepos but can be used independenly if needed.
 
@@ -142,7 +142,7 @@ To add these to your app, simply define them in your `package.json`.
   "scripts": {
     ...
     "preinstall": "echo \"Executing before npm ci/install...\"",
-    "preinstall": "echo \"Executing after npm ci/install...\"",
+    "postinstall": "echo \"Executing after npm ci/install...\"",
     "prebuild": "echo \"Executing before npm run build...\"",
     "postbuild": "echo \"Executing after npm run build...\"",
     ...

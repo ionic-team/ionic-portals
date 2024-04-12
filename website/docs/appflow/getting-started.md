@@ -11,6 +11,8 @@ Appflow is the tool used to build and distribute your web bundles across your te
 
 You can login to Appflow [here](https://ionic.io/login), either using your email address or an org slug if one has been provided to you. 
 
+When going through this tutorial, it will be beneficial to keep in mind the structure of your organizaton and how the responsibilities will differ between teams. In an organization with web and native developers, the web developers will be responsible for setting up the apps in Appflow and performing web builds/deployments, while the native developers will be responsible for configuring the Live Updates SDK and using the Portals CLI to pull down the appropriate web bundles during build time.
+
 ## Accessing the debug project
 
 We will be using the [portals-debug-app](https://github.com/ionic-team/portals-debug-app) repository for the purpose of this tutorial, however Appflow will support any web app that can be compiled with npm or yarn.
