@@ -3,9 +3,15 @@ title: Getting Started
 sidebar_label: Getting Started
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Getting Started
 
-Appflow is the tool used to build and distribute your web bundles across your team and deploy Live Updates to your end users. You can login to Appflow [here](https://ionic.io/login), either using your email address or an org slug if one has been provided to you. 
+Appflow is the tool used to build and distribute your web bundles across your team and deploy Live Updates to your end users. 
+
+You can login to Appflow [here](https://ionic.io/login), either using your email address or an org slug if one has been provided to you. 
+
+## Accessing the debug project
 
 We will be using the [portals-debug-app](https://github.com/ionic-team/portals-debug-app) repository for the purpose of this tutorial, however Appflow will support any web app that can be compiled with npm or yarn.
 
@@ -26,18 +32,36 @@ Our demo project already contains a `capacitor.config.ts` file which gets compil
 
 After the app has been made available in a git repository, you can create a new app in Appflow. Navigate to the **Apps** page in Appflow and select **New app** in the top right. From the drop down, select **Import app**.
 
-![New app](/img/start-by-adding-an-app.webp)
+<em style={{ textAlign: 'center', display: 'block'}}>
+  <img 
+    src={useBaseUrl("/img/start-by-adding-an-app.webp")} 
+    data-zoom-src={useBaseUrl("/img/start-by-adding-an-app.webp")} 
+    width="100%"
+  />
+</em>
 
 On the **Import existing app** screen, select **Capacitor** as the mobile architecture and link the appropriate repository. The app name you provide is only used to identify the app in Appflow, so you may use whichever name makes sense for you.
 
-![Import app](/img/import-existing-app.webp)
+<em style={{ textAlign: 'center', display: 'block'}}>
+  <img 
+    src={useBaseUrl("/img/import-existing-app.webp")} 
+    data-zoom-src={useBaseUrl("/img/import-existing-app.webp")} 
+    width="100%"
+  />
+</em>
 
 
 ## Performing a new build
 
 After the app has been created, you can navigate to the **Builds** page to perform a build. Anytime you want to deploy a new version of the web application, you will need to create a build from this screen or by using the Appflow CLI (which will be covered later).
 
-![Builds](/img/builds-screen.webp)
+<em style={{ textAlign: 'center', display: 'block'}}>
+  <img 
+    src={useBaseUrl("/img/builds-screen.webp")} 
+    data-zoom-src={useBaseUrl("/img/builds-screen.webp")} 
+    width="100%"
+  />
+</em>
 
 :::tip
 Also in the top left corner of these screens you will see the Appflow App id. In this case it is `11a0971f`. This id will be used when we configure the native application.
@@ -47,9 +71,21 @@ After the application has been added to Appflow you will need to create your fir
 
 This can be done by clicking the **New Build** button on the **Builds** page. Then you will choose the appropriate commit to create the build from.
 
-![Commits](/img/create-a-new-build.webp)
+<em style={{ textAlign: 'center', display: 'block'}}>
+  <img 
+    src={useBaseUrl("/img/create-a-new-build.webp")} 
+    data-zoom-src={useBaseUrl("/img/create-a-new-build.webp")} 
+    width="100%"
+  />
+</em>
 
-![Builds menu](/img/create-a-new-build-selected.webp)
+<em style={{ textAlign: 'center', display: 'block'}}>
+  <img 
+    src={useBaseUrl("/img/create-a-new-build-selected.webp")} 
+    data-zoom-src={useBaseUrl("/img/create-a-new-build-selected.webp")} 
+    width="100%"
+  />
+</em>
 
 When creating a new build, Appflow will present a few configuration options.
 - **Target platform** should be **Web**.
@@ -72,7 +108,13 @@ Begin by following the [installation instructions](../cli/overview.md#installati
 
 The CLI needs a means to authenticate with Appflow. To do this, we can create a Personal Access Token from the [Personal Settings menu](https://dashboard.ionicframework.com/settings/personal-access-tokens). Click the **Generate new token** button and optionally provide an expiration date for the token.
 
-![Personal access token](/img/personal-access-token.webp)
+<em style={{ textAlign: 'center', display: 'block'}}>
+  <img 
+    src={useBaseUrl("/img/personal-access-token.webp")} 
+    data-zoom-src={useBaseUrl("/img/personal-access-token.webp")} 
+    width="100%"
+  />
+</em>
 
 :::tip
 After the token is generated you will need to copy it to clipboard because it will be required for the next step. The token follows the format of `ion_XXXXXXXXXXXXX`.
@@ -97,7 +139,8 @@ With this configuration in place, we can run `portals sync` from our terminal to
 The Portals CLI can used both in development as well as your build pipeline. For more information on the CLI and its features, see the [CLI documentation](../cli/overview.md).
 
 
-## Configuring the Live Updates SDK
+## Configuring the Live Updates SDK (for native developers)
+
 Live Updates are not only useful for distributing your bundles during development & build time. They can also be used to distribute new web content directly to your users. Installing the Live Update SDK allows your app to download the most recently deployed web bundle from a specified channel at runtime. The downloaded version will be rendered in place of the version packaged at build time. 
 
 To install the iOS SDK, see our [iOS documentation](../for-ios/live-updates.md).

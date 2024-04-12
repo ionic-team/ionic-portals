@@ -223,6 +223,7 @@ module.exports = {
       collapsed: true,
       items: [
         "appflow/getting-started",
+        "appflow/using-appflow",
       ],
     },
     {
