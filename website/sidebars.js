@@ -222,8 +222,23 @@ module.exports = {
       label: "Appflow",
       collapsed: true,
       items: [
-        "appflow/getting-started",
-        "appflow/using-appflow",
+        {
+          type: "category",
+          label: "Native",
+          collapsed: true,
+          items: [
+            "appflow/native/getting-started",
+          ]
+        },
+        {
+          type: "category",
+          label: "Web",
+          collapsed: true,
+          items: [
+            "appflow/web/getting-started",
+            "appflow/web/using-appflow",
+          ]
+        }
       ],
     },
     {

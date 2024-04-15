@@ -1,6 +1,6 @@
 ---
-title: Using Appflow To Build Your Web Project
-sidebar_label: Using Appflow To Build Your Web Project
+title: Build Customizations
+sidebar_label: Build Customizations
 ---
 
 In the previous tutorial, we used a demo web app to understand the basics of Appflow. This guide will serve as a rough overview of the features Appflow offers for building your web apps. This information will primarily be relevant to web development teams who are building their web apps in Appflow.
