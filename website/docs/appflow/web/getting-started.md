@@ -30,7 +30,7 @@ If you are using your own web app rather than the demo project, then you should 
 
 Our demo project already contains a `capacitor.config.ts` file which gets compiled to a json file during the build process, so adding one to the debug project is not necessary.
 
-## Creating a new app
+## Creating a new Appflow app
 
 After the app has been made available in a git repository, you can create a new app in Appflow. Navigate to the **Apps** page in Appflow and select **New app** in the top right. From the drop down, select **Import app**.
 
@@ -66,7 +66,7 @@ After the app has been created, you can navigate to the **Builds** page to perfo
 </em>
 
 :::tip
-Also in the top left corner of these screens you will see the Appflow App id. In this case it is `11a0971f`. This id will be used when we configure the native application.
+Also in the top left corner of these screens you will see the Appflow app ID. In this case it is `11a0971f`. This id will be used when we configure the native application.
 :::
 
 After the application has been added to Appflow you will need to create your first build so that it is available to seed the Portal in the Native App.
