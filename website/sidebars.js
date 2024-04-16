@@ -219,6 +219,30 @@ module.exports = {
     },
     {
       type: "category",
+      label: "Appflow",
+      collapsed: true,
+      items: [
+        {
+          type: "category",
+          label: "Native",
+          collapsed: true,
+          items: [
+            "appflow/native/getting-started",
+          ]
+        },
+        {
+          type: "category",
+          label: "Web",
+          collapsed: true,
+          items: [
+            "appflow/web/getting-started",
+            "appflow/web/using-appflow",
+          ]
+        }
+      ],
+    },
+    {
+      type: "category",
       className: "bottom-item",
       label: "Portals CLI",
       collapsed: true,
