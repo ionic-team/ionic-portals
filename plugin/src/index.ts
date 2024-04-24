@@ -1,14 +1,47 @@
-import { Capacitor, registerPlugin } from '@capacitor/core';
+import { Capacitor, WebPlugin, registerPlugin } from '@capacitor/core';
 import type { PluginListenerHandle } from '@capacitor/core';
 
-import type {
-  InitialContext,
-  PortalMessage,
-  PortalsPlugin,
-} from './definitions';
+/**
+ *
+ * A type definining the `InitialContext` from the native application that you can pass into your web application.
+ */
+export interface InitialContext<T = unknown> {
+  name: string;
+  value?: T;
+  assets?: {
+    [key: string]: string;
+  };
+}
+
+/**
+ * A message that you can publish to a topic using Portals.publish()
+ */
+export interface PortalMessage<TData = any> {
+  topic: string;
+  data?: TData;
+}
+
+interface PortalsPlugin {
+  publishNative<TMessage extends PortalMessage>(
+    message: TMessage,
+  ): Promise<void>;
+  addListener<T = unknown>(
+    eventName: string,
+    listenerFunc: (result: PortalMessage<T>) => void,
+  ): Promise<PluginListenerHandle>
+}
+
+class PortalsWeb extends WebPlugin implements PortalsPlugin {
+  async publishNative(_message: PortalMessage): Promise<void> {
+    return Promise.resolve();
+  }
+  addListener<T = unknown>(_eventName: string, _listenerFunc: (result: PortalMessage<T>) => void): Promise<PluginListenerHandle> {
+    return Promise.reject('Method not implemented on web.')
+  }
+}
 
 const Portals = registerPlugin<PortalsPlugin>('Portals', {
-  web: () => import('./web').then(m => new m.PortalsWeb()),
+  web: () => new PortalsWeb(),
 });
 
 /**
@@ -40,5 +73,3 @@ export function publish<TMessage extends PortalMessage>(
 ): Promise<void> {
   return Portals.publishNative(message);
 }
-
-export * from './definitions';
