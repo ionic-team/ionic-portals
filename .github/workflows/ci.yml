@@ -48,7 +48,7 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.OS }}-dependency-cache-${{ hashFiles('**/package.json') }}
-      - run: npm ci
+      - run: npm install
         working-directory: plugin
       - run: npm run build
         working-directory: plugin
