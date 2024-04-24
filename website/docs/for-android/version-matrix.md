@@ -34,11 +34,11 @@ The following example will use the version of the Capacitor dependency included 
 
 ```groovy
 dependencies {
-  implementation('io.ionic:portals:0.8.0') {
+  implementation('io.ionic:portals:0.10.0') {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
-  implementation 'com.capacitorjs:camera:5.0.7'
+  implementation 'com.capacitorjs:camera:6.0.0'
 }
 ```
 
@@ -46,15 +46,15 @@ The following example will use the version of the Capacitor dependency specififi
 
 ```groovy
 dependencies {
-  implementation('io.ionic:portals:0.8.0') {
+  implementation('io.ionic:portals:0.10.0') {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
-  implementation('com.capacitorjs:camera:5.0.7') {
+  implementation('com.capacitorjs:camera:6.0.0') {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
-  implementation 'com.capacitorjs:core:5.5.0'
+  implementation 'com.capacitorjs:core:6.0.0'
 }
 ```
 
@@ -66,7 +66,7 @@ For more information refer to the Gradle documentation pages:
 
 | Android SDK | Web Plugin Version | Compiled Capacitor Version | Compatible Capacitor Versions | Compatible Live Updates Versions | Portals CLI |
 | :----:      | :----:             | :----:                     | :----:                        | :----:                           | :----:      |
-| xxxxx       | xxxxx              | 6.0.+                      | 6.0.0                         | 0.5.+                            | 0.3.0       |
+| 0.10.0      | xxxxx              | 6.0.+                      | 6.0.+                         | 0.5.+                            | 0.3.0       |
 | 0.9.0       | 0.9.0              | 5.7.+                      | 5.0.3 - 5.7.2                 | 0.5.+                            | 0.3.0       |
 | 0.8.4       | 0.9.0              | 5.7.+                      | 5.0.3 - 5.7.2                 | 0.5.+                            | -           |
 | 0.8.3       | 0.8.1              | 5.5.+                      | 5.0.3 - 5.7.2                 | 0.0.5 - 0.4.1                    | -           |
