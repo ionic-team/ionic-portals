@@ -14,7 +14,7 @@ import TabItem from '@theme/TabItem';
 Portals 0.11.0 is a notable update that upgrades the Capacitor dependency to version 6. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
 :::
 
-First review the [Capacitor 6 Update Guide](https://capacitorjs.com/docs/updating/6-0#android) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
+First review the [Capacitor 6 Update Guide](https://capacitorjs.com/docs/updating/6-0#ios) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
 
 ## Portals for iOS 0.9.x → 0.10.0
 
