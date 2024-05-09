@@ -3,6 +3,11 @@ title: Upgrade Guides
 sidebar_label: Upgrade Guides
 ---
 
+## @ionic-enterprise/federated-capacitor 0.1.7
+
+### Differential Support
+Differential Live Update support has been added with this release. See the [Live Updates](live-updates) documentation for more information on how to configure this feature.
+
 ## @ionic-enterprise/federated-capacitor 0.1.0
 
 'Portals for Capacitor' has been rebranded as 'Federated Capacitor'. This has come with
