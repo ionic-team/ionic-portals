@@ -62,7 +62,7 @@ To add Portals to your web project, install it via NPM:
 {`npm install @ionic/portals@${getPortalsVersion()}`}
 </CodeBlock>
 
-If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix) page.
+If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix.md) page.
 
 ## Configure
 

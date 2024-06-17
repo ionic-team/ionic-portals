@@ -23,7 +23,7 @@ interface InitialContext<T = unknown> {
 
 ### PortalMessage
 
-A message that you can publish to a topic using [publish](./portals-plugin#publish).
+A message that you can publish to a topic using [publish](./portals-plugin.md#publish).
 
 ```typescript
 interface PortalMessage<TData = any> {
@@ -34,7 +34,7 @@ interface PortalMessage<TData = any> {
 
 ### PortalSubscription
 
-The subscription created when running [subscribe](./portals-plugin#subscribe).
+The subscription created when running [subscribe](./portals-plugin.md#subscribe).
 
 ```typescript
 interface PortalSubscription {
@@ -45,7 +45,7 @@ interface PortalSubscription {
 
 ### SubscriptionCallback
 
-The type definition from the callback running [subscribe](./portals-plugin#subscribe).
+The type definition from the callback running [subscribe](./portals-plugin.md#subscribe).
 
 ```typescript
 type SubscriptionCallback<T = unknown> = (result: {
@@ -78,7 +78,7 @@ publish<Messages>({ topic: "modal:dismiss", data: "cancel" });
 
 | Name      | Type                                            | Description                                                                               |
 | :-------- | :---------------------------------------------- | :---------------------------------------------------------------------------------------- |
-| `message` | [PortalMessage](./portals-plugin#portalmessage) | The [PortalMessage](./portals-plugin#portalmessage) object to publish to the native code. |
+| `message` | [PortalMessage](./portals-plugin.md#portalmessage) | The [PortalMessage](./portals-plugin.md#portalmessage) object to publish to the native code. |
 
 ### subscribe
 
@@ -100,13 +100,13 @@ const handle = await subscribe(topic, (message) => {
 | Name       | Type                                                          | Description                                                  |
 | :--------- | :------------------------------------------------------------ | :----------------------------------------------------------- |
 | `topic`  | `string`             | The options to pass along to define the Portal subscription. |
-| `callback` | [SubscriptionCallback](./portals-plugin#subscriptioncallback) | The callback to trigger whenever a topic is published to.    |
+| `callback` | [SubscriptionCallback](./portals-plugin.md#subscriptioncallback) | The callback to trigger whenever a topic is published to.    |
 
 **Returns:** <span class="return-code">Promise&lt;PluginListenerHandle&gt;</span> A listener handle that provides a `remove` method to unsubscribe from the event.
 
 ### getInitialContext
 
-Gets the [InitialContext](./portals-plugin#initialcontext) of the Portal that was passed in from the native code.
+Gets the [InitialContext](./portals-plugin.md#initialcontext) of the Portal that was passed in from the native code.
 
 #### Usage
 
@@ -134,4 +134,4 @@ ReactDOM.render(
 );
 ```
 
-**Returns:** <span class="return-code">_T | undefined_</span> The [InitialContext](./portals-plugin#initialcontext) value or `undefined` if it was not assigned.
+**Returns:** <span class="return-code">_T | undefined_</span> The [InitialContext](./portals-plugin.md#initialcontext) value or `undefined` if it was not assigned.

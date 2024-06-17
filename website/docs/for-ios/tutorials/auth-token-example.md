@@ -39,9 +39,9 @@ const auth = getInitialContext<MyPortalContext>()?.value?.auth;
 
 ### Using a Custom Plugin
 
-Another solution you can do is to create a custom Plugin to handle passing data to and from native and web. This is the solution we used in [the example E-commerce Application](../examples/ecommerce-app) since it scales nicely and allows more than just authentication data be passed to and from the layers.
+Another solution you can do is to create a custom Plugin to handle passing data to and from native and web. This is the solution we used in [the example E-commerce Application](../examples/ecommerce-app.md) since it scales nicely and allows more than just authentication data be passed to and from the layers.
 
-For information on how to build your own Portal APIs, [see our how-to guide](../how-to/define-api-in-typescript).
+For information on how to build your own Portal APIs, [see our how-to guide](../how-to/define-api-in-typescript.md).
 
 ## How to Pass Data From Web to Native
 
@@ -76,10 +76,10 @@ let cancellable = PortalsPubSub.shared.subscribe(to: "login") { result in
 }
 ```
 
-For more information on how to communicate with a Portal web application, [see our how to guide](../how-to/using-the-portals-plugin).
+For more information on how to communicate with a Portal web application, [see our how to guide](../how-to/using-the-portals-plugin.md).
 
 ### Using a Custom Plugin
 
 Similar to the previous section, by creating a custom plugin, you have complete control over how to communicate between web and native layers. It is possible to create a function such as `MyPlugin.syncAuthAcrossWebAndNative()` to handle managing auth tokens across web and native.
 
-For information on how to build your own Portal APIs, [see our how-to guide](../how-to/define-api-in-typescript).
+For information on how to build your own Portal APIs, [see our how-to guide](../how-to/define-api-in-typescript.md).

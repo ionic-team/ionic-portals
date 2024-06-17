@@ -77,7 +77,7 @@ let portal = Portal(name: "foo")
 
 
 The Portal constructor defaults the `pluginRegistrationMode` to `PluginRegistrationMode.automatic`.
-If you want all plugins to be automatically registered, then leaving the default should suffice. However if you have any plugins that inherit from `CAPInstancePlugin` (see [Defining your own Portal APIs](./define-api-in-typescript)) that need to be registered, all plugins will need to be manually registered.
+If you want all plugins to be automatically registered, then leaving the default should suffice. However if you have any plugins that inherit from `CAPInstancePlugin` (see [Defining your own Portal APIs](./define-api-in-typescript.md)) that need to be registered, all plugins will need to be manually registered.
 
 
 ### Published Plugins

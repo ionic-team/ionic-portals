@@ -49,4 +49,4 @@ Now, the _"Maps & Geolocation"_ Portal will read from the `maps` directory in yo
 
 ## Project Structure
 
-In your project, you'll need to setup multiple folders in your Assets directory if your web applications are discrete apps. For more information on how to setup web bundles in your native project, see [our how-to guide](./pull-in-web-bundle).
+In your project, you'll need to setup multiple folders in your Assets directory if your web applications are discrete apps. For more information on how to setup web bundles in your native project, see [our how-to guide](./pull-in-web-bundle.md).

@@ -26,10 +26,10 @@ Later in these docs this key will be referred to as `YOUR_PORTALS_KEY`.
 
 From here, continue on to configuring the key in your Portals application.
 
-- [Getting Started Guide iOS](./for-ios/quick-start)
-- [Getting Started Guide Android](./for-android/guide)
-- [Getting Started Guide React Native](./for-react-native/guide)
-- [Federated Capacitor](./for-capacitor/overview)
+- [Getting Started Guide iOS](./for-ios/quick-start.md)
+- [Getting Started Guide Android](./for-android/guide.md)
+- [Getting Started Guide React Native](./for-react-native/guide.md)
+- [Federated Capacitor](./for-capacitor/overview.md)
 
 :::note
 You only need to register for a product key once for each organization you belong to. You can return to the Portals Key section of the Ionic Dashboard to retrieve your key at any time.
