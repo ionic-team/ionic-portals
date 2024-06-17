@@ -38,23 +38,23 @@ Affected methods:
 
 ##### Capacitor Plugins
 
-Capacitor Plugin registration now requires including the iOS Objective-C class name. See [How to Use a Capacitor Plugin](../for-react-native/how-to/using-a-capacitor-plugin#react-native-usage) for the updated API requirements
+Capacitor Plugin registration now requires including the iOS Objective-C class name. See [How to Use a Capacitor Plugin](../for-react-native/how-to/using-a-capacitor-plugin.md#react-native-usage) for the updated API requirements
 
 #### New
 
 ##### Shared Assets
 
 You can now share assets between portals by exposing a location on the
-device to pull assets from. See [Sharing Assets](../for-react-native/how-to/sharing-assets) for more information.
+device to pull assets from. See [Sharing Assets](../for-react-native/how-to/sharing-assets.md) for more information.
 
 ##### Web Vitals
 
 It is now possible to measure a number of web vitals metrics from your
-portals in React Native. See [Web Vitals](../for-web/web-vitals#react-native) for more information.
+portals in React Native. See [Web Vitals](../for-web/web-vitals.md#react-native) for more information.
 
 ## Portals for React Native 0.2.0 → 0.3.0
 
-The iOS, Android, and web libraries have all been updated to depend on Capacitor 4. There are no React Native specific code changes needed to adopt these features. However, it will be necessary to follow the [iOS](../for-ios/upgrade-guides#ionicportals-06x---070) and [Android](../for-android/upgrade-guides#ionicportals-06x---070) upgrade guides to ensure a successful migration.
+The iOS, Android, and web libraries have all been updated to depend on Capacitor 4. There are no React Native specific code changes needed to adopt these features. However, it will be necessary to follow the [iOS](../for-ios/upgrade-guides.md#portals-for-ios-06x--070) and [Android](../for-android/upgrade-guides.md#portals-for-android-06x--070) upgrade guides to ensure a successful migration.
 
 ## Portals for React Native 0.1.x → 0.2.0
 
@@ -120,7 +120,7 @@ The props on `PortalView` have changed from having individual props of `name` an
 Before:
 
 ```javascript
-<PortalView name="foo" initialContext={{ bar: "baz" }} />
+<PortalView name="foo" initialContext={{ bar: 'baz' }} />
 ```
 
 After:
@@ -128,9 +128,9 @@ After:
 ```javascript
 <PortalView
   portal={{
-    name: "foo",
+    name: 'foo',
     initialContext: {
-      bar: "baz",
+      bar: 'baz',
     },
   }}
 />

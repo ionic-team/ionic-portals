@@ -5,7 +5,7 @@ sidebar_label: Live Updates E-commerce App
 
 ## Overview
 
-The Ionic Team has enhanced the E-commerce demo application to demonstrate how to use Live Updates in an app using Portals. The Android application uses Fragments while the iOS application uses Storyboard/ViewController based views. For more information about the demo app, see our [Portals E-commerce demo page](./ecommerce-app).
+The Ionic Team has enhanced the E-commerce demo application to demonstrate how to use Live Updates in an app using Portals. The Android application uses Fragments while the iOS application uses Storyboard/ViewController based views. For more information about the demo app, see our [Portals E-commerce demo page](./ecommerce-app.md).
 
 Below is a list of which portions of the app are native and which portions of the app are portals.
 

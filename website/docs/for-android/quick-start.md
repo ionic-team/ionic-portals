@@ -337,7 +337,7 @@ After creating a custom Application class, be sure to add the `android:name` att
 
 ### Create the first Portal
 
-After registering via the [PortalManager.register()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) function, you can create Portals. This Quick Start guide shows how to use Portals directly in an XML layout, but there are also [other ways to do this](./getting-started#using-a-portal-in-code). 
+After registering via the [PortalManager.register()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) function, you can create Portals. This Quick Start guide shows how to use Portals directly in an XML layout, but there are also [other ways to do this](./getting-started.md#using-a-portal-in-code). 
 
 Use the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) to quickly create a [Portal](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal/index.html) and link it to an XML layout.
 

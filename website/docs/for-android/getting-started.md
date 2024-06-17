@@ -6,7 +6,7 @@ sidebar_label: Using Portals in Android
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once you [obtain an API key](./guide#signup) and [install Ionic Portals](./guide#install), you can start creating Portals for your application.
+Once you [obtain an API key](./guide.md#signup) and [install Ionic Portals](./guide.md#install), you can start creating Portals for your application.
 
 ## Creating a Custom Application Class
 
@@ -74,7 +74,7 @@ After creating a custom Application class, be sure to add the `android:name` att
 
 ## Creating a Portal via PortalManager
 
-The [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) provides convenience functions to handle the storing and retrieving of information about Portals used in your app. When using it, we recommend creating your portals in the custom `Application` class in the same place where Portals is registered so that all the required information for Portals to function is available immediately to the SDK every time the app is launched. If you prefer to have more granular control over the creation and storing of Portals data, and where it occurs in your app, we recommend creating Portals using the [PortalBuilder](./getting-started#creating-a-portal-via-portalbuilder).
+The [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) provides convenience functions to handle the storing and retrieving of information about Portals used in your app. When using it, we recommend creating your portals in the custom `Application` class in the same place where Portals is registered so that all the required information for Portals to function is available immediately to the SDK every time the app is launched. If you prefer to have more granular control over the creation and storing of Portals data, and where it occurs in your app, we recommend creating Portals using the [PortalBuilder](./getting-started.md#creating-a-portal-via-portalbuilder).
 
 After registering via the [PortalManager.register()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) function, you can create Portals. Use the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) to quickly create a [Portal](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) and link it to an XML layout.
 
@@ -380,4 +380,4 @@ android {
 
 Now that your Portal is successfully registered, created, and linked, you need to add the web assets to your application. The web code lives in folders under `src/main/assets`. You can use either many web applications or one "Single Page Application" (SPA) and dynamically link to the route you want to use. By default, the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) will look in the folder named the same as the `portalId` used. You can use the [setStartDir()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-builder/index.html#-1989968072%2FFunctions%2F-149544105) function to set the web application's directory.
 
-For more information on how to setup your web bundle, see our how-to guide on [how to pull in a web bundle](./how-to/pull-in-web-bundle).
+For more information on how to setup your web bundle, see our how-to guide on [how to pull in a web bundle](./how-to/pull-in-web-bundle.md).

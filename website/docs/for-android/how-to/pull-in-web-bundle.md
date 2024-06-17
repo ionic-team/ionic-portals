@@ -50,4 +50,4 @@ PortalManager.newPortal("MY_PORTAL_ID")
 
 Once you have your web code and native code linked up, you will need a process to continually copy in new versions of the web application into your mobile projects.
 
-We recommend having some type of automation set up so the mobile developer doesn't have to manually copy over the web code every time there is a new change. We have a few guides for ideas to do so in a [monorepo](../tutorials/monorepo-example) or [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
+We recommend having some type of automation set up so the mobile developer doesn't have to manually copy over the web code every time there is a new change. We have a few guides for ideas to do so in a [monorepo](../tutorials/monorepo-example.md) or [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules).

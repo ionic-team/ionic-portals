@@ -24,7 +24,7 @@ Capacitor [Core Plugins](https://capacitorjs.com/docs/apis) are plugins built by
 
 ### React Native Usage
 
-Follow the [Android instructions](../../for-android/how-to/using-a-capacitor-plugin) and the [iOS instructions](../../for-ios/how-to/using-a-capacitor-plugin) in your native applications. When creating your portal, you will need to specify the android classpath and iOS Objective-C class name for the plugin class you intend to use:
+Follow the [Android instructions](../../for-android/how-to/using-a-capacitor-plugin.md) and the [iOS instructions](../../for-ios/how-to/using-a-capacitor-plugin.md) in your native applications. When creating your portal, you will need to specify the android classpath and iOS Objective-C class name for the plugin class you intend to use:
 
 ```javascript
 import { addPortal } from "@ionic/portals-react-native";
