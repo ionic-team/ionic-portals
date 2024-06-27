@@ -88,7 +88,7 @@ In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example,
 
 The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
 
-**[CappacitorApp](https://capacitorjs.com/docs/apis/app)**
+**[CapacitorApp](https://capacitorjs.com/docs/apis/app)**
 
 The App API handles high level App state and events. For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
 

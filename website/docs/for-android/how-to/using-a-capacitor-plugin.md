@@ -84,7 +84,7 @@ The App API handles high level App state and events. For example, this API emits
 
 The AppLauncher API allows the opening of other apps.
 
-**[com.capacitorj:.browser](https://capacitorjs.com/docs/apis/browser)**
+**[com.capacitorjs:browser](https://capacitorjs.com/docs/apis/browser)**
 
 The Browser API provides the capability to open an in-app browser and subscribe to browser events.
 
@@ -195,14 +195,16 @@ project(':capacitor-plugin-name').projectDir = new File('../../webapp/node_modul
 
 Then in your project module level `build.gradle` file, add the project to the dependencies.
 
-```groovy
+<CodeBlock className="language-groovy" title="build.gradle">
+{
+`
 dependencies {
     implementation project(':capacitor-plugin-name')
-    implementation 'io.ionic:portals:0.5.0'
-
+    implementation 'io.ionic:portals:${getPortalsVersionAndroid()}'
     //...
+}`.trim()
 }
-```
+</CodeBlock>
 
 If successful, you should now see a section in the Android Studio project browser for your plugin, be able to browse its source code, and reference classes in the plugin within your native application source code.
 
