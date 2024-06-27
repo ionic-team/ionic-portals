@@ -6,7 +6,7 @@ sidebar_label: Use a Capacitor Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
+import { getPortalsVersion, getCapacitorVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 
 <head>
   <title>How to Use Capacitor Plugins: Core & Others | Ionic</title>
@@ -24,13 +24,43 @@ Capacitor [Core Plugins](https://capacitorjs.com/docs/apis) are plugins built by
 
 ### React Native Usage
 
-Follow the [Android instructions](../../for-android/how-to/using-a-capacitor-plugin.md) and the [iOS instructions](../../for-ios/how-to/using-a-capacitor-plugin.md) in your native applications. When creating your portal, you will need to specify the android classpath and iOS Objective-C class name for the plugin class you intend to use:
+In order to use a Capacitor Core Plugin, you need to install the plugin as a dependency in your `Podfile` and as a dependency in your `build.gradle` file. 
 
-```javascript
-import { addPortal } from "@ionic/portals-react-native";
+<Tabs>
+  <TabItem value="podfile" label="Podfile">
+   <CodeBlock className="language-ruby" title="Podfile">
+{
+`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'
+pod 'CapacitorPreferences', '~> ${getCapacitorVersion()}'
+`.trim()
+}
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="build.gradle" label="build.gradle">
+    <CodeBlock className="language-groovy" title="build.gradle">
+{
+`
+dependencies {
+    implementation 'io.ionic:portals:${getPortalsVersionAndroid()}'
+    implementation 'com.capacitorjs:preferences:${getCapacitorVersion()}'
+}`.trim()
+}
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+
+:::caution
+To avoid errors, make sure that the versions in your `build.gradle`, `Podfile`, and `package.json` match!
+:::
+
+
+When creating your portal, you will need to specify the Android classpath and the iOS Objective-C class name for the plugin you intend to use:
+
+```jsx
+import { PortalView } from "@ionic/portals-react-native";
 
 const cameraPortal = {
-  name: "camera",
+  name: "cameraFeature",
   plugins: [
     {
       androidClassPath: "com.capacitorjs.plugins.camera.CameraPlugin",
@@ -39,102 +69,516 @@ const cameraPortal = {
   ]
 };
 
-await addPortal(cameraPortal);
+<PortalView portal={cameraPortal} />
 ```
 
 ### Published Plugins
 
-In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example, the `@capacitor/storage` plugin on npm is named `CapacitorStorage` on CocoaPods. The following Plugins are available in CocoaPods.
 
-**[CapacitorActionSheet](https://capacitorjs.com/docs/apis/action-sheet)**
+
+**[Action Sheet](https://capacitorjs.com/docs/apis/action-sheet)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorActionSheet`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:action-sheet`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.actionsheet.ActionSheetPlugin",
+  iosClassName: "ActionSheetPlugin"
+}
+```
 
 The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
 
-**[CappacitorApp](https://capacitorjs.com/docs/apis/app)**
+**[App](https://capacitorjs.com/docs/apis/app)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorApp`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:app`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.app.AppPlugin",
+  iosClassName: "AppPlugin"
+}
+```
 
 The App API handles high level App state and events. For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
 
-**[CapacitorAppLauncher](https://capacitorjs.com/docs/apis/app-launcher)**
+**[App Launcher](https://capacitorjs.com/docs/apis/app-launcher)**
 
-The AppLauncher API allows to open other apps
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorAppLauncher`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:app-launcher`</td>
+    </tr>
+  </tbody>
+</table>
 
-**[CapacitorBrowser](https://capacitorjs.com/docs/apis/browser)**
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.applauncher.AppLauncherPlugin",
+  iosClassName: "AppLauncherPlugin"
+}
+```
+
+The AppLauncher API allows the opening of other apps.
+
+**[Browser](https://capacitorjs.com/docs/apis/browser)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorBrowser`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:browser`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.browser.BrowserPlugin",
+  iosClassName: "CAPBrowserPlugin"
+}
+```
 
 The Browser API provides the capability to open an in-app browser and subscribe to browser events.
 
-**[CapacitorCamera](https://capacitorjs.com/docs/apis/camera)**
+**[Camera](https://capacitorjs.com/docs/apis/camera)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorCamera`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:camera`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.camera.CameraPlugin",
+  iosClassName: "CAPCameraPlugin"
+}
+```
 
 The Camera API provides the capability to take a photo with the camera or to choose photos from the photo album.
 
-**[CapacitorClipboard](https://capacitorjs.com/docs/apis/clipboard)**
+**[Clipboard](https://capacitorjs.com/docs/apis/clipboard)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorClipboard`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:clipboard`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.clipboard.ClipboardPlugin",
+  iosClassName: "ClipboardPlugin"
+}
+```
 
 The Clipboard API enables copy and pasting to/from the system clipboard.
 
-**[CapacitorDevice](https://capacitorjs.com/docs/apis/device)**
+**[Device](https://capacitorjs.com/docs/apis/device)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorDevice`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:device`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.device.DevicePlugin",
+  iosClassName: "DevicePlugin"
+}
+```
 
 The Device API exposes internal information about the device, such as the model and operating system version, along with user information such as unique ids.
 
-**[CapacitorDialog](https://capacitorjs.com/docs/apis/dialog)**
+**[Dialog](https://capacitorjs.com/docs/apis/dialog)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorDialog`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:dialog`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.dialog.DialogPlugin",
+  iosClassName: "DialogPlugin"
+}
+```
 
 The Dialog API provides methods for triggering native dialog windows for alerts, confirmations, and input prompts.
 
-**[CapacitorFilesystem](https://capacitorjs.com/docs/apis/filesystem)**
+**[Filesystem](https://capacitorjs.com/docs/apis/filesystem)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorFilesystem`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:filesystem`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.filesystem.FilesystemPlugin",
+  iosClassName: "FilesystemPlugin"
+}
+```
 
 The Filesystem API provides a NodeJS-like API for working with files on the device.
 
-**[CapacitorGeolocation](https://capacitorjs.com/docs/apis/geolocation)**
+**[Geolocation](https://capacitorjs.com/docs/apis/geolocation)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorGeolocation`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:geolocation`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.geolocation.GeolocationPlugin",
+  iosClassName: "GeolocationPlugin"
+}
+```
 
 The Geolocation API provides simple methods for getting and tracking the current position of the device using GPS, along with altitude, heading, and speed information if available.
 
-**[CapacitorHaptics](https://capacitorjs.com/docs/apis/haptics)**
+**[Haptics](https://capacitorjs.com/docs/apis/haptics)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorHaptics`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:haptics`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.haptics.HapticsPlugin",
+  iosClassName: "HapticsPlugin"
+}
+```
 
 The Haptics API provides physical feedback to the user through touch or vibration.
 
-**[CapacitorKeyboard](https://capacitorjs.com/docs/apis/keyboard)**
+**[Keyboard](https://capacitorjs.com/docs/apis/keyboard)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorKeyboard`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:keyboard`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.keyboard.KeyboardPlugin",
+  iosClassName: "KeyboardPlugin"
+}
+```
 
 The Keyboard API provides keyboard display and visibility control, along with event tracking when the keyboard shows and hides.
 
-**[CapacitorLocalNotifications](https://capacitorjs.com/docs/apis/local-notifications)**
+**[Local Notifications](https://capacitorjs.com/docs/apis/local-notifications)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorLocalNotifications`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:local-notifications`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.localnotifications.LocalNotificationsPlugin",
+  iosClassName: "LocalNotificationsPlugin"
+}
+```
 
 The Local Notifications API provides a way to schedule device notifications locally (i.e. without a server sending push notifications).
 
-**[CapacitorMotion](https://capacitorjs.com/docs/apis/motion)**
+**[Network](https://capacitorjs.com/docs/apis/network)**
 
-The Motion API tracks accelerometer and device orientation (compass heading, etc.)
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorNetwork`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:network`</td>
+    </tr>
+  </tbody>
+</table>
 
-**[CapacitorNetwork](https://capacitorjs.com/docs/apis/network)**
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.network.NetworkPlugin",
+  iosClassName: "CAPNetworkPlugin"
+}
+```
 
 The Network API provides network and connectivity information.
 
-**[CapacitorPushNotifications](https://capacitorjs.com/docs/apis/push-notifications)**
+**[Preferences](https://capacitorjs.com/docs/apis/preferences)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorPreferences`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:preferences`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.preferences.PreferencesPlugin",
+  iosClassName: "PreferencesPlugin"
+}
+```
+
+The Preferences API provides a simple key/value persistent store for lightweight data.
+
+**[Push Notifications](https://capacitorjs.com/docs/apis/push-notifications)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorPushNotifications`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:push-notifications`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.pushnotifications.PushNotificationsPlugin",
+  iosClassName: "PushNotificationsPlugin"
+}
+```
 
 The Push Notifications API provides access to native push notifications.
 
-**[CapacitorScreenReader](https://capacitorjs.com/docs/apis/screen-reader)**
+**[Screen Reader](https://capacitorjs.com/docs/apis/screen-reader)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorScreenReader`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:screen-reader`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.screenreader.ScreenReaderPlugin",
+  iosClassName: "ScreenReaderPlugin"
+}
+```
 
 The Screen Reader API provides access to TalkBack/VoiceOver/etc. and provides simple text-to-speech capabilities for visual accessibility.
 
-**[CapacitorShare](https://capacitorjs.com/docs/apis/share)**
+**[Share](https://capacitorjs.com/docs/apis/share)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorShare`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:share`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.share.SharePlugin",
+  iosClassName: "SharePlugin"
+}
+```
 
 The Share API provides methods for sharing content to any sharing-enabled apps that the user may have installed.
 
-**[CapacitorSplashScreen](https://capacitorjs.com/docs/apis/splash-screen)**
+**[Splash Screen](https://capacitorjs.com/docs/apis/splash-screen)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorSplashScreen`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:splash-screen`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.splashscreen.SplashScreenPlugin",
+  iosClassName: "SplashScreenPlugin"
+}
+```
 
 The Splash Screen API provides methods for showing or hiding a Splash image.
 
-**[CapacitorStatusBar](https://capacitorjs.com/docs/apis/status-bar)**
+**[Status Bar](https://capacitorjs.com/docs/apis/status-bar)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorStatusBar`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:status-bar`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.statusbar.StatusBarPlugin",
+  iosClassName: "StatusBarPlugin"
+}
+```
 
 The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
 
-**[CapacitorStorage](https://capacitorjs.com/docs/apis/storage)**
+**[Text Zoom](https://capacitorjs.com/docs/apis/text-zoom)**
 
-The Storage API provides a simple key/value persistent store for lightweight data.
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorTextZoom`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:text-zoom`</td>
+    </tr>
+  </tbody>
+</table>
 
-**[CapacitorTextZoom](https://capacitorjs.com/docs/apis/text-zoom)**
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.textzoom.TextZoomPlugin",
+  iosClassName: "TextZoomPlugin"
+}
+```
 
 The Text Zoom API provides the ability to change Web View text size for visual accessibility.
 
-**[CapacitorToast](https://capacitorjs.com/docs/apis/toast)**
+**[Toast](https://capacitorjs.com/docs/apis/toast)**
+
+<table>
+  <tbody>
+    <tr>
+      <td>**Pod**</td><td>`CapacitorToast`</td>
+    </tr>
+    <tr>
+      <td>**Maven**</td><td>`com.capacitorjs:toast`</td>
+    </tr>
+  </tbody>
+</table>
+
+
+```javascript
+{
+  androidClassPath: "com.capacitorjs.plugins.toast.ToastPlugin",
+  iosClassName: "ToastPlugin"
+}
+```
 
 The Toast API provides a notification pop up for displaying important information to a user. Just like real toast!
 
