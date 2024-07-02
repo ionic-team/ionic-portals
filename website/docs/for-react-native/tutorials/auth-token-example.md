@@ -21,8 +21,6 @@ When showing a Portal after a user has logged in, there are a few different ways
 The easiest way to set the Portal's auth tokens is to set the initial context of the portal. The initial context will allow you to pass data that can be read almost immediately in the Portal.
 
 ```javascript
-import { addPortal } from '@ionic/portals-react-native';
-
 const userPage = {
   name: 'user_page',
   startDir: 'web',
@@ -31,8 +29,6 @@ const userPage = {
     auth: /* Auth Data */
   }
 };
-
-addPortal(userPage);
 ```
 
 Then, in the entry point to your web application, you can use `getInitialContext()` to read the data passed in and act on it.
@@ -60,7 +56,7 @@ In some cases, login information changes in the web layer and you want to save t
 One of the functions of the built-in portals module is to publish/subscribe to events. In this example, you could create a `login` topic and call `publish` as shown below.
 
 ```typescript {9}
-import Portals from "@ionic/portals";
+import { publish } from "@ionic/portals";
 
 const login = () => {
   // Login code...
@@ -69,7 +65,7 @@ const login = () => {
   const newTokens =
     /* Values from Login */
 
-    Portals.publish(topic, newTokens);
+    publish(topic, newTokens);
 };
 
 login();
@@ -80,7 +76,7 @@ To subscribe to the topic, call `PortalsPlugin.subcribe()` after loading the Por
 ```javascript
 import { subscribe } from "@ionic/portals-react-native";
 
-const subscriptionRef = await subscribe("login", (message) => {
+const subscriptionRef = subscribe("login", (message) => {
   const auth = message.data;
   // Rest of the React Native app...
 });

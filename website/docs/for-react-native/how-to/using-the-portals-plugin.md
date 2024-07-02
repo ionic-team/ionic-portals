@@ -31,8 +31,6 @@ The Initial Context mechanism allows you to pass data to your web application fr
 You can provide initial context when registering a Portal:
 
 ```javascript
-import { addPortal } from "@ionic/portals-react-native";
-
 const portal = {
   name: "maps",
   startDir: "web",
@@ -40,8 +38,6 @@ const portal = {
     ic_example: "hello world",
   },
 };
-
-await addPortal(portal);
 ```
 
 You can also override any initial context when rendering a Portal:
@@ -51,7 +47,7 @@ import { PortalView } from "@ionic/portals-react-native";
 
 <PortalView
   portal={{
-    name: "maps",
+    ...portal,
     initialContext: {
       ic_example: "goodbye",
     },
