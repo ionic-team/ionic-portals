@@ -6,6 +6,130 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Portals for React Native 0.6.0 -> 0.7.0
+
+Portals for React Native version `0.7.0` is compatible with Portals Web Plugin version `0.10.x`. This release removes all of the functions that were deprecated in `0.6.0`.
+
+### API Changes
+
+#### Breaking
+The stateful management of Portals has been removed in this release. The following methods have been removed:
+
+- `addPortal`
+- `addPortals`
+- `getPortal`
+- `onFirstContentfulPaint`
+- `onFirstInputDelay`
+- `onTimeToFirstByte`
+- `registerWebVitals`
+
+## Portals for React Native 0.5.0 → 0.6.0
+
+Portals for React Native version `0.6.0` is compatible with Portals Web Plugin version `0.10.x`.
+
+::: caution
+Portals 0.6.0 is a notable update that upgrades the Capacitor dependency to version 6. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+First review the [Capacitor 6 Update Guide](https://capacitorjs.com/docs/updating/6-0#ios) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
+
+### API Changes
+
+#### PortalProps.portal
+
+`PortalProps` has been updated to accept a `portal` prop of type `Portal` instead of a `Pick<Portal, 'name' | 'initialContext'>`. This change allows the display of a portal to be a declarative operation without requiring `addPortal` or `addPortals` to be called before rendering. In the case where a portal has been added via `addPortal` or `addPortals`, the behavior will be identical as in previous releases, regardless if keys other than `name` and `initialContext` are present in the portal object.
+
+#### Web Vitals
+
+`PortalProps` now includes a `webVitals` property of type `WebVitals` to enable the measurement of web vitals metrics from your portals in React Native. The `webVitals` prop is an object with the following properties:
+
+```typescript
+{
+  firstContentfulPaint?: (duration: number) => void;
+  firstInputDelay?: (duration: number) => void;
+  timeToFirstByte?: (duration: number) => void;
+}
+```
+
+#### Deprecations
+
+The stateful management of Portals has been deprecated and will be removed in the next release.
+
+The following methods are deprecated:
+- `addPortal`
+- `addPortals`
+- `getPortal`
+- `onFirstContentfulPaint`
+- `onFirstInputDelay`
+- `onTimeToFirstByte`
+- `registerWebVitals`
+
+#### Comparison of Deprecated and Replacement Methods
+
+##### Old
+
+```typescript
+import { addPortal, registerWebVitals, PortalView } from '@ionic/react-portals';
+import * as React from 'react';
+
+let portal = {
+  name: 'foo',
+  initialContext: {
+    bar: 'baz',
+  },
+};
+
+export default function App() {
+  const [ready, setReady] = useState(false);
+  const setupPortal = async () => {}
+    await addPortal(portal);
+    await registerWebVitals(
+      portal.name,
+      (duration: number) => console.log('firstContentfulPaint', duration),
+      (duration: number) => console.log('firstInputDelay', duration),
+      (duration: number) => console.log('timeToFirstByte', duration),
+    );
+    setReady(true);
+  };
+
+  useEffect(() => setupPortal(), []);
+
+  return (
+    { ready ? <PortalView portal={portal} /> : <></> }
+  );
+}
+```
+
+##### New
+
+```typescript
+import { PortalView } from '@ionic/react-portals';
+
+let portal = {
+  name: 'foo',
+  initialContext: {
+    bar: 'baz',
+  },
+};
+
+export default function App() {
+  return <PortalView
+    portal={portal}
+    webVitals={{
+      firstContentfulPaint: (duration: number) => {
+        console.log('firstContentfulPaint', duration);
+      },
+      firstInputDelay: (duration: number) => {
+        console.log('firstInputDelay', duration);
+      },
+      timeToFirstByte: (duration: number) => {
+        console.log('timeToFirstByte', duration);
+      },
+    }}
+  />;
+}
+```
+
 ## Portals for React Native 0.4.0 → 0.5.0
 
 Portals for React Native version 0.5.0 updates the underlying native Portals libraries to ^0.8.0. This update includes breaking changes to the API. Please read the following carefully to ensure a smooth upgrade.
