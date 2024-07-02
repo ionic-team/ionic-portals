@@ -43,8 +43,6 @@ Live Updates is already added to your React Native project if you have the depen
 After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
 
 ```javascript title=App.tsx
-import { addPortal } from "@ionic/portals-react-native";
-
 const portal = {
   name: "checkout",
   liveUpdate: {
@@ -53,8 +51,6 @@ const portal = {
     syncOnAdd: true, // pass false if you do not want a sync to immediately occur
   },
 };
-
-addPortal(portal);
 ```
 
 By default, when the app loads for the first time and the portal is created, a sync will occur. A sync operation checks the Appflow servers for a new version of the app. If a new version is available, the app files are downloaded to the device and setup with the Portal. The next time the Portal is loaded, the new version will load automatically.

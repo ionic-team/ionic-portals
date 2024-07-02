@@ -13,8 +13,6 @@ In order to use web applications in your native applications, you'll need to pro
 Follow the [Android instructions](../../for-android/how-to/pull-in-web-bundle.md) and [iOS instructions](../../for-ios/how-to/pull-in-web-bundle.md) in your native applications. You should make the start directories the same between both platforms to avoid issues rendering a Portal.
 
 ```javascript
-import { addPortal } from "@ionic/portals-react-native";
-
 const help = {
   name: "myPortalWebApp",
 };

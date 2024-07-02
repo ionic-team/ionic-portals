@@ -27,7 +27,7 @@ The stateful management of Portals has been removed in this release. The followi
 
 Portals for React Native version `0.6.0` is compatible with Portals Web Plugin version `0.10.x`.
 
-::: caution
+:::caution
 Portals 0.6.0 is a notable update that upgrades the Capacitor dependency to version 6. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
 :::
 

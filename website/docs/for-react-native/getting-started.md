@@ -18,10 +18,11 @@ await register('YOUR_PORTAL_KEY_HERE');
 
 ## Creating a Portal and Rendering It
 
-Create a Portal and add it to the portal registry:
+Create a PortalView in your view hierarchy:
 
 ```javascript
-import { addPortal } from '@ionic/portals-react-native';
+import { PortalView } from '@ionic/portals-react-native';
+
 const helloPortal = {
   // A unique name to reference later
   name: 'hello',
@@ -34,24 +35,8 @@ const helloPortal = {
   },
 };
 
-await addPortal(helloPortal);
-```
-
-Create a PortalView in your view hierarchy:
-
-```javascript
-import { PortalView } from '@ionic/portals-react-native';
-
 <PortalView
-  portal={{
-    // The name of the portal to be used in the view
-    name: 'hello',
-    // Set any initial context you may want to override.
-    initialContext: {
-      greeting: 'Goodbye!',
-    },
-  }}
-  name="hello"
+  portal={helloPortal}
   // Setting a size is required
   style={{ flex: 1, height: 300 }}
 />;

@@ -118,8 +118,6 @@ After creating the Capacitor Plugin, add the Plugin to the Portal to use it.
 You will need to add the classpath to your custom plugin for Android and the Objective-C class name for iOS (the name provided in the @objc annotation in the example above):
 
 ```javascript
-import { addPortal } from "@ionic/portals-react-native";
-
 const echoPortal = {
   name: "echoPortal",
   plugins: [
@@ -129,8 +127,6 @@ const echoPortal = {
      }
   ]
 };
-
-addPortal(echoPortal);
 ```
 
 ## Calling Your Plugin Code via the Web
