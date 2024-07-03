@@ -141,9 +141,16 @@ Open Android Studio and place the following script at the bottom of your module 
 <img src={useBaseUrl("/img/android-run-script-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/android-run-script.webp")} width="75%"/>
 </em>
 
+<Tabs
+defaultValue="kt"
+values={[
+{ label: 'Groovy', value: 'gv', },
+{ label: 'Kotlin', value: 'kt', },
+]}>
+<TabItem value="gv">
 
 ```groovy title="build.gradle"
-//Make the preBuild task depend on syncPortals so it runs every build
+// Make the preBuild task depend on syncPortals so it runs every build
 preBuild.dependsOn 'syncPortals'
 
 tasks.register('syncPortals') {
@@ -154,6 +161,27 @@ tasks.register('syncPortals') {
     }
 }
 ```
+
+</TabItem>
+<TabItem value="kt">
+
+```kotlin title="build.gradle.kts"
+// Make the preBuild task depend on syncPortals so it runs every build
+tasks.named("preBuild") {
+    dependsOn("syncPortals")
+}
+
+tasks.register("syncPortals") {
+    doLast {
+        exec {
+            commandLine("portals", "help")
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
 
 :::note
 The Portals CLI must be registered as part of the `PATH` to run this command successfully.
