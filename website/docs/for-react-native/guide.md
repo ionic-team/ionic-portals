@@ -54,7 +54,7 @@ To add Portals to your React Native project, install it via NPM:
 
 ## Configure
 
-After installing the dependency you need to register your copy of Ionic Portals at runtime. This works both offline and in production. You'll need to call [register(myApiKey)](https://react-native-ionic-portals.vercel.app/functions/register.html) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.
+After installing the dependency you need to register your copy of Ionic Portals at runtime. This works both offline and in production. You'll need to call [register(myApiKey)](https://react-native-ionic-portals.vercel.app/functions/register.html) before rendering any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. To get an API Key, refer to the [Sign Up](#signup) section.
 
 ```javascript title=App.tsx
 import { register } from "@ionic/portals-react-native";
