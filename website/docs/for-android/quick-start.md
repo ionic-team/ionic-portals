@@ -174,7 +174,7 @@ tasks.named("preBuild") {
 tasks.register("syncPortals") {
     doLast {
         exec {
-            commandLine("portals", "help")
+            commandLine("portals", "sync")
         }
     }
 }
