@@ -142,7 +142,7 @@ Open Android Studio and place the following script at the bottom of your module 
 </em>
 
 <Tabs
-defaultValue="kt"
+defaultValue="gv"
 values={[
 { label: 'Groovy', value: 'gv', },
 { label: 'Kotlin', value: 'kt', },
