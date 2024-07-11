@@ -5,6 +5,8 @@ sidebar_label: iOS Quick Start
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import CodeBlock from '@theme/CodeBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
 
 # iOS Quick Start
@@ -13,11 +15,11 @@ This is a walkthrough on how to get a single Portal + web application setup. To 
 
 First have your web application ready. We will add some configuration to it and then get it setup in Appflow. At the end of this walkthrough:
 
-- the web application will be setup in Appflow
-- each new Xcode iOS application build will pull the latest version of the web application from Appflow
-- the iOS application will have a Portal setup pointing to the web application files.
+- The web application will be setup in Appflow.
+- Each new Xcode iOS application build will pull the latest version of the web application from Appflow.
+- The iOS application will have a Portal setup pointing to the web application files.
 
-## 1. Create a capacitor config
+## 1. Create a Capacitor config
 
 Create a `capacitor.config.json` file to the root of your web project. We will not need to add Capacitor to the web project but this configuration file will help us configure some options for the Portals that are displaying this web application.
 
@@ -31,9 +33,9 @@ Create a `capacitor.config.json` file to the root of your web project. We will n
 
 These configuration values are required for web applications added to Appflow.
 
-- `appId`, a unique id that you provide to your web application
-- `appName`
-- `webDir`, the directory where your compiled web code will be placed
+- `appId`: a unique id that you provide to your web application
+- `appName`: the name of your web application
+- `webDir`: the directory where your compiled web code will be placed
 
 :::note
 There are many options that you can provide to a Capacitor configuration file we will only need a few to get started. These options are defined in the [config schema](https://capacitorjs.com/docs/config#schema).
@@ -43,7 +45,7 @@ There are many options that you can provide to a Capacitor configuration file we
 
 Now that we have the application source configured we will need to add it to Appflow. Appflow can be used for deploying the web application into the Portal later using Live Updates.
 
-During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air Live update.
+During the Native App build process the most recent build of the web application will be used to seed the Portal, and then after the Native App deployment every subsequent build can be deployed as an over the air Live Update.
 
 ### Connect the repo
 
@@ -54,13 +56,13 @@ In the upper right hand corner you will be able to select `Import existing app`.
 <em><img src={useBaseUrl("/img/start-by-adding-an-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/start-by-adding-an-app.webp")} width="50%"/></em>
 <em><img src={useBaseUrl("/img/import-existing-app-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/import-existing-app.webp")} width="50%"/></em>
 
-- Provide an `App Name`. Most likely using the same you provided in the `capacitor.config.json` file in the previous step.
+- Provide an `App Name`. Most likely using the same you provided in the `capacitor.config.json` file in the previous step
 - `Capacitor`, as the mobile architecture
 - Choose your git host. In this example we have selected `Github`
 
 ### Web application builds
 
-After the app has been created you will want to go to the `Builds` page. This is where you will create new builds and see previous builds. Anytime you want to deploy a new version of the web application you will need to create a build from this screen or by using the Ionic Cloud CLI (which we will cover later).
+After the app has been created you will want to go to the `Builds` page. This is where you will create new builds and see previous builds. Anytime you want to deploy a new version of the web application you will need to create a build from this screen or by using the [Ionic Cloud CLI](https://ionic.io/docs/appflow/cli/overview).
 
 <em style={{
   textAlign: 'center',
@@ -90,11 +92,15 @@ When creating a new build there are a few values that we need to change on the i
 
 ## 3. Setup local dev environment
 
+### Install the Portals CLI
+
+Now that we have the web application all setup in Appflow and built we need to get our local environment set up to be able to pull it from Appflow.
+
+The first step in setting up our local environment is [installing the Portals CLI](../cli/overview.md) within your local dev environment. This CLI will allow us to interact with Appflow programmatically, so that we can pull the latest Build files when building the Native App. 
+
 ### Create a Personal Access Token
 
-Now that we have the web application all setup in Appflow and built we need to get our local environment setup to be able to pull it from Appflow.
-
-The first step in setting up our local environment is [generating a personal access token](https://dashboard.ionicframework.com/settings/personal-access-tokens).
+You will need to [generate a personal access token](https://dashboard.ionicframework.com/settings/personal-access-tokens) in order to pull down Build files using the Portals CLI.
 
 This is done from `Personal Settings` in the `Personal Access Token` tab.
 
@@ -111,31 +117,21 @@ Click the `Generate new token` button. While creating the token it is a best pra
 After the token is generated you will need to copy it to clipboard because it will be required for the next step. Usually the token follows the format of `ion_XXXXXXXXXXXXX`.
 :::
 
-### Create a cloud configuration file
+### Create a sync configuration file
 
-Now create a yaml configuration file in your native project. This file will be used to authenticate against Appflow for your cloud interactions. Usually you will place this file in your native applications source root. It will be referenced by a build script in your native application.
+Now create a yaml configuration file in your native project. This file will be used to define the web application to download from Appflow, and where to place it, when running the `portals sync` command. Usually you will place this file in your native application's source root. It will be referenced by a build script in your native application.
 
-```yaml title=.ionic-cloud.yaml
-TOKEN: ion_XXXXXXXXXXXXX
+```yaml title=".portals.yaml"
+sync:
+  - app-id: 11a0971f
+    channel: production
+    directory-name: featured_products
+token: ion_XXXXXXXXXXXXX
 ```
 
-:::note
-Be sure to set this to ignore in your `.gitignore` [Learn more about the configuration file.](https://ionic.io/docs/appflow/cli/overview#authentication)
+### Sync Appflow at build time
 
-:::
-
-### Install the Ionic Cloud CLI
-
-Install the Ionic Cloud CLI within your local dev environment. This CLI will allow us to interact with Appflow programmatically. So that we can pull the latest Build files during native builds.
-(https://ionic.io/docs/appflow/cli/overview)
-
-```bash
-(export IONIC_CLOUD_VERSION=0.7.0; curl -sL https://ionic.io/get-ionic-cloud-cli | bash)
-```
-
-### Create web application download script
-
-The last step in setting up the local environment is adding a script to the project in XCode so that it will download the latest web application build from Appflow every time the iOS application is built.
+The last step in setting up the local environment is adding a script to the project in Xcode so that it will run the `portals sync` CLI command to download the latest web application build from Appflow every time the iOS application is built.
 
 Open Xcode and go to your Project settings. Add a new build phase of type `New Run Script Phase`.
 <em style={{
@@ -145,46 +141,41 @@ Open Xcode and go to your Project settings. Add a new build phase of type `New R
 <img src={useBaseUrl("/img/xcode-run-script-thumbnail.webp")} data-zoom-src={useBaseUrl("/img/xcode-run-script.webp")} width="75%"/>
 </em>
 
-The following bash code should be added to the build process.
+The following bash code should be added to the build process:
 
 ```bash
-APP_ID=11a0971f
-CHANNEL=production
-PORTAL_NAME=featured_products
-
-ionic-cloud live-update download \
-  --config="${SOURCE_ROOT}/.ionic-cloud.yaml" \
-  --app-id ${APP_ID} \
-  --channel-name ${CHANNEL} \
-  --zip-name ${PORTAL_NAME}.zip
-
-
-unzip ${PORTAL_NAME}.zip -d \
-  ${BUILT_PRODUCTS_DIR}/${TARGET_NAME}.app/${PORTAL_NAME}
-rm ${PORTAL_NAME}.zip
+export PATH=$PATH:/opt/homebrew/bin
+portals sync 
 ```
 
-There are a few variables that you will need to setup at the beginning of script.
-
-- `APP_ID` - Web application id from Appflow
-- `CHANNEL` - Live update distribution channel.
-- `PORTAL_NAME` - Choose a name for the portal, no spaces.
+:::note
+Adjust the script as needed based on your installation method or system configuration to ensure the CLI is accessible in the iOS build process.
+:::
 
 ## 4. Setup Portals in your iOS App
 
-### Install the Cocoapod file
+### Install the Portals iOS Library
 
-:::note
-IonicPortals requires using Cocoapods 1.10 or greater.
-:::
+<Tabs>
+  <TabItem value="Swift Package Manager">
+  To add Portals to your iOS project, add `https://github.com/ionic-team/ionic-portals-ios` in the Xcode "Swift Package Dependencies" tab in the project configuration. 
+  
+  The suggested version range is "Up to Next Minor Version" to prevent auto-updating to a breaking version before Ionic Portals iOS reaches version 1.0
+  </TabItem>
+  <TabItem value="Cocoapods">
+  :::note
+  IonicPortals requires using Cocoapods 1.10 or greater.
+  :::
 
-To add Portals to your iOS project, put the following line to your `Podfile`:
+  To add Portals to your iOS project, put the following line to your `Podfile`:
 
-<CodeBlock className="language-ruby" title="Podfile">
-{`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
-</CodeBlock>
+  <CodeBlock className="language-ruby" title="Podfile">
+  {`pod 'IonicPortals', '~> ${getPortalsVersionIos()}'`}
+  </CodeBlock>
 
-And then run `pod install`.
+  And then run `pod install`.
+  </TabItem>
+</Tabs>
 
 ### Add the Portals key
 
