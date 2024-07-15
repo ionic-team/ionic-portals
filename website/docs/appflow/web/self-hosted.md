@@ -19,7 +19,7 @@ This guide outlines the one-time setup process for Self-hosted Live Updates and 
 **Cloud infrastructure:**
 - High-availability servers that can handle low to medium levels of traffic (varies based on number of app users). Any modern CI/CD platform will suffice, such as AWS, Azure DevOps, Jenkins, etc.
 - Integration of the [Appflow CLI](https://ionic.io/docs/appflow/cli/overview) into a pre-existing or new CI/CD pipeline.
-- Hosting of the web build artifacts in Appflow or your cloud storage provider of choice (such as AWS S3 buckets or Azure Storage Blobs)
+- Hosting the web build artifacts in Appflow or your cloud storage provider of choice (such as AWS S3 buckets or Azure Storage Blobs)
 - [Optional] Leveraging a CDN to distribute live updates around the world and enable faster downloads to end users of your apps
 
 
@@ -27,11 +27,11 @@ This guide outlines the one-time setup process for Self-hosted Live Updates and 
 
 Much of the self-hosted live update process is completed within your CI/CD infrastructure, with Appflow and a live update plugin managing the deployments of live updates.
 
-Beginning in your CI/CD system, a web build is performed. The web build is packaged up into a live update bundle and signed with a private key using the Appflow CLI. Next, the live update is uploaded to your storage provider of choice. Then, the live update is registered with Appflow so it knows that a new live update is available. Various metadata is shared with Appflow such as the web URL of the live update. Finally, the live update can be deployed immediately if desired using the Appflow CLI.
+Starting in your CI/CD system, a web build is performed. The web build is packaged up into a live update bundle and signed with a private key using the Appflow CLI. Next, the live update is uploaded to your storage provider of choice. Then, the live update is registered with Appflow so it knows that a new live update is available. Various metadata, such as the web URL of the live update, is shared with Appflow. Finally, the live update can be deployed immediately if desired using the Appflow CLI.
 
 Customers can choose to deploy the live update at a later time using the Appflow web UI or the Appflow CLI. Within Appflow, the same capabilities of the classic live update solution are available, including viewing the complete list of live updates, the ability to set native versioning restrictions, and even rollback to previous live updates.
 
-When an app user reopens your mobile app, the live update plugin calls back to Appflow to see if a new live update is available. If it is, it is downloaded to the device. Using a public key embedded in the app, the live update bundle is verified. If the contents are successfully verified, the live update is applied to the mobile app. The next time the user opens the app they will see the new live update changes.
+When an app user reopens your mobile app, the live update plugin calls back to Appflow to see if a new live update is available. If it is, then it is downloaded to the device. Using a public key embedded in the app, the live update bundle is verified. If the contents are successfully verified, the live update is applied to the mobile app. The next time the user opens the app they will see the new live update changes.
 
 
 ## App Setup
@@ -40,9 +40,9 @@ The following steps explain the one-time setup process required to configure you
 
 ### Create an App in Appflow
 
-While much of these features are performed within your infrastructure, Appflow still needs to be aware of your app. You'll also manage live update deployments and channels from within the Appflow dashboard. On the Apps screen within Appflow, click the New button then choose "Import existing app." Enter your app's name, select Capacitor as the mobile architecture, then click "Connect git host later." You won't connect your app's code to Appflow at any point.
+While many of these features are performed within your infrastructure, Appflow still needs to be aware of your app. You'll also manage live update deployments and channels from within the Appflow dashboard. On the Apps screen within Appflow, click the New button then choose "Import existing app." Enter your app's name, select Capacitor as the mobile architecture, then click "Connect git host later." You won't connect your app's code to Appflow at any point.
 
-With the app created, note the APP ID that appears at the top of the screen, like "042a1261." You'll need it shortly.
+With the app created, note the App ID that appears at the top of the screen, such as "042a1261." You'll need it shortly.
 
 ### Download and Configure the Appflow CLI
 
@@ -64,7 +64,7 @@ The private key is used by the Appflow CLI to sign the Live Update artifact befo
 
 ### Code Signing: Store Your Private Key
 
-You only need to generate your signing keys once. After generating your key pair, ensure you store your private key somewhere secure and durable If your private key is lost, you will need to generate a new signing key pair and publish the new public key to your app via a native binary release.
+You only need to generate your signing keys once. After generating your key pair, ensure you store your private key somewhere secure and durable. If your private key is lost, you will need to generate a new signing key pair and publish the new public key to your app via a native binary release.
 
 Make sure you also store the private key somewhere that is accessible from your CI/CD system. The private key will need to be passed to the Appflow CLI each time you upload a new Live Update artifact.
 
@@ -82,8 +82,6 @@ Using your preferred CI/CD system, perform a build of your app's web resources.
 Customers can choose to have live update web artifacts stored and hosted in Appflow ("Appflow-hosted") or their cloud storage solution of choice ("self-hosted").
 
 #### Appflow-hosted
-
-Customers can choose to have live update web artifacts stored and hosted in Appflow ("Appflow-hosted") or their cloud storage solution of choice ("self-hosted").
 
 If you choose to have Appflow host your live update web artifacts, your app's build directory will be signed, bundled, and uploaded to Appflow.
 
@@ -154,7 +152,7 @@ appflow live-update register-artifact
   --token=TOKEN
 ```
 
-- `app-id`: The Appflow App Id created at the top of this guide, such as 042a1261.
+- `app-id`: The Appflow App ID created at the top of this guide, such as 042a1261.
 - `artifact-type`: The type of artifact being registered, either zip or manifest for differential live updates.
 - `artifact-url`: The URL where the new live update artifact is stored. The Capacitor live update plugin will download the live update from your storage provider. When using manifest artifact-type, URL should end with live-update-manifest.json. When using zip artifact-type, URL should end with .zip.
 - `token`: The Appflow personal access token.
@@ -163,4 +161,4 @@ appflow live-update register-artifact
 - `commit-message`: The Git commit message, such as "Fix login bug."
 
 #### Deploy the Live Update
-Upon completion, you'll find the new live update in your App's Builds list in Appflow. From there, you can follow the standard Live Update flow of [assigning the build to a Live Update Channel](https://ionic.io/docs/appflow/deploy/deploy-live-update#assign-the-build-to-a-channel).
+Upon completion, you'll find the new live update in your app's Builds list in Appflow. From there, you can follow the standard Live Update flow of [assigning the build to a Live Update Channel](https://ionic.io/docs/appflow/deploy/deploy-live-update#assign-the-build-to-a-channel).
