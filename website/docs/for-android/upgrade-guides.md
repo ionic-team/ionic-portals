@@ -7,7 +7,21 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
-If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix) page.
+If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix.md) page.
+
+## Portals for Android 0.9.0 → 0.10.0
+
+- Portals for Android version `0.10.0` is compatible with Portals Web Plugin version `0.10.x`.
+
+:::caution
+Portals 0.10.0 is a notable update that upgrades the Capacitor dependency to version 6. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+First review the [Capacitor 6 Update Guide](https://capacitorjs.com/docs/updating/6-0#android) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
+
+## Portals for Android 0.8.4 → 0.9.0
+
+Portals for Android version `0.9.0` introduces support for the new [Portals CLI](../cli/overview.md). There are no dependency compatibility changes with this version.
 
 ## Portals for Android 0.8.3 → 0.8.4
 

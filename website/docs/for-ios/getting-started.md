@@ -174,4 +174,4 @@ struct ContentView: View {
 
 ## Adding Web Code
 
-Now that your Portal is successfully created and added to the view, you need to add the web assets to your application. In iOS, the web folder needs to be copied and added to the XCode project. After the folder is added, you can update its contents with fresh builds of the web application. For more information on how to set up your web bundle, see our how-to guide on [how to pull in a web bundle](./how-to/pull-in-web-bundle).
+Now that your Portal is successfully created and added to the view, you need to add the web assets to your application. In iOS, the web folder needs to be copied and added to the XCode project. After the folder is added, you can update its contents with fresh builds of the web application. For more information on how to set up your web bundle, see our how-to guide on [how to pull in a web bundle](./how-to/pull-in-web-bundle.md).

@@ -63,7 +63,7 @@ extension LiveUpdate {
 :::note
 Note the `syncOnAdd` property above. When this property is set to true (or omitted), a sync operation will occur the first time a Portal is created to check if an update is available, If so, the assets are downloaded to the device and setup with the Portal and will be applied the next time the Portal is loaded.
 
-If set to false then it is up to the application developer to apply the Live Updates manually. More info available in the [Syncing with Live Updates](./how-to/sync-with-live-updates) how to.
+If set to false then it is up to the application developer to apply the Live Updates manually. More info available in the [Syncing with Live Updates](./how-to/sync-with-live-updates.md) how to.
 :::
 
 By default, when the app loads for the first time and the portal is created, a sync will occur. A sync operation checks the Appflow servers for a new version of the app. If a new version is available, the app files are downloaded to the device and setup with the Portal. The next time the Portal is loaded, the new version will load automatically.

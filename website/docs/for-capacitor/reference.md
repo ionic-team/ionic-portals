@@ -92,6 +92,7 @@ Sync Some
 | **`channel`**          | <code>string</code>                                           |
 | **`autoUpdateMethod`** | <code><a href="#autoupdatemethod">AutoUpdateMethod</a></code> |
 | **`maxVersions`**      | <code>number</code>                                           |
+| **`strategy`**         | <code>'zip' \| 'differential'</code>                          |
 | **`key`**              | <code>string</code>                                           |
 
 

@@ -6,7 +6,7 @@ sidebar_label: Use a Capacitor Plugin
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
+import { getPortalsVersion, getCapacitorVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 
 <head>
   <title>How to Use Capacitor Plugins: Core & Others | Ionic</title>
@@ -29,7 +29,7 @@ In order to use a Capacitor Core Plugin, you need to install the plugin as a dep
 <CodeBlock className="language-ruby" title="Podfile">
 {
 `pod 'IonicPortals', '~> ${getPortalsVersionIos()}'
-pod 'CapacitorStorage', '~> 1.2.0'
+pod 'CapacitorPreferences', '~> ${getCapacitorVersion()}'
 `.trim()
 }
 </CodeBlock>
@@ -77,24 +77,24 @@ let portal = Portal(name: "foo")
 
 
 The Portal constructor defaults the `pluginRegistrationMode` to `PluginRegistrationMode.automatic`.
-If you want all plugins to be automatically registered, then leaving the default should suffice. However if you have any plugins that inherit from `CAPInstancePlugin` (see [Defining your own Portal APIs](./define-api-in-typescript)) that need to be registered, all plugins will need to be manually registered.
+If you want all plugins to be automatically registered, then leaving the default should suffice. However if you have any plugins that inherit from `CAPInstancePlugin` (see [Defining your own Portal APIs](./define-api-in-typescript.md)) that need to be registered, all plugins will need to be manually registered.
 
 
 ### Published Plugins
 
-In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example, the `@capacitor/storage` plugin on npm is named `CapacitorStorage` on CocoaPods. The following Plugins are available in CocoaPods.
+In CocoaPods, the Capacitor plugins are prepended with `Capacitor`. For example, the `@capacitor/preferences` plugin on npm is named `CapacitorPreferences` on CocoaPods. The following Plugins are available in CocoaPods.
 
 **[CapacitorActionSheet](https://capacitorjs.com/docs/apis/action-sheet)**
 
 The Action Sheet API provides access to native Action Sheets, which come up from the bottom of the screen and display actions a user can take.
 
-**[CappacitorApp](https://capacitorjs.com/docs/apis/app)**
+**[CapacitorApp](https://capacitorjs.com/docs/apis/app)**
 
 The App API handles high level App state and events. For example, this API emits events when the app enters and leaves the foreground, handles deeplinks, opens other apps, and manages persisted plugin state.
 
 **[CapacitorAppLauncher](https://capacitorjs.com/docs/apis/app-launcher)**
 
-The AppLauncher API allows to open other apps
+The AppLauncher API allows the opening of other apps.
 
 **[CapacitorBrowser](https://capacitorjs.com/docs/apis/browser)**
 
@@ -144,6 +144,10 @@ The Motion API tracks accelerometer and device orientation (compass heading, etc
 
 The Network API provides network and connectivity information.
 
+**[CapacitorPreferences](https://capacitorjs.com/docs/apis/preferences)**
+
+The Preferences API provides a simple key/value persistent store for lightweight data.
+
 **[CapacitorPushNotifications](https://capacitorjs.com/docs/apis/push-notifications)**
 
 The Push Notifications API provides access to native push notifications.
@@ -163,10 +167,6 @@ The Splash Screen API provides methods for showing or hiding a Splash image.
 **[CapacitorStatusBar](https://capacitorjs.com/docs/apis/status-bar)**
 
 The StatusBar API Provides methods for configuring the style of the Status Bar, along with showing or hiding it.
-
-**[CapacitorStorage](https://capacitorjs.com/docs/apis/storage)**
-
-The Storage API provides a simple key/value persistent store for lightweight data.
 
 **[CapacitorTextZoom](https://capacitorjs.com/docs/apis/text-zoom)**
 

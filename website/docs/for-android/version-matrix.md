@@ -6,9 +6,18 @@ sidebar_label: SDK Version Compatibility
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
-import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getiOSMinVersion, getAndroidMinSdk, getRnMinVersion } from '@site/src/util';
+import {
+  getCapacitorVersion,
+  getPortalsVersion,
+  getPortalsVersionIos,
+  getPortalsVersionAndroid,
+  getPortalsVersionRN,
+  getiOSMinVersion,
+  getAndroidMinSdk,
+  getRnMinVersion,
+} from '@site/src/util';
 
-This guide is designed to help you align versions of the Native Android Portals SDK with the Portals Web Plugin and Capacitor. [Click here](./version-matrix#sdk-version-compatibility-matrix) to jump straight to the version compatibility matrix.
+This guide is designed to help you align versions of the Native Android Portals SDK with the Portals Web Plugin and Capacitor. [Click here](./version-matrix.md#sdk-version-compatibility-matrix) to jump straight to the version compatibility matrix.
 
 ## Matching Dependency Versions
 
@@ -18,7 +27,7 @@ For example: referencing the matrix at the bottom of the page, if you are using 
 
 ## How Gradle Resolves Dependency Versions
 
-By default, Gradle will use the version of Capacitor that the Portals SDK depends on. If the app includes multiple dependencies that depend on different versions of Capacitor, Gradle will try to resolve the conflict by using the highest version in the dependency tree. 
+By default, Gradle will use the version of Capacitor that the Portals SDK depends on. If the app includes multiple dependencies that depend on different versions of Capacitor, Gradle will try to resolve the conflict by using the highest version in the dependency tree.
 
 Reference: https://docs.gradle.org/current/userguide/dependency_resolution.html
 
@@ -34,11 +43,11 @@ The following example will use the version of the Capacitor dependency included 
 
 ```groovy
 dependencies {
-  implementation('io.ionic:portals:0.8.0') {
+  implementation('io.ionic:portals:0.10.0') {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
-  implementation 'com.capacitorjs:camera:5.0.7'
+  implementation 'com.capacitorjs:camera:6.0.0'
 }
 ```
 
@@ -46,48 +55,52 @@ The following example will use the version of the Capacitor dependency specififi
 
 ```groovy
 dependencies {
-  implementation('io.ionic:portals:0.8.0') {
+  implementation('io.ionic:portals:0.10.0') {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
-  implementation('com.capacitorjs:camera:5.0.7') {
+  implementation('com.capacitorjs:camera:6.0.0') {
     exclude group: 'com.capacitorjs', module: 'core'
   }
 
-  implementation 'com.capacitorjs:core:5.5.0'
+  implementation 'com.capacitorjs:core:6.0.0'
 }
 ```
 
 For more information refer to the Gradle documentation pages:
+
 - https://docs.gradle.org/current/userguide/dependency_downgrade_and_exclude.html
 - https://docs.gradle.org/current/userguide/dependency_constraints.html
 
 ## SDK Version Compatibility Matrix
 
 | Android SDK | Web Plugin Version | Compiled Capacitor Version | Compatible Capacitor Versions | Compatible Live Updates Versions | Portals CLI |
-| :----:      | :----:             | :----:                     | :----:                        | :----:                           | :----:      |
-| 0.9.0       | 0.9.0              | 5.7.+                      | 5.0.3 - 5.7.2                 | 0.5.+                            | 0.3.0       |
-| 0.8.4       | 0.9.0              | 5.7.+                      | 5.0.3 - 5.7.2                 | 0.5.+                            | -           |
-| 0.8.3       | 0.8.1              | 5.5.+                      | 5.0.3 - 5.7.2                 | 0.0.5 - 0.4.1                    | -           |
-| 0.8.2       | 0.8.1              | 5.4.2                      | 5.0.3 - 5.7.2                 | 0.0.5 - 0.4.1                    | -           |
-| 0.8.1       | 0.8.1              | 5.4.2                      | 5.0.3 - 5.7.2                 | 0.0.5 - 0.4.1                    | -           |
-| 0.8.0       | 0.8.1              | 5.0.3                      | 5.0.3 - 5.7.2                 | 0.0.5 - 0.4.1                    | -           |
-| 0.7.5       | 0.7.1              | 4.7.3                      | 4.7.0 - 4.8.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.7.4       | 0.7.1              | 4.7.0                      | 4.7.0 - 4.8.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.7.3       | 0.7.0              | 4.6.1                      | 4.4.0 - 4.6.3                 | 0.0.5 - 0.4.1                    | -           |
-| 0.7.2       | 0.7.0              | 4.6.1                      | 4.4.0 - 4.6.3                 | 0.0.5 - 0.4.1                    | -           |
-| 0.7.1       | 0.7.0              | 4.6.1                      | 4.4.0 - 4.6.3                 | 0.0.5 - 0.4.1                    | -           |
-| 0.7.0       | 0.7.0              | 4.5.0                      | 4.4.0 - 4.6.3                 | 0.0.5 - 0.4.1                    | -           |
-| 0.6.4       | 0.6.0              | 3.9.0                      | 3.5.1 - 3.9.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.6.3       | 0.6.0              | 3.7.0                      | 3.5.1 - 3.9.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.6.2       | 0.6.0              | 3.5.1                      | 3.5.1 - 3.9.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.6.1       | 0.6.0              | 3.5.1                      | 3.5.1 - 3.9.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.6.0       | 0.6.0              | 3.5.1                      | 3.5.1 - 3.9.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.5.1       | 0.5.0              | 3.5.1                      | 3.5.1 - 3.9.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.5.0       | 0.5.0              | 3.4.1                      | 3.3.0 - 3.5.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.4.1       | 0.4.1              | 3.4.0                      | 3.3.0 - 3.5.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.3.1       | 0.3.1              | 3.3.3                      | 3.3.0 - 3.5.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.3.0       | 0.3.0              | 3.3.2                      | 3.3.0 - 3.5.0                 | 0.0.5 - 0.4.1                    | -           |
-| 0.2.2       | 0.2.2              | 3.2.5                      | 3.2.2 - 3.2.5                 | 0.0.5 - 0.4.1                    | -           |
-| 0.2.1       | 0.2.1              | 3.2.4                      | 3.2.2 - 3.2.5                 | 0.0.5 - 0.4.1                    | -           |
-| 0.2.0       | 0.2.0              | 3.2.2                      | 3.2.2 - 3.2.5                 | 0.0.5 - 0.4.1                    | -           |
+| :---------: | :----------------: | :------------------------: | :---------------------------: | :------------------------------: | :---------: |
+|   0.10.2    |       0.10.0       |           6.0.+            |             6.0.+             |              0.5.+               |    0.3.+    |
+|   0.10.1    |       0.10.0       |           6.0.+            |             6.0.+             |              0.5.+               |    0.3.+    |
+|   0.10.0    |       0.10.0       |           6.0.+            |             6.0.+             |              0.5.+               |    0.3.+    |
+|    0.9.0    |       0.9.0        |           5.7.+            |         5.0.3 - 5.7.2         |              0.5.+               |    0.3.+    |
+|    0.8.4    |       0.9.0        |           5.7.+            |         5.0.3 - 5.7.2         |              0.5.+               |      -      |
+|    0.8.3    |       0.8.1        |           5.5.+            |         5.0.3 - 5.7.2         |          0.0.5 - 0.4.1           |      -      |
+|    0.8.2    |       0.8.1        |           5.4.2            |         5.0.3 - 5.7.2         |          0.0.5 - 0.4.1           |      -      |
+|    0.8.1    |       0.8.1        |           5.4.2            |         5.0.3 - 5.7.2         |          0.0.5 - 0.4.1           |      -      |
+|    0.8.0    |       0.8.1        |           5.0.3            |         5.0.3 - 5.7.2         |          0.0.5 - 0.4.1           |      -      |
+|    0.7.5    |       0.7.1        |           4.7.3            |         4.7.0 - 4.8.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.7.4    |       0.7.1        |           4.7.0            |         4.7.0 - 4.8.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.7.3    |       0.7.0        |           4.6.1            |         4.4.0 - 4.6.3         |          0.0.5 - 0.4.1           |      -      |
+|    0.7.2    |       0.7.0        |           4.6.1            |         4.4.0 - 4.6.3         |          0.0.5 - 0.4.1           |      -      |
+|    0.7.1    |       0.7.0        |           4.6.1            |         4.4.0 - 4.6.3         |          0.0.5 - 0.4.1           |      -      |
+|    0.7.0    |       0.7.0        |           4.5.0            |         4.4.0 - 4.6.3         |          0.0.5 - 0.4.1           |      -      |
+|    0.6.4    |       0.6.0        |           3.9.0            |         3.5.1 - 3.9.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.6.3    |       0.6.0        |           3.7.0            |         3.5.1 - 3.9.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.6.2    |       0.6.0        |           3.5.1            |         3.5.1 - 3.9.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.6.1    |       0.6.0        |           3.5.1            |         3.5.1 - 3.9.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.6.0    |       0.6.0        |           3.5.1            |         3.5.1 - 3.9.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.5.1    |       0.5.0        |           3.5.1            |         3.5.1 - 3.9.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.5.0    |       0.5.0        |           3.4.1            |         3.3.0 - 3.5.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.4.1    |       0.4.1        |           3.4.0            |         3.3.0 - 3.5.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.3.1    |       0.3.1        |           3.3.3            |         3.3.0 - 3.5.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.3.0    |       0.3.0        |           3.3.2            |         3.3.0 - 3.5.0         |          0.0.5 - 0.4.1           |      -      |
+|    0.2.2    |       0.2.2        |           3.2.5            |         3.2.2 - 3.2.5         |          0.0.5 - 0.4.1           |      -      |
+|    0.2.1    |       0.2.1        |           3.2.4            |         3.2.2 - 3.2.5         |          0.0.5 - 0.4.1           |      -      |
+|    0.2.0    |       0.2.0        |           3.2.2            |         3.2.2 - 3.2.5         |          0.0.5 - 0.4.1           |      -      |

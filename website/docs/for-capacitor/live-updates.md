@@ -14,7 +14,8 @@ First let's add Live Updates to the main shell application. Modify the `capacito
         liveUpdateConfig: {
           appId: "YOUR_APP_ID_IN_APPFLOW",
           channel: "production",
-          autoUpdateMethod: "none"
+          autoUpdateMethod: "none",
+          strategy: "differential"
         }
       },
 ```
@@ -22,6 +23,7 @@ First let's add Live Updates to the main shell application. Modify the `capacito
 - **appId**: Replace `YOUR_APP_ID_IN_APPFLOW` with your own id. (example: `e9597b11`)
 - **channel**: By default all releases happen in Appflow from the `production` channel but you can setup whatever channel you need here.
 - **autoUpdateMethod**: Options would be `none` or `background`. You would choose `none` if you want to call the update method on your own, but the most common choice here would be `background` where the updates happen automatically.
+- **strategy**: Options would be `zip` or `differential`. `zip` is the default and will download the entire update each time. `differential` will only download the changes between the current version and the new version.
 
 After you have made these changes and done a build the application will begin pulling updates from Appflow using the IDs that you have provided. See the [reference](reference) documentation for methods on performing live updates manually from your application code.
 
@@ -39,7 +41,8 @@ Modify the `capacitor.config.ts` file to add a `liveUpdatesKey` field to the Fed
         liveUpdateConfig: {
           appId: "YOUR_APP_ID_IN_APPFLOW",
           channel: "production",
-          autoUpdateMethod: "none"
+          autoUpdateMethod: "none",
+          strategy: "differential"
         }
       },
 ```

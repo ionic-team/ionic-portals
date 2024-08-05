@@ -40,8 +40,8 @@ PortalManager.newPortal("myportal")
 </TabItem>
 </Tabs>
 
-When this Portal loads, the shared asset information will be passed to the web content as part of the Portal's [InitialContext](../../for-web/portals-plugin#initialcontext) object.
+When this Portal loads, the shared asset information will be passed to the web content as part of the Portal's [InitialContext](../../for-web/portals-plugin.md#initialcontext) object.
 
 ## Using Registered Assets
 
-Refer to the page in the [Web docs](../../for-web/sharing-assets) to learn how to use your registered shared assets in your web content.
+Refer to the page in the [Web docs](../../for-web/sharing-assets.md) to learn how to use your registered shared assets in your web content.

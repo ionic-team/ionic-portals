@@ -12,7 +12,7 @@ The `PortalsPlugin` provides useful features to aid in communication between you
 
 ### React Native
 
-Follow the [Getting Started Guide](../guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
+Follow the [Getting Started Guide](../guide.md) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
 
 ### Web
 
@@ -31,8 +31,6 @@ The Initial Context mechanism allows you to pass data to your web application fr
 You can provide initial context when registering a Portal:
 
 ```javascript
-import { addPortal } from "@ionic/portals-react-native";
-
 const portal = {
   name: "maps",
   startDir: "web",
@@ -40,8 +38,6 @@ const portal = {
     ic_example: "hello world",
   },
 };
-
-await addPortal(portal);
 ```
 
 You can also override any initial context when rendering a Portal:
@@ -51,7 +47,7 @@ import { PortalView } from "@ionic/portals-react-native";
 
 <PortalView
   portal={{
-    name: "maps",
+    ...portal,
     initialContext: {
       ic_example: "goodbye",
     },
@@ -61,7 +57,7 @@ import { PortalView } from "@ionic/portals-react-native";
 
 ### Using Initial Context
 
-To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../../for-web/portals-plugin#getinitialcontext) function.
+To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../../for-web/portals-plugin.md#getinitialcontext) function.
 
 ```typescript
 import { getInitialContext } from "@ionic/portals";
@@ -119,7 +115,7 @@ Publish messages to send data through a Portal to registered Subscribers.
 
 #### From Web to React Native
 
-To send a message from your web application to iOS or Android, use the [publish](../../for-web/portals-plugin#publish) function.
+To send a message from your web application to iOS or Android, use the [publish](../../for-web/portals-plugin.md#publish) function.
 
 ```typescript
 import { publish } from "@ionic/portals";
@@ -137,4 +133,4 @@ publish("weather", "sunny");
 
 ## Examples
 
-The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce) demo.
+The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce.md) demo.

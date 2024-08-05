@@ -12,7 +12,7 @@ The `PortalsPlugin` provides useful features to aid in communication between you
 
 ### Android
 
-Follow the [Getting Started Guide](../guide) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
+Follow the [Getting Started Guide](../guide.md) to install the Ionic Portals library into your native mobile projects. The `PortalsPlugin` is automatically added to every instance of a Portal.
 
 ### Web
 
@@ -90,7 +90,7 @@ mapsPortal.setInitialContext(Map.of("ic_example", "hello world"));
 
 ### Using Initial Context
 
-To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../../for-web/portals-plugin#getinitialcontext) function.
+To access the initial context set from the native application in your web application, import `getInitialContext` from `@ionic/portals` use the [getInitialContext()](../../for-web/portals-plugin.md#getinitialcontext) function.
 
 ```typescript
 import { getInitialContext } from "@ionic/portals";
@@ -100,7 +100,7 @@ const initialContext = getInitialContext<{ ic_example: string }>();
 console.log(initialContext?.value?.ic_example);
 ```
 
-Initial context is useful when using a Single Page Application (SPA) across multiple Portals in your application. The route to a specific section of the SPA can be passed in as initial context data. Your web application can then use it to load that section directly without need for a redirect. [Check out our how-to guide](./multiple-portals-single-web-app).
+Initial context is useful when using a Single Page Application (SPA) across multiple Portals in your application. The route to a specific section of the SPA can be passed in as initial context data. Your web application can then use it to load that section directly without need for a redirect. [Check out our how-to guide](./multiple-portals-single-web-app.md).
 
 ## Communicating via Pub/Sub
 
@@ -344,7 +344,7 @@ Publish messages to send data through a Portal to registered Subscribers.
 
 #### From Web to iOS/Android
 
-To send a message from your web application to iOS or Android, use the [Portals.publish()](../../for-web/portals-plugin#publish) function.
+To send a message from your web application to iOS or Android, use the [Portals.publish()](../../for-web/portals-plugin.md#publish) function.
 
 ```typescript
 import { publish } from '@ionic/portals';
@@ -393,4 +393,4 @@ The Capacitor [JSObject](https://github.com/ionic-team/capacitor/blob/main/andro
 
 ## Examples
 
-The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce-app) demo.
+The `PortalsPlugin` is used in the [E-Commerce App](../examples/ecommerce-app.md) demo.
