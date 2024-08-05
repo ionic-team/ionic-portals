@@ -251,12 +251,6 @@ module.exports = {
       items: [
         'for-super-capacitor/overview',
         'for-super-capacitor/presentation-types',
-        {
-          type: 'category',
-          label: 'Tutorials',
-          collapsed: true,
-          items: ['for-super-capacitor/tutorials/nav-controller-example'],
-        },
       ],
     },
 

@@ -22,24 +22,7 @@ interface MicroappOptions {
   modalStyle?: 'fullScreen' | 'pageSheet';
   startDir?: string;
   initialContext?: InitialContext;
-  plugins?: CapacitorPlugin[];
   liveUpdateConfig?: LiveUpdateConfig;
-}
-```
-
-### CapacitorPlugin
-
-If you need to use any Capacitor plugins, the classpath of the Android plugins and the Objective-C class name will have to be provided to [`MicroappOptions`](#microappoptions) in the `plugins` property.
-
-```typescript
-interface CapacitorPlugin {
-  /** The classpath of the plugin to be used in Android. (e.g. com.capacitorjs.plugins.camera.CameraPlugin) */
-  androidClassPath: string;
-  /** The class name of the plugin to be used in iOS.
-   * This must be the name as it is exposed to the Objective-C runtime.
-   * For example, The CameraPlugin swift class is exposed to Objective-C as CAPCameraPlugin.
-   */
-  iosClassName: string;
 }
 ```
 
@@ -66,7 +49,7 @@ presentMicroapp({
 });
 ```
 
-> **_NOTE:_** A Typescript module resolution Node16, NodeNext, or Bundler is required to recognize Super Capacitor's use of subpath exports.
+> **_NOTE:_** A TypeScript module resolution Node16, NodeNext, or Bundler is required to recognize Super Capacitor's use of subpath exports.
 
 #### Parameters
 
@@ -88,4 +71,8 @@ import { dismissMicroapp } from '@ionic-enterprise/super-capacitor/microapp';
 dismissMicroapp();
 ```
 
-> **_NOTE:_** A Typescript module resolution Node16, NodeNext, or Bundler is required to recognize Super Capacitor's use of subpath exports.
+> **_NOTE:_** A TypeScript module resolution Node16, NodeNext, or Bundler is required to recognize Super Capacitor's use of subpath exports.
+
+
+## Plugins
+A microapp can only use plugins installed in its superapp. All superapp plugins are automatically available to its microapps. If a microapp requires a plugin not used by its superapp, that plugin must still be installed in the superapp.
