@@ -237,6 +237,7 @@ module.exports = {
           items: [
             "appflow/web/getting-started",
             "appflow/web/using-appflow",
+            "appflow/web/self-hosted"
           ]
         }
       ],
