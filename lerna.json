@@ -3,7 +3,7 @@
   "iosMinVersion": "13.0",
   "androidMinSdk": "22",
   "rnMinVersion": "0.74.2",
-  "androidLiveUpdatesVersion": "0.5.4",
+  "androidLiveUpdatesVersion": "0.5.5",
   "rnVersion": "0.7.0",
   "iosVersion": "0.12.0",
   "androidVersion": "0.12.0",
