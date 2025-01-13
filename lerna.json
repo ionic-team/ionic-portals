@@ -5,8 +5,8 @@
   "rnMinVersion": "0.74.2",
   "androidLiveUpdatesVersion": "0.5.4",
   "rnVersion": "0.7.0",
-  "iosVersion": "0.11.0",
-  "androidVersion": "0.10.2",
+  "iosVersion": "0.12.0",
+  "androidVersion": "0.12.0",
   "cliVersion": "0.3.1",
-  "version": "0.10.0"
+  "version": "0.12.0"
 }
