@@ -76,6 +76,7 @@ For more information refer to the Gradle documentation pages:
 
 | Android SDK | Web Plugin Version | Compiled Capacitor Version | Compatible Capacitor Versions | Compatible Live Updates Versions | Portals CLI |
 | :---------: | :----------------: | :------------------------: | :---------------------------: | :------------------------------: | :---------: |
+|   0.12.0    |       0.12.0       |           7.0.+            |             7.0.+             |              0.5.+               |    0.3.+    |
 |   0.10.3    |       0.10.0       |           6.+              |             6.+               |              0.5.+               |    0.3.+    |
 |   0.10.2    |       0.10.0       |           6.0.+            |             6.0.+             |              0.5.+               |    0.3.+    |
 |   0.10.1    |       0.10.0       |           6.0.+            |             6.0.+             |              0.5.+               |    0.3.+    |

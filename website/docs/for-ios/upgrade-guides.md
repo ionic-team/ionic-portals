@@ -6,6 +6,18 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Portals for iOS 0.11.x → 0.12.0
+
+- Portals for iOS version `0.12.0` is compatible with Portals Web Plugin version `0.12.x`.
+
+:::caution
+Portals 0.12.0 is a notable update that upgrades the Capacitor dependency to version 7. Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+First review the [Capacitor 7 Update Guide](https://capacitorjs.com/docs/updating/7-0#ios) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
+
+This release removes the `encodeJSObject` and `decodeJSObject` extension methods for `JSONEncoder` and `JSONDecoder`, which had previously been deprecated. Use `JSValueEncoder` and `JSValueDecoder` provided by Capacitor as their replacements.
+
 ## Portals for iOS 0.10.x → 0.11.0
 
 - Portals for iOS version `0.11.0` is compatible with Portals Web Plugin version `0.10.x`.
