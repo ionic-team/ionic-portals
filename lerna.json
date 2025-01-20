@@ -1,7 +1,7 @@
 {
-  "capacitorVersion": "6.0.0",
+  "capacitorVersion": "7.0.0",
   "iosMinVersion": "13.0",
-  "androidMinSdk": "22",
+  "androidMinSdk": "23",
   "rnMinVersion": "0.74.2",
   "androidLiveUpdatesVersion": "0.5.5",
   "rnVersion": "0.8.0",
