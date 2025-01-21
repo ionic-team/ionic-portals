@@ -16,6 +16,8 @@ Portals 0.8.0 is a notable update that upgrades the Capacitor dependency to vers
 
 First review the [Capacitor 7 Update Guide](https://capacitorjs.com/docs/updating/7-0) for an overview of necessary changes. Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
 
+This version depends on version React Native version 0.75.4 to support Capacitor 7.
+
 ## Portals for React Native 0.6.0 -> 0.7.0
 
 Portals for React Native version `0.7.0` is compatible with Portals Web Plugin version `0.10.x`. This release removes all of the functions that were deprecated in `0.6.0`.
