@@ -3,6 +3,30 @@ title: Upgrade Guides
 sidebar_label: Upgrade Guides
 ---
 
+## @ionic-enterprise/federated-capacitor 0.3.0
+
+This update supports Capacitor version 7.
+
+## @ionic-enterprise/federated-capacitor 0.2.4
+
+Adds a new function `refreshMicroApps()` to allow for the update of web apps through Live Updates without refreshing the currently loaded apps.
+
+## @ionic-enterprise/federated-capacitor 0.2.3
+
+Changes the use of Appflow CLI to the new Portals CLI internally.
+
+## @ionic-enterprise/federated-capacitor 0.2.2
+
+Provides ability for iOS users to override `capacitorDidLoad()` on iOS.
+
+## @ionic-enterprise/federated-capacitor 0.2.1
+
+Addressed a bug where the config was not correctly loaded on Android.
+
+## @ionic-enterprise/federated-capacitor 0.2.0
+
+This update supports Capacitor version 6.
+
 ## @ionic-enterprise/federated-capacitor 0.1.7
 
 ### Differential Support
