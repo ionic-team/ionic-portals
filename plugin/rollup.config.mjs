@@ -19,7 +19,6 @@ export default {
       file: 'dist/index.js',
       format: 'esm',
       banner,
-      preferConst: true,
       sourcemap: true,
       inlineDynamicImports: true,
     },
