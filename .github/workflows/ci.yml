@@ -18,13 +18,13 @@ jobs:
         uses: styfle/cancel-workflow-action@ce177499ccf9fd2aded3b0426c97e5434c2e8a73
         with:
           access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v6
       - name: Get Latest
         uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: plugin/package-lock.json
-      - uses: actions/checkout@v6
       - name: Get Package Version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
@@ -36,12 +36,12 @@ jobs:
     needs:
       - setup
     steps:
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: plugin/package-lock.json
-      - uses: actions/checkout@v6
       - run: npm install
         working-directory: plugin
       - run: npm run build
