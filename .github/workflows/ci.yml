@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: plugin/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
       - name: Get Package Version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@master
@@ -41,7 +41,7 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: plugin/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
       - run: npm install
         working-directory: plugin
       - run: npm run build
