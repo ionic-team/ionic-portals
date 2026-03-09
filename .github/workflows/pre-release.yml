@@ -16,7 +16,7 @@ jobs:
 
       - uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
 
       - name: Assign version from branch name
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/heads/release/}" >> $GITHUB_ENV
