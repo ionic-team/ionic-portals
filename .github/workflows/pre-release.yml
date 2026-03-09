@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: plugin
-        run: npm ci
+        run: npm install
 
       - name: Bump npm package version
         working-directory: plugin
