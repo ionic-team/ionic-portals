@@ -20,7 +20,7 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: Install dependencies
         working-directory: plugin
-        run: npm ci
+        run: npm install
 
       - name: Publish package
         working-directory: plugin
