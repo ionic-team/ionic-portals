@@ -3,35 +3,31 @@ name: Pre-Release
 on:
   push:
     branches:
-    - 'release/**'
+      - "release/**"
+
+permissions:
+  contents: write
 
 jobs:
   increment-version:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-    - uses: actions/setup-node@v6
-      with:
-        node-version: 22
-    - name: Assign version to RELEASE_VERSION environment variable
-      run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/*/}" >> $GITHUB_ENV
-    - name: Bump npm package version
-      run: npm version $RELEASE_VERSION --no-git-tag-version --allow-same-version
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      working-directory: plugin
-    # Disabling this for now. It works locally? 🤷
-    # - name: Generate changelog
-    #   run: npx -y conventional-changelog-cli -p conventionalcommits -i CHANGELOG.md -s -k plugin/package.json 
-    - name: Push version bump and changelog commit
-      uses: EndBug/add-and-commit@v9
-    - name: Generate .npmrc
-      run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-      working-directory: plugin
-    - name: Validate Publish Flow
-      run: |
-        npm install
-        npm publish --dry-run
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      working-directory: plugin
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Assign version from branch name
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/heads/release/}" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        working-directory: plugin
+        run: npm ci
+
+      - name: Bump npm package version
+        working-directory: plugin
+        run: npm version $RELEASE_VERSION --no-git-tag-version --allow-same-version
+
+      - name: Commit version bump
+        uses: EndBug/add-and-commit@v9

@@ -3,21 +3,25 @@ name: Publish NPM Package
 on:
   push:
     tags:
-    - '*'
+      - "*"
+
+permissions:
+  contents: read
+  id-token: write
 
 jobs:
   publish-to-npm:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
-    - uses: actions/setup-node@v6
-      with:
-        node-version: 22
-    - name: Publish package
-      run: |
-        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-        npm install
-        npm publish 
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      working-directory: plugin
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org/
+      - name: Install dependencies
+        working-directory: plugin
+        run: npm ci
+
+      - name: Publish package
+        working-directory: plugin
+        run: npm publish --no-git-checks
