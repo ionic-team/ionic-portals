@@ -15,9 +15,9 @@ const req = https.request(options, res => {
 
   res.on('close', () => {
     const latestVersion = JSON.parse(json)['dist-tags'].latest;
-    const lernaConfig = JSON.parse(fs.readFileSync('./lerna.json', 'utf-8'))
+    const lernaConfig = JSON.parse(fs.readFileSync('../lerna.json', 'utf-8'))
     lernaConfig.capacitorVersion = latestVersion
-    fs.writeFileSync('./lerna.json', JSON.stringify(lernaConfig, null, 2) + '\n')
+    fs.writeFileSync('../lerna.json', JSON.stringify(lernaConfig, null, 2) + '\n')
   })
 })
 

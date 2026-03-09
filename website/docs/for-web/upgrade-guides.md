@@ -6,6 +6,18 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Portals Web Plugin 0.12.x → 0.13.0
+
+- Portals Web Plugin `0.13.0` is compatible with Portals for Android versions `0.13.x` and Portals for iOS versions `0.13.x`.
+
+:::caution
+Portals Web Plugin `0.13.0` is a notable update that requires Capacitor 8.
+Care should be taken to update dependencies across your web content and native apps to ensure compatibility.
+:::
+
+First review the [Capacitor 8 Update Guide](https://capacitorjs.com/docs/updating/8-0) for an overview of necessary changes.
+Some will not be relevant for Portals apps, but this will be a useful reference in case you encounter issues with your upgrade.
+
 ## Portals Web Plugin 0.10.x → 0.12.0
 
 - Portals Web Plugin `0.12.0` is compatible with Portals for Android versions `0.12.x` and Portals for iOS versions `0.12.x`.

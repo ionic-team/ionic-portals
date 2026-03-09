@@ -26,17 +26,17 @@ jobs:
       name: preview-${{ github.event.number }}
       url: https://${{ env.SLUG }}.ionicpreview.com
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 22
           cache: npm
-          cache-dependency-path: website/package-lock.json
+          cache-dependency-path: '**/package-lock.json'
       - name: Build
         run: |
           npm ci
           npm run build
-      - uses: aws-actions/configure-aws-credentials@v1
+      - uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::319312831725:role/github-docs
           aws-region: us-east-1
