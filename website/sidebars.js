@@ -40,6 +40,7 @@ module.exports = {
             "for-ios/how-to/advanced-configuration",
             "for-ios/how-to/sync-with-live-updates",
             "for-ios/how-to/reloading-with-live-updates",
+            "for-ios/how-to/using-a-live-update-provider",
           ],
         },
         {
@@ -107,6 +108,7 @@ module.exports = {
             "for-android/how-to/advanced-configuration",
             "for-android/how-to/sync-with-live-updates",
             "for-android/how-to/reloading-with-live-updates",
+            "for-android/how-to/using-a-live-update-provider",
           ],
         },
         {

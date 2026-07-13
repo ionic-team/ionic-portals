@@ -80,7 +80,9 @@ import IonicLiveUpdates
 
 let portal = Portal(
   name: "webapp",
-  liveUpdateConfig: LiveUpdate(appId: "abc123", channel: "production"),
-  liveUpdateManager: .framework
+  liveUpdateSource: .ionic(
+    liveUpdateManager: .framework,
+    liveUpdateConfig: LiveUpdate(appId: "abc123", channel: "production")
+  )
 )
 ```

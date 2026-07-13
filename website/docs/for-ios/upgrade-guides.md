@@ -6,6 +6,37 @@ sidebar_label: Upgrade Guides
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+## Portals for iOS 0.13.x → 0.14.0
+
+- Portals for iOS version `0.14.0` is compatible with Portals Web Plugin version `0.13.x`.
+
+### Live Update Provider Support
+
+`Portal.liveUpdateConfig` and `Portal.liveUpdateManager` have been removed and replaced by a single `Portal.liveUpdateSource: LiveUpdateSource?` property. The `Portal` initializer now takes a `liveUpdateSource:` parameter instead of `liveUpdateManager:`/`liveUpdateConfig:`.
+
+```swift
+enum LiveUpdateSource {
+    case ionic(liveUpdateManager: LiveUpdateManager = .shared, liveUpdateConfig: LiveUpdate)
+    case provider(manager: any ProviderManager)
+}
+```
+
+Existing Appflow-backed Portals should migrate to the `.ionic` case:
+
+```diff
+ let portal = Portal(
+   name: "webapp",
+-  liveUpdateConfig: LiveUpdate(appId: "abc123", channel: "production")
++  liveUpdateSource: .ionic(liveUpdateConfig: LiveUpdate(appId: "abc123", channel: "production"))
+ )
+```
+
+`Portal.sync()` continues to work unchanged for `.ionic` sources. The new `.provider` case allows a Portal to instead sync from any external live update service &mdash; see [Using a Live Update Provider](./how-to/using-a-live-update-provider.md).
+
+### Registration Fully Removed
+
+`PortalsRegistrationManager` has been removed entirely. Registration was already deprecated as a no-op in `0.13.1`; any remaining calls to `PortalsRegistrationManager.shared.register(key:)` or `IONPortalsRegistrationManager registerWithKey:` should be deleted.
+
 ## Portals for iOS 0.12.x → 0.13.0
 
 - Portals for iOS version `0.13.0` is compatible with Portals Web Plugin version `0.13.x`.

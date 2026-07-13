@@ -26,7 +26,9 @@ Deployments in Appflow will be downloaded as new Live Updates.
 
 ## Configure
 
-After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
+After installing the dependency you need to configure Live Updates as part of the Portal creation process. A Portal's live update source is set via its `liveUpdateSource` property, which accepts either an `.ionic` source (shown below) or a `.provider` source backed by a third-party update service &mdash; see [Using a Live Update Provider](./how-to/using-a-live-update-provider.md) for the latter.
+
+Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
 
 ```swift {13-28} title=AppDelegate.swift
 import UIKit
@@ -44,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension Portal {
   static let featuredProducts = Portal(
     name: "featured_products",
-    liveUpdateConfig: .webapp
+    liveUpdateSource: .ionic(liveUpdateConfig: .webapp)
   )
 }
 
