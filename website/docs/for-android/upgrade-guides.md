@@ -31,7 +31,7 @@ sealed class LiveUpdateSource {
 +val liveUpdate = (portal.liveUpdateSource as? Portal.LiveUpdateSource.Ionic)?.liveUpdateConfig
 ```
 
-The new `Provider` case allows a Portal to instead sync from any external live update service &mdash; see [Using a Live Update Provider](./how-to/using-a-live-update-provider.md).
+The new `Provider` case allows a Portal to instead sync from any external live update service &mdash; see [Using a Live Update Provider](./live-update-provider.md).
 
 ### Registration Fully Removed
 

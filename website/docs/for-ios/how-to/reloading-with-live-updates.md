@@ -15,7 +15,7 @@ Consider that a user may be in the middle of doing work inside the Portal as new
 The following examples show how an active Portal could be reloaded after a Live Update has finished downloading.
 
 :::note
-This applies to Portals configured with an `.ionic` live update source. If a Portal is configured with a `.provider` source instead, see [Using a Live Update Provider](./using-a-live-update-provider.md) for the equivalent reload pattern.
+This applies to Portals configured with an `.ionic` live update source. If a Portal is configured with a `.provider` source instead, see [Using a Live Update Provider](../live-update-provider.md) for the equivalent reload pattern.
 :::
 
 ```swift title="ViewController.swift"

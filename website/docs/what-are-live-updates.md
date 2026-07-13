@@ -19,4 +19,4 @@ Because Portals are web applications built from JavaScript, HTML, CSS, images, a
 
 On iOS and Android, a Portal's live update source is no longer limited to Appflow. A **Live Update Provider** lets a Portal instead sync its web assets from any external update service, by implementing a small provider contract from that platform's SDK. This is useful if your organization already has its own update delivery infrastructure and doesn't want to rely on Appflow.
 
-See [Using a Live Update Provider on iOS](./for-ios/how-to/using-a-live-update-provider.md) and [Using a Live Update Provider on Android](./for-android/how-to/using-a-live-update-provider.md) for details.
+See [Using a Live Update Provider on iOS](./for-ios/live-update-provider.md) and [Using a Live Update Provider on Android](./for-android/live-update-provider.md) for details.

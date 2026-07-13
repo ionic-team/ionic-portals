@@ -1,6 +1,6 @@
 ---
-title: Adding Live Updates
-sidebar_label: Adding Live Updates
+title: Adding Live Updates with Appflow
+sidebar_label: Appflow Live Updates
 ---
 
 import Tabs from '@theme/Tabs';
@@ -26,7 +26,7 @@ Deployments in Appflow will be downloaded as new Live Updates.
 
 ## Configure
 
-After installing the dependency you need to configure Live Updates as part of the Portal creation process. A Portal's live update source is set via its `liveUpdateSource` property, which accepts either an `.ionic` source (shown below) or a `.provider` source backed by a third-party update service &mdash; see [Using a Live Update Provider](./how-to/using-a-live-update-provider.md) for the latter.
+After installing the dependency you need to configure Live Updates as part of the Portal creation process. A Portal's live update source is set via its `liveUpdateSource` property, which accepts either an `.ionic` source (shown below) or a `.provider` source backed by a third-party update service &mdash; see [Using a Live Update Provider](./live-update-provider.md) for the latter.
 
 Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
 

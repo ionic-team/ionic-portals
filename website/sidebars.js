@@ -22,6 +22,7 @@ module.exports = {
       items: [
         "for-ios/quick-start",
         "for-ios/live-updates",
+        "for-ios/live-update-provider",
         "for-ios/getting-started",
         "for-ios/changelog",
         {
@@ -40,7 +41,6 @@ module.exports = {
             "for-ios/how-to/advanced-configuration",
             "for-ios/how-to/sync-with-live-updates",
             "for-ios/how-to/reloading-with-live-updates",
-            "for-ios/how-to/using-a-live-update-provider",
           ],
         },
         {
@@ -91,6 +91,7 @@ module.exports = {
         "for-android/getting-started",
         "for-android/guide",
         "for-android/live-updates",
+        "for-android/live-update-provider",
         "for-android/changelog",
         {
           type: "category",
@@ -108,7 +109,6 @@ module.exports = {
             "for-android/how-to/advanced-configuration",
             "for-android/how-to/sync-with-live-updates",
             "for-android/how-to/reloading-with-live-updates",
-            "for-android/how-to/using-a-live-update-provider",
           ],
         },
         {

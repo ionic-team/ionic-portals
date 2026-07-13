@@ -1,6 +1,6 @@
 ---
 title: Using a Live Update Provider
-sidebar_label: Using a Live Update Provider
+sidebar_label: Live Update Provider
 ---
 
 import Tabs from '@theme/Tabs';
@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 A Portal's live update source isn't limited to Ionic Appflow. A **Live Update Provider** lets a Portal instead sync its web assets from any external update service, by wiring up an implementation of that service's `ProviderManager` protocol.
 
 :::note
-This is for teams who want to sync Portal web assets from their own update infrastructure instead of Appflow. If you're using Appflow, see [Adding Live Updates](../live-updates.md) instead.
+This is for teams who want to sync Portal web assets from their own update infrastructure instead of Appflow. If you're using Appflow, see [Adding Live Updates](./live-updates.md) instead.
 :::
 
 ## Install

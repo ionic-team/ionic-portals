@@ -31,7 +31,7 @@ Existing Appflow-backed Portals should migrate to the `.ionic` case:
  )
 ```
 
-`Portal.sync()` continues to work unchanged for `.ionic` sources. The new `.provider` case allows a Portal to instead sync from any external live update service &mdash; see [Using a Live Update Provider](./how-to/using-a-live-update-provider.md).
+`Portal.sync()` continues to work unchanged for `.ionic` sources. The new `.provider` case allows a Portal to instead sync from any external live update service &mdash; see [Using a Live Update Provider](./live-update-provider.md).
 
 ### Registration Fully Removed
 

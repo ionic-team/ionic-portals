@@ -1,6 +1,6 @@
 ---
 title: Using a Live Update Provider
-sidebar_label: Using a Live Update Provider
+sidebar_label: Live Update Provider
 ---
 
 import Tabs from '@theme/Tabs';
@@ -10,7 +10,7 @@ import CodeBlock from '@theme/CodeBlock';
 A Portal's live update source isn't limited to Ionic Appflow. A **Live Update Provider** lets a Portal instead sync its web assets from any external update service, by wiring up an implementation of that service's `ProviderManager` interface.
 
 :::note
-This is for teams who want to sync Portal web assets from their own update infrastructure instead of Appflow. If you're using Appflow, see [Adding Live Updates](../live-updates.md) instead.
+This is for teams who want to sync Portal web assets from their own update infrastructure instead of Appflow. If you're using Appflow, see [Adding Live Updates](./live-updates.md) instead.
 :::
 
 ## Install
@@ -117,4 +117,4 @@ The returned `ProviderSyncResult?` is defined by your provider's SDK, since prov
 
 ## Reloading After a Sync
 
-`Portal.latestAppDirectory(context)` resolves the latest synced asset directory regardless of whether the Portal is configured with an `Ionic` or `Provider` source, so a Portal can be reloaded the same way once a sync completes. See [Reload Portals with Live Updates](./reloading-with-live-updates.md) for the reload pattern &mdash; substitute the `syncProvider()`/`syncProviderAsync()` call shown above wherever that guide calls `LiveUpdateManager.sync(...)`.
+`Portal.latestAppDirectory(context)` resolves the latest synced asset directory regardless of whether the Portal is configured with an `Ionic` or `Provider` source, so a Portal can be reloaded the same way once a sync completes. See [Reload Portals with Live Updates](./how-to/reloading-with-live-updates.md) for the reload pattern &mdash; substitute the `syncProvider()`/`syncProviderAsync()` call shown above wherever that guide calls `LiveUpdateManager.sync(...)`.
