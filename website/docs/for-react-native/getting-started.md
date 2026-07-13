@@ -6,15 +6,7 @@ sidebar_label: Using Portals in React Native
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Once you [obtain an API key](./guide.md#signup) and [install Ionic Portals](./guide.md#install), you can start creating Portals for your application.
-
-## Registering with your Portals Key
-
-```javascript
-import { register } from '@ionic/portals-react-native';
-
-await register('YOUR_PORTAL_KEY_HERE');
-```
+Once you [install Ionic Portals](./guide.md#install), you can start creating Portals for your application.
 
 ## Creating a Portal and Rendering It
 

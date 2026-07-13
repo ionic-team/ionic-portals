@@ -4,9 +4,9 @@
   "androidMinSdk": "24",
   "rnMinVersion": "0.75.4",
   "androidLiveUpdatesVersion": "0.5.5",
-  "rnVersion": "0.8.5",
-  "iosVersion": "0.13.0",
-  "androidVersion": "0.13.0",
+  "rnVersion": "0.9.1",
+  "iosVersion": "0.14.0",
+  "androidVersion": "0.14.0",
   "cliVersion": "0.3.1",
   "version": "0.13.0"
 }

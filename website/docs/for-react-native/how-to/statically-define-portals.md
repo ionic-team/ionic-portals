@@ -15,18 +15,6 @@ type PortalConfig = {
   // live updates are not being used, this field is not needed.
   // Must be located in the Bundle.main root on iOS and assets root on Android.
   liveUpdatesKey?: string;
-  // The portals registration key normally passed to `register`.
-  // This can be omitted if the `register` function is called before
-  // attempting to render any portals in code.
-  registrationKey?: string; 
-}
-```
-
-### Example Configuration
-
-```json title=portals.config.json
-{
-  "registrationKey": "YOUR_PORTALS_KEY",
 }
 ```
 

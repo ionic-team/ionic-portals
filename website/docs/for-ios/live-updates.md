@@ -28,7 +28,7 @@ Deployments in Appflow will be downloaded as new Live Updates.
 
 After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
 
-```swift {17,21-29} title=AppDelegate.swift
+```swift {13-28} title=AppDelegate.swift
 import UIKit
 import IonicPortals
 
@@ -37,7 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions
   launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
     return true
   }
 }

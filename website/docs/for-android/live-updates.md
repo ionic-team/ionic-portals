@@ -76,7 +76,6 @@ import io.ionic.portals.PortalManager
 class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
-        PortalManager.register("YOUR_PORTALS_KEY")
 
         // setup portals (example)
         PortalManager.newPortal("portal1")
