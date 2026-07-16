@@ -268,6 +268,7 @@ module.exports = {
         "for-capacitor/overview",
         "for-capacitor/module-federation",
         "for-capacitor/live-updates",
+        "for-capacitor/live-update-provider",
         "for-capacitor/reference",
         "for-capacitor/example",
         "for-capacitor/upgrade-guides",

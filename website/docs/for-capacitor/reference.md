@@ -29,7 +29,7 @@ Reload the webview
 export const syncOne = async (options: SyncOneOptions): Promise<SyncResult>
 ```
 
-Sync One
+Sync One. Works the same whether the app is configured with `liveUpdateConfig` (Appflow) or `liveUpdateProvider`. See [Using a Live Update Provider](./live-update-provider.md).
 
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
@@ -76,33 +76,47 @@ Sync Some
 
 #### SyncResult
 
-| Prop                               | Type                                                  |
-| ---------------------------------- | ----------------------------------------------------- |
-| **`liveUpdate`**                   | <code><a href="#liveupdate">LiveUpdate</a></code>     |
-| **`snapshot`**                     | <code><a href="#snapshot">Snapshot</a> \| null</code> |
-| **`source`**                       | <code>'download' \| 'cache'</code>                    |
-| **`activeApplicationPathChanged`** | <code>boolean</code>                                  |
+| Prop                               | Type                                                               |
+| ---------------------------------- | -------------------------------------------------------------------|
+| **`name`**                         | <code>string</code>                                                |
+| **`activeApplicationPathChanged`** | <code>boolean</code>                                               |
+| **`source`**                       | <code>'download' \| 'cache' \| undefined</code>                    |
+| **`liveUpdate`**                   | <code><a href="#liveupdate">LiveUpdate</a> \| undefined</code>     |
+| **`snapshot`**                     | <code><a href="#snapshot">Snapshot</a> \| null \| undefined</code> |
+| **`metadata`**                     | <code>&#123; [key: string]: any &#125; \| undefined</code>         |
+
+`source`, `liveUpdate`, and `snapshot` are only populated for an Appflow-backed (`liveUpdateConfig`) sync. `metadata` is only populated for a provider-backed (`liveUpdateProvider`) sync, and only if the provider returns any. See [Using a Live Update Provider](./live-update-provider.md).
 
 
 #### LiveUpdateConfig
 
-| Prop                   | Type                                                          |
-| ---------------------- | ------------------------------------------------------------- |
-| **`appId`**            | <code>string</code>                                           |
-| **`channel`**          | <code>string</code>                                           |
-| **`autoUpdateMethod`** | <code><a href="#autoupdatemethod">AutoUpdateMethod</a></code> |
-| **`maxVersions`**      | <code>number</code>                                           |
-| **`strategy`**         | <code>'zip' \| 'differential'</code>                          |
-| **`key`**              | <code>string</code>                                           |
+| Prop                   | Type                                                                       |
+| ---------------------- | --------------------------------------------------------------------------|
+| **`appId`**            | <code>string</code>                                                       |
+| **`channel`**          | <code>string</code>                                                       |
+| **`autoUpdateMethod`** | <code><a href="#autoupdatemethod">AutoUpdateMethod</a> \| undefined</code> |
+| **`maxVersions`**      | <code>number</code>                                                       |
+| **`strategy`**         | <code>'zip' \| 'differential'</code>                                       |
+
+
+#### LiveUpdateProviderConfig
+
+| Prop                   | Type                                                                       |
+| ---------------------- | --------------------------------------------------------------------------|
+| **`pluginName`**       | <code>string</code>                                                       |
+| **`config`**           | <code>&#123; [key: string]: any &#125; \| undefined</code>                |
+| **`autoUpdateMethod`** | <code><a href="#autoupdatemethod">AutoUpdateMethod</a> \| undefined</code> |
+
+See [Using a Live Update Provider](./live-update-provider.md) for how this is used.
 
 
 #### LiveUpdateError
 
-| Prop           | Type                                                                               |
-| -------------- | ---------------------------------------------------------------------------------- |
-| **`appId`**    | <code>string \| undefined</code>                                                   |
-| **`failStep`** | <code>'CHECK' \| 'DOWNLOAD' \| 'UNPACK' \| 'VERIFY' \| 'UPDATE' \| 'CANCEL'</code> |
-| **`message`**  | <code>string</code>                                                                |
+| Prop           | Type                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------|
+| **`name`**     | <code>string \| undefined</code>                                                                |
+| **`failStep`** | <code>'CHECK' \| 'DOWNLOAD' \| 'COPY' \| 'UNPACK' \| 'VERIFY' \| 'UPDATE' \| 'CANCEL' \| 'SYNC'</code> |
+| **`message`**  | <code>string</code>                                                                              |
 
 
 #### Snapshot
@@ -122,16 +136,16 @@ Sync Some
 
 #### SyncOneOptions
 
-| Prop        | Type                |
-| ----------- | ------------------- |
-| **`appId`** | <code>string</code> |
+| Prop       | Type                |
+| ---------- | ------------------- |
+| **`name`** | <code>string</code> |
 
 
 #### SyncSomeOptions
 
-| Prop         | Type                  |
-| ------------ | --------------------- |
-| **`appIds`** | <code>string[]</code> |
+| Prop        | Type                  |
+| ----------- | --------------------- |
+| **`names`** | <code>string[]</code> |
 
 
 ### Type Aliases

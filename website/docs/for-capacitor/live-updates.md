@@ -27,6 +27,10 @@ First let's add Live Updates to the main shell application. Modify the `capacito
 
 After you have made these changes and done a build the application will begin pulling updates from Appflow using the IDs that you have provided. See the [reference](reference) documentation for methods on performing live updates manually from your application code.
 
+:::note
+`liveUpdateConfig` syncs an app from Appflow. To sync an app's web assets from a different update service instead, see [Using a Live Update Provider](./live-update-provider.md).
+:::
+
 ## Self-hosted Live Updates
 
 Federated Capacitor supports [Self-hosted Live Updates](https://ionic.io/docs/appflow/deploy/setup/self-hosted)! For our customers with strict security requirements, Self-hosted Live Updates includes enhanced security features built on top of Appflow's already secure delivery mechanisms. Follow the instructions in the [Appflow Docs](https://ionic.io/docs/appflow/deploy/setup/self-hosted#code-signing-generate-live-update-signing-keys) to get started. However, there is no need to install any additional plugins in your app.

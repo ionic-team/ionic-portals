@@ -3,6 +3,35 @@ title: Upgrade Guides
 sidebar_label: Upgrade Guides
 ---
 
+## @ionic-enterprise/federated-capacitor 0.5.0
+
+### Live Update Provider Support
+
+Apps can now be configured with `liveUpdateProvider` in place of `liveUpdateConfig`, to sync from any update service that supports it instead of Appflow. See [Using a Live Update Provider](./live-update-provider.md).
+
+### Sync API Renamed to Use App Name
+
+`syncOne`, `syncSome`, and error reporting previously identified an app by its Appflow `appId`. Since a sync can now be backed by either Appflow or a provider, these have been renamed to identify apps by the `name` used elsewhere in `FederatedCapacitor` config instead:
+
+```diff
+- await syncOne({ appId: "abcd1234" })
++ await syncOne({ name: "account" })
+```
+
+```diff
+- await syncSome({ appIds: ["abcd1234", "efab5678"] })
++ await syncSome({ names: ["account", "checkout"] })
+```
+
+```diff
+  onError: (error) => {
+-   console.log(error.appId)
++   console.log(error.name)
+  }
+```
+
+`LiveUpdateError.failStep` also gained two new values, `'COPY'` and `'SYNC'`, the latter of which is used for provider sync failures.
+
 ## @ionic-enterprise/federated-capacitor 0.3.0
 
 This update supports Capacitor version 7.
