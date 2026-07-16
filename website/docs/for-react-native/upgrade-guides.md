@@ -3,8 +3,6 @@ title: Upgrade Guides
 sidebar_label: Upgrade Guides
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 ## Portals for React Native 0.7.0 -> 0.8.0
 

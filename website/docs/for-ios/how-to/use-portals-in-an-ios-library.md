@@ -5,7 +5,6 @@ sidebar_label: Use Portals in an iOS Library
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 
 In larger teams and organizations, teams may be split to work on one or more feature frameworks. In those situations, it may be arduous or impossible to have web builds integrated as part of the applications main bundle.
 

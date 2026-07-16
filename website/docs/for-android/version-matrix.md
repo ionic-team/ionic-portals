@@ -3,9 +3,6 @@ title: Android SDK Version Compatibility Guide
 sidebar_label: SDK Version Compatibility
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 import {
   getCapacitorVersion,
   getPortalsVersion,

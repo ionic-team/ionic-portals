@@ -3,9 +3,6 @@ title: Adding Live Updates with Appflow
 sidebar_label: Appflow Live Updates
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN } from '@site/src/util';
 
 Getting started with Live Updates in your Portals app.

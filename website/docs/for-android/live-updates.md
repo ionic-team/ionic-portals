@@ -3,8 +3,6 @@ title: Getting Started with Live Updates via Appflow
 sidebar_label: Appflow Live Updates
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getLiveUpdatesAndroidVersion } from '@site/src/util';
 

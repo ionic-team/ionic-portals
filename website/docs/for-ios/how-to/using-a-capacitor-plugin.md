@@ -3,8 +3,6 @@ title: How To Use a Capacitor Plugin
 sidebar_label: Use a Capacitor Plugin
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { getPortalsVersion, getCapacitorVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 

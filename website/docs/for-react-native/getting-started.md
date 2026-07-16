@@ -3,8 +3,6 @@ title: Using Portals in React Native
 sidebar_label: Using Portals in React Native
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 Once you [install Ionic Portals](./guide.md#install), you can start creating Portals for your application.
 

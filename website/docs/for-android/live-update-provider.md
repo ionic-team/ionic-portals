@@ -5,32 +5,24 @@ sidebar_label: Live Update Provider
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 
-A Portal's live update source isn't limited to Ionic Appflow. A **Live Update Provider** lets a Portal instead sync its web assets from any external update service, by wiring up an implementation of that service's `ProviderManager` interface.
+A Portal's live update source isn't limited to Ionic Appflow. A **Live Update Provider** lets a Portal sync its web assets from any other update service that supports it &mdash; whether that's a third-party update service or infrastructure your own organization runs.
 
 :::note
-This is for teams who want to sync Portal web assets from their own update infrastructure instead of Appflow. If you're using Appflow, see [Adding Live Updates](./live-updates.md) instead.
+This is for syncing Portal web assets from an update service other than Appflow. If you're using Appflow, see [Adding Live Updates](./live-updates.md) instead.
 :::
 
 ## Install
 
-`io.ionic:liveupdateprovider` defines the `ProviderManager`/`ProviderSyncResult` contracts a provider implements, and is already pulled in transitively by `io.ionic:portals`. If you need to reference its types directly (for example, to implement a `ProviderManager`), add it explicitly:
+Add your update service's SDK to your project, following that SDK's own installation instructions. It will hand you an object you can pass straight to `setLiveUpdateProviderManager(...)` when configuring a Portal below &mdash; there's nothing else to install.
 
-<CodeBlock className="language-groovy" title="build.gradle">
-{
-`
-dependencies {
-    implementation 'io.ionic:liveupdateprovider:1.0.0'
-}`.trim()
-}
-</CodeBlock>
-
-Your update service's own SDK will depend on this library and supply a concrete `ProviderManager` implementation &mdash; consult that SDK's documentation for how to construct one.
+:::tip
+Building your own Live Update Provider integration instead of using an existing update service's SDK? See the [Live Update Provider SDK](https://github.com/ionic-team/live-update-provider-sdk) documentation.
+:::
 
 ## Configure
 
-Use `PortalBuilder.setLiveUpdateProviderManager(manager)` to configure a Portal with a `ProviderManager`, in place of the `setLiveUpdateConfig(...)` call used for Appflow:
+Use `PortalBuilder.setLiveUpdateProviderManager(manager)` in place of `setLiveUpdateConfig(...)`, passing the object your update service's SDK gave you:
 
 <Tabs
 defaultValue="kt"
@@ -49,7 +41,7 @@ class MyApplication : Application() {
         super.onCreate()
 
         PortalManager.newPortal("portal1")
-            .setLiveUpdateProviderManager(MyUpdateProviderManager())
+            .setLiveUpdateProviderManager(MyUpdateService.providerManager)
             .create()
     }
 }
@@ -68,7 +60,7 @@ public class MyApplication extends Application {
         super.onCreate();
 
         PortalManager.newPortal("portal1")
-            .setLiveUpdateProviderManager(new MyUpdateProviderManager())
+            .setLiveUpdateProviderManager(MyUpdateService.getProviderManager())
             .create();
     }
 }
@@ -77,10 +69,10 @@ public class MyApplication extends Application {
 </TabItem>
 </Tabs>
 
-This sets the Portal's `liveUpdateSource` to `LiveUpdateSource.Provider(manager)`. A Portal can only have one live update source configured &mdash; either `LiveUpdateSource.Ionic(liveUpdateConfig)` from `setLiveUpdateConfig(...)`, or `LiveUpdateSource.Provider(manager)` from `setLiveUpdateProviderManager(...)`.
+A Portal can only have one live update source &mdash; configuring a provider manager this way replaces any Appflow config set via `setLiveUpdateConfig(...)`.
 
 :::caution
-Unlike an Ionic (Appflow) source, a Provider source is **not synced automatically** when a Portal is created or loaded, regardless of the provider's own internal behavior. Your app must explicitly trigger a sync through the Portals API, as shown below.
+An Appflow source syncs automatically the first time a Portal is created or loaded, via the `updateOnAppLoad` flag on `setLiveUpdateConfig(...)`. There's no equivalent flag for a provider source &mdash; Portals never calls into a provider manager on its own, so nothing happens until your app calls `syncProvider()`/`syncProviderAsync()`, as shown below. Consult your update service's SDK documentation &mdash; it may already sync in the background on its own schedule.
 :::
 
 ## Syncing
@@ -113,8 +105,6 @@ portal.syncProviderAsync().thenAccept(result -> {
 </TabItem>
 </Tabs>
 
-The returned `ProviderSyncResult?` is defined by your provider's SDK, since providers can attach their own sync metadata. If the Portal isn't configured with a `LiveUpdateSource.Provider`, both methods throw `Portal.LiveUpdateNotConfigured`.
-
 ## Reloading After a Sync
 
-`Portal.latestAppDirectory(context)` resolves the latest synced asset directory regardless of whether the Portal is configured with an `Ionic` or `Provider` source, so a Portal can be reloaded the same way once a sync completes. See [Reload Portals with Live Updates](./how-to/reloading-with-live-updates.md) for the reload pattern &mdash; substitute the `syncProvider()`/`syncProviderAsync()` call shown above wherever that guide calls `LiveUpdateManager.sync(...)`.
+Reload a provider-backed Portal the same way you'd reload an Appflow-backed one &mdash; see [Reload Portals with Live Updates](./how-to/reloading-with-live-updates.md) for the pattern, substituting the `syncProvider()`/`syncProviderAsync()` call shown above wherever that guide calls `LiveUpdateManager.sync(...)`.

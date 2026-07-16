@@ -3,8 +3,6 @@ title: Reload Portals with Live Updates
 sidebar_label: Reload Portals with Live Updates
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 When new Portal web content is downloaded from Appflow using Live Updates, the Portal will need to be reloaded before the app user sees the updated content. The default behavior of the Portals library is to continue displaying the existing web content to the user until the view is reloaded by the user. A Portal can be reloaded with code if you want the user to view the new content sooner.
 
