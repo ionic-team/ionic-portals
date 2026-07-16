@@ -1,10 +1,8 @@
 ---
-title: Getting Started with Live Updates
-sidebar_label: Live Updates
+title: Getting Started with Live Updates via Appflow
+sidebar_label: Appflow Live Updates
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN, getLiveUpdatesAndroidVersion } from '@site/src/util';
 
@@ -69,6 +67,10 @@ allprojects {
 
 After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
 
+:::note
+This is one of two live update sources a Portal can use. If you want to sync a Portal's web assets from a different update service than Appflow, see [Using a Live Update Provider](./live-update-provider.md).
+:::
+
 ```kotlin title=MyApplication.kt
 import android.app.Application
 import io.ionic.portals.PortalManager
@@ -76,7 +78,6 @@ import io.ionic.portals.PortalManager
 class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
-        PortalManager.register("YOUR_PORTALS_KEY")
 
         // setup portals (example)
         PortalManager.newPortal("portal1")

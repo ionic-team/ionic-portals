@@ -3,9 +3,6 @@ title: Advanced Configuration
 sidebar_label: Advanced Configuration
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid } from '@site/src/util';
 
 Portals instances can be further configured by providing a Capacitor Configuration to the Portal.

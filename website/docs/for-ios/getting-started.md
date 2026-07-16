@@ -6,66 +6,6 @@ sidebar_label: Using Portals in iOS
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Registering with your Portals Key
-
-Before using Ionic Portals, you must register with your API key. A typical place to do so is in the `AppDelegate` `application(_:didFinishLaunchingWithOptions)` method. There, you can use the [PortalsRegistrationManager](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager) to register:
-
-<Tabs
-defaultValue="swift"
-values={[
-{ label: "Swift", value: "swift" },
-{ label: "Objective-C", value: "objc" }
-]}>
-<TabItem value="swift">
-
-```swift title=AppDelegate.swift
-func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
-    PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
-    return true
-}
-```
-
-If you're integrating Ionic Portals in a pure SwiftUI application, you can register your API key in your `App`s initializer:
-
-```swift title=PortalsApp.swift
-import SwiftUI
-import IonicPortals
-
-@main
-struct PortalsApp: App {
-    init() {
-      PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
-    }
-
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
-    }
-}
-```
-
-</TabItem>
-
-<TabItem value="objc">
-
-```objectivec title=AppDelegate.m
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [[IONPortalsRegistrationManager shared] registerWithKey:@"YOUR_PORTALS_KEY"];
-    return YES;
-}
-```
-
-</TabItem>
-
-</Tabs>
-
-:::caution
-Avoid committing your Portals key to source code repositories where it may be publicly visible!
-On iOS, you can use an [`.xcconfig` file](https://nshipster.com/xcconfig/) to keep it out of a public repository.
-:::
-
 ## Creating a Portal
 
 <Tabs

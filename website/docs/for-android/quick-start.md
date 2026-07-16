@@ -11,7 +11,7 @@ import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortal
 
 # Android Quick Start
 
-This is a walkthrough on how to get a single Portal + web application setup. To begin this walkthrough it will be assumed that you have already signed up for access to Portals and you have your Portals key ready.
+This is a walkthrough on how to get a single Portal + web application setup. To begin this walkthrough it will be assumed that you have a valid and active commercial agreement with Ionic to use Portals.
 
 First have your web application ready. We will add some configuration to it and then get it setup in Appflow. At the end of this walkthrough:
 
@@ -205,11 +205,9 @@ dependencies {
 }
 </CodeBlock>
 
-### Add the Portals key
+### Create a Custom Application Class
 
-After installation of Portals we can setup the Portals key. Then the application is ready to have its first Portal configured. To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to register and create Portals. 
-
-You'll need to call [PortalManager.register(myApiKey)](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) before creating any Portals in your app. Below is a simple example of how to bootstrap Ionic Portals before loading any Portal instances in your app. Putting this registration call in an `Application` class is a good way to guarantee it is called before any Portals are created, but you can call it anywhere in your app as long as it happens before Portals are loaded. To get an API Key, refer to the [Sign Up](./guide.md#signup) section.
+After installation of Portals, the application is ready to have its first Portal configured. To do this, a custom [Application](https://developer.android.com/reference/android/app/Application) class is recommended. In this Application class, you can override `Application#onCreate()` to create Portals.
 
 <Tabs
 defaultValue="kt"
@@ -223,7 +221,6 @@ values={[
 class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
-        PortalManager.register("YOUR_PORTALS_KEY")
         // setup portals
     }
 }
@@ -237,7 +234,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PortalManager.register("YOUR_PORTALS_KEY");
         // setup portals
     }
 }
@@ -245,11 +241,6 @@ public class MyApplication extends Application {
 
 </TabItem>
 </Tabs>
-
-:::caution
-Avoid committing your Portals key to source code repositories where it may be publicly visible!
-On Android, you can use the [Secrets Gradle Plugin](https://github.com/google/secrets-gradle-plugin) to keep it out of a public repository.
-:::
 
 After creating a custom Application class, be sure to add the `android:name` attribute to your `application` tag in the `AndroidManifest.xml`.
 
@@ -273,7 +264,7 @@ After creating a custom Application class, be sure to add the `android:name` att
 
 ### Create the first Portal
 
-After registering via the [PortalManager.register()](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html#-1847662668%2FFunctions%2F-149544105) function, you can create Portals. This Quick Start guide shows how to use Portals directly in an XML layout, but there are also [other ways to do this](./getting-started.md#using-a-portal-in-code). 
+This Quick Start guide shows how to use Portals directly in an XML layout, but there are also [other ways to do this](./getting-started.md#using-a-portal-in-code).
 
 Use the [PortalManager](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal-manager/index.html) to quickly create a [Portal](https://ionic.io/docs/portals-android-api-ref/-ionic-portals/io.ionic.portals/-portal/index.html) and link it to an XML layout.
 
@@ -289,7 +280,6 @@ values={[
 class MyApplication : Application() {
     override fun onCreate(): Unit {
         super.onCreate()
-        PortalManager.register("YOUR_PORTALS_KEY")
 
         val portalId = "MY_FIRST_PORTAL"
         PortalManager.newPortal(portalId).create()
@@ -305,7 +295,6 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PortalManager.register("YOUR_PORTALS_KEY");
 
         String portalId = "MY_FIRST_PORTAL";
         PortalManager.newPortal(portalId).create();

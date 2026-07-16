@@ -3,9 +3,6 @@ title: Upgrade Guides
 sidebar_label: Upgrade Guides
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 ## Portals Web Plugin 0.12.x → 0.13.0
 
 - Portals Web Plugin `0.13.0` is compatible with Portals for Android versions `0.13.x` and Portals for iOS versions `0.13.x`.

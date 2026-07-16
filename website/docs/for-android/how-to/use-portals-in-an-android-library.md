@@ -5,7 +5,6 @@ sidebar_label: Use Portals in an Android Library
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 
 In larger teams and organizations, teams may be split to work on one or more feature frameworks. In those situations, it may be arduous or impossible to have web builds integrated as part of the applications main bundle.
 
@@ -45,8 +44,7 @@ class MyPortalLib {
         return PortalFragment(PortalManager.getPortal(portalName))
     }
 
-    fun init(key: String) {
-        PortalManager.register(key)
+    fun init() {
         PortalManager.addPortal(makePortal(portalName))
     }
 }
@@ -67,8 +65,7 @@ public class MyPortalLib {
         return new PortalFragment(PortalManager.getPortal(portalName));
     }
 
-    public void init(key: String) {
-        PortalManager.register(key);
+    public void init() {
         PortalManager.addPortal(makePortal(portalName));
     }
 }
@@ -95,10 +92,8 @@ class MyApplication: Application() {
     override fun onCreate() {
         super.onCreate()
 
-        val myPortalsKey = "MY_PORTALS_KEY_HERE"
-
         // Init MyPortalLib
-        MyPortalLib().init(myPortalsKey)
+        MyPortalLib().init()
     }
 }
 ```
@@ -113,10 +108,8 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        String myPortalsKey = "MY_PORTALS_KEY_HERE";
-
         // Init MyPortalLib
-        MyPortalLib().init(myPortalsKey);
+        MyPortalLib().init();
     }
 }
 ```

@@ -3,11 +3,41 @@ title: Upgrade Guides
 sidebar_label: Upgrade Guides
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 import CodeBlock from '@theme/CodeBlock';
 
 If you need help configuring specific versions of Portals with Capacitor or Capacitor Plugins, check out our [SDK Version Compatibility](./version-matrix.md) page.
+
+## Portals for Android 0.13.x → 0.14.0
+
+- Portals for Android version `0.14.0` is compatible with Portals Web Plugin version `0.13.x`.
+
+### Live Update Provider Support
+
+The `Portal.liveUpdateConfig: LiveUpdate?` property has been removed and replaced by `Portal.liveUpdateSource: LiveUpdateSource?`:
+
+```kotlin
+sealed class LiveUpdateSource {
+    data class Ionic(val liveUpdateConfig: LiveUpdate) : LiveUpdateSource()
+    data class Provider(val manager: ProviderManager) : LiveUpdateSource()
+}
+```
+
+`PortalBuilder.setLiveUpdateConfig(context, liveUpdateConfig, updateOnAppLoad)` is unchanged and remains the recommended way to configure an Appflow-backed Portal. It now produces a `LiveUpdateSource.Ionic` under the hood. If your code read `portal.liveUpdateConfig` directly, update it to unwrap the `Ionic` case from `liveUpdateSource` instead:
+
+```diff
+-val liveUpdate = portal.liveUpdateConfig
++val liveUpdate = (portal.liveUpdateSource as? Portal.LiveUpdateSource.Ionic)?.liveUpdateConfig
+```
+
+The new `Provider` case allows a Portal to instead sync from any external live update service. See [Using a Live Update Provider](./live-update-provider.md).
+
+### Registration Fully Removed
+
+`PortalManager.register(key)` and `PortalManager.isRegistered()`, deprecated as no-ops in `0.13.1`, have been removed entirely.
+
+### Dependency Changes
+
+`kotlinx-coroutines-android` has been swapped for `kotlinx-coroutines-jdk8`, and the unused `androidx.core:core-ktx` and `com.google.android.material:material` implementation dependencies have been dropped. If your app relied on either being pulled in transitively through `io.ionic:portals`, declare them directly.
 
 ## Portals for Android 0.12.0 → 0.13.0
 

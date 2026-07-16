@@ -1,6 +1,6 @@
-# Ionic Portals License 1.0.0
+# Ionic Portals License 2.0.0
 
-Based on the text of the licenses in the Polyform Project with new account registration conditions.
+Based on the text of the licenses in the Polyform Project with new conditions requiring a separate commercial agreement.
 
 ## Acceptance
 
@@ -8,15 +8,15 @@ In order to get any license under these terms, you must agree to them as both st
 
 ## Copyright License
 
-The licensor grants you a copyright license for the software to do everything you might do with the software that would otherwise infringe the licensor's copyright in it, but only so long as you comply with the  Account Registration Feature requirement below. However, you may only distribute the software according to [Distribution License](#distribution-license) and make changes or new works based on the software according to [Changes and New Works License](#changes-and-new-works-license).
+The licensor grants you a copyright license for the software to do everything you might do with the software that would otherwise infringe the licensor's copyright in it, but only so long as you comply with the Separate Commercial Agreement requirement below. However, you may only distribute the software according to [Distribution License](#distribution-license) and make changes or new works based on the software according to [Changes and New Works License](#changes-and-new-works-license).
 
-## Account Registration Feature
+## Separate Commercial Agreement
 
-You must preserve, and you must not remove or modify, the Account Registration Feature in the software.  
+You must have a valid and active Separate Commercial Agreement in place with Drifty Co., d/b/a Ionic, under which you have purchased or otherwise received rights to use Ionic Portals.
 
 ## Distribution License
 
-The licensor grants you an additional copyright license to distribute copies of the software, but only so long as you comply with the Account Registration Feature requirement above and the Notice requirement below. Your license to distribute covers distributing the software with changes and new works permitted by [Changes and New Works License](#changes-and-new-works-license).
+The licensor grants you an additional copyright license to distribute copies of the software, but only so long as you comply with the Separate Commercial Agreement requirement above and the Notice requirement below. Your license to distribute covers distributing the software with changes and new works permitted by [Changes and New Works License](#changes-and-new-works-license).
 
 ## Notices
 
@@ -26,7 +26,7 @@ You must ensure that anyone who gets a copy of any part of the software from you
 
 ## Changes and New Works License
 
-The licensor grants you an additional copyright license to make changes and new works based on the software, but only so long as you comply with the Account Registration Feature requirement above.
+The licensor grants you an additional copyright license to make changes and new works based on the software, but only so long as you comply with the Separate Commercial Agreement requirement above.
 
 ## Patent License
 
@@ -52,6 +52,10 @@ The first time you are notified in writing that you have violated any of these t
 
 ***As far as the law allows, the software comes as is, without any warranty or condition, and the licensor will not be liable to you for any damages arising out of these terms or the use or nature of the software, under any kind of legal claim.***
 
+## Order of Precedence
+
+To the extent there is a conflict between the scope of license rights defined in the Separate Commercial Agreement and in this license, the Separate Commercial Agreement shall take precedence.
+
 ## Definitions
 
 The **licensor** is the individual or entity offering these terms, and the **software** is the software the licensor makes available under these terms.
@@ -63,5 +67,3 @@ The **licensor** is the individual or entity offering these terms, and the **sof
 **Your licenses** are all the licenses granted to you for the software under these terms.
 
 **Use** means anything you do with the software requiring one of your licenses.
-
-**Account Registration Feature** is the portion of the software marked by the licensor as the Account Registration Feature in the software. The Account Registration Feature may be a license key, token, or any other such mechanism designated by the licensor.

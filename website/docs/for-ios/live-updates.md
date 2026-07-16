@@ -1,11 +1,8 @@
 ---
-title: Adding Live Updates
-sidebar_label: Adding Live Updates
+title: Adding Live Updates with Appflow
+sidebar_label: Appflow Live Updates
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortalsVersionAndroid, getPortalsVersionRN } from '@site/src/util';
 
 Getting started with Live Updates in your Portals app.
@@ -26,9 +23,11 @@ Deployments in Appflow will be downloaded as new Live Updates.
 
 ## Configure
 
-After installing the dependency you need to configure Live Updates as part of the Portal creation process. Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
+After installing the dependency you need to configure Live Updates as part of the Portal creation process. A Portal's live update source is set via its `liveUpdateSource` property, which accepts either an `.ionic` source (shown below) or a `.provider` source backed by a third-party update service. See [Using a Live Update Provider](./live-update-provider.md) for the latter.
 
-```swift {17,21-29} title=AppDelegate.swift
+Add a LiveUpdate config where your Portal is created. Provide the **appId** that corresponds with the app in Appflow, and the **channel** name to subscribe to for updates.
+
+```swift {13-28} title=AppDelegate.swift
 import UIKit
 import IonicPortals
 
@@ -37,7 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions
   launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
-    PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
     return true
   }
 }
@@ -45,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension Portal {
   static let featuredProducts = Portal(
     name: "featured_products",
-    liveUpdateConfig: .webapp
+    liveUpdateSource: .ionic(liveUpdateConfig: .webapp)
   )
 }
 

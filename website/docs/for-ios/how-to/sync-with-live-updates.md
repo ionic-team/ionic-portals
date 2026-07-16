@@ -3,10 +3,11 @@ title: Syncing a Portal with Live Updates
 sidebar_label: Syncing with Live Updates
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 The sync operation checks Appflow for a new version of a web app used in a Portal. If an update is available, the files are downloaded and the Portal is updated to use those new files the next time it loads. The Live Updates SDK will perform a sync when the Live Update Config is added to a Portal by default. This is typically done when an app is initially launched, and requires a full restart of an app to trigger subsequent syncs. We recommend performing a sync in other situations to provide more chances for Portals to update.
+
+:::note
+This applies to Portals configured with an `.ionic` live update source. If a Portal is configured with a `.provider` source instead, see [Using a Live Update Provider](../live-update-provider.md) for how to trigger a sync.
+:::
 
 ## Triggering a Sync
 

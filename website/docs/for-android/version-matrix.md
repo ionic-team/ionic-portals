@@ -3,9 +3,6 @@ title: Android SDK Version Compatibility Guide
 sidebar_label: SDK Version Compatibility
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
 import {
   getCapacitorVersion,
   getPortalsVersion,
@@ -76,6 +73,7 @@ For more information refer to the Gradle documentation pages:
 
 | Android SDK | Web Plugin Version | Compiled Capacitor Version | Compatible Capacitor Versions | Compatible Live Updates Versions | Portals CLI |
 | :---------: | :----------------: | :------------------------: | :---------------------------: | :------------------------------: | :---------: |
+|   0.14.0    |       0.13.0       |           8.0.+            |             8.0.+             |              0.5.+               |    0.3.+    |
 |   0.13.0    |       0.13.0       |           8.0.+            |             8.0.+             |              0.5.+               |    0.3.+    |
 |   0.12.0    |       0.12.0       |           7.0.+            |             7.0.+             |              0.5.+               |    0.3.+    |
 |   0.10.3    |       0.10.0       |           6.+              |             6.+               |              0.5.+               |    0.3.+    |

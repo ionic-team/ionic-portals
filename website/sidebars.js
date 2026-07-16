@@ -22,6 +22,7 @@ module.exports = {
       items: [
         "for-ios/quick-start",
         "for-ios/live-updates",
+        "for-ios/live-update-provider",
         "for-ios/getting-started",
         "for-ios/changelog",
         {
@@ -90,6 +91,7 @@ module.exports = {
         "for-android/getting-started",
         "for-android/guide",
         "for-android/live-updates",
+        "for-android/live-update-provider",
         "for-android/changelog",
         {
           type: "category",
@@ -266,6 +268,7 @@ module.exports = {
         "for-capacitor/overview",
         "for-capacitor/module-federation",
         "for-capacitor/live-updates",
+        "for-capacitor/live-update-provider",
         "for-capacitor/reference",
         "for-capacitor/example",
         "for-capacitor/upgrade-guides",

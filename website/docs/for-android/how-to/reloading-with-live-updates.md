@@ -14,6 +14,10 @@ Consider that a user may be in the middle of doing work inside the Portal as new
 
 The following examples show how an active Portal could be reloaded after a Live Update has finished downloading.
 
+:::note
+This applies to Portals configured with an `Ionic` live update source (via `setLiveUpdateConfig(...)`). If a Portal is configured with a `Provider` source instead, see [Using a Live Update Provider](../live-update-provider.md) for the equivalent reload pattern.
+:::
+
 <Tabs
 defaultValue="kt"
 values={[
@@ -38,7 +42,7 @@ override fun onCreateView(
     val portalFragment = portalView.getPortalFragment()
     val portal = portalFragment?.portal
     if (portal != null) {
-        val liveUpdate = portal.liveUpdateConfig
+        val liveUpdate = (portal.liveUpdateSource as? Portal.LiveUpdateSource.Ionic)?.liveUpdateConfig
         if (liveUpdate != null) {
             val appState = liveUpdate.appState
             if (appState != AppState.FAILED && appState  != AppState.CANCELED && appState != AppState.UPDATED){
@@ -104,7 +108,10 @@ public void onViewCreated(@NotNull View view, Bundle savedInstanceState) {
     // Trigger a repeating task to check for the Portal update if the state is appropriate
     Portal profilePortal = getPortal();
     if (profilePortal != null) {
-        LiveUpdate liveUpdate = profilePortal.getLiveUpdateConfig();
+        Portal.LiveUpdateSource source = profilePortal.getLiveUpdateSource();
+        LiveUpdate liveUpdate = source instanceof Portal.LiveUpdateSource.Ionic
+            ? ((Portal.LiveUpdateSource.Ionic) source).getLiveUpdateConfig()
+            : null;
         if (liveUpdate != null) {
             AppState appState = liveUpdate.getAppState();
             if (appState != AppState.FAILED && appState != AppState.CANCELED && appState != AppState.UPDATED) {

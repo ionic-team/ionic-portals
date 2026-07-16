@@ -11,7 +11,7 @@ import { getCapacitorVersion, getPortalsVersion, getPortalsVersionIos, getPortal
 
 # iOS Quick Start
 
-This is a walkthrough on how to get a single Portal + web application setup. To begin this walkthrough it will be assumed that you have already signed up for access to Portals and you have your Portals key ready.
+This is a walkthrough on how to get a single Portal + web application setup. To begin this walkthrough it will be assumed that you have a valid and active commercial agreement with Ionic to use Portals.
 
 First have your web application ready. We will add some configuration to it and then get it setup in Appflow. At the end of this walkthrough:
 
@@ -177,47 +177,25 @@ Adjust the script as needed based on your installation method or system configur
   </TabItem>
 </Tabs>
 
-### Add the Portals key
+### Create the first Portal
 
-After installation of Portals we can setup the Portals key. Then the application is ready to have its first Portal configured. A typical place to do so is in the `AppDelegate` `application(_:didFinishLaunchingWithOptions)` method. There, you can use the [PortalsRegistrationManager](https://ionic-portals-ios.vercel.app/documentation/ionicportals/portalsregistrationmanager) to register:
+Now that Portals has been installed, all we need to do is define and add the Portal to a view. By default, a `Portal` will use the `name` property as the directory to load web content from (relative to the root of `Bundle.main`). You can also specify another directory for the content.
 
-```swift {9} title=AppDelegate.swift
-import UIKit
+```swift
 import IonicPortals
-
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions
-  launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-    // Override point for customization after application launch.
-    PortalsRegistrationManager.shared.register(key: "YOUR_PORTALS_KEY")
-    return true
-  }
-}
 
 extension Portal {
   static let featuredProducts = Portal(
     name: "featured_products",
   )
 }
-```
 
-### Create the first Portal
-
-Now that the application has been configured all we need to do is add the Portal to a view. By default, a `Portal` will use the `name` property as the directory to load web content from (relative to the root of `Bundle.main`). You can also specify another directory for the content.
-
-```swift
 class ViewController: UIViewController {
   override func loadView() {
     self.view = PortalUIView(portal: .featuredProducts)
   }
 }
 ```
-
-:::caution
-Avoid committing your Portals key to source code repositories where it may be publicly visible!
-On iOS, you can use an [`.xcconfig` file](https://nshipster.com/xcconfig/) to keep it out of a public repository.
-:::
 
 ### Finished with setup
 

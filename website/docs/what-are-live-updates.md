@@ -14,3 +14,9 @@ Portal Live Updates allow teams to work independently on their own release cycle
 With Live Updates each Portal can be updated independent of the rest of the code in the application. This allows teams to iterate quickly and fix critical issues by pushing updates directly to your users, when you're ready, for immediate impact.
 
 Because Portals are web applications built from JavaScript, HTML, CSS, images, and other web files changes to this code can be sent directly to users and testers without submitting a new native update. This process is fully compliant with Apple and Android requirements.
+
+## Live Update Providers
+
+On iOS and Android, a Portal's live update source isn't limited to Appflow. A **Live Update Provider** lets a Portal sync its web assets from any other update service that supports it instead, whether that's a third-party update service or infrastructure your own organization runs.
+
+See [Using a Live Update Provider on iOS](./for-ios/live-update-provider.md) and [Using a Live Update Provider on Android](./for-android/live-update-provider.md) for details.
