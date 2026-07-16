@@ -22,14 +22,14 @@ sealed class LiveUpdateSource {
 }
 ```
 
-`PortalBuilder.setLiveUpdateConfig(context, liveUpdateConfig, updateOnAppLoad)` is unchanged and remains the recommended way to configure an Appflow-backed Portal &mdash; it now produces a `LiveUpdateSource.Ionic` under the hood. If your code read `portal.liveUpdateConfig` directly, update it to unwrap the `Ionic` case from `liveUpdateSource` instead:
+`PortalBuilder.setLiveUpdateConfig(context, liveUpdateConfig, updateOnAppLoad)` is unchanged and remains the recommended way to configure an Appflow-backed Portal. It now produces a `LiveUpdateSource.Ionic` under the hood. If your code read `portal.liveUpdateConfig` directly, update it to unwrap the `Ionic` case from `liveUpdateSource` instead:
 
 ```diff
 -val liveUpdate = portal.liveUpdateConfig
 +val liveUpdate = (portal.liveUpdateSource as? Portal.LiveUpdateSource.Ionic)?.liveUpdateConfig
 ```
 
-The new `Provider` case allows a Portal to instead sync from any external live update service &mdash; see [Using a Live Update Provider](./live-update-provider.md).
+The new `Provider` case allows a Portal to instead sync from any external live update service. See [Using a Live Update Provider](./live-update-provider.md).
 
 ### Registration Fully Removed
 
