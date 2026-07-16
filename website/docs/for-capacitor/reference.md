@@ -29,7 +29,7 @@ Reload the webview
 export const syncOne = async (options: SyncOneOptions): Promise<SyncResult>
 ```
 
-Sync One. Works the same whether the app is configured with `liveUpdateConfig` (Appflow) or `liveUpdateProvider`. See [Using a Live Update Provider](./live-update-provider.md).
+Sync One
 
 | Param         | Type                                                      |
 | ------------- | --------------------------------------------------------- |
