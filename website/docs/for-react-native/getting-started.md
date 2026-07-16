@@ -3,7 +3,6 @@ title: Using Portals in React Native
 sidebar_label: Using Portals in React Native
 ---
 
-
 Once you [install Ionic Portals](./guide.md#install), you can start creating Portals for your application.
 
 ## Creating a Portal and Rendering It

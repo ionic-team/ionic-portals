@@ -3,7 +3,6 @@ title: How to Use a Web App in a Portal
 sidebar_label: Use a Web App in a Portal
 ---
 
-
 In order to use web applications in your native applications, you'll need to properly setup your project to be able to include a web bundle.
 
 ## Setup the Web Asset Directory

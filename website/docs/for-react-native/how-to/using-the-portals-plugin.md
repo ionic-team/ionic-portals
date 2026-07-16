@@ -3,7 +3,6 @@ title: How to Communicate with a Portal Web Application
 sidebar_label: Communicate with a Portal Web Application
 ---
 
-
 The `PortalsPlugin` provides useful features to aid in communication between your Web and Native applications. It is included in the Ionic Portals library by default and takes advantage of the Capacitor Plugin system.
 
 ## Setup

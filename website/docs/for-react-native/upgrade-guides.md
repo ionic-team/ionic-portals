@@ -3,7 +3,6 @@ title: Upgrade Guides
 sidebar_label: Upgrade Guides
 ---
 
-
 ## Portals for React Native 0.7.0 -> 0.8.0
 
 Portals for React Native version `0.8.0` is compatible with Portals Web Plugin version `0.12.x`.

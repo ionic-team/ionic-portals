@@ -58,7 +58,6 @@ CAP_PLUGIN(PortalLoadedPlugin, "PortalLoadedPlugin",
 
 :::
 
-
 ## Using the PortalLoadedPlugin
 
 To use the `PortalLoadedPlugin` class, we need to create an instance of it and add it to the portal to be rendered. In our example, we'll fade
